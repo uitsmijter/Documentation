@@ -1,0 +1,6 @@
+name = "Uitsmijter"
+license = "unlicensed"
+description = "Hugo theme made for Uitsmijter documentation"
+homepage = "https://uitsmijter.io/"
+tags = ["docs", "documentation", "responsive", "simple"]
+min_version = "0.93.0"

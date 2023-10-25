@@ -1,0 +1,211 @@
+stages:
+  - PreBuild
+  - Generate
+  - Build
+  - Deploy
+
+default:
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [ "" ]
+
+variables:
+  KUBE_CONTEXT: "uitsmijter/shared-agent:pawpatrol"
+  GIT_SUBMODULE_STRATEGY: recursive
+  IMAGE_TAG: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}
+  HUGO_TAG: ${CI_REGISTRY_IMAGE}:_hugo
+  SASS_TAG: ${CI_REGISTRY_IMAGE}:_sass
+  WOFF_TAG: ${CI_REGISTRY_IMAGE}:_woff
+
+.use_context: &use_context
+  - kubectl config get-contexts
+  - kubectl config use-context "$KUBE_CONTEXT"
+
+# ------------------------------------------------------------
+# PreBuild
+# ------------------------------------------------------------
+Build-Sass:
+  stage: PreBuild
+  script:
+    - mkdir -p /kaniko/.docker
+    - /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --dockerfile "${CI_PROJECT_DIR}/deployment/sass.dockerfile"
+      --tarPath sass-image.tar --destination=${SASS_TAG} --no-push
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  artifacts:
+    paths:
+      - sass-image.tar
+    when: on_success
+    expire_in: 1 hours
+
+Build-Woff:
+  stage: PreBuild
+  script:
+    - mkdir -p /kaniko/.docker
+    - /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --dockerfile "${CI_PROJECT_DIR}/deployment/woff.dockerfile"
+      --tarPath woff-image.tar --destination=${WOFF_TAG} --no-push
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  artifacts:
+    paths:
+      - woff-image.tar
+    when: on_success
+    expire_in: 1 hours
+
+Build-Hugo:
+  stage: PreBuild
+  script:
+    - mkdir -p /kaniko/.docker
+    - /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --dockerfile "${CI_PROJECT_DIR}/deployment/hugo.dockerfile"
+      --tarPath hugo-image.tar --destination=${HUGO_TAG} --no-push
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  artifacts:
+    paths:
+      - hugo-image.tar
+    when: on_success
+    expire_in: 1 hours
+
+Publish-Sass:
+  stage: PreBuild
+  needs:
+    - Build-Sass
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  image:
+    name: gcr.io/go-containerregistry/crane:debug
+    entrypoint: [ "" ]
+  script:
+    - crane auth login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - crane push sass-image.tar ${SASS_TAG}
+
+Publish-Woff:
+  stage: PreBuild
+  needs:
+    - Build-Woff
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  image:
+    name: gcr.io/go-containerregistry/crane:debug
+    entrypoint: [ "" ]
+  script:
+    - crane auth login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - crane push woff-image.tar ${WOFF_TAG}
+
+Publish-Hugo:
+  stage: PreBuild
+  needs:
+    - Build-Hugo
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  image:
+    name: gcr.io/go-containerregistry/crane:debug
+    entrypoint: [ "" ]
+  script:
+    - crane auth login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - crane push hugo-image.tar ${HUGO_TAG}
+
+# ------------------------------------------------------------
+# Generate
+# ------------------------------------------------------------
+Generate-CSS:
+  stage: Generate
+  image:
+    name: ${SASS_TAG}
+    entrypoint: [ "" ]
+  script:
+    - mkdir -p ./public
+    - for SASS_SOURCE in main mobile print; do
+        sass ./resources/sass/${SASS_SOURCE}.scss ./resources/${SASS_SOURCE}.css;
+        mv ./resources/${SASS_SOURCE}.{css,css.map} ./public;
+      done
+  artifacts:
+    paths:
+      - public
+    when: on_success
+    expire_in: 1 hours
+
+Generate-Woff:
+  stage: Generate
+  image:
+    name: ${WOFF_TAG}
+    entrypoint: [ "" ]
+  script:
+    - mkdir -p ./public
+    - cd /
+    - for TTF in $(ls ./themes/uitsmijter/static/fonts/{Bebas_Neue,Inconsolata,Inconsolata/**,Source_Sans_Pro}/*.ttf); do
+     ./convert.sh ${TTF};
+      done
+  artifacts:
+    paths:
+      - public
+    when: on_success
+    expire_in: 1 hours
+
+Generate-Site:
+  stage: Generate
+  needs:
+    - Generate-CSS
+    - Generate-Woff
+  image:
+    name: ${HUGO_TAG}
+    entrypoint: [ "" ]
+  script:
+    - hugo
+  artifacts:
+    paths:
+      - public
+    when: on_success
+    expire_in: 1 hours
+
+# ------------------------------------------------------------
+# Build
+# ------------------------------------------------------------
+Build-Webserver:
+  stage: Build
+  script:
+    - mkdir -p /kaniko/.docker
+    - /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --dockerfile "${CI_PROJECT_DIR}/deployment/nginx.dockerfile"
+      --tarPath docs-image.tar --destination=${IMAGE_TAG} --no-push
+  artifacts:
+    paths:
+      - docs-image.tar
+    when: on_success
+    expire_in: 1 hours
+
+Publish-Webserver:
+  stage: Build
+  needs:
+    - Build-Webserver
+  image:
+    name: gcr.io/go-containerregistry/crane:debug
+    entrypoint: [ "" ]
+  script:
+    - crane auth login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - crane push docs-image.tar ${IMAGE_TAG}
+
+# ------------------------------------------------------------
+# Deploy
+# ------------------------------------------------------------
+Deploy:
+  stage: Deploy
+  image: ausdertechnik/buildbot-margarete@sha256:9127b6b2a5cd54400727be4c54f41c9fcee312488315fe7327e8aa725589bdb4
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - *use_context
+    - pushd deployment/kustomize/base
+    - kustomize edit set image ${CI_REGISTRY_IMAGE}=${IMAGE_TAG};
+    - popd
+    - kubectl create ns "uitsmijter-docs" || true
+    - kubectl label --overwrite namespace uitsmijter-docs uitsmijter.io/cert-sync=true
+    - kubectl apply -n "uitsmijter-docs" -f ${PAWPATROL_PULLSECRET}
+    - kubectl apply -k deployment/kustomize/overlays/production

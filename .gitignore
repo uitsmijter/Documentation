@@ -1,0 +1,14 @@
+/.idea
+/.hugo_build.lock
+/public
+/themes/uitsmijter/static/main.css
+/themes/uitsmijter/static/main.css.map
+/themes/uitsmijter/static/mobile.css
+/themes/uitsmijter/static/mobile.css.map
+/themes/uitsmijter/static/print.css
+/themes/uitsmijter/static/print.css.map
+themes/uitsmijter/static/fonts/Bebas_Neue/**/*.woff*
+themes/uitsmijter/static/fonts/Inconsolata/**/*.woff*
+themes/uitsmijter/static/fonts/Source_Sans_Pro/**/*.woff*
+
+.DS_Store

@@ -1,0 +1,44 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: website
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+
+spec:
+  tls:
+  - secretName: uitsmijter.io
+
+  rules:
+  - host: docs.uitsmijter.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: documentation
+            port:
+              number: 80
+
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: website-redirect-https
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.middlewares: "traefik-redirect-to-https@kubernetescrd"
+spec:
+  rules:
+    - host: docs.uitsmijter.io
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: documentation
+                port:
+                  number: 80

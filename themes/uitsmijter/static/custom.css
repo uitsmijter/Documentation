@@ -1,0 +1,170 @@
+/* Global customization */
+
+:root {
+    --code-max-height: 60rem;
+}
+
+/* Overrides */
+
+.gdoc-header {
+    border-bottom: .1em solid #7A7A7A;
+}
+
+.gdoc-brand__img {
+    width: 12rem;
+    height: auto;
+}
+
+.gdoc-markdown blockquote {
+    border-left: 3px solid #FFAA00;
+}
+
+
+/* Light mode theming */
+:root,
+:root[color-theme="light"] {
+    --header-background: #ffffff;
+    --header-font-color: #363636;
+
+    --body-background: #ffffff;
+    --body-font-color: #363636;
+
+    --mark-color: #FF1E00;
+
+    --button-background: #FF9E00;
+    --button-border-color: #FFAA00;
+
+    --link-color: #FF1E00;
+    --link-color-visited: #FFAA00;
+
+    --code-background: EDEDED;
+    --code-accent-color: #DBDBDB;
+    --code-accent-color-lite: #EDEDED;
+    --code-font-color: #4A4A4A;
+
+    --code-copy-background: EDEDED;
+    --code-copy-font-color: #4A4A4A;
+    --code-copy-border-color: #7A7A7A;
+    --code-copy-success-color: #00c853;
+
+    --accent-color: EDEDED;
+    --accent-color-lite: #EDEDED;
+
+    --control-icons: #B5B5B5;
+
+    --footer-background: EDEDED;
+    --footer-font-color: #7A7A7A;
+    --footer-link-color: #FFAA00;
+    --footer-link-color-visited: #FFAA00;
+}
+@media (prefers-color-scheme: light) {
+    :root {
+        --header-background: #ffffff;
+        --header-font-color: #363636;
+
+        --body-background: #ffffff;
+        --body-font-color: #363636;
+
+        --mark-color: #FF1E00;
+
+        --button-background: #FF9E00;
+        --button-border-color: #FFAA00;
+
+        --link-color: #FF1E00;
+        --link-color-visited: #FFAA00;
+
+        --code-background: EDEDED;
+        --code-accent-color: #DBDBDB;
+        --code-accent-color-lite: #EDEDED;
+        --code-font-color: #4A4A4A;
+
+        --code-copy-background: EDEDED;
+        --code-copy-font-color: #4A4A4A;
+        --code-copy-border-color: #7A7A7A;
+        --code-copy-success-color: #00c853;
+
+        --accent-color: EDEDED;
+        --accent-color-lite: #EDEDED;
+
+        --control-icons: #B5B5B5;
+
+        --footer-background: EDEDED;
+        --footer-font-color: #7A7A7A;
+        --footer-link-color: #FFAA00;
+        --footer-link-color-visited: #FFAA00;
+    }
+}
+
+/* Dark mode theming */
+:root[color-theme="dark"] {
+    --header-background: #363636;
+    --header-font-color: #ffffff;
+
+    --body-background: #363636;
+    --body-font-color: #DBDBDB;
+
+    --mark-color: #FF1E00;
+
+    --button-background: #FF9E00;
+    --button-border-color: #FFAA00;
+
+    --link-color: #FF1E00;
+    --link-color-visited: #FFAA00;
+
+    --code-background: #363636;
+    --code-accent-color: #363636;
+    --code-accent-color-lite: #363636;
+    --code-font-color: #B5B5B5;
+
+    --code-copy-background: #363636;
+    --code-copy-font-color: #4A4A4A;
+    --code-copy-border-color: #4A4A4A;
+    --code-copy-success-color: #37905c;
+
+    --accent-color: #363636;
+    --accent-color-lite: #363636;
+
+    --control-icons: #B5B5B5;
+
+    --footer-background: #363636;
+    --footer-font-color: #ffffff;
+    --footer-link-color: #FFAA00;
+    --footer-link-color-visited: #FFAA00;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --header-background: #363636;
+        --header-font-color: #ffffff;
+
+        --body-background: #363636;
+        --body-font-color: #DBDBDB;
+
+        --mark-color: #FF1E00;
+
+        --button-background: #FF9E00;
+        --button-border-color: #FFAA00;
+
+        --link-color: #FF1E00;
+        --link-color-visited: #FFAA00;
+
+        --code-background: #363636;
+        --code-accent-color: #363636;
+        --code-accent-color-lite: #363636;
+        --code-font-color: #b9b9b9;
+
+        --code-copy-background: #363636;
+        --code-copy-font-color: #4A4A4A;
+        --code-copy-border-color: #4A4A4A;
+        --code-copy-success-color: #37905c;
+
+        --accent-color: #363636;
+        --accent-color-lite: #363636;
+
+        --control-icons: #B5B5B5;
+
+        --footer-background: #363636;
+        --footer-font-color: #ffffff;
+        --footer-link-color: #FFAA00;
+        --footer-link-color-visited: #FFAA00;
+    }
+}
