@@ -1,0 +1,20 @@
+---
+apiVersion: "uitsmijter.io/v1"
+kind: Tenant
+metadata:
+  name: cheese
+spec:
+  hosts:
+    - secured.example.com
+    - open.example.com
+  interceptor:
+    enabled: true
+    domain: login.example.com
+    cookie: .example.com
+  providers:
+    - class UserLoginProvider {
+      constructor(credentials) { commit(true); }
+      get canLogin() { return true; }
+      get userProfile() { return {name:"Local User"}; }
+      get role() { return "normal"; }
+      }
