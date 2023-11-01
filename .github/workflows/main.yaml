@@ -41,7 +41,7 @@ jobs:
       actions: read
       repository-projects: read
     needs:
-      - e2etest
+      - build
     if: always()
     uses: uitsmijter/workflows/.github/workflows/builds-mattermost.yaml@main
     secrets:
