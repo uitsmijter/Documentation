@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM node:20-bullseye
 
 RUN apt update \
     && apt upgrade -y \
