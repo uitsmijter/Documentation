@@ -34,6 +34,11 @@ jobs:
           docker push ghcr.io/${{ github.repository_owner }}/documentation:latest
           docker push ghcr.io/${{ github.repository_owner }}/documentation:${GIT_HASH}
 
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: public
+
   # Notify
   notify_mattermost:
     name: Notify Mattermost
