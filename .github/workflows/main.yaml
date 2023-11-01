@@ -21,6 +21,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
+        shell: 'script -q -e -c "bash --noprofile --norc -eo pipefail {0}"'
         run: |
           GIT_HASH=$( git rev-parse --short HEAD )
           ./build.sh --tag ghcr.io/${{ github.repository_owner }}/documentation:latest

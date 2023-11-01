@@ -33,7 +33,7 @@ Build-Sass:
       --dockerfile "${CI_PROJECT_DIR}/deployment/sass.dockerfile"
       --tarPath sass-image.tar --destination=${SASS_TAG} --no-push
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   artifacts:
     paths:
       - sass-image.tar
@@ -49,7 +49,7 @@ Build-Woff:
       --dockerfile "${CI_PROJECT_DIR}/deployment/woff.dockerfile"
       --tarPath woff-image.tar --destination=${WOFF_TAG} --no-push
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   artifacts:
     paths:
       - woff-image.tar
@@ -65,7 +65,7 @@ Build-Hugo:
       --dockerfile "${CI_PROJECT_DIR}/deployment/hugo.dockerfile"
       --tarPath hugo-image.tar --destination=${HUGO_TAG} --no-push
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   artifacts:
     paths:
       - hugo-image.tar
@@ -77,7 +77,7 @@ Publish-Sass:
   needs:
     - Build-Sass
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
@@ -90,7 +90,7 @@ Publish-Woff:
   needs:
     - Build-Woff
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
@@ -103,7 +103,7 @@ Publish-Hugo:
   needs:
     - Build-Hugo
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
@@ -119,6 +119,8 @@ Generate-CSS:
   image:
     name: ${SASS_TAG}
     entrypoint: [ "" ]
+  rules:
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   script:
     - mkdir -p ./public
     - for SASS_SOURCE in main mobile print; do
@@ -136,6 +138,8 @@ Generate-Woff:
   image:
     name: ${WOFF_TAG}
     entrypoint: [ "" ]
+  rules:
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   script:
     - mkdir -p ./public
     - cd /
@@ -153,6 +157,8 @@ Generate-Site:
   needs:
     - Generate-CSS
     - Generate-Woff
+  rules:
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   image:
     name: ${HUGO_TAG}
     entrypoint: [ "" ]
@@ -169,6 +175,8 @@ Generate-Site:
 # ------------------------------------------------------------
 Build-Webserver:
   stage: Build
+  rules:
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   script:
     - mkdir -p /kaniko/.docker
     - /kaniko/executor
@@ -185,6 +193,8 @@ Publish-Webserver:
   stage: Build
   needs:
     - Build-Webserver
+  rules:
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
@@ -199,7 +209,7 @@ Deploy-Release:
   stage: Deploy
   image: ausdertechnik/buildbot-margarete@sha256:9127b6b2a5cd54400727be4c54f41c9fcee312488315fe7327e8aa725589bdb4
   rules:
-    - if: $CI_COMMIT_BRANCH =~ /^release\/.*$/
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
   script:
     - *use_context
     - pushd deployment/kustomize/base
