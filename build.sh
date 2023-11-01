@@ -42,6 +42,7 @@ for TTF in $(ls ./themes/uitsmijter/static/fonts/{Bebas_Neue,Inconsolata,Inconso
 done
 
 # BUILD THE SITE WITH HUGO
+mkdir ./public
 docker build -t hugo -f deployment/hugo.dockerfile .
 docker run  -ti --rm -v ${PWD}:/build hugo
 
