@@ -6,20 +6,20 @@ spec:
   selector:
     matchLabels:
       app: documentation
-  replicas: 1
+  replicas: 2
   strategy:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 50%
     type: RollingUpdate
-  template: # create pods using pod definition in this template
+  template:
     metadata:
       labels:
         app: documentation
     spec:
       containers:
       - name: website
-        image: docker.ausdertechnik.de/uitsmijter/mirrors/documentation
+        image: ghcr.io/uitsmijter/documentation:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -54,6 +54,3 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "20m"
-
-      imagePullSecrets:
-        - name: gitlab-auth
