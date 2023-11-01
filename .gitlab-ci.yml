@@ -16,7 +16,7 @@ variables:
   HUGO_TAG: ${CI_REGISTRY_IMAGE}:_hugo
   SASS_TAG: ${CI_REGISTRY_IMAGE}:_sass
   WOFF_TAG: ${CI_REGISTRY_IMAGE}:_woff
-  BUILD: false
+  BUILD: "false"
 
 .use_context: &use_context
   - kubectl config get-contexts
