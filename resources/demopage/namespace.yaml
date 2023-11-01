@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pagedemo
+  labels:
+    example.com/cert-sync: "true"
+    jwt-secret/sync: "true"

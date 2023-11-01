@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Customisation on Uitsmijter Documentation</title>
+    <link>https://docs.uitsmijter.io/customisation/</link>
+    <description>Recent content in Customisation on Uitsmijter Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.uitsmijter.io/customisation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Login Page</title>
+      <link>https://docs.uitsmijter.io/customisation/template_login/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/customisation/template_login/</guid>
+      <description>Login- and Logout-Page Customisation     There are multiple ways to customize the login and logout pages.
+The easiest way is to configure additioanl tenant informations like imprint, privacy policy and registration URLs.
+In addition to that it is also possible to change page templates because every tenant can have their own login page.
+Loading templates from template directory     In the source code version of Uitsmijter you can to create a folder that is named after the slug of the tenant name.</description>
+    </item>
+    
+  </channel>
+</rss>

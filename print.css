@@ -1,0 +1,43 @@
+@media print {
+  .gdoc-nav,
+  .gdoc-footer .container span:not(:first-child),
+  .gdoc-paging,
+  .editpage {
+    display: none;
+  }
+  .gdoc-footer {
+    border-top: 1px solid rgb(222, 226, 230);
+  }
+  .gdoc-markdown pre {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+  .chroma code {
+    border: 1px solid rgb(222, 226, 230);
+    padding: 0.5rem !important;
+    font-weight: normal !important;
+  }
+  .gdoc-markdown code {
+    font-weight: bold;
+  }
+  a,
+  a:visited {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  .gdoc-toc {
+    flex: none;
+  }
+  .gdoc-toc nav {
+    position: relative;
+    width: auto;
+  }
+  .wrapper {
+    display: block;
+  }
+  .wrapper main {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=print.css.map */

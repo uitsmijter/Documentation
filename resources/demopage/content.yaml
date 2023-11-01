@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: content
+data:
+  index.html: |
+    this is a <b>exciting</b> index page.<br/>
+    <a href="about.html">about</a>
+  about.html: |
+    this is all <b>about</b> it.<br/>
+    <a href="index.html">index</a>
+    | <a href="//login.example.com/logout?post_logout_redirect_uri=https://secured.example.com">logout</a>

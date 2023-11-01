@@ -1,0 +1,22 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: secured-webserver
+  labels:
+    app: secured-webserver
+    
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+
+      volumeMounts:
+        - name: content
+          mountPath: "/usr/share/nginx/html"
+          readOnly: true
+
+  volumes:
+    - name: content
+      configMap:
+        name: content

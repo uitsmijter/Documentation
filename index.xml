@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uitsmijter on Uitsmijter Documentation</title>
+    <link>https://docs.uitsmijter.io/</link>
+    <description>Recent content in Uitsmijter on Uitsmijter Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.uitsmijter.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://docs.uitsmijter.io/general/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/general/about/</guid>
+      <description>About     Uitsmijter is a versatile OAuth2 authorization server and a Kubernetes Middleware for Traefik.
+On one side it provides a flexible and powerful basis for new projects, on the other hand it has been built with the focus to comfortably bring existing, mostly monolithic applications into the microservice, cloud- and multi-cloud world.
+It offers multi-tenant single sign-on via secure, low-maintenance and easy-to-implement middleware, as well as protocol-compliant OAuth 2.</description>
+    </item>
+    
+    <item>
+      <title>Enterprise Edition Installation</title>
+      <link>https://docs.uitsmijter.io/versions/ee/installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/versions/ee/installation/</guid>
+      <description>Helm Chart     The Enterprise Edition can be easily installed via a Helm Chart.
+To use the Helm Repository, you need a GitLab Access Token with read_api permissions and at least the Reporter role.
+You can add the Uitsmijter Helm Repository by using the following commands:
+helm repo add --username &amp;#39;[token name or gitlab user name]&amp;#39; --password &amp;#39;[gitlab access token]&amp;#39; uitsmijter https://git.ausdertechnik.de/api/v4/projects/528/packages/helm/stable helm repo update An overview of available configuration options can be found at Helm configuration.</description>
+    </item>
+    
+    <item>
+      <title>General provider information</title>
+      <link>https://docs.uitsmijter.io/providers/providers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/providers/providers/</guid>
+      <description>General provider information     Because Uitsmijter does not store any user data to authenticate a login, request providers are written to check if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store.</description>
+    </item>
+    
+    <item>
+      <title>Helm configuration</title>
+      <link>https://docs.uitsmijter.io/configuration/helm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/configuration/helm/</guid>
+      <description>Helm configuration parameters     Uitsmijter is best to install over helm.
+helm install uitsmijter uitsmijter/uitsmijter The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.
+Full Values.yaml     namespaceOverride:&amp;#34;&amp;#34;image:repository:docker.ausdertechnik.de/uitsmijter/uitsmijter# Overrides the image tag whose default is the chart appVersion.tag:&amp;#34;&amp;#34;pullPolicy:AlwaysimagePullSecrets:- name:gitlab-authjwtSecret:&amp;#34;vosai0za6iex8AelahGemaeBooph6pah6Saezae0oojahfa7Re6leibeeshiu8ie&amp;#34;redisPassword:&amp;#34;Shohmaz1&amp;#34;storageClassName:&amp;#34;default-ext4&amp;#34;installCRD:trueinstallSA:trueconfig:# Log format options: console|ndjsonlogFormat:&amp;#34;console&amp;#34;# Log level options: trace|info|error|criticallogLevel:&amp;#34;info&amp;#34;cookieExpirationInDays:7tokenExpirationInHours:2tokenRefreshExpirationInHours:720# show the version information at /versionsdisplayVersion:truedomains:- domain:&amp;#34;nightly.</description>
+    </item>
+    
+    <item>
+      <title>Login Page</title>
+      <link>https://docs.uitsmijter.io/customisation/template_login/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/customisation/template_login/</guid>
+      <description>Login- and Logout-Page Customisation     There are multiple ways to customize the login and logout pages.
+The easiest way is to configure additioanl tenant informations like imprint, privacy policy and registration URLs.
+In addition to that it is also possible to change page templates because every tenant can have their own login page.
+Loading templates from template directory     In the source code version of Uitsmijter you can to create a folder that is named after the slug of the tenant name.</description>
+    </item>
+    
+    <item>
+      <title>OAuth flow</title>
+      <link>https://docs.uitsmijter.io/oauth/flow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/oauth/flow/</guid>
+      <description>OAuth flow     OAuth 2.0 is an open standard for authorization that enables third-party applications to obtain limited access to a user&amp;rsquo;s resources without requiring the user to provide their login credentials.
+There are several flows that can be used with OAuth 2.0, depending on the type of application and the resources it needs to access. Here is a brief overview of the most common flows that ist supported by Uitsmijter:</description>
+    </item>
+    
+    <item>
+      <title>Project information</title>
+      <link>https://docs.uitsmijter.io/contribution/development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/development/</guid>
+      <description>Project information     This project is written in Swift 5.7. With grate support from the Vapor framework and the Swift Server Workgroup community.
+Please check out the server side swift conference if you are interested.
+Uitsmijter chooses swift, because of:
+ safety  Strongly Typed encourages to write clean and consistent code safeguards Well-designed asynchronous programming interface   performance  Small footprint Quick startup time Deterministic performance   software design patterns  Code structure     Swift&amp;rsquo;s history and also Vapor&amp;rsquo;s boilerplate&amp;rsquo;s sort code into folders according to their technical role.</description>
+    </item>
+    
+    <item>
+      <title>Walkthrough guide</title>
+      <link>https://docs.uitsmijter.io/interceptor/quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/interceptor/quickstart/</guid>
+      <description>Walkthrough guide for securing static webserver resources     The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server.
+For this additional walkthrough documentation we assume that a last-minute change request for the business hits the development team. The requirement is, that the company&amp;rsquo;s Design-Cookbook should be accessible for all partners.</description>
+    </item>
+    
+    <item>
+      <title>Entities</title>
+      <link>https://docs.uitsmijter.io/configuration/entities/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/configuration/entities/</guid>
+      <description>Entities     This document describes the different entities Uitsmijter uses internally. They are mentioned throughout the rest of the documentation. For a complete list of used terminology, see Terminology.
+Tenant     A tenant is the highest order entity in the system. Every tenant is isolated in its functions and can not share resources.
+Every Tenant does have its own set of settings, providers and clients.</description>
+    </item>
+    
+    <item>
+      <title>Grant Types</title>
+      <link>https://docs.uitsmijter.io/oauth/granttypes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/oauth/granttypes/</guid>
+      <description>Grant Types     In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.
+Configuration     Grant types can be set at Client level.
+grant_types:- authorization_code- refresh_token- passwordIf none of any grant type is specified, that authorization_code and refresh_token are enabled by default.
+Authorization Code     The authorization code flow is a way to grant access to a protected resource, such as an API, by an external client.</description>
+    </item>
+    
+    <item>
+      <title>Interceptor Mode</title>
+      <link>https://docs.uitsmijter.io/interceptor/interceptor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/interceptor/interceptor/</guid>
+      <description>Interceptor Mode     Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, then the middleware forwards the request to the requested resource.
+ For other ingress controllers support please feel free to contact our development and consulting team.</description>
+    </item>
+    
+    <item>
+      <title>Terminology</title>
+      <link>https://docs.uitsmijter.io/general/terminology/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/general/terminology/</guid>
+      <description>Terminology      Access token - A token used to access protected resources. Authorization code - An intermediary token generated when a user authorizes a client to access protected resources on their behalf. The client receives this token and exchanges it for an access token. Authorization server - A server which issues access tokens after successfully authenticating a client and resource owner, and authorizing the request. Client - An application which accesses protected resources on behalf of the resource owner (such as a user).</description>
+    </item>
+    
+    <item>
+      <title>Toolchain</title>
+      <link>https://docs.uitsmijter.io/contribution/tooling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/tooling/</guid>
+      <description>Commandline Tool To Build Uitsmijter - Tooling.sh     A build tool is a set of tools that automate the process of testing, compiling, assembling, and packaging source code into executable software. Build tools are an essential part of the software development lifecycle, helping developers manage the complexity of building, testing, and deploying software.
+For Uitsmijter we build a toolchain that help developers to set up the environment to work easily with the code.</description>
+    </item>
+    
+    <item>
+      <title>User Login Provider</title>
+      <link>https://docs.uitsmijter.io/providers/userloginprovider/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/providers/userloginprovider/</guid>
+      <description>User Login Provider     A User Login Provider is responsible for resolving a Username and Password to a user profile if the user is valid.
+If the credentials do not match, the provider is responsible for interpreting the error message / code and tell Uitsmijter that the user is invalid.
+At login, Uitsmijter delegates the credentials the user provides via the login form to the user backend provider.</description>
+    </item>
+    
+    <item>
+      <title>Available Endpoints</title>
+      <link>https://docs.uitsmijter.io/oauth/endpoints/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/oauth/endpoints/</guid>
+      <description>Available Endpoints     An endpoint is a specific location that is capable of accepting incoming requests, and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.</description>
+    </item>
+    
+    <item>
+      <title>Development guidelines</title>
+      <link>https://docs.uitsmijter.io/contribution/guidelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/guidelines/</guid>
+      <description>Development guidelines     Pull requests are very much desired     Please open a new branch with the naming scheme feature/&amp;lt;#Issue&amp;gt;-&amp;lt;#Description&amp;gt; or fix/&amp;lt;#Issue&amp;gt;-&amp;lt;#Description&amp;gt; regarding the type of the change. Do a descriptive pull request against the main branch. Prepare the pull request; we prefer small requests, that are squashed into the main branch.
+Pull request on an open issue have higher priorities, because every pull request should be inclusive and everyone in the community should be enabled to talk about the changes.</description>
+    </item>
+    
+    <item>
+      <title>Example Deployment</title>
+      <link>https://docs.uitsmijter.io/interceptor/examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/interceptor/examples/</guid>
+      <description>Interceptor Mode     The interceptor mode is shown in an example deployment. The same nginx pod is accessible via two separate ingresses, one is secured by the interceptor middleware, the other is not secured.
+Configuration     To secure an ingress with the interceptor middleware you have to set an annotation to the Ingress.
+Add this annotation to the Ingress configuration.
+annotations:traefik.ingress.kubernetes.io/router.middlewares:uitsmijter-forward-auth@kubernetescrdOn an existing ingress you can add the annotation with kubectl</description>
+    </item>
+    
+    <item>
+      <title>Motivation</title>
+      <link>https://docs.uitsmijter.io/general/motivation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/general/motivation/</guid>
+      <description>Motivation     Since the mid-nineties, we from aus der Technik have been dealing with the authentication and authorization of users. The conception as well as the implementation of access systems is an elementary part of our work on clients applications. For new implementations, the first choice is between the numerous existing open source or proprietary authentication systems, or the decision for or against a custom implemented solution. Not only the numerous diverse requirements count on a decision-making process, but also legal questions about user data management have to be considered individually.</description>
+    </item>
+    
+    <item>
+      <title>Tenant and client configuration</title>
+      <link>https://docs.uitsmijter.io/configuration/tenant_client_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/configuration/tenant_client_config/</guid>
+      <description>Tenant and client configuration     Uitsmijter&amp;rsquo;s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment.</description>
+    </item>
+    
+    <item>
+      <title>User Validation Provider</title>
+      <link>https://docs.uitsmijter.io/providers/uservalidationprovider/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/providers/uservalidationprovider/</guid>
+      <description>User Validation Provider     A user validation provider is responsible for checking if a Username is still valid to access the application. A user could be invalid if the user is removed from the backend user store.
+Everytime a user tries to refresh a token, the User Validation Provider will be asked if the user is still valid. The Provider will not be called on a regular login!</description>
+    </item>
+    
+    <item>
+      <title>JWT Decoding</title>
+      <link>https://docs.uitsmijter.io/oauth/jwt_decoding/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/oauth/jwt_decoding/</guid>
+      <description>JWT Decoding     OAuth does not have a specific standard &amp;ldquo;profile endpoint&amp;rdquo; for decoding the content of a JSON Web Token (JWT). OAuth is a standard for authorization, which means that it is primarily concerned with granting and revoking access to resources, rather than with providing information about the user who is accessing the resources. But certain libraries (like oidc-client-ts) expecting it for decoding a profile content, so Uitsmijter supports a decoding endpoint for valid and non expired tokens at GET /token/info.</description>
+    </item>
+    
+    <item>
+      <title>Logging</title>
+      <link>https://docs.uitsmijter.io/configuration/logging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/configuration/logging/</guid>
+      <description>Logging     The Uitsmijter authorisation server logs in different levels and formats. As default, it logs in INFO and plain strings onto the console but ndjson format is also supported.
+ The default might change in the future because ndjson is more commonly used.
+ Setting the level     The following levels are available:
+   Name Description     trace Appropriate for messages that contain information normally of use only when tracing the execution of a program.</description>
+    </item>
+    
+    <item>
+      <title>Migrating a monolith</title>
+      <link>https://docs.uitsmijter.io/interceptor/migrating_monolith/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/interceptor/migrating_monolith/</guid>
+      <description>Migrating a monolith application into microservices with single sign on     Page navigation:
+ General Discussion Facing the problems of an application migration path The Demo-Project used for this documentation Configuring Uitsmijter checkcredentials Proxy Service Changes that need to be made You have made it!  General Discussion     The Path to Microservices: A Journey of Innovation and Empowerment     In today&amp;rsquo;s fast-paced tech landscape, companies are continually seeking innovative ways to stay competitive and meet evolving customer demands.</description>
+    </item>
+    
+    <item>
+      <title>Overall Goals</title>
+      <link>https://docs.uitsmijter.io/contribution/goals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/goals/</guid>
+      <description>Overall Project Goals     The overall project goals encompass a range of objectives that go beyond the functional requirements of the system. These goals primarily focus on the non-functional aspects, aiming to ensure the system&amp;rsquo;s performance, reliability, security, and usability. By considering these non-functional requirements, the project aims to deliver a robust and user-friendly solution that meets the standards of quality and user satisfaction.
+Ease Of Use:     One of the key non-functional requirements of the project is the ease of use.</description>
+    </item>
+    
+    <item>
+      <title>Requirements</title>
+      <link>https://docs.uitsmijter.io/general/requirements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/general/requirements/</guid>
+      <description>Requirements     Kubernetes     This application is mainly meant to run on Kubernetes (K8s) and protect resources that run on Kubernetes clusters. Uitsmijter is tested on Kubernetes version 1.22.0 and above.
+Must have preinstalled resources       🔗 Traefik in version &amp;gt;= 2.9 Currently the Interceptor Mode is only available for Traefik at the moment. If you are using other ingress controllers, please feel free to contact us.</description>
+    </item>
+    
+    <item>
+      <title>Frequently Asked Questions</title>
+      <link>https://docs.uitsmijter.io/contribution/faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/faq/</guid>
+      <description>Why there is no Admin-Interface for Uitsmijter?     Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:
+ There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes.</description>
+    </item>
+    
+    <item>
+      <title>PKCE</title>
+      <link>https://docs.uitsmijter.io/oauth/pkce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/oauth/pkce/</guid>
+      <description>Authorization Code Flow with Proof Key for Code Exchange     The Authorization Code Flow with Proof Key for Code Exchange (PKCE) is an OAuth 2.0 flow that is used to secure the authorization process in native applications and single-page applications (SPAs). It is an extension to the standard authorization code flow, and it adds a step that helps to prevent authorization code interception attacks.
+A description of the authorization code flow with PKCE:</description>
+    </item>
+    
+    <item>
+      <title>Quick Start Guide</title>
+      <link>https://docs.uitsmijter.io/general/quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/general/quickstart/</guid>
+      <description>Quick Start Guide for Kubernetes     This guide covers all you need to get up and running with Uitsmijter. The documentation is based on a fictive Project for better understanding when and why to set some configurations.
+Meet the requirements     This quick start guide assumes that the requirements are given. See this list of requirements that cover the following criteria:
+ Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e.</description>
+    </item>
+    
+    <item>
+      <title>Developer Certificate of Origin</title>
+      <link>https://docs.uitsmijter.io/contribution/certificate_of_origin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/certificate_of_origin/</guid>
+      <description>Developer Certificate of Origin     Version 1.1
+Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+ Developer&amp;rsquo;s Certificate of Origin 1.1
+By making a contribution to this project, I certify that:
+(a) The contribution was created in whole or in part by me and I have the right to submit it under the open source license indicated in the file; or</description>
+    </item>
+    
+    <item>
+      <title>Code of Conduct</title>
+      <link>https://docs.uitsmijter.io/contribution/codeofconduct/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/codeofconduct/</guid>
+      <description>Code of Conduct     Our Pledge     In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+Our Standards     Examples of behavior that contributes to creating a positive environment include:</description>
+    </item>
+    
+    <item>
+      <title>3rd Party Tools</title>
+      <link>https://docs.uitsmijter.io/contribution/3rdparty/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/3rdparty/</guid>
+      <description>3rd Party tools used in Uitsmijter      https://github.com/Olipro/Coverify Convert LLVM code coverage to cobertura https://vapor.codes Server Framework we love and used for this project https://github.com/swift-server-community/SwiftPrometheus.git Prometheus exporter for custom metrics https://github.com/jectivex/JXKit Inspiration for the JavaScript bridge to work on linux https://github.com/krzyzanowskim/CryptoSwift.git Crypto related functions and helpers for Swift https://github.com/jpsim/Yams.git A sweet and swifty YAML parser built on LibYAML. https://github.com/swiftkube/client Inspiration for a Swift client for talking to a Kubernetes cluster  Graphs in this wiki are build with ASCIIFlow.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://docs.uitsmijter.io/_sidebar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/_sidebar/</guid>
+      <description>Uitsmijter     Visit the home of the documentation.
+General      About Terminology Motivation Requirements Quick Start Guide  Configuration      Entities Tenant and client configuration Logging  OAuth2 Server      OAuth flow Grant types Available Endpoints JWT Decoding Authorization Code Flow with Proof Key for Code Exchange  Interceptor      Walkthrough Guide Interceptor Mode Example Deployment Migrating a monolith application  Providers      General provider information User Login Provider  Customisation      Login Page  Development     How to start development is covered in the development information section.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://docs.uitsmijter.io/resources/demopage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/resources/demopage/</guid>
+      <description>Demo Deployment Files      namespace tenant client content service ingress-open ingress-secured pod  </description>
+    </item>
+    
+    <item>
+      <title>Ingredients</title>
+      <link>https://docs.uitsmijter.io/general/ingredients/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/general/ingredients/</guid>
+      <description>Ingredients for an Uitsmijter      1 teaspoon butter 2 large eggs 2 slices white bread 2 slices shaved boiled ham 2 large slices aged Gouda cheese Salt and Pepper  First melt the butter in a frying pan or skillet and fry the eggs. Once the bottoms of the eggs are set, take the pan off the heat, place a lid on the pan and allow the eggs to steam until the top has firmed up.</description>
+    </item>
+    
+    <item>
+      <title>List Of Competitors</title>
+      <link>https://docs.uitsmijter.io/contribution/list-of-competitors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/list-of-competitors/</guid>
+      <description>List Of Competitors     We maintain a list of competitors. If your product is not included in this list, feel free to add it.
+   Name Link Licence Cost Github-Stars Relevant Features     Keycloak https://www.keycloak.org/ Apache-2.0 0 16.6k ✓    Azure Active Directory https://azure.microsoft.com Proprietär ab $ 599,-/Monat  ‒ SaaS   OneLogin https://www.onelogin.com/de-de/ Proprietär ?  ✓    Auth0 https://auth0.</description>
+    </item>
+    
+    <item>
+      <title>Uitsmijter</title>
+      <link>https://docs.uitsmijter.io/home/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/home/</guid>
+      <description>Uitsmijter Documentation     A versatile OAuth2 authorization server and Traefik middleware for Kubernetes and Docker. Uses your existing user-database to prevent vendor lock-in.
+About     Uitsmijter is a standalone OAuth2 authorization server with embedded middleware that provides login mechanisms to your project without changing the existing user database.
+The goal of this project is to bring trustworthy and easy-to-integrate security to your project, within a few hours from installation, configuration and implementation to go-live.</description>
+    </item>
+    
+  </channel>
+</rss>

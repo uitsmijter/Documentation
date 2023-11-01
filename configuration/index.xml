@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Configuration on Uitsmijter Documentation</title>
+    <link>https://docs.uitsmijter.io/configuration/</link>
+    <description>Recent content in Configuration on Uitsmijter Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.uitsmijter.io/configuration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Helm configuration</title>
+      <link>https://docs.uitsmijter.io/configuration/helm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/configuration/helm/</guid>
+      <description>Helm configuration parameters     Uitsmijter is best to install over helm.
+helm install uitsmijter uitsmijter/uitsmijter The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.
+Full Values.yaml     namespaceOverride:&amp;#34;&amp;#34;image:repository:docker.ausdertechnik.de/uitsmijter/uitsmijter# Overrides the image tag whose default is the chart appVersion.tag:&amp;#34;&amp;#34;pullPolicy:AlwaysimagePullSecrets:- name:gitlab-authjwtSecret:&amp;#34;vosai0za6iex8AelahGemaeBooph6pah6Saezae0oojahfa7Re6leibeeshiu8ie&amp;#34;redisPassword:&amp;#34;Shohmaz1&amp;#34;storageClassName:&amp;#34;default-ext4&amp;#34;installCRD:trueinstallSA:trueconfig:# Log format options: console|ndjsonlogFormat:&amp;#34;console&amp;#34;# Log level options: trace|info|error|criticallogLevel:&amp;#34;info&amp;#34;cookieExpirationInDays:7tokenExpirationInHours:2tokenRefreshExpirationInHours:720# show the version information at /versionsdisplayVersion:truedomains:- domain:&amp;#34;nightly.</description>
+    </item>
+    
+    <item>
+      <title>Entities</title>
+      <link>https://docs.uitsmijter.io/configuration/entities/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/configuration/entities/</guid>
+      <description>Entities     This document describes the different entities Uitsmijter uses internally. They are mentioned throughout the rest of the documentation. For a complete list of used terminology, see Terminology.
+Tenant     A tenant is the highest order entity in the system. Every tenant is isolated in its functions and can not share resources.
+Every Tenant does have its own set of settings, providers and clients.</description>
+    </item>
+    
+    <item>
+      <title>Tenant and client configuration</title>
+      <link>https://docs.uitsmijter.io/configuration/tenant_client_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/configuration/tenant_client_config/</guid>
+      <description>Tenant and client configuration     Uitsmijter&amp;rsquo;s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment.</description>
+    </item>
+    
+    <item>
+      <title>Logging</title>
+      <link>https://docs.uitsmijter.io/configuration/logging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/configuration/logging/</guid>
+      <description>Logging     The Uitsmijter authorisation server logs in different levels and formats. As default, it logs in INFO and plain strings onto the console but ndjson format is also supported.
+ The default might change in the future because ndjson is more commonly used.
+ Setting the level     The following levels are available:
+   Name Description     trace Appropriate for messages that contain information normally of use only when tracing the execution of a program.</description>
+    </item>
+    
+  </channel>
+</rss>

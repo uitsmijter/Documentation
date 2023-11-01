@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Providers on Uitsmijter Documentation</title>
+    <link>https://docs.uitsmijter.io/providers/</link>
+    <description>Recent content in Providers on Uitsmijter Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://docs.uitsmijter.io/providers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>General provider information</title>
+      <link>https://docs.uitsmijter.io/providers/providers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/providers/providers/</guid>
+      <description>General provider information     Because Uitsmijter does not store any user data to authenticate a login, request providers are written to check if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store.</description>
+    </item>
+    
+    <item>
+      <title>User Login Provider</title>
+      <link>https://docs.uitsmijter.io/providers/userloginprovider/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/providers/userloginprovider/</guid>
+      <description>User Login Provider     A User Login Provider is responsible for resolving a Username and Password to a user profile if the user is valid.
+If the credentials do not match, the provider is responsible for interpreting the error message / code and tell Uitsmijter that the user is invalid.
+At login, Uitsmijter delegates the credentials the user provides via the login form to the user backend provider.</description>
+    </item>
+    
+    <item>
+      <title>User Validation Provider</title>
+      <link>https://docs.uitsmijter.io/providers/uservalidationprovider/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/providers/uservalidationprovider/</guid>
+      <description>User Validation Provider     A user validation provider is responsible for checking if a Username is still valid to access the application. A user could be invalid if the user is removed from the backend user store.
+Everytime a user tries to refresh a token, the User Validation Provider will be asked if the user is still valid. The Provider will not be called on a regular login!</description>
+    </item>
+    
+  </channel>
+</rss>
