@@ -46,3 +46,18 @@ jobs:
     uses: uitsmijter/workflows/.github/workflows/builds-mattermost.yaml@main
     secrets:
       WEBHOOK: ${{ secrets.MATTERMOST_WEBHOOK_BUILD }}
+
+  notify_mastodon:
+    name: Notify Mastodon
+    permissions:
+      contents: read
+      statuses: read
+      actions: read
+      repository-projects: read
+    needs:
+      - build
+    if: always()
+    uses: uitsmijter/workflows/.github/workflows/builds-mastodon.yaml@main
+    secrets:
+      MASTODON_URL: ${{ secrets.MASTODON_BUILDS_URL }}
+      MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_BUILDS_TOKEN }}
