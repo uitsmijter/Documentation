@@ -16,6 +16,7 @@ variables:
   HUGO_TAG: ${CI_REGISTRY_IMAGE}:_hugo
   SASS_TAG: ${CI_REGISTRY_IMAGE}:_sass
   WOFF_TAG: ${CI_REGISTRY_IMAGE}:_woff
+  BUILD: false
 
 .use_context: &use_context
   - kubectl config get-contexts
@@ -34,6 +35,7 @@ Build-Sass:
       --tarPath sass-image.tar --destination=${SASS_TAG} --no-push
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $BUILD == "true"
   artifacts:
     paths:
       - sass-image.tar
@@ -50,6 +52,7 @@ Build-Woff:
       --tarPath woff-image.tar --destination=${WOFF_TAG} --no-push
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $BUILD == "true"
   artifacts:
     paths:
       - woff-image.tar
@@ -66,6 +69,7 @@ Build-Hugo:
       --tarPath hugo-image.tar --destination=${HUGO_TAG} --no-push
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $BUILD == "true"
   artifacts:
     paths:
       - hugo-image.tar
@@ -78,6 +82,7 @@ Publish-Sass:
     - Build-Sass
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $BUILD == "true"
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
@@ -91,6 +96,7 @@ Publish-Woff:
     - Build-Woff
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $BUILD == "true"
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
@@ -104,6 +110,7 @@ Publish-Hugo:
     - Build-Hugo
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $BUILD == "true"
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
@@ -119,6 +126,8 @@ Generate-CSS:
   image:
     name: ${SASS_TAG}
     entrypoint: [ "" ]
+  rules:
+    - if: $BUILD == "true"
   script:
     - mkdir -p ./public
     - for SASS_SOURCE in main mobile print; do
@@ -136,6 +145,8 @@ Generate-Woff:
   image:
     name: ${WOFF_TAG}
     entrypoint: [ "" ]
+  rules:
+    - if: $BUILD == "true"
   script:
     - mkdir -p ./public
     - cd /
@@ -153,6 +164,8 @@ Generate-Site:
   needs:
     - Generate-CSS
     - Generate-Woff
+  rules:
+    - if: $BUILD == "true"
   image:
     name: ${HUGO_TAG}
     entrypoint: [ "" ]
@@ -169,6 +182,8 @@ Generate-Site:
 # ------------------------------------------------------------
 Build-Webserver:
   stage: Build
+  rules:
+    - if: $BUILD == "true"
   script:
     - mkdir -p /kaniko/.docker
     - /kaniko/executor
@@ -185,6 +200,8 @@ Publish-Webserver:
   stage: Build
   needs:
     - Build-Webserver
+  rules:
+    - if: $BUILD == "true"
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
@@ -195,7 +212,22 @@ Publish-Webserver:
 # ------------------------------------------------------------
 # Deploy
 # ------------------------------------------------------------
-Deploy:
+Deploy-Release:
+  stage: Deploy
+  image: ausdertechnik/buildbot-margarete@sha256:9127b6b2a5cd54400727be4c54f41c9fcee312488315fe7327e8aa725589bdb4
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release\/.*$/
+  script:
+    - *use_context
+    - pushd deployment/kustomize/base
+    - kustomize edit set image uitsmijter/documentation=${IMAGE_TAG};
+    - popd
+    - kubectl create ns "uitsmijter-docs" || true
+    - kubectl label --overwrite namespace uitsmijter-docs uitsmijter.io/cert-sync=true
+    - kubectl apply -n "uitsmijter-docs" -f ${PAWPATROL_PULLSECRET}
+    - kubectl apply -k deployment/kustomize/overlays/production
+
+Deploy-Main:
   stage: Deploy
   image: ausdertechnik/buildbot-margarete@sha256:9127b6b2a5cd54400727be4c54f41c9fcee312488315fe7327e8aa725589bdb4
   rules:
@@ -203,7 +235,7 @@ Deploy:
   script:
     - *use_context
     - pushd deployment/kustomize/base
-    - kustomize edit set image ${CI_REGISTRY_IMAGE}=${IMAGE_TAG};
+    - kustomize edit set image uitsmijter/documentation=ghcr.io/uitsmijter/documentation:latest;
     - popd
     - kubectl create ns "uitsmijter-docs" || true
     - kubectl label --overwrite namespace uitsmijter-docs uitsmijter.io/cert-sync=true

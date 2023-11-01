@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: website
-        image: ghcr.io/uitsmijter/documentation:latest
+        image: uitsmijter/documentation
         imagePullPolicy: Always
         ports:
         - containerPort: 80
