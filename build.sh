@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+set -o pipefail
+
 IMAGE_TAG="documentation"
 
 ## Parsing parameters to overwrite some default values
@@ -44,7 +47,7 @@ done
 # BUILD THE SITE WITH HUGO
 mkdir ./public
 docker build -t hugo -f deployment/hugo.dockerfile .
-docker run  -ti --rm -v ${PWD}:/build hugo
+docker run  -ti --rm -v "${PWD}:/build" hugo
 
 # BUILD THE FINAL IMAGE
 docker build -t ${IMAGE_TAG} -f deployment/nginx.dockerfile .

@@ -16,7 +16,6 @@ variables:
   HUGO_TAG: ${CI_REGISTRY_IMAGE}:_hugo
   SASS_TAG: ${CI_REGISTRY_IMAGE}:_sass
   WOFF_TAG: ${CI_REGISTRY_IMAGE}:_woff
-  BUILD: "false"
 
 .use_context: &use_context
   - kubectl config get-contexts
@@ -35,7 +34,6 @@ Build-Sass:
       --tarPath sass-image.tar --destination=${SASS_TAG} --no-push
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: $BUILD == "true"
   artifacts:
     paths:
       - sass-image.tar
@@ -52,7 +50,6 @@ Build-Woff:
       --tarPath woff-image.tar --destination=${WOFF_TAG} --no-push
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: $BUILD == "true"
   artifacts:
     paths:
       - woff-image.tar
@@ -69,7 +66,6 @@ Build-Hugo:
       --tarPath hugo-image.tar --destination=${HUGO_TAG} --no-push
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: $BUILD == "true"
   artifacts:
     paths:
       - hugo-image.tar
@@ -82,7 +78,6 @@ Publish-Sass:
     - Build-Sass
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: $BUILD == "true"
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
@@ -96,7 +91,6 @@ Publish-Woff:
     - Build-Woff
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: $BUILD == "true"
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
@@ -110,7 +104,6 @@ Publish-Hugo:
     - Build-Hugo
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: $BUILD == "true"
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
@@ -126,8 +119,6 @@ Generate-CSS:
   image:
     name: ${SASS_TAG}
     entrypoint: [ "" ]
-  rules:
-    - if: $BUILD == "true"
   script:
     - mkdir -p ./public
     - for SASS_SOURCE in main mobile print; do
@@ -145,8 +136,6 @@ Generate-Woff:
   image:
     name: ${WOFF_TAG}
     entrypoint: [ "" ]
-  rules:
-    - if: $BUILD == "true"
   script:
     - mkdir -p ./public
     - cd /
@@ -164,8 +153,6 @@ Generate-Site:
   needs:
     - Generate-CSS
     - Generate-Woff
-  rules:
-    - if: $BUILD == "true"
   image:
     name: ${HUGO_TAG}
     entrypoint: [ "" ]
@@ -182,8 +169,6 @@ Generate-Site:
 # ------------------------------------------------------------
 Build-Webserver:
   stage: Build
-  rules:
-    - if: $BUILD == "true"
   script:
     - mkdir -p /kaniko/.docker
     - /kaniko/executor
@@ -200,8 +185,6 @@ Publish-Webserver:
   stage: Build
   needs:
     - Build-Webserver
-  rules:
-    - if: $BUILD == "true"
   image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [ "" ]
