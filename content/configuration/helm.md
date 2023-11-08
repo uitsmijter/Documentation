@@ -8,8 +8,22 @@ weight: 1
 Uitsmijter is best to install over [helm](https://helm.sh).
 
 ```shell
-helm install uitsmijter uitsmijter/uitsmijter
+helm repo add uitsmijter https://charts.uitsmijter.io/
+helm update
 ```
+
+To list available versions run: 
+
+```shell
+helm search repo uitsmijter
+```
+
+To see a list with release candidates included: 
+
+```shell
+helm search repo uitsmijter --devel
+```
+
 
 The complete `Values.yaml` is presented first, than the parameters are described as on overview. For detailed
 information please read the [quick start](/general/quickstart) guide.
@@ -74,7 +88,14 @@ domains:
 | domains.domain                       |            | List of Domains. Entry of the domain where Uitsmijter is listening on.                                                                                                                                   |
 | domains.tlsSecretName                |            | List of Domains. Entry of the name of the certificate secret.                                                                                                                                            |
 
-## Overwrite Parameters in your CI/CD-Pipeline
+## Install Uitsmijter Helm Charts
+
+```shell
+helm install uitsmijter -f values.yaml uitsmijter/uitsmijter
+```
+
+
+## Overwrite Parameters in a CI/CD-Pipeline from source
 
 Overwriting parameters from the command line is possible. For example install Uitsmijter in a feature branch, it is not
 handy to provide extra `Values.yaml`'s, but set the parameters at the shell directly.

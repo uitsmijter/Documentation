@@ -416,8 +416,11 @@ To install Uitsmijter onto your cluster a Helm Chart is provided. If you have ac
 privileges mentioned above, the following steps install everything right in place.
 
 ```shell
+helm repo add uitsmijter https://charts.uitsmijter.io/
+helm update
 helm install uitsmijter uitsmijter/uitsmijter
 ```
+Read more about the [helm charts](/configuration/helm) configuration. 
 
 > After installation make sure that your user has the rights to edit `Clients` and `Tenants` at least in your
 > namespaces.
