@@ -53,7 +53,7 @@ Meet the requirements     This quick start guide assumes that the requirements a
       "url" : "https://docs.uitsmijter.io/general/quickstart/",
       "headline": "Quick Start Guide",
       "description": "Quick Start Guide for Kubernetes     This guide covers all you need to get up and running with Uitsmijter. The documentation is based on a fictive Project for better understanding when and why to set some configurations.\nMeet the requirements     This quick start guide assumes that the requirements are given. See this list of requirements that cover the following criteria:\n Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e.",
-      "wordCount" : "3380",
+      "wordCount" : "3394",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2765,8 +2765,14 @@ values should be the same as given in defaults, that is ok, you can revisit and 
 </div>
 <p>To install Uitsmijter onto your cluster a Helm Chart is provided. If you have access to the cluster and check the
 privileges mentioned above, the following steps install everything right in place.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">helm install uitsmijter uitsmijter/uitsmijter
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">helm repo add uitsmijter https://charts.uitsmijter.io/
+helm update
+helm install uitsmijter uitsmijter/uitsmijter
+</code></pre></div><p>Read more about the <a
+  class="gdoc-markdown__link"
+  href="/configuration/helm"
+>helm charts</a> configuration.</p>
+<blockquote>
 <p>After installation make sure that your user has the rights to edit <code>Clients</code> and <code>Tenants</code> at least in your
 namespaces.</p>
 </blockquote>

@@ -45,8 +45,10 @@ helm repo add --username &amp;#39;[token name or gitlab user name]&amp;#39; --pa
       
       <guid>https://docs.uitsmijter.io/configuration/helm/</guid>
       <description>Helm configuration parameters     Uitsmijter is best to install over helm.
-helm install uitsmijter uitsmijter/uitsmijter The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.
-Full Values.yaml     namespaceOverride:&amp;#34;&amp;#34;image:repository:docker.ausdertechnik.de/uitsmijter/uitsmijter# Overrides the image tag whose default is the chart appVersion.tag:&amp;#34;&amp;#34;pullPolicy:AlwaysimagePullSecrets:- name:gitlab-authjwtSecret:&amp;#34;vosai0za6iex8AelahGemaeBooph6pah6Saezae0oojahfa7Re6leibeeshiu8ie&amp;#34;redisPassword:&amp;#34;Shohmaz1&amp;#34;storageClassName:&amp;#34;default-ext4&amp;#34;installCRD:trueinstallSA:trueconfig:# Log format options: console|ndjsonlogFormat:&amp;#34;console&amp;#34;# Log level options: trace|info|error|criticallogLevel:&amp;#34;info&amp;#34;cookieExpirationInDays:7tokenExpirationInHours:2tokenRefreshExpirationInHours:720# show the version information at /versionsdisplayVersion:truedomains:- domain:&amp;#34;nightly.</description>
+helm repo add uitsmijter https://charts.uitsmijter.io/ helm update To list available versions run:
+helm search repo uitsmijter To see a list with release candidates included:
+helm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.
+Full Values.yaml     namespaceOverride:&amp;#34;&amp;#34;image:repository:docker.</description>
     </item>
     
     <item>
