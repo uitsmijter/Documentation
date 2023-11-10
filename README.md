@@ -1,5 +1,3 @@
-
-![Uitsmijter Documentation](themes/uitsmijter/static/uitsmijter-docs-horizontal-color.png "Uitsmijter Documentation")
 ![Uitsmijter Documentation](themes/uitsmijter/static/uitsmijter-docs-horizontal-color.svg "Uitsmijter Documentation")
 
 Welcome to the repository of the documentation website located 
