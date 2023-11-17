@@ -40,7 +40,7 @@ done
 
 # CREATING WOFF FONT FROM TTF
 docker build -t woff-tools -f deployment/woff.dockerfile .
-for TTF in $(ls ./themes/uitsmijter/static/fonts/{Bebas_Neue,Inconsolata,Inconsolata/**,Source_Sans_Pro}/*.ttf); do
+for TTF in $(ls ./themes/uitsmijter/static/fonts/{Bebas_Neue,Inconsolata,Inconsolata/**,Source_Sans_Pro,Playfair_Display}/*.ttf); do
 	docker run --rm -v ${PWD}:/build woff-tools ${TTF};
 done
 
