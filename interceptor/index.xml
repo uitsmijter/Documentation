@@ -45,7 +45,7 @@ annotations:traefik.ingress.kubernetes.io/router.middlewares:uitsmijter-forward-
       
       <guid>https://docs.uitsmijter.io/interceptor/migrating_monolith/</guid>
       <description>Migrating a monolith application into microservices with single sign on     Page navigation:
- General Discussion Facing the problems of an application migration path The Demo-Project used for this documentation Configuring Uitsmijter checkcredentials Proxy Service Changes that need to be made You have made it!  General Discussion     The Path to Microservices: A Journey of Innovation and Empowerment     In today&amp;rsquo;s fast-paced tech landscape, companies are continually seeking innovative ways to stay competitive and meet evolving customer demands.</description>
+ General Discussion Facing the problems of an application migration path The Demo-Project used for this documentation Configuring Uitsmijter checkcredentials Proxy Service Changes that need to be made You have made it!  General Discussion      Articles Available Please checkout our article that discuss the general thoughts behind agile migration.  Facing the problems of an application migration path     Monolithic applications with their own login have one or more of the following factors in common:</description>
     </item>
     
   </channel>
