@@ -13,3 +13,10 @@ weight: 8
 - [Developer Certificate of Origin](/contribution/certificate_of_origin)
 - [Code Of Conduct](/contribution/codeofconduct)
 - List of [used 3rd Party Tools](/contribution/3rdparty)
+
+## Links
+
+- Official [Uitsmijter](https://uitsmijter.io) website
+- Github [Organisation](https://github.com/uitsmijter) page
+- Connect with us on our [Mastodon](https://social.uitsmijter.io/public/local) instance 
+- Uitsmijter [Discourse](https://discourse.uitsmijter.io) forum

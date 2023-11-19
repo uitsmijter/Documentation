@@ -5,7 +5,8 @@ weight: 1
 
 # Project information
 
-This project is written in [Swift 5.7](https://www.swift.org). With grate support from the [Vapor](https://vapor.codes)
+This project is written in [Swift](https://www.swift.org). Started in Swift version 5.7 
+and moved on to Swift 5.9. Its done with grate support from the [Vapor](https://vapor.codes)
 framework and the [Swift Server Workgroup](https://www.swift.org/server/) community.
 
 Please check out the [server side swift](https://www.serversideswift.info) conference if you are interested.
