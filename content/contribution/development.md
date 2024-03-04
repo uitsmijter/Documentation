@@ -6,7 +6,7 @@ weight: 1
 # Project information
 
 This project is written in [Swift](https://www.swift.org). Started in Swift version 5.7 
-and moved on to Swift 5.9. Its done with grate support from the [Vapor](https://vapor.codes)
+and moved on to Swift 5.9. It's done with grate support from the [Vapor](https://vapor.codes)
 framework and the [Swift Server Workgroup](https://www.swift.org/server/) community.
 
 Please check out the [server side swift](https://www.serversideswift.info) conference if you are interested.
@@ -67,8 +67,8 @@ We are trying to minimize the downsides and hope that the brake on the rules wil
 
 ## Getting it to work
 
-For development, the Uitsmijter source provides a toolchain to **build**, **lint**, **test** and **run** the Project
-locally inside a [Docker](https://www.docker.com) container. See [tooling](/contribution/tooling) for a detailed
+For development, the Uitsmijter source provides a [toolchain](/contribution/tooling) to **build**, **lint**, **test** and 
+**run** the Project locally inside a [Docker](https://www.docker.com) container. See [tooling](/contribution/tooling) for a detailed
 description.
 
 If you do not like to work inside docker, Uitsmijter should run on every system that supports the Swift language,
@@ -101,6 +101,11 @@ swift run
 ```
 
 > We highly recommend to use the [toolchain](/contribution/tooling) and build Uitsmijter inside the container.
+
+## IDE
+
+Of course you can use the IDE of your choice. For a super quick start, Uitsmijter offers an IDE in the browser. 
+The command `./tooling.sh code` starts an IDE in a Docker container, which makes it easier to get started with the code.
 
 ## Further readings
 
