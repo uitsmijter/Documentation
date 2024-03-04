@@ -24,14 +24,22 @@ among each other.
 `Tooling` help to maintain consistency in the development and build process. Regardless of the developer's machine or
 the development environment, the build tool ensures that the software can be built and tested in a predictable manner.
 
+If you are new to Uitsmijter development, `code` provides you with a ready-to-use IDE in your browser to get you started.
+
 ## Interface
 
 ```text
 $ ./tooling.sh
 Uitsmijter Tooling
-============================================================
+********************************************************************************************************************************************************************************************************
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~ Branch: main | Version: ce-0.9.6                                                                                                                                                                    ~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Choose one or more commands: 
 
+        -rm   | --remove          | remove        Remove docker volumes, images and build directory
         -b    | --build           | build         Build the project
         -l    | --lint            | lint          Check code quality
         -t    | --test            | test          Run all UnitTests
@@ -40,6 +48,7 @@ Choose one or more commands:
         -s    | --release         | release       Build a release version, can have an optional added image 
                                                   name (with optional tag)
         -p    | --helm            | helm          Build the helm package
+              | --code            | code          Open a code editor
         -h    | --help            | help          Show this help message
 
 Additional Parameters: 
@@ -47,14 +56,25 @@ Additional Parameters:
         --rebuild                     Force rebuild images
         --debug                       Enable debug output
         --dirty                       Use incremental temporary runtime for the local cluster
+        --fast                        runs tests only on one virtual browser and resolution.
 
 Example:
         ./tooling build run
         ./tooling -b -r
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Documentation can be found at https://docs.uitsmijter.io
+
+
+********************************************************************************************************************************************************************************************************
+* done.                                                                                                                                                                                                *
+********************************************************************************************************************************************************************************************************
+
+
 ```
 
 _**Whohoo** that are a lot of options!_ Don't panic! We'll discuss each command in a second. But first let's see how to
-use the options.
+use these options on command line.
 
 Every option can be chained. Instead of build first and test then, like:
 
@@ -78,6 +98,19 @@ style (like: `build`) to call the build, but for scripting the automation tool i
 as well. In this documentation only _command-style_ (without hyphens) will be used.
 
 ## Commands
+
+### remove
+
+Removes the local Docker containers, images and volumes, as well as the local .build-cache. 
+
+```shell
+./tooling.sh remove
+```
+
+Removing all images gives recovering your environment from all Uitsmijter related containers and enforce `build` to build 
+the sources from scratch. 
+
+After removing all corresponding images, `build`, `test`, `e2e` and `code` needs to pull the base images from the registry again. 
 
 ### build
 
@@ -206,6 +239,46 @@ image and generates helm chats for that.
 > It is not possible to run a `release` command with the `--dirty`option! A release is always a production artifact and
 > ensures that is made from a non cached version.
 
+### heml
+
+The Uitsmijter Project contains [🔗 Helm](https://helm.sh) templates. Use this command to package these charts into a 
+.tgz file that can be found at `/Deployment/Release/uitsmijter-<version>-<build>-<hash>.tgz`. 
+
+If you are contributing to the public open source project, you do not need to build the packages, but if you are using
+Uitsmijter in a private repository, you may want to maintain your own chats. This command will help you to maintain these 
+chats.
+
+```shell
+./tooling.sh helm
+```
+In your CI you may want to use this in conjunction: 
+
+```shell
+./tooling.sh test release helm
+```
+
+### code
+
+As an experienced developer who works a lot in and with Uitsmijter, you certainly have your preferred local development 
+environment in which you like to work. The developers of the code all prefer other environments, whether Xcode, CLion, 
+AppCode, Visual Studio Code, or vi. Uitsmijter does not tell you what to develop in.
+
+We welcome you to participate in the development, and we know how challenging it can be to set up and adjust everything 
+from the checkout of the project to the first commit. We want to make your experience as pleasant as possible and allow 
+you to get a taste of the project without any effort. That's why Uitsmijter provides you with a ready-to-run IDE with the 
+code. This runs in your browser and has all the settings for coding, testing and debugging already preset. Of course, you 
+can customize the look & feel and adapt it to your needs.
+
+Just give it a try. 
+_Rumor has it that even project maintainers prefer to use this function for more and more tasks in the code._
+
+```shell
+./tooling.sh code
+```
+
+> Note: Tests are slower in the IDE than via `./tooling.sh test`, as they can only run on one worker. However, it is possible 
+> to execute individual tests and set breakpoints in the code.
+
 ### help
 
 The `help` command show a list of available **commands** and **options**.
@@ -227,6 +300,14 @@ image is still present on the system where the build runner exists.
 ```shell
 ./tooling.sh e2e --rebuild
 ```
+### debug output
+
+To see what the build tool is doing, pass `--debug` to the command. Debug outputs shows every command that the
+automation scripts are doing onto the terminal output.
+
+```shell
+./tooling.sh build --debug
+```
 
 ### use dirty build
 
@@ -237,14 +318,13 @@ for the cluster.
 ```shell
 ./tooling.sh e2e --dirty
 ```
+### use fast e2e tests
 
-### debug output
-
-To see what the build tool is doing, pass `--debug` to the command. Debug outputs shows every command that the
-automation scripts are doing onto the terminal output.
+The end-to-end tests are carried out in various browsers with desktop and mobile screen resolutions. This is of course
+good to be sure that Uitsmijter works flawlessly in different environments and that a high-quality version can be built. Nevertheless, during development it is sometimes necessary to run all e2e tests quickly. The parameter 'fast' restricts the execution to a browser with only one resolution.
 
 ```shell
-./tooling.sh build --debug
+./tooling.sh e2e --fast
 ```
 
 ## Used Dockerfile
@@ -270,6 +350,7 @@ Uitsmijter Tooling
 
 Choose one or more commands: 
 
+        -rm   | --remove          | remove        Remove docker volumes, images and build directory
         -b    | --build           | build         Build the project
         -l    | --lint            | lint          Check code quality
         -t    | --test            | test          Run all UnitTests
@@ -278,6 +359,7 @@ Choose one or more commands:
         -s    | --release         | release       Build a release version, can have an optional added image 
                                                   name (with optional tag)
         -p    | --helm            | helm          Build the helm package
+              | --code            | code          Open a code editor
         -h    | --help            | help          Show this help message
 
 Additional Parameters: 
@@ -285,18 +367,20 @@ Additional Parameters:
         --rebuild                     Force rebuild images
         --debug                       Enable debug output
         --dirty                       Use incremental temporary runtime for the local cluster
+        --fast                        runs tests only on one virtual browser and resolution.
 
 Example:
         ./tooling build run
         ./tooling -b -r
 
---------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Documentation can be found at https://docs.uitsmijter.io
 
 
-••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-• done.                                                                                                       
-••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+********************************************************************************************************************************************************************************************************
+* done.                                                                                                                                                                                                *
+********************************************************************************************************************************************************************************************************
+
 ```
 
 Do a build first to check if it compiles:
@@ -651,7 +735,7 @@ Aborting on container exit...
 [...]
 ```
 
-See, the build took only 33ms. For testing multible times, this is much better than 5 minutes.
+See, the build took only 33ms. For testing multiple times, this is much better than 5 minutes.
 
 In summary, the intention of the Tooling for Uitsmijter is to streamline the software development process by automating
 various tasks, maintaining consistency, and providing developers with a user-friendly command-line interface for
