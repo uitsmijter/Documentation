@@ -79,7 +79,7 @@ There are several flows that can be used with OAuth 2.0, depending on the type o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://docs.uitsmijter.io/contribution/development/</guid>
-      <description>Project information     This project is written in Swift. Started in Swift version 5.7 and moved on to Swift 5.9. Its done with grate support from the Vapor framework and the Swift Server Workgroup community.
+      <description>Project information     This project is written in Swift. Started in Swift version 5.7 and moved on to Swift 5.9. It&amp;rsquo;s done with grate support from the Vapor framework and the Swift Server Workgroup community.
 Please check out the server side swift conference if you are interested.
 Uitsmijter chooses swift, because of:
  safety  Strongly Typed encourages to write clean and consistent code safeguards Well-designed asynchronous programming interface   performance  Small footprint Quick startup time Deterministic performance   software design patterns  Code structure     Swift&amp;rsquo;s history and also Vapor&amp;rsquo;s boilerplate&amp;rsquo;s sort code into folders according to their technical role.</description>

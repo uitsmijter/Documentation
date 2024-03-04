@@ -50,7 +50,7 @@ For Uitsmijter we build a toolchain that help developers to set up the environme
       "url" : "https://docs.uitsmijter.io/contribution/tooling/",
       "headline": "Toolchain",
       "description": "Commandline Tool To Build Uitsmijter - Tooling.sh     A build tool is a set of tools that automate the process of testing, compiling, assembling, and packaging source code into executable software. Build tools are an essential part of the software development lifecycle, helping developers manage the complexity of building, testing, and deploying software.\nFor Uitsmijter we build a toolchain that help developers to set up the environment to work easily with the code.",
-      "wordCount" : "3546",
+      "wordCount" : "4081",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2342,6 +2342,7 @@ This tool ensures that errors can be traced and makes it easier for everyone to 
 </blockquote>
 <p><code>Tooling</code> help to maintain consistency in the development and build process. Regardless of the developer&rsquo;s machine or
 the development environment, the build tool ensures that the software can be built and tested in a predictable manner.</p>
+<p>If you are new to Uitsmijter development, <code>code</code> provides you with a ready-to-use IDE in your browser to get you started.</p>
 <div class="gdoc-page__anchorwrap">
     <h2 id="interface">
         Interface
@@ -2352,9 +2353,15 @@ the development environment, the build tool ensures that the software can be bui
 </div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">$ ./tooling.sh
 Uitsmijter Tooling
-============================================================
+********************************************************************************************************************************************************************************************************
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~ Branch: main | Version: ce-0.9.6                                                                                                                                                                    ~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Choose one or more commands: 
 
+        -rm   | --remove          | remove        Remove docker volumes, images and build directory
         -b    | --build           | build         Build the project
         -l    | --lint            | lint          Check code quality
         -t    | --test            | test          Run all UnitTests
@@ -2363,6 +2370,7 @@ Choose one or more commands:
         -s    | --release         | release       Build a release version, can have an optional added image 
                                                   name (with optional tag)
         -p    | --helm            | helm          Build the helm package
+              | --code            | code          Open a code editor
         -h    | --help            | help          Show this help message
 
 Additional Parameters: 
@@ -2370,12 +2378,23 @@ Additional Parameters:
         --rebuild                     Force rebuild images
         --debug                       Enable debug output
         --dirty                       Use incremental temporary runtime for the local cluster
+        --fast                        runs tests only on one virtual browser and resolution.
 
 Example:
         ./tooling build run
         ./tooling -b -r
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Documentation can be found at https://docs.uitsmijter.io
+
+
+********************************************************************************************************************************************************************************************************
+* done.                                                                                                                                                                                                *
+********************************************************************************************************************************************************************************************************
+
+
 </code></pre></div><p><em><strong>Whohoo</strong> that are a lot of options!</em> Don&rsquo;t panic! We&rsquo;ll discuss each command in a second. But first let&rsquo;s see how to
-use the options.</p>
+use these options on command line.</p>
 <p>Every option can be chained. Instead of build first and test then, like:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ ./tooling.sh build
 <span class="o">[</span>...<span class="o">]</span>
@@ -2396,6 +2415,19 @@ as well. In this documentation only <em>command-style</em> (without hyphens) wil
         </a>
     </h2>
 </div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="remove">
+        remove
+        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#remove" class="gdoc-page__anchor clip flex align-center" title="Anchor to: remove" aria-label="Anchor to: remove" href="#remove">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Removes the local Docker containers, images and volumes, as well as the local .build-cache.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">./tooling.sh remove
+</code></pre></div><p>Removing all images gives recovering your environment from all Uitsmijter related containers and enforce <code>build</code> to build
+the sources from scratch.</p>
+<p>After removing all corresponding images, <code>build</code>, <code>test</code>, <code>e2e</code> and <code>code</code> needs to pull the base images from the registry again.</p>
 <div class="gdoc-page__anchorwrap">
     <h3 id="build">
         build
@@ -2551,6 +2583,48 @@ image and generates helm chats for that.</p>
 ensures that is made from a non cached version.</p>
 </blockquote>
 <div class="gdoc-page__anchorwrap">
+    <h3 id="heml">
+        heml
+        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#heml" class="gdoc-page__anchor clip flex align-center" title="Anchor to: heml" aria-label="Anchor to: heml" href="#heml">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>The Uitsmijter Project contains <a
+  class="gdoc-markdown__link"
+  href="https://helm.sh"
+>🔗 Helm</a> templates. Use this command to package these charts into a
+.tgz file that can be found at <code>/Deployment/Release/uitsmijter-&lt;version&gt;-&lt;build&gt;-&lt;hash&gt;.tgz</code>.</p>
+<p>If you are contributing to the public open source project, you do not need to build the packages, but if you are using
+Uitsmijter in a private repository, you may want to maintain your own chats. This command will help you to maintain these
+chats.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">./tooling.sh helm
+</code></pre></div><p>In your CI you may want to use this in conjunction:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">./tooling.sh <span class="nb">test</span> release helm
+</code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="code">
+        code
+        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#code" class="gdoc-page__anchor clip flex align-center" title="Anchor to: code" aria-label="Anchor to: code" href="#code">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>As an experienced developer who works a lot in and with Uitsmijter, you certainly have your preferred local development
+environment in which you like to work. The developers of the code all prefer other environments, whether Xcode, CLion,
+AppCode, Visual Studio Code, or vi. Uitsmijter does not tell you what to develop in.</p>
+<p>We welcome you to participate in the development, and we know how challenging it can be to set up and adjust everything
+from the checkout of the project to the first commit. We want to make your experience as pleasant as possible and allow
+you to get a taste of the project without any effort. That&rsquo;s why Uitsmijter provides you with a ready-to-run IDE with the
+code. This runs in your browser and has all the settings for coding, testing and debugging already preset. Of course, you
+can customize the look &amp; feel and adapt it to your needs.</p>
+<p>Just give it a try.
+<em>Rumor has it that even project maintainers prefer to use this function for more and more tasks in the code.</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">./tooling.sh code
+</code></pre></div><blockquote>
+<p>Note: Tests are slower in the IDE than via <code>./tooling.sh test</code>, as they can only run on one worker. However, it is possible
+to execute individual tests and set breakpoints in the code.</p>
+</blockquote>
+<div class="gdoc-page__anchorwrap">
     <h3 id="help">
         help
         <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#help" class="gdoc-page__anchor clip flex align-center" title="Anchor to: help" aria-label="Anchor to: help" href="#help">
@@ -2583,6 +2657,17 @@ of the supported containers such as the <code>e2e.Dockerfile</code> will be igno
 image is still present on the system where the build runner exists.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">./tooling.sh e2e --rebuild
 </code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="debug-output">
+        debug output
+        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#debug-output" class="gdoc-page__anchor clip flex align-center" title="Anchor to: debug output" aria-label="Anchor to: debug output" href="#debug-output">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>To see what the build tool is doing, pass <code>--debug</code> to the command. Debug outputs shows every command that the
+automation scripts are doing onto the terminal output.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">./tooling.sh build --debug
+</code></pre></div><div class="gdoc-page__anchorwrap">
     <h3 id="use-dirty-build">
         use dirty build
         <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#use-dirty-build" class="gdoc-page__anchor clip flex align-center" title="Anchor to: use dirty build" aria-label="Anchor to: use dirty build" href="#use-dirty-build">
@@ -2595,16 +2680,16 @@ a <code>--diry</code> option can be passed to <code>e2e</code> and <code>run-clu
 for the cluster.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">./tooling.sh e2e --dirty
 </code></pre></div><div class="gdoc-page__anchorwrap">
-    <h3 id="debug-output">
-        debug output
-        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#debug-output" class="gdoc-page__anchor clip flex align-center" title="Anchor to: debug output" aria-label="Anchor to: debug output" href="#debug-output">
+    <h3 id="use-fast-e2e-tests">
+        use fast e2e tests
+        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#use-fast-e2e-tests" class="gdoc-page__anchor clip flex align-center" title="Anchor to: use fast e2e tests" aria-label="Anchor to: use fast e2e tests" href="#use-fast-e2e-tests">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h3>
 </div>
-<p>To see what the build tool is doing, pass <code>--debug</code> to the command. Debug outputs shows every command that the
-automation scripts are doing onto the terminal output.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">./tooling.sh build --debug
+<p>The end-to-end tests are carried out in various browsers with desktop and mobile screen resolutions. This is of course
+good to be sure that Uitsmijter works flawlessly in different environments and that a high-quality version can be built. Nevertheless, during development it is sometimes necessary to run all e2e tests quickly. The parameter &lsquo;fast&rsquo; restricts the execution to a browser with only one resolution.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">./tooling.sh e2e --fast
 </code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="used-dockerfile">
         Used Dockerfile
@@ -2639,6 +2724,7 @@ Uitsmijter Tooling
 
 Choose one or more commands: 
 
+        -rm   <span class="p">|</span> --remove          <span class="p">|</span> remove        Remove docker volumes, images and build directory
         -b    <span class="p">|</span> --build           <span class="p">|</span> build         Build the project
         -l    <span class="p">|</span> --lint            <span class="p">|</span> lint          Check code quality
         -t    <span class="p">|</span> --test            <span class="p">|</span> <span class="nb">test</span>          Run all UnitTests
@@ -2647,6 +2733,7 @@ Choose one or more commands:
         -s    <span class="p">|</span> --release         <span class="p">|</span> release       Build a release version, can have an optional added image 
                                                   name <span class="o">(</span>with optional tag<span class="o">)</span>
         -p    <span class="p">|</span> --helm            <span class="p">|</span> helm          Build the helm package
+              <span class="p">|</span> --code            <span class="p">|</span> code          Open a code editor
         -h    <span class="p">|</span> --help            <span class="p">|</span> <span class="nb">help</span>          Show this <span class="nb">help</span> message
 
 Additional Parameters: 
@@ -2654,18 +2741,20 @@ Additional Parameters:
         --rebuild                     Force rebuild images
         --debug                       Enable debug output
         --dirty                       Use incremental temporary runtime <span class="k">for</span> the <span class="nb">local</span> cluster
+        --fast                        runs tests only on one virtual browser and resolution.
 
 Example:
         ./tooling build run
         ./tooling -b -r
 
---------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Documentation can be found at https://docs.uitsmijter.io
 
 
-••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-• <span class="k">done</span>.                                                                                                       
-••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+********************************************************************************************************************************************************************************************************
+* <span class="k">done</span>.                                                                                                                                                                                                *
+********************************************************************************************************************************************************************************************************
+
 </code></pre></div><p>Do a build first to check if it compiles:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">./tooling build
 <span class="o">[</span>...<span class="o">]</span>
@@ -2938,7 +3027,7 @@ Aborting on container exit...
 <span class="o">[</span>+<span class="o">]</span> Stopping 1/0
  ✔ Container deployment-build-1  Stopped                                                                                                                                                                         0.0s 
 <span class="o">[</span>...<span class="o">]</span>
-</code></pre></div><p>See, the build took only 33ms. For testing multible times, this is much better than 5 minutes.</p>
+</code></pre></div><p>See, the build took only 33ms. For testing multiple times, this is much better than 5 minutes.</p>
 <p>In summary, the intention of the Tooling for Uitsmijter is to streamline the software development process by automating
 various tasks, maintaining consistency, and providing developers with a user-friendly command-line interface for
 efficiently building, testing, and managing the Uitsmijter project.</p>
