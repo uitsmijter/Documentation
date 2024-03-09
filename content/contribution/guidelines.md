@@ -1,6 +1,6 @@
 ---
 title: 'Development guidelines'
-weight: 3
+weight: 4
 ---
 
 # Development guidelines

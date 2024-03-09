@@ -1,6 +1,6 @@
 ---
 title: '3rd Party Tools'
-weight: 8
+weight: 9
 ---
 
 # 3rd Party tools used in Uitsmijter

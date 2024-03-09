@@ -1,6 +1,6 @@
 ---
 title: 'Developer Certificate of Origin'
-weight: 6
+weight: 7
 ---
 
 # Developer Certificate of Origin

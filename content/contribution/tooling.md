@@ -213,6 +213,9 @@ The test cluster runs the latest [release build](#release) which can be reached 
 a `release` ensures that the production release is build from scratch first. This takes a lot of time. Because this is
 not productive when developing features a `--dirty` option can be passed.
 
+When `run-cluster` is executed, a list of test domains is output. To use these, they must be entered in the `/etc/hosts` 
+file. A list of domains and user/password combinations can be found on the dedicates [test cluster](/contribution/test_cluster) page.
+
 ```shell
 ./tooling.sh run-cluster 
 ```

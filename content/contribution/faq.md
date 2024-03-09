@@ -1,6 +1,6 @@
 ---
 title: 'Frequently Asked Questions'
-weight: 5
+weight: 6
 ---
 
 # Why there is no Admin-Interface for Uitsmijter?

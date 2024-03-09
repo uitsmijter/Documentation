@@ -1,6 +1,6 @@
 ---
 title: 'Code of Conduct'
-weight: 7
+weight: 8
 ---
 
 # Code of Conduct
