@@ -29,6 +29,16 @@ For Uitsmijter we build a toolchain that help developers to set up the environme
     </item>
     
     <item>
+      <title>Test Cluster Domains</title>
+      <link>https://docs.uitsmijter.io/contribution/test_cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/test_cluster/</guid>
+      <description>Test Cluster Domains     When running run-cluster from the Toolchain command, a bunch of test domains are set up in a local Kubernetes cluster. You can use these domains to test and evaluate Uitsmijter.
+Cheese tenant example domains     api.example.com     This domain does not have an endpoint. This domain is used for tests and return a 404 page not found when called.</description>
+    </item>
+    
+    <item>
       <title>Development guidelines</title>
       <link>https://docs.uitsmijter.io/contribution/guidelines/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

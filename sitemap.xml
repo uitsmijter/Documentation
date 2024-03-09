@@ -36,8 +36,6 @@
   </url><url>
     <loc>https://docs.uitsmijter.io/oauth/endpoints/</loc>
   </url><url>
-    <loc>https://docs.uitsmijter.io/contribution/guidelines/</loc>
-  </url><url>
     <loc>https://docs.uitsmijter.io/interceptor/examples/</loc>
   </url><url>
     <loc>https://docs.uitsmijter.io/general/motivation/</loc>
@@ -46,7 +44,11 @@
   </url><url>
     <loc>https://docs.uitsmijter.io/configuration/tenant_client_config/</loc>
   </url><url>
+    <loc>https://docs.uitsmijter.io/contribution/test_cluster/</loc>
+  </url><url>
     <loc>https://docs.uitsmijter.io/providers/uservalidationprovider/</loc>
+  </url><url>
+    <loc>https://docs.uitsmijter.io/contribution/guidelines/</loc>
   </url><url>
     <loc>https://docs.uitsmijter.io/interceptor/</loc>
   </url><url>
@@ -56,11 +58,9 @@
   </url><url>
     <loc>https://docs.uitsmijter.io/interceptor/migrating_monolith/</loc>
   </url><url>
-    <loc>https://docs.uitsmijter.io/contribution/goals/</loc>
-  </url><url>
     <loc>https://docs.uitsmijter.io/general/requirements/</loc>
   </url><url>
-    <loc>https://docs.uitsmijter.io/contribution/faq/</loc>
+    <loc>https://docs.uitsmijter.io/contribution/goals/</loc>
   </url><url>
     <loc>https://docs.uitsmijter.io/oauth/pkce/</loc>
   </url><url>
@@ -70,15 +70,17 @@
   </url><url>
     <loc>https://docs.uitsmijter.io/customisation/</loc>
   </url><url>
-    <loc>https://docs.uitsmijter.io/contribution/certificate_of_origin/</loc>
+    <loc>https://docs.uitsmijter.io/contribution/faq/</loc>
   </url><url>
-    <loc>https://docs.uitsmijter.io/contribution/codeofconduct/</loc>
+    <loc>https://docs.uitsmijter.io/contribution/certificate_of_origin/</loc>
   </url><url>
     <loc>https://docs.uitsmijter.io/versions/</loc>
   </url><url>
-    <loc>https://docs.uitsmijter.io/contribution/3rdparty/</loc>
+    <loc>https://docs.uitsmijter.io/contribution/codeofconduct/</loc>
   </url><url>
     <loc>https://docs.uitsmijter.io/contribution/</loc>
+  </url><url>
+    <loc>https://docs.uitsmijter.io/contribution/3rdparty/</loc>
   </url><url>
     <loc>https://docs.uitsmijter.io/resources/</loc>
   </url><url>

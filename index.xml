@@ -168,16 +168,6 @@ At login, Uitsmijter delegates the credentials the user provides via the login f
     </item>
     
     <item>
-      <title>Development guidelines</title>
-      <link>https://docs.uitsmijter.io/contribution/guidelines/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://docs.uitsmijter.io/contribution/guidelines/</guid>
-      <description>Development guidelines     Pull requests are very much desired     Please open a new branch with the naming scheme feature/&amp;lt;#Issue&amp;gt;-&amp;lt;#Description&amp;gt; or fix/&amp;lt;#Issue&amp;gt;-&amp;lt;#Description&amp;gt; regarding the type of the change. Do a descriptive pull request against the main branch. Prepare the pull request; we prefer small requests, that are squashed into the main branch.
-Pull request on an open issue have higher priorities, because every pull request should be inclusive and everyone in the community should be enabled to talk about the changes.</description>
-    </item>
-    
-    <item>
       <title>Example Deployment</title>
       <link>https://docs.uitsmijter.io/interceptor/examples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -208,6 +198,16 @@ annotations:traefik.ingress.kubernetes.io/router.middlewares:uitsmijter-forward-
     </item>
     
     <item>
+      <title>Test Cluster Domains</title>
+      <link>https://docs.uitsmijter.io/contribution/test_cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/test_cluster/</guid>
+      <description>Test Cluster Domains     When running run-cluster from the Toolchain command, a bunch of test domains are set up in a local Kubernetes cluster. You can use these domains to test and evaluate Uitsmijter.
+Cheese tenant example domains     api.example.com     This domain does not have an endpoint. This domain is used for tests and return a 404 page not found when called.</description>
+    </item>
+    
+    <item>
       <title>User Validation Provider</title>
       <link>https://docs.uitsmijter.io/providers/uservalidationprovider/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -215,6 +215,16 @@ annotations:traefik.ingress.kubernetes.io/router.middlewares:uitsmijter-forward-
       <guid>https://docs.uitsmijter.io/providers/uservalidationprovider/</guid>
       <description>User Validation Provider     A user validation provider is responsible for checking if a Username is still valid to access the application. A user could be invalid if the user is removed from the backend user store.
 Everytime a user tries to refresh a token, the User Validation Provider will be asked if the user is still valid. The Provider will not be called on a regular login!</description>
+    </item>
+    
+    <item>
+      <title>Development guidelines</title>
+      <link>https://docs.uitsmijter.io/contribution/guidelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/guidelines/</guid>
+      <description>Development guidelines     Pull requests are very much desired     Please open a new branch with the naming scheme feature/&amp;lt;#Issue&amp;gt;-&amp;lt;#Description&amp;gt; or fix/&amp;lt;#Issue&amp;gt;-&amp;lt;#Description&amp;gt; regarding the type of the change. Do a descriptive pull request against the main branch. Prepare the pull request; we prefer small requests, that are squashed into the main branch.
+Pull request on an open issue have higher priorities, because every pull request should be inclusive and everyone in the community should be enabled to talk about the changes.</description>
     </item>
     
     <item>
@@ -249,16 +259,6 @@ Everytime a user tries to refresh a token, the User Validation Provider will be 
     </item>
     
     <item>
-      <title>Overall Goals</title>
-      <link>https://docs.uitsmijter.io/contribution/goals/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://docs.uitsmijter.io/contribution/goals/</guid>
-      <description>Overall Project Goals     The overall project goals encompass a range of objectives that go beyond the functional requirements of the system. These goals primarily focus on the non-functional aspects, aiming to ensure the system&amp;rsquo;s performance, reliability, security, and usability. By considering these non-functional requirements, the project aims to deliver a robust and user-friendly solution that meets the standards of quality and user satisfaction.
-Ease Of Use:     One of the key non-functional requirements of the project is the ease of use.</description>
-    </item>
-    
-    <item>
       <title>Requirements</title>
       <link>https://docs.uitsmijter.io/general/requirements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -269,13 +269,13 @@ Must have preinstalled resources       🔗 Traefik in version &amp;gt;= 2.9 Cur
     </item>
     
     <item>
-      <title>Frequently Asked Questions</title>
-      <link>https://docs.uitsmijter.io/contribution/faq/</link>
+      <title>Overall Goals</title>
+      <link>https://docs.uitsmijter.io/contribution/goals/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.uitsmijter.io/contribution/faq/</guid>
-      <description>Why there is no Admin-Interface for Uitsmijter?     Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:
- There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes.</description>
+      <guid>https://docs.uitsmijter.io/contribution/goals/</guid>
+      <description>Overall Project Goals     The overall project goals encompass a range of objectives that go beyond the functional requirements of the system. These goals primarily focus on the non-functional aspects, aiming to ensure the system&amp;rsquo;s performance, reliability, security, and usability. By considering these non-functional requirements, the project aims to deliver a robust and user-friendly solution that meets the standards of quality and user satisfaction.
+Ease Of Use:     One of the key non-functional requirements of the project is the ease of use.</description>
     </item>
     
     <item>
@@ -297,6 +297,16 @@ A description of the authorization code flow with PKCE:</description>
       <description>Quick Start Guide for Kubernetes     This guide covers all you need to get up and running with Uitsmijter. The documentation is based on a fictive Project for better understanding when and why to set some configurations.
 Meet the requirements     This quick start guide assumes that the requirements are given. See this list of requirements that cover the following criteria:
  Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e.</description>
+    </item>
+    
+    <item>
+      <title>Frequently Asked Questions</title>
+      <link>https://docs.uitsmijter.io/contribution/faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.uitsmijter.io/contribution/faq/</guid>
+      <description>Why there is no Admin-Interface for Uitsmijter?     Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:
+ There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes.</description>
     </item>
     
     <item>

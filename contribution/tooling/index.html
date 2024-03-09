@@ -50,7 +50,7 @@ For Uitsmijter we build a toolchain that help developers to set up the environme
       "url" : "https://docs.uitsmijter.io/contribution/tooling/",
       "headline": "Toolchain",
       "description": "Commandline Tool To Build Uitsmijter - Tooling.sh     A build tool is a set of tools that automate the process of testing, compiling, assembling, and packaging source code into executable software. Build tools are an essential part of the software development lifecycle, helping developers manage the complexity of building, testing, and deploying software.\nFor Uitsmijter we build a toolchain that help developers to set up the environment to work easily with the code.",
-      "wordCount" : "4081",
+      "wordCount" : "4119",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -1855,6 +1855,50 @@ For Uitsmijter we build a toolchain that help developers to set up the environme
               
                 <span class="flex">
                   <a
+                    href="/contribution/test_cluster/"
+                    class="gdoc-nav__entry"
+                  >
+                    Test Cluster Domains
+                  </a>
+                </span>
+              
+              
+            </label>
+
+            
+          </li>
+        
+      
+    
+      
+
+      
+        
+      
+
+      
+        
+          
+          
+          
+          
+          
+          
+
+
+          <li>
+            <input
+              type="checkbox"
+              
+                class="hidden"
+              
+            />
+            <label
+              
+            >
+              
+                <span class="flex">
+                  <a
                     href="/contribution/guidelines/"
                     class="gdoc-nav__entry"
                   >
@@ -2562,6 +2606,11 @@ The test cluster runs the latest <a
 >https://uitsmijter.localhost</a>. Again,
 a <code>release</code> ensures that the production release is build from scratch first. This takes a lot of time. Because this is
 not productive when developing features a <code>--dirty</code> option can be passed.</p>
+<p>When <code>run-cluster</code> is executed, a list of test domains is output. To use these, they must be entered in the <code>/etc/hosts</code>
+file. A list of domains and user/password combinations can be found on the dedicates <a
+  class="gdoc-markdown__link"
+  href="/contribution/test_cluster"
+>test cluster</a> page.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">./tooling.sh run-cluster 
 </code></pre></div><p>is the equivalent for <code>release run-cluster</code>.</p>
 <p>or</p>
