@@ -34,7 +34,7 @@ information please read the [quick start](/general/quickstart) guide.
 namespaceOverride: ""
 
 image:
-  repository: docker.ausdertechnik.de/uitsmijter/uitsmijter
+  repository: ghcr.io/uitsmijter/uitsmijter
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   pullPolicy: Always
