@@ -5,15 +5,14 @@
     <link>https://docs.uitsmijter.io/resources/</link>
     <description>Recent content in Resources on Uitsmijter Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://docs.uitsmijter.io/resources/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="https://docs.uitsmijter.io/resources/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>https://docs.uitsmijter.io/resources/demopage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/resources/demopage/</guid>
-      <description>Demo Deployment Files      namespace tenant client content service ingress-open ingress-secured pod  </description>
+      <description> Demo Deployment Files namespace tenant client content service ingress-open ingress-secured pod </description>
     </item>
-    
   </channel>
 </rss>

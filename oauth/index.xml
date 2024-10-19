@@ -5,56 +5,42 @@
     <link>https://docs.uitsmijter.io/oauth/</link>
     <description>Recent content in OAuth on Uitsmijter Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://docs.uitsmijter.io/oauth/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="https://docs.uitsmijter.io/oauth/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OAuth flow</title>
       <link>https://docs.uitsmijter.io/oauth/flow/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/oauth/flow/</guid>
-      <description>OAuth flow     OAuth 2.0 is an open standard for authorization that enables third-party applications to obtain limited access to a user&amp;rsquo;s resources without requiring the user to provide their login credentials.
-There are several flows that can be used with OAuth 2.0, depending on the type of application and the resources it needs to access. Here is a brief overview of the most common flows that ist supported by Uitsmijter:</description>
+      <description>OAuth flow OAuth 2.0 is an open standard for authorization that enables third-party applications to obtain limited access to a user&amp;rsquo;s resources without requiring the user to provide their login credentials.&#xA;There are several flows that can be used with OAuth 2.0, depending on the type of application and the resources it needs to access. Here is a brief overview of the most common flows that ist supported by Uitsmijter:</description>
     </item>
-    
     <item>
       <title>Grant Types</title>
       <link>https://docs.uitsmijter.io/oauth/granttypes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/oauth/granttypes/</guid>
-      <description>Grant Types     In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.
-Configuration     Grant types can be set at Client level.
-grant_types:- authorization_code- refresh_token- passwordIf none of any grant type is specified, that authorization_code and refresh_token are enabled by default.
-Authorization Code     The authorization code flow is a way to grant access to a protected resource, such as an API, by an external client.</description>
+      <description>Grant Types In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.&#xA;Configuration Grant types can be set at Client level.&#xA;grant_types: - authorization_code - refresh_token - password If none of any grant type is specified, that authorization_code and refresh_token are enabled by default.&#xA;Authorization Code The authorization code flow is a way to grant access to a protected resource, such as an API, by an external client.</description>
     </item>
-    
     <item>
       <title>Available Endpoints</title>
       <link>https://docs.uitsmijter.io/oauth/endpoints/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/oauth/endpoints/</guid>
-      <description>Available Endpoints     An endpoint is a specific location that is capable of accepting incoming requests, and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.</description>
+      <description>Available Endpoints An endpoint is a specific location that is capable of accepting incoming requests, and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.</description>
     </item>
-    
     <item>
       <title>JWT Decoding</title>
       <link>https://docs.uitsmijter.io/oauth/jwt_decoding/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/oauth/jwt_decoding/</guid>
-      <description>JWT Decoding     OAuth does not have a specific standard &amp;ldquo;profile endpoint&amp;rdquo; for decoding the content of a JSON Web Token (JWT). OAuth is a standard for authorization, which means that it is primarily concerned with granting and revoking access to resources, rather than with providing information about the user who is accessing the resources. But certain libraries (like oidc-client-ts) expecting it for decoding a profile content, so Uitsmijter supports a decoding endpoint for valid and non expired tokens at GET /token/info.</description>
+      <description>JWT Decoding OAuth does not have a specific standard &amp;ldquo;profile endpoint&amp;rdquo; for decoding the content of a JSON Web Token (JWT). OAuth is a standard for authorization, which means that it is primarily concerned with granting and revoking access to resources, rather than with providing information about the user who is accessing the resources. But certain libraries (like oidc-client-ts) expecting it for decoding a profile content, so Uitsmijter supports a decoding endpoint for valid and non expired tokens at GET /token/info.</description>
     </item>
-    
     <item>
       <title>PKCE</title>
       <link>https://docs.uitsmijter.io/oauth/pkce/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/oauth/pkce/</guid>
-      <description>Authorization Code Flow with Proof Key for Code Exchange     The Authorization Code Flow with Proof Key for Code Exchange (PKCE) is an OAuth 2.0 flow that is used to secure the authorization process in native applications and single-page applications (SPAs). It is an extension to the standard authorization code flow, and it adds a step that helps to prevent authorization code interception attacks.
-A description of the authorization code flow with PKCE:</description>
+      <description>Authorization Code Flow with Proof Key for Code Exchange The Authorization Code Flow with Proof Key for Code Exchange (PKCE) is an OAuth 2.0 flow that is used to secure the authorization process in native applications and single-page applications (SPAs). It is an extension to the standard authorization code flow, and it adds a step that helps to prevent authorization code interception attacks.&#xA;A description of the authorization code flow with PKCE:</description>
     </item>
-    
   </channel>
 </rss>

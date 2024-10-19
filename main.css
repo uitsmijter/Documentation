@@ -474,7 +474,7 @@ code,
   --body-background: white;
   --body-font-color: rgb(52, 58, 64);
   --mark-color: rgb(255, 171, 0);
-  --button-background: #22597d;
+  --button-background: rgb(34.1906040268, 88.6818791946, 125.0093959732);
   --button-border-color: rgb(32, 83, 117);
   --link-color: rgb(10, 83, 154);
   --link-color-visited: rgb(119, 73, 191);
@@ -483,7 +483,7 @@ code,
   --accent-color-dark: rgb(206, 212, 218);
   --accent-color: rgb(233, 236, 239);
   --accent-color-lite: rgb(248, 249, 250);
-  --control-icons: #b2bac1;
+  --control-icons: rgb(178.3103448276, 185.5, 192.6896551724);
   --footer-background: rgb(17, 43, 60);
   --footer-font-color: rgb(255, 255, 255);
   --footer-link-color: rgb(246, 107, 14);
@@ -572,12 +572,12 @@ code,
   /* GenericUnderline */
   /* TextWhitespace */
   --code-background: rgb(248, 249, 250);
-  --code-accent-color: #e6eaed;
-  --code-accent-color-lite: #f2f4f6;
+  --code-accent-color: rgb(230.15, 233.7, 237.25);
+  --code-accent-color-lite: rgb(242.05, 243.9, 245.75);
   --code-font-color: rgb(70, 70, 70);
   --code-copy-background: rgb(248, 249, 250);
-  --code-copy-font-color: #6b7784;
-  --code-copy-border-color: #adb4bc;
+  --code-copy-font-color: rgb(106.8689655172, 119.2, 131.5310344828);
+  --code-copy-border-color: rgb(172.6827586207, 180.4, 188.1172413793);
   --code-copy-success-color: rgb(0, 200, 83);
 }
 :root .dark-mode-dim .gdoc-markdown img,
@@ -1007,7 +1007,7 @@ code,
     --body-background: white;
     --body-font-color: rgb(52, 58, 64);
     --mark-color: rgb(255, 171, 0);
-    --button-background: #22597d;
+    --button-background: rgb(34.1906040268, 88.6818791946, 125.0093959732);
     --button-border-color: rgb(32, 83, 117);
     --link-color: rgb(10, 83, 154);
     --link-color-visited: rgb(119, 73, 191);
@@ -1016,7 +1016,7 @@ code,
     --accent-color-dark: rgb(206, 212, 218);
     --accent-color: rgb(233, 236, 239);
     --accent-color-lite: rgb(248, 249, 250);
-    --control-icons: #b2bac1;
+    --control-icons: rgb(178.3103448276, 185.5, 192.6896551724);
     --footer-background: rgb(17, 43, 60);
     --footer-font-color: rgb(255, 255, 255);
     --footer-link-color: rgb(246, 107, 14);
@@ -1105,12 +1105,12 @@ code,
     /* GenericUnderline */
     /* TextWhitespace */
     --code-background: rgb(248, 249, 250);
-    --code-accent-color: #e6eaed;
-    --code-accent-color-lite: #f2f4f6;
+    --code-accent-color: rgb(230.15, 233.7, 237.25);
+    --code-accent-color-lite: rgb(242.05, 243.9, 245.75);
     --code-font-color: rgb(70, 70, 70);
     --code-copy-background: rgb(248, 249, 250);
-    --code-copy-font-color: #6b7784;
-    --code-copy-border-color: #adb4bc;
+    --code-copy-font-color: rgb(106.8689655172, 119.2, 131.5310344828);
+    --code-copy-border-color: rgb(172.6827586207, 180.4, 188.1172413793);
     --code-copy-success-color: rgb(0, 200, 83);
   }
   :root .dark-mode-dim .gdoc-markdown img {
@@ -1443,19 +1443,19 @@ code,
 :root[color-theme=dark] {
   --header-background: rgb(32, 83, 117);
   --header-font-color: rgb(255, 255, 255);
-  --body-background: #29363e;
-  --body-font-color: #c2cfd7;
+  --body-background: rgb(40.375, 53.375, 61.875);
+  --body-font-color: rgb(193.4275672372, 206.363997555, 214.8224327628);
   --mark-color: rgb(255, 171, 0);
-  --button-background: #22597d;
+  --button-background: rgb(34.1906040268, 88.6818791946, 125.0093959732);
   --button-border-color: rgb(32, 83, 117);
   --link-color: rgb(110, 168, 212);
   --link-color-visited: rgb(186, 142, 240);
   --hint-link-color: rgb(10, 83, 154);
   --hint-link-color-visited: rgb(119, 73, 191);
-  --accent-color-dark: #192125;
-  --accent-color: #212b32;
-  --accent-color-lite: #253138;
-  --control-icons: #b2bac1;
+  --accent-color-dark: rgb(24.2644865526, 32.077200489, 37.1855134474);
+  --accent-color: rgb(32.3197432763, 42.7261002445, 49.5302567237);
+  --accent-color-lite: rgb(36.3473716381, 48.0505501222, 55.7026283619);
+  --control-icons: rgb(178.3103448276, 185.5, 192.6896551724);
   --footer-background: rgb(17, 43, 60);
   --footer-font-color: rgb(255, 255, 255);
   --footer-link-color: rgb(246, 107, 14);
@@ -1543,13 +1543,13 @@ code,
   /* GenericTraceback */
   /* GenericUnderline */
   /* TextWhitespace */
-  --code-background: #232e35;
-  --code-accent-color: #1b2329;
-  --code-accent-color-lite: #1f292f;
+  --code-background: rgb(34.3335574572, 45.3883251834, 52.6164425428);
+  --code-accent-color: rgb(26.2783007335, 34.7394254279, 40.2716992665);
+  --code-accent-color-lite: rgb(30.3059290954, 40.0638753056, 46.4440709046);
   --code-font-color: rgb(185, 185, 185);
-  --code-copy-background: #29363e;
-  --code-copy-font-color: #6b7784;
-  --code-copy-border-color: #6b7784;
+  --code-copy-background: rgb(40.375, 53.375, 61.875);
+  --code-copy-font-color: rgb(106.8689655172, 119.2, 131.5310344828);
+  --code-copy-border-color: rgb(106.8689655172, 119.2, 131.5310344828);
   --code-copy-success-color: rgba(0, 200, 83, 0.45);
 }
 :root[color-theme=dark] .dark-mode-dim .gdoc-markdown img {
@@ -1952,13 +1952,13 @@ code,
   /* GenericTraceback */
   /* GenericUnderline */
   /* TextWhitespace */
-  --code-background: #232e35;
-  --code-accent-color: #1b2329;
-  --code-accent-color-lite: #1f292f;
+  --code-background: rgb(34.3335574572, 45.3883251834, 52.6164425428);
+  --code-accent-color: rgb(26.2783007335, 34.7394254279, 40.2716992665);
+  --code-accent-color-lite: rgb(30.3059290954, 40.0638753056, 46.4440709046);
   --code-font-color: rgb(185, 185, 185);
-  --code-copy-background: #29363e;
-  --code-copy-font-color: #6b7784;
-  --code-copy-border-color: #6b7784;
+  --code-copy-background: rgb(40.375, 53.375, 61.875);
+  --code-copy-font-color: rgb(106.8689655172, 119.2, 131.5310344828);
+  --code-copy-border-color: rgb(106.8689655172, 119.2, 131.5310344828);
   --code-copy-success-color: rgba(0, 200, 83, 0.45);
 }
 :root[code-theme=dark] .chroma {
@@ -2261,19 +2261,19 @@ code,
   :root {
     --header-background: rgb(32, 83, 117);
     --header-font-color: rgb(255, 255, 255);
-    --body-background: #29363e;
-    --body-font-color: #c2cfd7;
+    --body-background: rgb(40.375, 53.375, 61.875);
+    --body-font-color: rgb(193.4275672372, 206.363997555, 214.8224327628);
     --mark-color: rgb(255, 171, 0);
-    --button-background: #22597d;
+    --button-background: rgb(34.1906040268, 88.6818791946, 125.0093959732);
     --button-border-color: rgb(32, 83, 117);
     --link-color: rgb(110, 168, 212);
     --link-color-visited: rgb(186, 142, 240);
     --hint-link-color: rgb(10, 83, 154);
     --hint-link-color-visited: rgb(119, 73, 191);
-    --accent-color-dark: #192125;
-    --accent-color: #212b32;
-    --accent-color-lite: #253138;
-    --control-icons: #b2bac1;
+    --accent-color-dark: rgb(24.2644865526, 32.077200489, 37.1855134474);
+    --accent-color: rgb(32.3197432763, 42.7261002445, 49.5302567237);
+    --accent-color-lite: rgb(36.3473716381, 48.0505501222, 55.7026283619);
+    --control-icons: rgb(178.3103448276, 185.5, 192.6896551724);
     --footer-background: rgb(17, 43, 60);
     --footer-font-color: rgb(255, 255, 255);
     --footer-link-color: rgb(246, 107, 14);
@@ -2361,13 +2361,13 @@ code,
     /* GenericTraceback */
     /* GenericUnderline */
     /* TextWhitespace */
-    --code-background: #232e35;
-    --code-accent-color: #1b2329;
-    --code-accent-color-lite: #1f292f;
+    --code-background: rgb(34.3335574572, 45.3883251834, 52.6164425428);
+    --code-accent-color: rgb(26.2783007335, 34.7394254279, 40.2716992665);
+    --code-accent-color-lite: rgb(30.3059290954, 40.0638753056, 46.4440709046);
     --code-font-color: rgb(185, 185, 185);
-    --code-copy-background: #29363e;
-    --code-copy-font-color: #6b7784;
-    --code-copy-border-color: #6b7784;
+    --code-copy-background: rgb(40.375, 53.375, 61.875);
+    --code-copy-font-color: rgb(106.8689655172, 119.2, 131.5310344828);
+    --code-copy-border-color: rgb(106.8689655172, 119.2, 131.5310344828);
     --code-copy-success-color: rgba(0, 200, 83, 0.45);
   }
   :root .dark-mode-dim .gdoc-markdown img {
@@ -3481,42 +3481,42 @@ svg.gdoc-icon {
 }
 .admonitionblock.info {
   border-left-color: rgb(0, 145, 234);
-  background-color: #f3f9fd;
+  background-color: rgb(243.27, 249.2558974359, 252.93);
   color: rgb(52, 58, 64);
 }
 .admonitionblock.note {
   border-left-color: rgb(0, 145, 234);
-  background-color: #f3f9fd;
+  background-color: rgb(243.27, 249.2558974359, 252.93);
   color: rgb(52, 58, 64);
 }
 .admonitionblock.ok {
   border-left-color: rgb(0, 200, 83);
-  background-color: #f2fdf6;
+  background-color: rgb(241.825, 252.675, 246.32775);
   color: rgb(52, 58, 64);
 }
 .admonitionblock.tip {
   border-left-color: rgb(0, 200, 83);
-  background-color: #f2fdf6;
+  background-color: rgb(241.825, 252.675, 246.32775);
   color: rgb(52, 58, 64);
 }
 .admonitionblock.important {
   border-left-color: rgb(255, 171, 0);
-  background-color: #fdfaf4;
+  background-color: rgb(253.0875, 250.1475, 244.1625);
   color: rgb(52, 58, 64);
 }
 .admonitionblock.caution {
   border-left-color: rgb(115, 0, 211);
-  background-color: #f8f2fd;
+  background-color: rgb(247.9961729858, 242.2925, 252.7575);
   color: rgb(52, 58, 64);
 }
 .admonitionblock.danger {
   border-left-color: rgb(213, 0, 0);
-  background-color: #fdf2f2;
+  background-color: rgb(252.7725, 242.3775, 242.3775);
   color: rgb(52, 58, 64);
 }
 .admonitionblock.warning {
   border-left-color: rgb(213, 0, 0);
-  background-color: #fdf2f2;
+  background-color: rgb(252.7725, 242.3775, 242.3775);
   color: rgb(52, 58, 64);
 }
 .admonitionblock table {
@@ -3684,49 +3684,49 @@ svg.gdoc-icon {
 
 .gdoc-hint.info {
   border-left-color: rgb(0, 145, 234);
-  background-color: #f3f9fd;
+  background-color: rgb(243.27, 249.2558974359, 252.93);
   color: rgb(52, 58, 64);
   padding: 0;
 }
 .gdoc-hint.note {
   border-left-color: rgb(0, 145, 234);
-  background-color: #f3f9fd;
+  background-color: rgb(243.27, 249.2558974359, 252.93);
   color: rgb(52, 58, 64);
   padding: 0;
 }
 .gdoc-hint.ok {
   border-left-color: rgb(0, 200, 83);
-  background-color: #f2fdf6;
+  background-color: rgb(241.825, 252.675, 246.32775);
   color: rgb(52, 58, 64);
   padding: 0;
 }
 .gdoc-hint.tip {
   border-left-color: rgb(0, 200, 83);
-  background-color: #f2fdf6;
+  background-color: rgb(241.825, 252.675, 246.32775);
   color: rgb(52, 58, 64);
   padding: 0;
 }
 .gdoc-hint.important {
   border-left-color: rgb(255, 171, 0);
-  background-color: #fdfaf4;
+  background-color: rgb(253.0875, 250.1475, 244.1625);
   color: rgb(52, 58, 64);
   padding: 0;
 }
 .gdoc-hint.caution {
   border-left-color: rgb(115, 0, 211);
-  background-color: #f8f2fd;
+  background-color: rgb(247.9961729858, 242.2925, 252.7575);
   color: rgb(52, 58, 64);
   padding: 0;
 }
 .gdoc-hint.danger {
   border-left-color: rgb(213, 0, 0);
-  background-color: #fdf2f2;
+  background-color: rgb(252.7725, 242.3775, 242.3775);
   color: rgb(52, 58, 64);
   padding: 0;
 }
 .gdoc-hint.warning {
   border-left-color: rgb(213, 0, 0);
-  background-color: #fdf2f2;
+  background-color: rgb(252.7725, 242.3775, 242.3775);
   color: rgb(52, 58, 64);
   padding: 0;
 }
@@ -3806,36 +3806,36 @@ svg.gdoc-icon {
   margin-right: 0.5rem;
 }
 .gdoc-props__tag.info {
-  border-color: #e8f4fb;
-  background-color: #f3f9fd;
+  border-color: rgb(231.54, 243.5117948718, 250.86);
+  background-color: rgb(243.27, 249.2558974359, 252.93);
 }
 .gdoc-props__tag.note {
-  border-color: #e8f4fb;
-  background-color: #f3f9fd;
+  border-color: rgb(231.54, 243.5117948718, 250.86);
+  background-color: rgb(243.27, 249.2558974359, 252.93);
 }
 .gdoc-props__tag.ok {
-  border-color: #e5faee;
-  background-color: #f2fdf6;
+  border-color: rgb(228.65, 250.35, 237.6555);
+  background-color: rgb(241.825, 252.675, 246.32775);
 }
 .gdoc-props__tag.tip {
-  border-color: #e5faee;
-  background-color: #f2fdf6;
+  border-color: rgb(228.65, 250.35, 237.6555);
+  background-color: rgb(241.825, 252.675, 246.32775);
 }
 .gdoc-props__tag.important {
-  border-color: #fbf5e9;
-  background-color: #fdfaf4;
+  border-color: rgb(251.175, 245.295, 233.325);
+  background-color: rgb(253.0875, 250.1475, 244.1625);
 }
 .gdoc-props__tag.caution {
-  border-color: #f1e6fb;
-  background-color: #f8f2fd;
+  border-color: rgb(240.9923459716, 229.585, 250.515);
+  background-color: rgb(247.9961729858, 242.2925, 252.7575);
 }
 .gdoc-props__tag.danger {
-  border-color: #fbe6e6;
-  background-color: #fdf2f2;
+  border-color: rgb(250.545, 229.755, 229.755);
+  background-color: rgb(252.7725, 242.3775, 242.3775);
 }
 .gdoc-props__tag.warning {
-  border-color: #fbe6e6;
-  background-color: #fdf2f2;
+  border-color: rgb(250.545, 229.755, 229.755);
+  background-color: rgb(252.7725, 242.3775, 242.3775);
 }
 .gdoc-props__tag {
   font-size: 0.875rem;

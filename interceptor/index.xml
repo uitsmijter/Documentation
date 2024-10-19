@@ -5,48 +5,35 @@
     <link>https://docs.uitsmijter.io/interceptor/</link>
     <description>Recent content in Interceptor on Uitsmijter Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://docs.uitsmijter.io/interceptor/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="https://docs.uitsmijter.io/interceptor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Walkthrough guide</title>
       <link>https://docs.uitsmijter.io/interceptor/quickstart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/interceptor/quickstart/</guid>
-      <description>Walkthrough guide for securing static webserver resources     The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server.
-For this additional walkthrough documentation we assume that a last-minute change request for the business hits the development team. The requirement is, that the company&amp;rsquo;s Design-Cookbook should be accessible for all partners.</description>
+      <description>Walkthrough guide for securing static webserver resources The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server.&#xA;For this additional walkthrough documentation we assume that a last-minute change request for the business hits the development team. The requirement is, that the company&amp;rsquo;s Design-Cookbook should be accessible for all partners.</description>
     </item>
-    
     <item>
       <title>Interceptor Mode</title>
       <link>https://docs.uitsmijter.io/interceptor/interceptor/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/interceptor/interceptor/</guid>
-      <description>Interceptor Mode     Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, then the middleware forwards the request to the requested resource.
- For other ingress controllers support please feel free to contact our development and consulting team.</description>
+      <description>Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, then the middleware forwards the request to the requested resource.&#xA;For other ingress controllers support please feel free to contact our development and consulting team.</description>
     </item>
-    
     <item>
       <title>Example Deployment</title>
       <link>https://docs.uitsmijter.io/interceptor/examples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/interceptor/examples/</guid>
-      <description>Interceptor Mode     The interceptor mode is shown in an example deployment. The same nginx pod is accessible via two separate ingresses, one is secured by the interceptor middleware, the other is not secured.
-Configuration     To secure an ingress with the interceptor middleware you have to set an annotation to the Ingress.
-Add this annotation to the Ingress configuration.
-annotations:traefik.ingress.kubernetes.io/router.middlewares:uitsmijter-forward-auth@kubernetescrdOn an existing ingress you can add the annotation with kubectl</description>
+      <description>Interceptor Mode The interceptor mode is shown in an example deployment. The same nginx pod is accessible via two separate ingresses, one is secured by the interceptor middleware, the other is not secured.&#xA;Configuration To secure an ingress with the interceptor middleware you have to set an annotation to the Ingress.&#xA;Add this annotation to the Ingress configuration.&#xA;annotations: traefik.ingress.kubernetes.io/router.middlewares: uitsmijter-forward-auth@kubernetescrd On an existing ingress you can add the annotation with kubectl</description>
     </item>
-    
     <item>
       <title>Migrating a monolith</title>
       <link>https://docs.uitsmijter.io/interceptor/migrating_monolith/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/interceptor/migrating_monolith/</guid>
-      <description>Migrating a monolith application into microservices with single sign on     Page navigation:
- General Discussion Facing the problems of an application migration path The Demo-Project used for this documentation Configuring Uitsmijter checkcredentials Proxy Service Changes that need to be made You have made it!  General Discussion      Articles Available Please checkout our article that discuss the general thoughts behind agile migration.  Facing the problems of an application migration path     Monolithic applications with their own login have one or more of the following factors in common:</description>
+      <description>Migrating a monolith application into microservices with single sign on Page navigation:&#xA;General Discussion Facing the problems of an application migration path The Demo-Project used for this documentation Configuring Uitsmijter checkcredentials Proxy Service Changes that need to be made You have made it! General Discussion Articles Available Please checkout our article that discuss the general thoughts behind agile migration. Facing the problems of an application migration path Monolithic applications with their own login have one or more of the following factors in common:</description>
     </item>
-    
   </channel>
 </rss>

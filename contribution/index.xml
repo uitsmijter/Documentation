@@ -5,111 +5,77 @@
     <link>https://docs.uitsmijter.io/contribution/</link>
     <description>Recent content in Contribution on Uitsmijter Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://docs.uitsmijter.io/contribution/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="https://docs.uitsmijter.io/contribution/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Project information</title>
       <link>https://docs.uitsmijter.io/contribution/development/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/contribution/development/</guid>
-      <description>Project information     This project is written in Swift. Started in Swift version 5.7 and moved on to Swift 5.9. It&amp;rsquo;s done with grate support from the Vapor framework and the Swift Server Workgroup community.
-Please check out the server side swift conference if you are interested.
-Uitsmijter chooses swift, because of:
- safety  Strongly Typed encourages to write clean and consistent code safeguards Well-designed asynchronous programming interface   performance  Small footprint Quick startup time Deterministic performance   software design patterns  Code structure     Swift&amp;rsquo;s history and also Vapor&amp;rsquo;s boilerplate&amp;rsquo;s sort code into folders according to their technical role.</description>
+      <description>Project information This project is written in Swift. Started in Swift version 5.7 and moved on to Swift 5.9. It&amp;rsquo;s done with grate support from the Vapor framework and the Swift Server Workgroup community.&#xA;Please check out the server side swift conference if you are interested.&#xA;Uitsmijter chooses swift, because of:&#xA;safety Strongly Typed encourages to write clean and consistent code safeguards Well-designed asynchronous programming interface performance Small footprint Quick startup time Deterministic performance software design patterns Code structure Swift&amp;rsquo;s history and also Vapor&amp;rsquo;s boilerplate&amp;rsquo;s sort code into folders according to their technical role.</description>
     </item>
-    
     <item>
       <title>Toolchain</title>
       <link>https://docs.uitsmijter.io/contribution/tooling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/contribution/tooling/</guid>
-      <description>Commandline Tool To Build Uitsmijter - Tooling.sh     A build tool is a set of tools that automate the process of testing, compiling, assembling, and packaging source code into executable software. Build tools are an essential part of the software development lifecycle, helping developers manage the complexity of building, testing, and deploying software.
-For Uitsmijter we build a toolchain that help developers to set up the environment to work easily with the code.</description>
+      <description>Commandline Tool To Build Uitsmijter - Tooling.sh A build tool is a set of tools that automate the process of testing, compiling, assembling, and packaging source code into executable software. Build tools are an essential part of the software development lifecycle, helping developers manage the complexity of building, testing, and deploying software.&#xA;For Uitsmijter we build a toolchain that help developers to set up the environment to work easily with the code.</description>
     </item>
-    
     <item>
       <title>Test Cluster Domains</title>
       <link>https://docs.uitsmijter.io/contribution/test_cluster/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/contribution/test_cluster/</guid>
-      <description>Test Cluster Domains     When running run-cluster from the Toolchain command, a bunch of test domains are set up in a local Kubernetes cluster. You can use these domains to test and evaluate Uitsmijter.
-Cheese tenant example domains     api.example.com     This domain does not have an endpoint. This domain is used for tests and return a 404 page not found when called.</description>
+      <description>Test Cluster Domains When running run-cluster from the Toolchain command, a bunch of test domains are set up in a local Kubernetes cluster. You can use these domains to test and evaluate Uitsmijter.&#xA;Cheese tenant example domains api.example.com This domain does not have an endpoint. This domain is used for tests and return a 404 page not found when called.&#xA;cookbooks.example.com In cookbooks, a page served by a nginx container, you will find delicious recipes.</description>
     </item>
-    
     <item>
       <title>Development guidelines</title>
       <link>https://docs.uitsmijter.io/contribution/guidelines/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/contribution/guidelines/</guid>
-      <description>Development guidelines     Pull requests are very much desired     Please open a new branch with the naming scheme feature/&amp;lt;#Issue&amp;gt;-&amp;lt;#Description&amp;gt; or fix/&amp;lt;#Issue&amp;gt;-&amp;lt;#Description&amp;gt; regarding the type of the change. Do a descriptive pull request against the main branch. Prepare the pull request; we prefer small requests, that are squashed into the main branch.
-Pull request on an open issue have higher priorities, because every pull request should be inclusive and everyone in the community should be enabled to talk about the changes.</description>
+      <description>Development guidelines Pull requests are very much desired Please open a new branch with the naming scheme feature/&amp;lt;#Issue&amp;gt;-&amp;lt;#Description&amp;gt; or fix/&amp;lt;#Issue&amp;gt;-&amp;lt;#Description&amp;gt; regarding the type of the change. Do a descriptive pull request against the main branch. Prepare the pull request; we prefer small requests, that are squashed into the main branch.&#xA;Pull request on an open issue have higher priorities, because every pull request should be inclusive and everyone in the community should be enabled to talk about the changes.</description>
     </item>
-    
     <item>
       <title>Overall Goals</title>
       <link>https://docs.uitsmijter.io/contribution/goals/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/contribution/goals/</guid>
-      <description>Overall Project Goals     The overall project goals encompass a range of objectives that go beyond the functional requirements of the system. These goals primarily focus on the non-functional aspects, aiming to ensure the system&amp;rsquo;s performance, reliability, security, and usability. By considering these non-functional requirements, the project aims to deliver a robust and user-friendly solution that meets the standards of quality and user satisfaction.
-Ease Of Use:     One of the key non-functional requirements of the project is the ease of use.</description>
+      <description>Overall Project Goals The overall project goals encompass a range of objectives that go beyond the functional requirements of the system. These goals primarily focus on the non-functional aspects, aiming to ensure the system&amp;rsquo;s performance, reliability, security, and usability. By considering these non-functional requirements, the project aims to deliver a robust and user-friendly solution that meets the standards of quality and user satisfaction.&#xA;Ease Of Use: One of the key non-functional requirements of the project is the ease of use.</description>
     </item>
-    
     <item>
       <title>Frequently Asked Questions</title>
       <link>https://docs.uitsmijter.io/contribution/faq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/contribution/faq/</guid>
-      <description>Why there is no Admin-Interface for Uitsmijter?     Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:
- There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes.</description>
+      <description>Why there is no Admin-Interface for Uitsmijter? Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:&#xA;There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing configuration files.</description>
     </item>
-    
     <item>
       <title>Developer Certificate of Origin</title>
       <link>https://docs.uitsmijter.io/contribution/certificate_of_origin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/contribution/certificate_of_origin/</guid>
-      <description>Developer Certificate of Origin     Version 1.1
-Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
-Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
- Developer&amp;rsquo;s Certificate of Origin 1.1
-By making a contribution to this project, I certify that:
-(a) The contribution was created in whole or in part by me and I have the right to submit it under the open source license indicated in the file; or</description>
+      <description>Developer Certificate of Origin Version 1.1&#xA;Copyright (C) 2004, 2006 The Linux Foundation and its contributors.&#xA;Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.&#xA;Developer&amp;rsquo;s Certificate of Origin 1.1&#xA;By making a contribution to this project, I certify that:&#xA;(a) The contribution was created in whole or in part by me and I have the right to submit it under the open source license indicated in the file; or</description>
     </item>
-    
     <item>
       <title>Code of Conduct</title>
       <link>https://docs.uitsmijter.io/contribution/codeofconduct/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/contribution/codeofconduct/</guid>
-      <description>Code of Conduct     Our Pledge     In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
-Our Standards     Examples of behavior that contributes to creating a positive environment include:</description>
+      <description>Code of Conduct Our Pledge In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.&#xA;Our Standards Examples of behavior that contributes to creating a positive environment include:</description>
     </item>
-    
     <item>
       <title>3rd Party Tools</title>
       <link>https://docs.uitsmijter.io/contribution/3rdparty/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/contribution/3rdparty/</guid>
-      <description>3rd Party tools used in Uitsmijter      https://github.com/Olipro/Coverify Convert LLVM code coverage to cobertura https://vapor.codes Server Framework we love and used for this project https://github.com/swift-server-community/SwiftPrometheus.git Prometheus exporter for custom metrics https://github.com/jectivex/JXKit Inspiration for the JavaScript bridge to work on linux https://github.com/krzyzanowskim/CryptoSwift.git Crypto related functions and helpers for Swift https://github.com/jpsim/Yams.git A sweet and swifty YAML parser built on LibYAML. https://github.com/swiftkube/client Inspiration for a Swift client for talking to a Kubernetes cluster  Graphs in this wiki are build with ASCIIFlow.</description>
+      <description>3rd Party tools used in Uitsmijter https://github.com/Olipro/Coverify Convert LLVM code coverage to cobertura https://vapor.codes Server Framework we love and used for this project https://github.com/swift-server-community/SwiftPrometheus.git Prometheus exporter for custom metrics https://github.com/jectivex/JXKit Inspiration for the JavaScript bridge to work on linux https://github.com/krzyzanowskim/CryptoSwift.git Crypto related functions and helpers for Swift https://github.com/jpsim/Yams.git A sweet and swifty YAML parser built on LibYAML. https://github.com/swiftkube/client Inspiration for a Swift client for talking to a Kubernetes cluster Graphs in this wiki are build with ASCIIFlow.</description>
     </item>
-    
     <item>
       <title>List Of Competitors</title>
       <link>https://docs.uitsmijter.io/contribution/list-of-competitors/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/contribution/list-of-competitors/</guid>
-      <description>List Of Competitors     We maintain a list of competitors. If your product is not included in this list, feel free to add it.
-   Name Link Licence Cost Github-Stars Relevant Features     Keycloak https://www.keycloak.org/ Apache-2.0 0 16.6k ✓    Azure Active Directory https://azure.microsoft.com Proprietär ab $ 599,-/Monat  ‒ SaaS   OneLogin https://www.onelogin.com/de-de/ Proprietär ?  ✓    Auth0 https://auth0.</description>
+      <description>List Of Competitors We maintain a list of competitors. If your product is not included in this list, feel free to add it.&#xA;Name Link Licence Cost Github-Stars Relevant Features Keycloak https://www.keycloak.org/ Apache-2.0 0 16.6k ✓ Azure Active Directory https://azure.microsoft.com Proprietär ab $ 599,-/Monat ‒ SaaS OneLogin https://www.onelogin.com/de-de/ Proprietär ? ✓ Auth0 https://auth0.com Proprietär ab $ 800,-/Monat ✓ SaaS Ping Identity https://www.pingidentity.com/de.html Proprietär ? ‒ WSO2 Identity Server https://wso2.com/identity-server/ Proprietär ?</description>
     </item>
-    
   </channel>
 </rss>

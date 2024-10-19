@@ -5,65 +5,49 @@
     <link>https://docs.uitsmijter.io/general/</link>
     <description>Recent content in General on Uitsmijter Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://docs.uitsmijter.io/general/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="https://docs.uitsmijter.io/general/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
       <link>https://docs.uitsmijter.io/general/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/general/about/</guid>
-      <description>About     Uitsmijter is a versatile OAuth2 authorization server and a Kubernetes Middleware for Traefik.
-On one side it provides a flexible and powerful basis for new projects, on the other hand it has been built with the focus to comfortably bring existing, mostly monolithic applications into the microservice, cloud- and multi-cloud world.
-It offers multi-tenant single sign-on via secure, low-maintenance and easy-to-implement middleware, as well as protocol-compliant OAuth 2.</description>
+      <description>About Uitsmijter is a versatile OAuth2 authorization server and a Kubernetes Middleware for Traefik.&#xA;On one side it provides a flexible and powerful basis for new projects, on the other hand it has been built with the focus to comfortably bring existing, mostly monolithic applications into the microservice, cloud- and multi-cloud world.&#xA;It offers multi-tenant single sign-on via secure, low-maintenance and easy-to-implement middleware, as well as protocol-compliant OAuth 2.0 authorization workflows.</description>
     </item>
-    
     <item>
       <title>Terminology</title>
       <link>https://docs.uitsmijter.io/general/terminology/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/general/terminology/</guid>
-      <description>Terminology      Access token - A token used to access protected resources. Authorization code - An intermediary token generated when a user authorizes a client to access protected resources on their behalf. The client receives this token and exchanges it for an access token. Authorization server - A server which issues access tokens after successfully authenticating a client and resource owner, and authorizing the request. Client - An application which accesses protected resources on behalf of the resource owner (such as a user).</description>
+      <description>Terminology Access token - A token used to access protected resources. Authorization code - An intermediary token generated when a user authorizes a client to access protected resources on their behalf. The client receives this token and exchanges it for an access token. Authorization server - A server which issues access tokens after successfully authenticating a client and resource owner, and authorizing the request. Client - An application which accesses protected resources on behalf of the resource owner (such as a user).</description>
     </item>
-    
     <item>
       <title>Motivation</title>
       <link>https://docs.uitsmijter.io/general/motivation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/general/motivation/</guid>
-      <description>Motivation     Since the mid-nineties, we from aus der Technik have been dealing with the authentication and authorization of users. The conception as well as the implementation of access systems is an elementary part of our work on clients applications. For new implementations, the first choice is between the numerous existing open source or proprietary authentication systems, or the decision for or against a custom implemented solution. Not only the numerous diverse requirements count on a decision-making process, but also legal questions about user data management have to be considered individually.</description>
+      <description>Motivation Since the mid-nineties, we from aus der Technik have been dealing with the authentication and authorization of users. The conception as well as the implementation of access systems is an elementary part of our work on clients applications. For new implementations, the first choice is between the numerous existing open source or proprietary authentication systems, or the decision for or against a custom implemented solution. Not only the numerous diverse requirements count on a decision-making process, but also legal questions about user data management have to be considered individually.</description>
     </item>
-    
     <item>
       <title>Requirements</title>
       <link>https://docs.uitsmijter.io/general/requirements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/general/requirements/</guid>
-      <description>Requirements     Kubernetes     This application is mainly meant to run on Kubernetes (K8s) and protect resources that run on Kubernetes clusters. Uitsmijter is tested on Kubernetes version 1.22.0 and above.
-Must have preinstalled resources       🔗 Traefik in version &amp;gt;= 2.9 Currently the Interceptor Mode is only available for Traefik at the moment. If you are using other ingress controllers, please feel free to contact us.</description>
+      <description>Requirements Kubernetes This application is mainly meant to run on Kubernetes (K8s) and protect resources that run on Kubernetes clusters. Uitsmijter is tested on Kubernetes version 1.22.0 and above.&#xA;Must have preinstalled resources 🔗 Traefik in version &amp;gt;= 2.9 Currently the Interceptor Mode is only available for Traefik at the moment. If you are using other ingress controllers, please feel free to contact us. We are constantly working on new features and integrations.</description>
     </item>
-    
     <item>
       <title>Quick Start Guide</title>
       <link>https://docs.uitsmijter.io/general/quickstart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/general/quickstart/</guid>
-      <description>Quick Start Guide for Kubernetes     This guide covers all you need to get up and running with Uitsmijter. The documentation is based on a fictive Project for better understanding when and why to set some configurations.
-Meet the requirements     This quick start guide assumes that the requirements are given. See this list of requirements that cover the following criteria:
- Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e.</description>
+      <description>Quick Start Guide for Kubernetes This guide covers all you need to get up and running with Uitsmijter. The documentation is based on a fictive Project for better understanding when and why to set some configurations.&#xA;Meet the requirements This quick start guide assumes that the requirements are given. See this list of requirements that cover the following criteria:&#xA;Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e.</description>
     </item>
-    
     <item>
       <title>Ingredients</title>
       <link>https://docs.uitsmijter.io/general/ingredients/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://docs.uitsmijter.io/general/ingredients/</guid>
-      <description>Ingredients for an Uitsmijter      1 teaspoon butter 2 large eggs 2 slices white bread 2 slices shaved boiled ham 2 large slices aged Gouda cheese Salt and Pepper  First melt the butter in a frying pan or skillet and fry the eggs. Once the bottoms of the eggs are set, take the pan off the heat, place a lid on the pan and allow the eggs to steam until the top has firmed up.</description>
+      <description>Ingredients for an Uitsmijter 1 teaspoon butter 2 large eggs 2 slices white bread 2 slices shaved boiled ham 2 large slices aged Gouda cheese Salt and Pepper First melt the butter in a frying pan or skillet and fry the eggs. Once the bottoms of the eggs are set, take the pan off the heat, place a lid on the pan and allow the eggs to steam until the top has firmed up.</description>
     </item>
-    
   </channel>
 </rss>
