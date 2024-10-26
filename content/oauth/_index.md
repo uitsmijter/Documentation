@@ -1,6 +1,6 @@
 ---
 title: 'OAuth'
-weight: 3
+weight: 4
 ---
 
 # OAuth

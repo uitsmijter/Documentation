@@ -10,6 +10,11 @@ Visit the [home](/home) of the documentation.
 - [Requirements](/general/requirements)
 - [Quick Start Guide](/general/quickstart)
 
+## Installation
+
+- [Kubernetes](/installation/kubernetes)
+- [Docker](/installation/docker)
+
 ## Configuration
 
 - [Entities](/configuration/entities)
