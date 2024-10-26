@@ -57,7 +57,10 @@ config:
   tokenRefreshExpirationInHours: 720
   # show the version information at /versions
   displayVersion: true
-
+  crd:
+    enabled: true
+    scoped: false
+    
 domains:
   - domain: "nightly.example.com"
     tlsSecretName: "example.com"
@@ -67,26 +70,28 @@ domains:
 
 ## Parameter description
 
-| Parameter                            | Default    | Description                                                                                                                                                                                              |
-|--------------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| namespaceOverride                    | uitsmijter | Namespace to install Uitsmijter to.                                                                                                                                                                      | 
-| image.repository                     |            | Docker repository for the Uitsmijter server image.                                                                                                                                                       |
-| image.tag                            |            | Version-Tag to install. Must be present in the `image.repository`.                                                                                                                                       |
-| image.pullPolicy                     | Always     | The pull policy of the used image.                                                                                                                                                                       |
+| Parameter                            | Default    | Description                                                                                                                                                                                             |
+|--------------------------------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| namespaceOverride                    | uitsmijter | Namespace to install Uitsmijter to.                                                                                                                                                                     | 
+| image.repository                     |            | Docker repository for the Uitsmijter server image.                                                                                                                                                      |
+| image.tag                            |            | Version-Tag to install. Must be present in the `image.repository`.                                                                                                                                      |
+| image.pullPolicy                     | Always     | The pull policy of the used image.                                                                                                                                                                      |
 | imagePullSecrets.name                |            | When using a private repository, the name of the dockerPullSecret. See [🔗 Pull an Image from a Private Registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) |
-| jwtSecret                            |            | Passphrase with that each JWT-token is signed.                                                                                                                                                           |
-| redisPassword                        |            | Password for the [🔗 Redis](https://redis.io) database where all refresh tokens are stored.                                                                                                              |
-| storageClassName                     |            | Kubernetes [🔗 Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) to use to store the redis data.                                                                              |
-| installCRD                           | true       | Install necessary [🔗 Custom Resource Definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) for `Tenants` and `Clients`.                        |
-| installSA                            | true       | Install [🔗 Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/) to allow to read `Tenants` and `Clients`.                                                 |
-| config.logFormat                     | console    | Log format options: `console` or `ndjson`.                                                                                                                                                               |                                                                                                                                                                                                         |
-| config.logLevel                      | info       | Level of log verbosity. Options: `trace`, `info`, `error` or `critical`                                                                                                                                  |
-| config.cookieExpirationInDays        | 7          | Days a cookie is valid without refreshing its value.                                                                                                                                                     |
-| config.tokenExpirationInHours        | 2          | Invalidates the JWT-Token after number of hours.                                                                                                                                                         |
-| config.tokenRefreshExpirationInHours | 720        | Invalidates the refresh token after number of hours.                                                                                                                                                     |
-| config.displayVersion                | true       | Displays the version information of Uitsmijter under /versions publicly for all. You can turn this off for security reasons.                                                                             |
-| domains.domain                       |            | List of Domains. Entry of the domain where Uitsmijter is listening on.                                                                                                                                   |
-| domains.tlsSecretName                |            | List of Domains. Entry of the name of the certificate secret.                                                                                                                                            |
+| jwtSecret                            |            | Passphrase with that each JWT-token is signed.                                                                                                                                                          |
+| redisPassword                        |            | Password for the [🔗 Redis](https://redis.io) database where all refresh tokens are stored.                                                                                                             |
+| storageClassName                     |            | Kubernetes [🔗 Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) to use to store the redis data.                                                                             |
+| installCRD                           | true       | Install necessary [🔗 Custom Resource Definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) for `Tenants` and `Clients`.                       |
+| installSA                            | true       | Install [🔗 Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/) to allow to read `Tenants` and `Clients`.                                                |
+| config.logFormat                     | console    | Log format options: `console` or `ndjson`.                                                                                                                                                              |                                                                                                                                                                                                         |
+| config.logLevel                      | info       | Level of log verbosity. Options: `trace`, `info`, `error` or `critical`                                                                                                                                 |
+| config.cookieExpirationInDays        | 7          | Days a cookie is valid without refreshing its value.                                                                                                                                                    |
+| config.tokenExpirationInHours        | 2          | Invalidates the JWT-Token after number of hours.                                                                                                                                                        |
+| config.tokenRefreshExpirationInHours | 720        | Invalidates the refresh token after number of hours.                                                                                                                                                    |
+| config.displayVersion                | true       | Displays the version information of Uitsmijter under /versions publicly for all. You can turn this off for security reasons.                                                                            |
+| config.crd.enabled | true       | Enables supoprt for loading Custom Resource Definitions of Tenants and Clients, should be `true` for Kubernetes installations.                                                                          |
+| config.crd.scoped | false      | Restrict Uitsmijter Custom Resource Definitions loader to load only tenants and clients from the namespace in which Uitsmijter itself is installed.                                                     |
+| domains.domain                       |            | List of Domains. Entry of the domain where Uitsmijter is listening on.                                                                                                                                  |
+| domains.tlsSecretName                |            | List of Domains. Entry of the name of the certificate secret.                                                                                                                                           |
 
 ## Install Uitsmijter Helm Charts
 
