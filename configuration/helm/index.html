@@ -59,7 +59,7 @@ Full Values.yaml namespaceOverride: &#34;&#34; image: repository: ghcr.io/uitsmi
       "url" : "https://docs.uitsmijter.io/configuration/helm/",
       "headline": "Helm configuration",
       "description": "Helm configuration parameters Uitsmijter is best to install over helm.\nhelm repo add uitsmijter https:\/\/charts.uitsmijter.io\/ helm update To list available versions run:\nhelm search repo uitsmijter To see a list with release candidates included:\nhelm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.\nFull Values.yaml namespaceOverride: \u0022\u0022 image: repository: ghcr.io\/uitsmijter\/uitsmijter # Overrides the image tag whose default is the chart appVersion.",
-      "wordCount" : "443",
+      "wordCount" : "490",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2425,7 +2425,10 @@ information please read the <a
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tokenRefreshExpirationInHours</span><span class="p">:</span><span class="w"> </span><span class="m">720</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># show the version information at /versions</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">displayVersion</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">crd</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">scoped</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">domains</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;nightly.example.com&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tlsSecretName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;example.com&#34;</span><span class="w">
@@ -2542,6 +2545,16 @@ information please read the <a
 <td>config.displayVersion</td>
 <td>true</td>
 <td>Displays the version information of Uitsmijter under /versions publicly for all. You can turn this off for security reasons.</td>
+</tr>
+<tr>
+<td>config.crd.enabled</td>
+<td>true</td>
+<td>Enables supoprt for loading Custom Resource Definitions of Tenants and Clients, should be <code>true</code> for Kubernetes installations.</td>
+</tr>
+<tr>
+<td>config.crd.scoped</td>
+<td>false</td>
+<td>Restrict Uitsmijter Custom Resource Definitions loader to load only tenants and clients from the namespace in which Uitsmijter itself is installed.</td>
 </tr>
 <tr>
 <td>domains.domain</td>
