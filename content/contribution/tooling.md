@@ -45,6 +45,7 @@ Choose one or more commands:
         -t    | --test            | test          Run all UnitTests
         -e    | --e2e             | e2e           Run end-to-end tests
         -r/-c | --run[-cluster]   | run[-cluster] Run Uitsmijter in docker or in a local kind-cluster
+        -d    | --run-docker      | run-docker    Run Uitsmijter in a production docker environment
         -s    | --release         | release       Build a release version, can have an optional added image 
                                                   name (with optional tag)
         -p    | --helm            | helm          Build the helm package
@@ -229,6 +230,27 @@ or
 ```
 
 is the equivalent for `build run-cluster`.
+
+### run-docker
+
+To run a production ready docker only environment and directly work on mounted resources like custom login pages 
+and tenant and client configiurations you may want to start Uitsmijter in docker.
+The tool chain uses docker compose to spin up a local Uitsmijter instance.
+
+When `run-docker` is executed locally for testing and developing, a list of test domains should be set in the `/etc/hosts`
+file. 
+
+```shell
+./tooling.sh run-docker 
+```
+
+is the equivalent for `release run-docker`.
+
+or, if you want to test the local development, without releasing a version
+
+```shell
+./tooling.sh run-docker --dirty  
+```
 
 ### release
 
