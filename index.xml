@@ -36,6 +36,13 @@
       <description>Helm configuration parameters Uitsmijter is best to install over helm.&#xA;helm repo add uitsmijter https://charts.uitsmijter.io/ helm update To list available versions run:&#xA;helm search repo uitsmijter To see a list with release candidates included:&#xA;helm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.&#xA;Full Values.yaml namespaceOverride: &amp;#34;&amp;#34; image: repository: ghcr.io/uitsmijter/uitsmijter # Overrides the image tag whose default is the chart appVersion.</description>
     </item>
     <item>
+      <title>Kubernetes</title>
+      <link>https://docs.uitsmijter.io/installation/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.uitsmijter.io/installation/kubernetes/</guid>
+      <description>Install Uitsmijter on Kubernetes Here are the steps to install Uitsmijter on Kubernetes:&#xA;Prepare the installation Make sure the following requirements are met: Kubernetes is up and running. Traefik is up and running. Your cluster can obtain valid certificates for Ingresses, e.g. with cert-manager. Ensure that you have the following authorizations in the Kubernetes cluster: Permissions to deploy ClusterRole, ClusterRoleBinding and ServiceAccount. Permissions to deploy CustomResourceDefinition. Permissions to deploy various Kubernetes resources, including Namespace, ConfigMap, Secret, Service, Deployment, StatefulSet, Ingress and HorizontalPodAutoscaler.</description>
+    </item>
+    <item>
       <title>Login Page</title>
       <link>https://docs.uitsmijter.io/customisation/template_login/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -62,6 +69,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/interceptor/quickstart/</guid>
       <description>Walkthrough guide for securing static webserver resources The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server.&#xA;For this additional walkthrough documentation we assume that a last-minute change request for the business hits the development team. The requirement is, that the company&amp;rsquo;s Design-Cookbook should be accessible for all partners.</description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://docs.uitsmijter.io/installation/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.uitsmijter.io/installation/docker/</guid>
+      <description>Installing Uitsmijter on Docker Uitsmijter is designed for a Docker-only environment, too. This mode is for small installations that does not require a Kubernetes Cluster.&#xA;Prerequisites Ensure Docker is installed and running on your system.&#xA;Prepare Docker Environment Download Docker Compose Files from the dedicated repository.&#xA;Obtain docker-compose.yml and .env files, placing them in the same directory.&#xA;Configure Environment Variables Edit the .env file to customize environment variables like IMAGENAME, TAG, LOG_LEVEL, etc.</description>
     </item>
     <item>
       <title>Entities</title>
@@ -236,7 +250,7 @@
       <link>https://docs.uitsmijter.io/_sidebar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/_sidebar/</guid>
-      <description>Uitsmijter Visit the home of the documentation.&#xA;General About Terminology Motivation Requirements Quick Start Guide Configuration Entities Tenant and client configuration Logging OAuth2 Server OAuth flow Grant types Available Endpoints JWT Decoding Authorization Code Flow with Proof Key for Code Exchange Interceptor Walkthrough Guide Interceptor Mode Example Deployment Migrating a monolith application Providers General provider information User Login Provider Customisation Login Page Development How to start development is covered in the development information section.</description>
+      <description>Uitsmijter Visit the home of the documentation.&#xA;General About Terminology Motivation Requirements Quick Start Guide Installation Kubernetes Docker Configuration Entities Tenant and client configuration Logging OAuth2 Server OAuth flow Grant types Available Endpoints JWT Decoding Authorization Code Flow with Proof Key for Code Exchange Interceptor Walkthrough Guide Interceptor Mode Example Deployment Migrating a monolith application Providers General provider information User Login Provider Customisation Login Page Development How to start development is covered in the development information section.</description>
     </item>
     <item>
       <title></title>

@@ -50,7 +50,7 @@ For Uitsmijter we build a toolchain that help developers to set up the environme
       "url" : "https://docs.uitsmijter.io/contribution/tooling/",
       "headline": "Toolchain",
       "description": "Commandline Tool To Build Uitsmijter - Tooling.sh A build tool is a set of tools that automate the process of testing, compiling, assembling, and packaging source code into executable software. Build tools are an essential part of the software development lifecycle, helping developers manage the complexity of building, testing, and deploying software.\nFor Uitsmijter we build a toolchain that help developers to set up the environment to work easily with the code.",
-      "wordCount" : "4119",
+      "wordCount" : "4242",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -547,6 +547,148 @@ For Uitsmijter we build a toolchain that help developers to set up the environme
                     class="gdoc-nav__entry"
                   >
                     Quick Start Guide
+                  </a>
+                </span>
+              
+              
+            </label>
+
+            
+          </li>
+        
+      
+    
+  </ul>
+
+            
+          </li>
+        
+      
+    
+      
+
+      
+        
+      
+
+      
+        
+          
+          
+          
+          
+          
+          
+
+
+          <li>
+            <input
+              type="checkbox"
+              
+                class="hidden"
+              
+            />
+            <label
+              
+            >
+              
+                <span class="flex">
+                  <a
+                    href="/installation/"
+                    class="gdoc-nav__entry"
+                  >
+                    Installation
+                  </a>
+                </span>
+              
+              
+            </label>
+
+            
+              
+  
+
+
+  <ul class="gdoc-nav__list">
+    
+    
+      
+
+      
+        
+      
+
+      
+        
+          
+          
+          
+          
+          
+          
+
+
+          <li>
+            <input
+              type="checkbox"
+              
+                class="hidden"
+              
+            />
+            <label
+              
+            >
+              
+                <span class="flex">
+                  <a
+                    href="/installation/kubernetes/"
+                    class="gdoc-nav__entry"
+                  >
+                    Kubernetes
+                  </a>
+                </span>
+              
+              
+            </label>
+
+            
+          </li>
+        
+      
+    
+      
+
+      
+        
+      
+
+      
+        
+          
+          
+          
+          
+          
+          
+
+
+          <li>
+            <input
+              type="checkbox"
+              
+                class="hidden"
+              
+            />
+            <label
+              
+            >
+              
+                <span class="flex">
+                  <a
+                    href="/installation/docker/"
+                    class="gdoc-nav__entry"
+                  >
+                    Docker
                   </a>
                 </span>
               
@@ -2409,8 +2551,12 @@ the development environment, the build tool ensures that the software can be bui
 </span></span><span class="line"><span class="cl">        -b    | --build           | build         Build the project
 </span></span><span class="line"><span class="cl">        -l    | --lint            | lint          Check code quality
 </span></span><span class="line"><span class="cl">        -t    | --test            | test          Run all UnitTests
+</span></span><span class="line"><span class="cl">                                                  Optional &lt;filter&gt; can be applyed as: &#39;--test &lt;filter&gt;&#39;
+</span></span><span class="line"><span class="cl">                                                  like: &#39;--test ServerTests.AppTests/testHelloWorld&#39;
+</span></span><span class="line"><span class="cl">        -o    | --list-tests      | list-tests    Shows a list of tests
 </span></span><span class="line"><span class="cl">        -e    | --e2e             | e2e           Run end-to-end tests
 </span></span><span class="line"><span class="cl">        -r/-c | --run[-cluster]   | run[-cluster] Run Uitsmijter in docker or in a local kind-cluster
+</span></span><span class="line"><span class="cl">        -d    | --run-docker      | run-docker    Run Uitsmijter in a production docker environment
 </span></span><span class="line"><span class="cl">        -s    | --release         | release       Build a release version, can have an optional added image 
 </span></span><span class="line"><span class="cl">                                                  name (with optional tag)
 </span></span><span class="line"><span class="cl">        -p    | --helm            | helm          Build the helm package
@@ -2615,6 +2761,23 @@ file. A list of domains and user/password combinations can be found on the dedic
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./tooling.sh run-cluster --dirty  
 </span></span></code></pre></div><p>is the equivalent for <code>build run-cluster</code>.</p>
 <div class="gdoc-page__anchorwrap">
+    <h3 id="run-docker">
+        run-docker
+        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#run-docker" class="gdoc-page__anchor clip flex align-center" title="Anchor to: run-docker" aria-label="Anchor to: run-docker" href="#run-docker">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>To run a production ready docker only environment and directly work on mounted resources like custom login pages
+and tenant and client configiurations you may want to start Uitsmijter in docker.
+The tool chain uses docker compose to spin up a local Uitsmijter instance.</p>
+<p>When <code>run-docker</code> is executed locally for testing and developing, a list of test domains should be set in the <code>/etc/hosts</code>
+file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./tooling.sh run-docker 
+</span></span></code></pre></div><p>is the equivalent for <code>release run-docker</code>.</p>
+<p>or, if you want to test the local development, without releasing a version</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./tooling.sh run-docker --dirty  
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h3 id="release">
         release
         <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#release" class="gdoc-page__anchor clip flex align-center" title="Anchor to: release" aria-label="Anchor to: release" href="#release">
