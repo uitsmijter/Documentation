@@ -43,6 +43,9 @@ Choose one or more commands:
         -b    | --build           | build         Build the project
         -l    | --lint            | lint          Check code quality
         -t    | --test            | test          Run all UnitTests
+                                                  Optional <filter> can be applyed as: '--test <filter>'
+                                                  like: '--test ServerTests.AppTests/testHelloWorld'
+        -o    | --list-tests      | list-tests    Shows a list of tests
         -e    | --e2e             | e2e           Run end-to-end tests
         -r/-c | --run[-cluster]   | run[-cluster] Run Uitsmijter in docker or in a local kind-cluster
         -d    | --run-docker      | run-docker    Run Uitsmijter in a production docker environment
