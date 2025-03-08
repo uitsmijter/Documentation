@@ -50,7 +50,7 @@ Pull request on an open issue have higher priorities, because every pull request
       "url" : "https://docs.uitsmijter.io/contribution/guidelines/",
       "headline": "Development guidelines",
       "description": "Development guidelines Pull requests are very much desired Please open a new branch with the naming scheme feature\/\u003c#Issue\u003e-\u003c#Description\u003e or fix\/\u003c#Issue\u003e-\u003c#Description\u003e regarding the type of the change. Do a descriptive pull request against the main branch. Prepare the pull request; we prefer small requests, that are squashed into the main branch.\nPull request on an open issue have higher priorities, because every pull request should be inclusive and everyone in the community should be enabled to talk about the changes.",
-      "wordCount" : "393",
+      "wordCount" : "584",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2572,6 +2572,60 @@ Code comments are highly recommended. Be precise in your critique rather than po
     </h3>
 </div>
 <p>Do not merge code that contains sources that are unused and leftovers.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="use-test-secrets-only">
+        Use test secrets only
+        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/guidelines/#use-test-secrets-only" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Use test secrets only" aria-label="Anchor to: Use test secrets only" href="#use-test-secrets-only">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h1 id="using-test-secrets-for-development">
+        Using Test Secrets for Development
+        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/guidelines/#using-test-secrets-for-development" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Using Test Secrets for Development" aria-label="Anchor to: Using Test Secrets for Development" href="#using-test-secrets-for-development">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h1>
+</div>
+<p>When developing tests, that require authentication credentials, API keys, or other sensitive information, always
+use designated test secrets rather than random production credentials in your development environment.</p>
+<p>Test secrets are specially created credentials that are widely recognized within the development team and can be
+verified against established security policies that were specifically designed for development and testing environments.</p>
+<p>Using production secrets in development environments creates significant security vulnerabilities, as these
+high-privilege credentials may be inadvertently exposed through code repositories, logs, or local environment files.
+Additionally, development operations using production credentials might accidentally modify or delete production data,
+causing service disruptions for end users.</p>
+<p>By maintaining strict separation between test and production secrets, you establish important security boundaries that
+protect your live systems, while still allowing developers to build and test functionality against realistic environments.</p>
+<p>We commit test secrets to source control system environments to provide consistent end-to-end tests.</p>
+<p>This is a list of used secret strings: check your production environment that these secrets are never used in production:</p>
+<div class="table-wrap"> <table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client secret</td>
+<td>luaTha1qu019ohc13qu3ze1yuo5MumEl0hQuoE9bon</td>
+</tr>
+<tr>
+<td>Client secret</td>
+<td>kei8vae6baeMeiNehaepoo2ha1lae3wa</td>
+</tr>
+<tr>
+<td>JWT secret</td>
+<td>vosai0za6iex8AelahGemaeBooph6pah6Saezae0oojahfa7Re6leibeeshiu8ie</td>
+</tr>
+<tr>
+<td>Redis Secret</td>
+<td>Shohmaz1</td>
+</tr>
+</tbody>
+</table> </div>
 <div class="gdoc-page__anchorwrap">
     <h2 id="contributions">
         Contributions
