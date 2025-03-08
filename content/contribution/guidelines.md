@@ -43,6 +43,36 @@ Code comments are highly recommended. Be precise in your critique rather than po
 
 Do not merge code that contains sources that are unused and leftovers.
 
+### Use test secrets only
+
+# Using Test Secrets for Development
+
+When developing tests, that require authentication credentials, API keys, or other sensitive information, always 
+use designated test secrets rather than random production credentials in your development environment. 
+
+Test secrets are specially created credentials that are widely recognized within the development team and can be 
+verified against established security policies that were specifically designed for development and testing environments.
+
+Using production secrets in development environments creates significant security vulnerabilities, as these 
+high-privilege credentials may be inadvertently exposed through code repositories, logs, or local environment files. 
+Additionally, development operations using production credentials might accidentally modify or delete production data, 
+causing service disruptions for end users. 
+
+By maintaining strict separation between test and production secrets, you establish important security boundaries that 
+protect your live systems, while still allowing developers to build and test functionality against realistic environments. 
+
+We commit test secrets to source control system environments to provide consistent end-to-end tests. 
+
+This is a list of used secret strings: check your production environment that these secrets are never used in production:
+
+| Key           | Value                                                            |
+|---------------|------------------------------------------------------------------|
+| Client secret | luaTha1qu019ohc13qu3ze1yuo5MumEl0hQuoE9bon                       |
+| Client secret | kei8vae6baeMeiNehaepoo2ha1lae3wa                                 |
+| JWT secret    | vosai0za6iex8AelahGemaeBooph6pah6Saezae0oojahfa7Re6leibeeshiu8ie |
+| Redis Secret  | Shohmaz1                                                         |
+
+
 ## Contributions
 
 When contributing to this repository, please first discuss the change you wish to make via
