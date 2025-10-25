@@ -171,6 +171,93 @@ used in certain grant types. The refresh_token is used to obtain a new access to
 without having to prompt the user for their login credentials again. That is strictly forbidden with the password grant
 type.
 
+## Discovery endpoints
+
+Discovery endpoints allow OAuth/OpenID Connect clients to automatically discover the configuration and capabilities of Uitsmijter without manual configuration. This is especially useful for dynamic client registration, multi-tenant deployments, and maintaining compatibility across different versions.
+
+### /.well-known/openid-configuration
+
+The `/.well-known/openid-configuration` endpoint provides OpenID Connect Discovery metadata as specified in [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html). This endpoint returns a JSON document containing all the information that OAuth/OIDC clients need to interact with Uitsmijter, including:
+
+- **Endpoint URLs**: Authorization, token, userinfo, and JWKS endpoints
+- **Supported features**: Grant types, response types, scopes, and authentication methods
+- **Cryptographic capabilities**: Signing algorithms and PKCE methods
+- **Multi-tenant configuration**: Each tenant has its own discovery document with tenant-specific settings
+
+**Why use OpenID Connect Discovery?**
+
+Instead of manually configuring every OAuth client with endpoint URLs and supported features, clients can automatically fetch this information from the discovery endpoint. This provides several benefits:
+
+1. **Automatic configuration**: Modern OAuth libraries (like [oidc-client-ts](https://github.com/authts/oidc-client-ts)) can automatically configure themselves by reading the discovery document
+2. **Multi-tenant support**: Different tenants can advertise different capabilities (scopes, grant types, policies)
+3. **Version compatibility**: When Uitsmijter is upgraded with new features, clients automatically discover the new capabilities
+4. **Reduced configuration errors**: No need to manually maintain endpoint URLs in multiple client configurations
+
+**Example**: Fetching discovery metadata
+
+```shell
+curl --request GET \
+  --url https://id.example.com/.well-known/openid-configuration \
+  --header 'Accept: application/json'
+```
+
+This returns a JSON document with the OpenID Provider Metadata:
+
+```json
+{
+  "issuer": "https://id.example.com",
+  "authorization_endpoint": "https://id.example.com/authorize",
+  "token_endpoint": "https://id.example.com/token",
+  "userinfo_endpoint": "https://id.example.com/userinfo",
+  "jwks_uri": "https://id.example.com/.well-known/jwks.json",
+  "scopes_supported": ["openid", "profile", "email", "read", "write"],
+  "response_types_supported": ["code"],
+  "grant_types_supported": ["authorization_code", "refresh_token"],
+  "subject_types_supported": ["public"],
+  "id_token_signing_alg_values_supported": ["RS256"],
+  "token_endpoint_auth_methods_supported": ["client_secret_post", "client_secret_basic", "none"],
+  "code_challenge_methods_supported": ["S256", "plain"],
+  "claims_supported": ["sub", "iss", "aud", "exp", "iat", "name", "email", "tenant"]
+}
+```
+
+**Multi-tenant discovery**
+
+Each tenant in Uitsmijter has its own discovery endpoint with tenant-specific configuration:
+
+```shell
+# Tenant A discovery
+curl https://tenant-a.example.com/.well-known/openid-configuration
+
+# Tenant B discovery
+curl https://tenant-b.example.com/.well-known/openid-configuration
+```
+
+The discovery document automatically reflects:
+- Tenant-specific issuer URLs
+- Aggregated scopes from all clients in the tenant
+- Aggregated grant types from all clients in the tenant
+- Tenant privacy policy URLs (if configured)
+
+**Using discovery with OAuth clients**
+
+Most modern OAuth/OIDC libraries support automatic configuration via discovery. For example, with `oidc-client-ts`:
+
+```typescript
+import { UserManager } from 'oidc-client-ts';
+
+const userManager = new UserManager({
+  authority: 'https://id.example.com',  // Base URL - library fetches /.well-known/openid-configuration
+  client_id: '9095A4F2-35B2-48B1-A325-309CA324B97E',
+  redirect_uri: 'https://myapp.example.com/callback',
+  // All endpoint URLs and capabilities are automatically discovered!
+});
+```
+
+The library will automatically fetch the discovery document and configure itself with the correct endpoints, supported scopes, and authentication methods.
+
+> **Note**: The discovery endpoint is publicly accessible and does not require authentication. This is by design, as clients need to discover the configuration before they can authenticate.
+
 ## Profile endpoints
 
 Even the `/token/info` endpoint is not a standard endpoint in OAuth, it is widely used to provide information about
