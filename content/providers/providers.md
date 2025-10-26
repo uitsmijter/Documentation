@@ -5,8 +5,7 @@ weight: 1
 
 # General provider information
 
-Because Uitsmijter does not store any user data to authenticate a login, request providers are written to check if given
-credentials are valid. Each `tenant` has a set of providers to do certain tasks.
+Because Uitsmijter does not store user authentication data, providers are written to verify if given credentials are valid. Each `tenant` has a set of providers to do certain tasks.
 The [User Login Provider](/providers/userloginprovider) is responsible for the user backend which knows how to verify
 user credentials. The [User Validation Provider](/providers/uservalidationprovider) is responsible to check if a
 `username` still exists in the backend user store.
@@ -54,9 +53,9 @@ Minimal example:
       }
 ```
 
-The providers are responsible for verifying the user and getting the profile of a user into the authorization server.
-Providers are only glue code and normally should not implement any business logic at all.
-Usually, providers are sending a request to some service and committing the result back.
+The providers are responsible for verifying the user and retrieving the user profile for the authorization server.
+Providers are only glue code and normally should not implement any business logic.
+Typically, providers send a request to a service and commit the result back.
 
 Example:
 
@@ -121,10 +120,9 @@ your operation is done. You also **have to** provide one getter:
 
 - isValid
 
-The execution time of a provider is limited. The advanced setting `SCRIPT_TIMEOUT` can manipulate that behaviour in the
-future, but the default (and this is what you should use, if not less) is set to **30 seconds**. The provider has to
-complete all tasks within this time limit, this includes performing all necessary requests and reply with the
-result.
+Provider execution time is limited. The advanced setting `SCRIPT_TIMEOUT` can modify this behavior.
+The default timeout is **30 seconds**, which is recommended unless you need a shorter timeout. The provider must
+complete all tasks within this time limit, including performing all necessary requests and returning the result.
 
 ## Further readings
 

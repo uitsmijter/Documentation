@@ -6,12 +6,12 @@ weight: 2
 # Interceptor Mode
 
 Interceptor mode is used within Traefik2 as a middleware authorization controller.
-When a resource is requested the middleware checks if the current user is logged in. If not, the request is
-redirected to the login page. If the user making the request is logged in, then the middleware forwards the request
+When a resource is requested, the middleware checks if the current user is logged in. If not, the request is
+redirected to the login page. If the user making the request is logged in, the middleware forwards the request
 to the requested resource.
 
-> For other ingress controllers support please feel free to [contact](mailto:sales@uitsmijter.io) our development and
-> consulting team. We are constantly adding support for other controllers and document them if needed.
+> For support of other ingress controllers, please feel free to [contact](mailto:sales@uitsmijter.io) our development and
+> consulting team. We are constantly adding support for other controllers and documenting them as needed.
 
 ## Flow
 
@@ -41,14 +41,14 @@ to the requested resource.
 2. The AuthForward delegates the request to `Uitsmijter` first
 3. If the user is not logged in, a login mask is provided
 4. If the login fails, the AuthForward responds with an error code
-5. If the login succeeded, or the user is already logged in, Uitsmijter adds the JWT to the header and the AuthForwarder
+5. If the login succeeds, or the user is already logged in, Uitsmijter adds the JWT to the header and the AuthForwarder
    forwards the request to the resource server.
 
 ## Login status
 
-The status whether a user is logged in or not is stored in a cookie that is strictly bound to the domain of the
-middleware. The domain must be set at tenant level, shown in the [example](/interceptor/examples) section.
-Inside the cookie there is an encoded JWT stored. This JWT will be added to the `Authorization` header for every
+The status of whether a user is logged in is stored in a cookie that is strictly bound to the domain of the
+middleware. The domain must be set at the tenant level, as shown in the [example](/interceptor/examples) section.
+An encoded JWT is stored inside the cookie. This JWT will be added to the `Authorization` header for every
 request.
 
 > **In your application:**
@@ -57,16 +57,15 @@ request.
 
 ## Refresh the token
 
-The middleware will refresh the requests JWT automatically, when 3/4 of the lifetime was passed.
+The middleware will refresh the request's JWT automatically when 3/4 of the lifetime has passed.
 
-> This could potentially lead to a situation where two different valid JWTs arrive at the underlying application, in case
-> the application fires parallel requests against themselve. Even both tokens are valid and encode the same
-> information, some applications may not like this when storing the original token. The solution for this scenario is
-> easy: validate the token as soon as possible and decode the payload first. Save the decoded payload for comparison,
-> not the token. This "problem" is just an academic one, because if your application makes a request with a token which
-> is
-> already known you are in the Single-Page-Application landscape already. In this case please use a
-> proper [OAuth-Flow](/oauth/flow) instead. In a server rendered application a parallel request with different tokens
+> This could potentially lead to a situation where two different valid JWTs arrive at the underlying application if
+> the application fires parallel requests against itself. Even though both tokens are valid and encode the same
+> information, some applications may not handle this well when storing the original token. The solution for this scenario is
+> simple: validate the token as soon as possible and decode the payload first. Save the decoded payload for comparison,
+> not the token. This "problem" is primarily academic because if your application makes requests with a token that is
+> already known, you are already in the Single-Page-Application landscape. In this case, please use a
+> proper [OAuth-Flow](/oauth/flow) instead. In a server-rendered application, parallel requests with different tokens
 > will never be a problem if you decode the payload first.
 
 ## Configuration and Examples
@@ -78,10 +77,10 @@ annotations:
   traefik.ingress.kubernetes.io/router.middlewares: uitsmijter-forward-auth@kubernetescrd
 ```
 
-If your setup works on the same top level domain, then that is everything needed. For example, Uitsmijter's main domain
-is: `login.example.com` and the resource server to protect is located at `secured.example.com`.
+If your setup operates on the same top-level domain, then that is all that is needed. For example, if Uitsmijter's main domain
+is `login.example.com` and the resource server to protect is located at `secured.example.com`.
 
-A bit more tricky is when projects are at different top level domains. For example the Uitsmijter installation is still
+It is more challenging when projects are on different top-level domains. For example, if the Uitsmijter installation is still
 located at `login.example.com`, but the resource server to protect is located at `toast.example.com`.
 Because cookies must be from within the same domain, the trick is to proxy the service into the new domain via an
 [🔗 external service](https://kubernetes.io/docs/concepts/services-networking/service/#externalname) and then defining

@@ -41,10 +41,8 @@ reason not to. For example if you are using a client library or framework that d
 relatively new extension to OAuth 2.0, so some client libraries or frameworks might not yet support it. In this case,
 you would not be able to use PKCE with these libraries or frameworks. Consider to update the client library.
 
-Clients as describes in [tenant and client configuration](/configuration/tenant_client_config) can be set to except
-PKCE-only
-clients. This should be the default and could be the default if not set explicitly to `false` in the configuration of
-the client.
+Clients as described in [tenant and client configuration](/configuration/tenant_client_config) can be set to accept
+only PKCE requests. This should be the default behavior unless explicitly set to `false` in the client configuration.
 
 ## Generating a code verifier
 

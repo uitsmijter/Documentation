@@ -5,7 +5,7 @@ weight: 3
 
 # Available Endpoints
 
-An endpoint is a specific location that is capable of accepting incoming requests, and is usually a specific URL
+An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL
 (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of
 programming instructions and standards for accessing a web-based software application or web tool. APIs allow different
 software systems to communicate with each other, and enable functionality such as requesting data from a server, or
@@ -28,9 +28,9 @@ In OAuth two additional endpoints should be mentioned:
 Besides the authorisation endpoint and the token endpoint Uitsmijter do provide endpoints for monitoring and metrics as
 well.
 
-This page describes the technical details of the available endpoints and shows some basic examples how to use them. 
-This information is importend if you are writing your own client library implementation, but you will not need to know all
-the details when using an already existent client library
+This page describes the technical details of the available endpoints and shows some basic examples of how to use them.
+This information is important if you are writing your own client library implementation, but you will not need to know all
+the details when using an existing client library
 like [🔗 oidc-client-ts](https://github.com/authts/oidc-client-ts).
 
 ## OAuth endpoints
@@ -260,8 +260,14 @@ The library will automatically fetch the discovery document and configure itself
 
 ## Profile endpoints
 
-Even the `/token/info` endpoint is not a standard endpoint in OAuth, it is widely used to provide information about
-access tokens.
+### /token/info (UserInfo Endpoint)
+
+The `/token/info` endpoint provides user profile information for the authenticated user. This endpoint serves as
+Uitsmijter's implementation of the OpenID Connect UserInfo endpoint.
+
+> **Note:** While the OpenID Connect specification defines the standard endpoint as `/userinfo`, Uitsmijter uses
+> `/token/info` as the UserInfo endpoint. The OpenID Connect Discovery document correctly advertises this endpoint
+> as the `userinfo_endpoint`.
 
 To use this endpoint, you will need to make a GET request to the `/token/info` endpoint and include the access token in
 the request. For example, you can use the curl command to make a request like this:
@@ -284,7 +290,7 @@ of the authorization that it represents. For example:
 > **Customise the profile**:
 >
 > The JSON object returned can be customised by the user backend provider. Everything that is returned from
-> the `userProfile` getter is encoded in the JWT and will be decoded in the response of teh `/token/info` call.
+> the `userProfile` getter is encoded in the JWT and will be decoded in the response of the `/token/info` call.
 
 ## Monitoring endpoints
 
