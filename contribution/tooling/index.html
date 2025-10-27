@@ -50,7 +50,7 @@ For Uitsmijter we build a toolchain that help developers to set up the environme
       "url" : "https://docs.uitsmijter.io/contribution/tooling/",
       "headline": "Toolchain",
       "description": "Commandline Tool To Build Uitsmijter - Tooling.sh A build tool is a set of tools that automate the process of testing, compiling, assembling, and packaging source code into executable software. Build tools are an essential part of the software development lifecycle, helping developers manage the complexity of building, testing, and deploying software.\nFor Uitsmijter we build a toolchain that help developers to set up the environment to work easily with the code.",
-      "wordCount" : "4242",
+      "wordCount" : "4536",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2673,6 +2673,38 @@ should also deliver new UnitTests. To run the test, <code>swift test</code> comp
 test suites. After the test a coverage reports is generated.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./tooling.sh <span class="nb">test</span>
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h4 id="filtering-unit-tests">
+        Filtering Unit Tests
+        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#filtering-unit-tests" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Filtering Unit Tests" aria-label="Anchor to: Filtering Unit Tests" href="#filtering-unit-tests">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>You can filter unit tests to run only specific test targets, suites, or individual tests by passing a filter argument directly after the <code>test</code> command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Run all tests in a specific target</span>
+</span></span><span class="line"><span class="cl">./tooling.sh <span class="nb">test</span> &lt;filter&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Examples:</span>
+</span></span><span class="line"><span class="cl">./tooling.sh <span class="nb">test</span> ServerTests                        <span class="c1"># Run all ServerTests</span>
+</span></span><span class="line"><span class="cl">./tooling.sh <span class="nb">test</span> LoggerTests                        <span class="c1"># Run all LoggerTests</span>
+</span></span><span class="line"><span class="cl">./tooling.sh <span class="nb">test</span> Uitsmijter-AuthServerTests         <span class="c1"># Run all Uitsmijter-AuthServerTests</span>
+</span></span></code></pre></div><p><strong>Dash vs Underscore Automatic Conversion:</strong></p>
+<p>Swift test automatically converts target names containing dashes (<code>-</code>) to underscores (<code>_</code>) in test identifiers. The tooling automatically handles this conversion, so you can use either format:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Both work (dashes are automatically converted to underscores)</span>
+</span></span><span class="line"><span class="cl">./tooling.sh <span class="nb">test</span> Uitsmijter-AuthServerTests
+</span></span><span class="line"><span class="cl">./tooling.sh <span class="nb">test</span> Uitsmijter_AuthServerTests
+</span></span></code></pre></div><p><strong>Advanced Filtering:</strong></p>
+<p>You can also filter by suite name or individual test:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Filter by suite</span>
+</span></span><span class="line"><span class="cl">./tooling.sh <span class="nb">test</span> <span class="s2">&#34;ServerTests.AppTests&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Filter by specific test</span>
+</span></span><span class="line"><span class="cl">./tooling.sh <span class="nb">test</span> <span class="s2">&#34;ServerTests.AppTests/testHelloWorld&#34;</span>
+</span></span></code></pre></div><p>The test script shows debug output when a filter is applied:</p>
+<pre tabindex="0"><code>Test filter:  --filter Uitsmijter_AuthServerTests
+</code></pre><p>Or when no filter is set:</p>
+<pre tabindex="0"><code>No test filter set - running all tests
+</code></pre><div class="gdoc-page__anchorwrap">
     <h3 id="e2e">
         e2e
         <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#e2e" class="gdoc-page__anchor clip flex align-center" title="Anchor to: e2e" aria-label="Anchor to: e2e" href="#e2e">
@@ -2711,6 +2743,35 @@ option <code>--dirty</code> to the command.</p>
 <p>Do never ever use a &ndash;dirty flag in a CI! The safety of a fresh (non cached) release is always more important than
 saving CI-hours. Use <code>--dirty</code> in your own workflow only.</p>
 </blockquote>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="filtering-e2e-tests">
+        Filtering E2E Tests
+        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/tooling/#filtering-e2e-tests" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Filtering E2E Tests" aria-label="Anchor to: Filtering E2E Tests" href="#filtering-e2e-tests">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>You can filter e2e tests to run only specific test scenarios using the <code>--filter</code> flag with a test name pattern. The e2e tests use <a
+  class="gdoc-markdown__link"
+  href="https://playwright.dev/"
+>🔗 Playwright</a> and support filtering by test description:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Filter e2e tests by pattern</span>
+</span></span><span class="line"><span class="cl">./tooling.sh e2e --filter <span class="s2">&#34;&lt;pattern&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Examples:</span>
+</span></span><span class="line"><span class="cl">./tooling.sh e2e --filter <span class="s2">&#34;should respond with error&#34;</span>
+</span></span><span class="line"><span class="cl">./tooling.sh e2e --filter <span class="s2">&#34;login&#34;</span>
+</span></span><span class="line"><span class="cl">./tooling.sh e2e --filter <span class="s2">&#34;OAuth&#34;</span>
+</span></span></code></pre></div><p>You can combine the <code>--filter</code> flag with other options:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Run filtered tests with dirty build (faster development)</span>
+</span></span><span class="line"><span class="cl">./tooling.sh e2e --dirty --filter <span class="s2">&#34;login&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Run filtered tests with fast mode (single browser)</span>
+</span></span><span class="line"><span class="cl">./tooling.sh e2e --fast --filter <span class="s2">&#34;should respond with error&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Combine all options</span>
+</span></span><span class="line"><span class="cl">./tooling.sh e2e --dirty --fast --filter <span class="s2">&#34;OAuth&#34;</span>
+</span></span></code></pre></div><p>The filter pattern is passed to Playwright&rsquo;s <code>--grep</code> option, which matches against test descriptions using regular expressions.</p>
 <div class="gdoc-page__anchorwrap">
     <h3 id="run">
         run

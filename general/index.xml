@@ -12,7 +12,7 @@
       <link>https://docs.uitsmijter.io/general/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/general/about/</guid>
-      <description>About Uitsmijter is a versatile OAuth2 authorization server and a Kubernetes Middleware for Traefik.&#xA;On one side it provides a flexible and powerful basis for new projects, on the other hand it has been built with the focus to comfortably bring existing, mostly monolithic applications into the microservice, cloud- and multi-cloud world.&#xA;It offers multi-tenant single sign-on via secure, low-maintenance and easy-to-implement middleware, as well as protocol-compliant OAuth 2.0 authorization workflows.</description>
+      <description>About Uitsmijter is a versatile OAuth2 authorization server and a Kubernetes Middleware for Traefik.&#xA;On one hand, it provides a flexible and powerful basis for new projects; on the other hand, it has been built with the focus of comfortably bringing existing, mostly monolithic applications into the microservice, cloud, and multi-cloud world.&#xA;It offers multi-tenant single sign-on via secure, low-maintenance, and easy-to-implement middleware, as well as protocol-compliant OAuth 2.0 authorization workflows.</description>
     </item>
     <item>
       <title>Terminology</title>
@@ -40,7 +40,7 @@
       <link>https://docs.uitsmijter.io/general/quickstart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/general/quickstart/</guid>
-      <description>Quick Start Guide for Kubernetes This guide covers all you need to get up and running with Uitsmijter. The documentation is based on a fictive Project for better understanding when and why to set some configurations.&#xA;Meet the requirements This quick start guide assumes that the requirements are given. See this list of requirements that cover the following criteria:&#xA;Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e.</description>
+      <description>Quick Start Guide for Kubernetes This guide covers everything you need to get up and running with Uitsmijter. The documentation is based on a fictional project to provide better understanding of when and why to set specific configurations.&#xA;Meet the requirements This quick start guide assumes that the requirements are met. See this list of requirements that covers the following criteria:&#xA;Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e.</description>
     </item>
     <item>
       <title>Ingredients</title>

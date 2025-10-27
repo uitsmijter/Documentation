@@ -12,8 +12,8 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, then the middleware forwards the request to the requested resource.
-For other ingress controllers support please feel free to contact our development and consulting team." />
+  <meta name="description" content="Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested, the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, the middleware forwards the request to the requested resource.
+For support of other ingress controllers, please feel free to contact our development and consulting team." />
 
     <title>Interceptor Mode | Uitsmijter Documentation</title>
 
@@ -27,8 +27,8 @@ For other ingress controllers support please feel free to contact our developmen
     content="Interceptor Mode"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, then the middleware forwards the request to the requested resource.
-For other ingress controllers support please feel free to contact our development and consulting team." />
+  <meta property="og:description" content="Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested, the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, the middleware forwards the request to the requested resource.
+For support of other ingress controllers, please feel free to contact our development and consulting team." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/interceptor/interceptor/" />
 
@@ -37,8 +37,8 @@ For other ingress controllers support please feel free to contact our developmen
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Interceptor Mode" />
-  <meta name="twitter:description" content="Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, then the middleware forwards the request to the requested resource.
-For other ingress controllers support please feel free to contact our development and consulting team." />
+  <meta name="twitter:description" content="Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested, the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, the middleware forwards the request to the requested resource.
+For support of other ingress controllers, please feel free to contact our development and consulting team." />
 
 
   <script type="application/ld+json">
@@ -49,8 +49,8 @@ For other ingress controllers support please feel free to contact our developmen
       "name": "Interceptor Mode",
       "url" : "https://docs.uitsmijter.io/interceptor/interceptor/",
       "headline": "Interceptor Mode",
-      "description": "Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, then the middleware forwards the request to the requested resource.\nFor other ingress controllers support please feel free to contact our development and consulting team.",
-      "wordCount" : "1735",
+      "description": "Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested, the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, the middleware forwards the request to the requested resource.\nFor support of other ingress controllers, please feel free to contact our development and consulting team.",
+      "wordCount" : "1732",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2510,15 +2510,15 @@ For other ingress controllers support please feel free to contact our developmen
     </h1>
 </div>
 <p>Interceptor mode is used within Traefik2 as a middleware authorization controller.
-When a resource is requested the middleware checks if the current user is logged in. If not, the request is
-redirected to the login page. If the user making the request is logged in, then the middleware forwards the request
+When a resource is requested, the middleware checks if the current user is logged in. If not, the request is
+redirected to the login page. If the user making the request is logged in, the middleware forwards the request
 to the requested resource.</p>
 <blockquote>
-<p>For other ingress controllers support please feel free to <a
+<p>For support of other ingress controllers, please feel free to <a
   class="gdoc-markdown__link"
   href="mailto:sales@uitsmijter.io"
 >contact</a> our development and
-consulting team. We are constantly adding support for other controllers and document them if needed.</p>
+consulting team. We are constantly adding support for other controllers and documenting them as needed.</p>
 </blockquote>
 <div class="gdoc-page__anchorwrap">
     <h2 id="flow">
@@ -2552,7 +2552,7 @@ consulting team. We are constantly adding support for other controllers and docu
 <li>The AuthForward delegates the request to <code>Uitsmijter</code> first</li>
 <li>If the user is not logged in, a login mask is provided</li>
 <li>If the login fails, the AuthForward responds with an error code</li>
-<li>If the login succeeded, or the user is already logged in, Uitsmijter adds the JWT to the header and the AuthForwarder
+<li>If the login succeeds, or the user is already logged in, Uitsmijter adds the JWT to the header and the AuthForwarder
 forwards the request to the resource server.</li>
 </ol>
 <div class="gdoc-page__anchorwrap">
@@ -2563,12 +2563,12 @@ forwards the request to the resource server.</li>
         </a>
     </h2>
 </div>
-<p>The status whether a user is logged in or not is stored in a cookie that is strictly bound to the domain of the
-middleware. The domain must be set at tenant level, shown in the <a
+<p>The status of whether a user is logged in is stored in a cookie that is strictly bound to the domain of the
+middleware. The domain must be set at the tenant level, as shown in the <a
   class="gdoc-markdown__link"
   href="/interceptor/examples"
 >example</a> section.
-Inside the cookie there is an encoded JWT stored. This JWT will be added to the <code>Authorization</code> header for every
+An encoded JWT is stored inside the cookie. This JWT will be added to the <code>Authorization</code> header for every
 request.</p>
 <blockquote>
 <p><strong>In your application:</strong></p>
@@ -2582,19 +2582,18 @@ request.</p>
         </a>
     </h2>
 </div>
-<p>The middleware will refresh the requests JWT automatically, when 3/4 of the lifetime was passed.</p>
+<p>The middleware will refresh the request&rsquo;s JWT automatically when 3/4 of the lifetime has passed.</p>
 <blockquote>
-<p>This could potentially lead to a situation where two different valid JWTs arrive at the underlying application, in case
-the application fires parallel requests against themselve. Even both tokens are valid and encode the same
-information, some applications may not like this when storing the original token. The solution for this scenario is
-easy: validate the token as soon as possible and decode the payload first. Save the decoded payload for comparison,
-not the token. This &ldquo;problem&rdquo; is just an academic one, because if your application makes a request with a token which
-is
-already known you are in the Single-Page-Application landscape already. In this case please use a
+<p>This could potentially lead to a situation where two different valid JWTs arrive at the underlying application if
+the application fires parallel requests against itself. Even though both tokens are valid and encode the same
+information, some applications may not handle this well when storing the original token. The solution for this scenario is
+simple: validate the token as soon as possible and decode the payload first. Save the decoded payload for comparison,
+not the token. This &ldquo;problem&rdquo; is primarily academic because if your application makes requests with a token that is
+already known, you are already in the Single-Page-Application landscape. In this case, please use a
 proper <a
   class="gdoc-markdown__link"
   href="/oauth/flow"
->OAuth-Flow</a> instead. In a server rendered application a parallel request with different tokens
+>OAuth-Flow</a> instead. In a server-rendered application, parallel requests with different tokens
 will never be a problem if you decode the payload first.</p>
 </blockquote>
 <div class="gdoc-page__anchorwrap">
@@ -2608,9 +2607,9 @@ will never be a problem if you decode the payload first.</p>
 <p>To protect your resource server with the interceptor mode of Uitsmijter, you mainly need to add an ingress annotation:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">annotations</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik.ingress.kubernetes.io/router.middlewares</span><span class="p">:</span><span class="w"> </span><span class="l">uitsmijter-forward-auth@kubernetescrd</span><span class="w">
-</span></span></span></code></pre></div><p>If your setup works on the same top level domain, then that is everything needed. For example, Uitsmijter&rsquo;s main domain
-is: <code>login.example.com</code> and the resource server to protect is located at <code>secured.example.com</code>.</p>
-<p>A bit more tricky is when projects are at different top level domains. For example the Uitsmijter installation is still
+</span></span></span></code></pre></div><p>If your setup operates on the same top-level domain, then that is all that is needed. For example, if Uitsmijter&rsquo;s main domain
+is <code>login.example.com</code> and the resource server to protect is located at <code>secured.example.com</code>.</p>
+<p>It is more challenging when projects are on different top-level domains. For example, if the Uitsmijter installation is still
 located at <code>login.example.com</code>, but the resource server to protect is located at <code>toast.example.com</code>.
 Because cookies must be from within the same domain, the trick is to proxy the service into the new domain via an
 <a

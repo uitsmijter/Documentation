@@ -47,7 +47,7 @@
       "url" : "https://docs.uitsmijter.io/configuration/tenant_client_config/",
       "headline": "Tenant and client configuration",
       "description": "Tenant and client configuration Uitsmijter’s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment.",
-      "wordCount" : "1779",
+      "wordCount" : "1775",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2574,7 +2574,7 @@ while rollout your Uitsmijter instance.</p>
 </span></span></span><span class="line"><span class="cl"><span class="sd">            method: &#34;post&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="sd">            body: { user: credentials.username, password: md5(credentials.password) }
 </span></span></span><span class="line"><span class="cl"><span class="sd">          }).then((result) =&gt; {
-</span></span></span><span class="line"><span class="cl"><span class="sd">            console.log(&#34;User Login&#34;, credentials.username, r.code);
+</span></span></span><span class="line"><span class="cl"><span class="sd">            console.log(&#34;User Login&#34;, credentials.username, result.status);
 </span></span></span><span class="line"><span class="cl"><span class="sd">            if(result.status === 200){
 </span></span></span><span class="line"><span class="cl"><span class="sd">              this.isLoggedIn = true;
 </span></span></span><span class="line"><span class="cl"><span class="sd">              this.profile = result.body;
@@ -2601,7 +2601,7 @@ while rollout your Uitsmijter instance.</p>
 </span></span></span><span class="line"><span class="cl"><span class="sd">            method: &#34;post&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="sd">            body: { user: args.username }
 </span></span></span><span class="line"><span class="cl"><span class="sd">          }).then((result) =&gt; {
-</span></span></span><span class="line"><span class="cl"><span class="sd">            console.log(&#34;User Validation&#34;, args.username, r.code);
+</span></span></span><span class="line"><span class="cl"><span class="sd">            console.log(&#34;User Validation&#34;, args.username, result.status);
 </span></span></span><span class="line"><span class="cl"><span class="sd">            if(result.status === 200){
 </span></span></span><span class="line"><span class="cl"><span class="sd">              this.isValid = true;
 </span></span></span><span class="line"><span class="cl"><span class="sd">              return commit(this.isValid);
@@ -2692,7 +2692,7 @@ the Uitsmijter authentication server.</p>
 <td>yes</td>
 <td>-</td>
 <td><code>bbnc</code></td>
-<td>The name of the tenant depends to your architectural discussions. Consider creating tenants for different brands or companies or teams inside your company. Remember: tenants are seperated spaces inside one instance.</td>
+<td>The name of the tenant depends on your architectural decisions. Consider creating tenants for different brands, companies, or teams within your organization. Remember: tenants are separated spaces within a single instance.</td>
 </tr>
 <tr>
 <td>hosts</td>
@@ -2868,7 +2868,7 @@ etc.) -&gt; these are different Clients</li>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">isPkceOnly</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l">aejochiecaishee4ootooSh3ph</span><span class="w">
 </span></span></span></code></pre></div><blockquote>
-<p>Remember. For Kubernetes warp name into <code>metadata</code> and rename <code>config</code> to <code>spec</code>:</p>
+<p>Remember: For Kubernetes, wrap the name in <code>metadata</code> and rename <code>config</code> to <code>spec</code>:</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bnbc-ios-app</span><span class="w">
@@ -2938,7 +2938,7 @@ the Uitsmijter authentication server.</p>
 <td>yes</td>
 <td>-</td>
 <td><code>bnbc-ios-app</code></td>
-<td>Give the client a unique and specific name. Client should be reelect the device classes that you do need to target with specific rights and get individual statistics from.</td>
+<td>Give the client a unique and specific name. Clients should reflect the device classes that you need to target with specific rights and to get individual statistics from.</td>
 </tr>
 <tr>
 <td>tenantname</td>
@@ -3017,7 +3017,7 @@ applications that run on a server controlled by developers and whose source code
 <p><strong>Public clients</strong> cannot maintain a client_secret, so the secret is not used for these applications. Javascript
 applications are considered public clients. Since anyone running a Javascript application can easily see the source
 code of the application, a secret would be easily visible there.</p>
-<p>Set a secret for server-side applications where the user does not have access to the source code.</p>
+<p>Set a secret for server-side applications where users cannot access the source code.</p>
 
   </article>
 

@@ -12,7 +12,7 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="Available Endpoints An endpoint is a specific location that is capable of accepting incoming requests, and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
+  <meta name="description" content="Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
 
     <title>Available Endpoints | Uitsmijter Documentation</title>
 
@@ -26,7 +26,7 @@
     content="Available Endpoints"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Available Endpoints An endpoint is a specific location that is capable of accepting incoming requests, and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
+  <meta property="og:description" content="Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/oauth/endpoints/" />
 
@@ -35,7 +35,7 @@
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Available Endpoints" />
-  <meta name="twitter:description" content="Available Endpoints An endpoint is a specific location that is capable of accepting incoming requests, and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
+  <meta name="twitter:description" content="Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
 
 
   <script type="application/ld+json">
@@ -46,8 +46,8 @@
       "name": "Available Endpoints",
       "url" : "https://docs.uitsmijter.io/oauth/endpoints/",
       "headline": "Available Endpoints",
-      "description": "Available Endpoints An endpoint is a specific location that is capable of accepting incoming requests, and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.",
-      "wordCount" : "2050",
+      "description": "Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.",
+      "wordCount" : "2504",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2506,7 +2506,7 @@
         </a>
     </h1>
 </div>
-<p>An endpoint is a specific location that is capable of accepting incoming requests, and is usually a specific URL
+<p>An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL
 (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of
 programming instructions and standards for accessing a web-based software application or web tool. APIs allow different
 software systems to communicate with each other, and enable functionality such as requesting data from a server, or
@@ -2527,9 +2527,9 @@ client application.</li>
 </ol>
 <p>Besides the authorisation endpoint and the token endpoint Uitsmijter do provide endpoints for monitoring and metrics as
 well.</p>
-<p>This page describes the technical details of the available endpoints and shows some basic examples how to use them.
-This information is importend if you are writing your own client library implementation, but you will not need to know all
-the details when using an already existent client library
+<p>This page describes the technical details of the available endpoints and shows some basic examples of how to use them.
+This information is important if you are writing your own client library implementation, but you will not need to know all
+the details when using an existing client library
 like <a
   class="gdoc-markdown__link"
   href="https://github.com/authts/oidc-client-ts"
@@ -2740,6 +2740,92 @@ used in certain grant types. The refresh_token is used to obtain a new access to
 without having to prompt the user for their login credentials again. That is strictly forbidden with the password grant
 type.</p>
 <div class="gdoc-page__anchorwrap">
+    <h2 id="discovery-endpoints">
+        Discovery endpoints
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/endpoints/#discovery-endpoints" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Discovery endpoints" aria-label="Anchor to: Discovery endpoints" href="#discovery-endpoints">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Discovery endpoints allow OAuth/OpenID Connect clients to automatically discover the configuration and capabilities of Uitsmijter without manual configuration. This is especially useful for dynamic client registration, multi-tenant deployments, and maintaining compatibility across different versions.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="well-knownopenid-configuration">
+        /.well-known/openid-configuration
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/endpoints/#well-knownopenid-configuration" class="gdoc-page__anchor clip flex align-center" title="Anchor to: /.well-known/openid-configuration" aria-label="Anchor to: /.well-known/openid-configuration" href="#well-knownopenid-configuration">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>The <code>/.well-known/openid-configuration</code> endpoint provides OpenID Connect Discovery metadata as specified in <a
+  class="gdoc-markdown__link"
+  href="https://openid.net/specs/openid-connect-discovery-1_0.html"
+>OpenID Connect Discovery 1.0</a>. This endpoint returns a JSON document containing all the information that OAuth/OIDC clients need to interact with Uitsmijter, including:</p>
+<ul>
+<li><strong>Endpoint URLs</strong>: Authorization, token, userinfo, and JWKS endpoints</li>
+<li><strong>Supported features</strong>: Grant types, response types, scopes, and authentication methods</li>
+<li><strong>Cryptographic capabilities</strong>: Signing algorithms and PKCE methods</li>
+<li><strong>Multi-tenant configuration</strong>: Each tenant has its own discovery document with tenant-specific settings</li>
+</ul>
+<p><strong>Why use OpenID Connect Discovery?</strong></p>
+<p>Instead of manually configuring every OAuth client with endpoint URLs and supported features, clients can automatically fetch this information from the discovery endpoint. This provides several benefits:</p>
+<ol>
+<li><strong>Automatic configuration</strong>: Modern OAuth libraries (like <a
+  class="gdoc-markdown__link"
+  href="https://github.com/authts/oidc-client-ts"
+>oidc-client-ts</a>) can automatically configure themselves by reading the discovery document</li>
+<li><strong>Multi-tenant support</strong>: Different tenants can advertise different capabilities (scopes, grant types, policies)</li>
+<li><strong>Version compatibility</strong>: When Uitsmijter is upgraded with new features, clients automatically discover the new capabilities</li>
+<li><strong>Reduced configuration errors</strong>: No need to manually maintain endpoint URLs in multiple client configurations</li>
+</ol>
+<p><strong>Example</strong>: Fetching discovery metadata</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl --request GET <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --url https://id.example.com/.well-known/openid-configuration <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --header <span class="s1">&#39;Accept: application/json&#39;</span>
+</span></span></code></pre></div><p>This returns a JSON document with the OpenID Provider Metadata:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;authorization_endpoint&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com/authorize&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;token_endpoint&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com/token&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;userinfo_endpoint&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com/userinfo&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;jwks_uri&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com/.well-known/jwks.json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scopes_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;openid&#34;</span><span class="p">,</span> <span class="s2">&#34;profile&#34;</span><span class="p">,</span> <span class="s2">&#34;email&#34;</span><span class="p">,</span> <span class="s2">&#34;read&#34;</span><span class="p">,</span> <span class="s2">&#34;write&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;response_types_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;code&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;grant_types_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;authorization_code&#34;</span><span class="p">,</span> <span class="s2">&#34;refresh_token&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject_types_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;public&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;id_token_signing_alg_values_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RS256&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;token_endpoint_auth_methods_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;client_secret_post&#34;</span><span class="p">,</span> <span class="s2">&#34;client_secret_basic&#34;</span><span class="p">,</span> <span class="s2">&#34;none&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;code_challenge_methods_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;S256&#34;</span><span class="p">,</span> <span class="s2">&#34;plain&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;claims_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;sub&#34;</span><span class="p">,</span> <span class="s2">&#34;iss&#34;</span><span class="p">,</span> <span class="s2">&#34;aud&#34;</span><span class="p">,</span> <span class="s2">&#34;exp&#34;</span><span class="p">,</span> <span class="s2">&#34;iat&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;email&#34;</span><span class="p">,</span> <span class="s2">&#34;tenant&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Multi-tenant discovery</strong></p>
+<p>Each tenant in Uitsmijter has its own discovery endpoint with tenant-specific configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Tenant A discovery</span>
+</span></span><span class="line"><span class="cl">curl https://tenant-a.example.com/.well-known/openid-configuration
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Tenant B discovery</span>
+</span></span><span class="line"><span class="cl">curl https://tenant-b.example.com/.well-known/openid-configuration
+</span></span></code></pre></div><p>The discovery document automatically reflects:</p>
+<ul>
+<li>Tenant-specific issuer URLs</li>
+<li>Aggregated scopes from all clients in the tenant</li>
+<li>Aggregated grant types from all clients in the tenant</li>
+<li>Tenant privacy policy URLs (if configured)</li>
+</ul>
+<p><strong>Using discovery with OAuth clients</strong></p>
+<p>Most modern OAuth/OIDC libraries support automatic configuration via discovery. For example, with <code>oidc-client-ts</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">UserManager</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;oidc-client-ts&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">userManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserManager</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">authority</span><span class="o">:</span> <span class="s1">&#39;https://id.example.com&#39;</span><span class="p">,</span>  <span class="c1">// Base URL - library fetches /.well-known/openid-configuration
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">client_id</span><span class="o">:</span> <span class="s1">&#39;9095A4F2-35B2-48B1-A325-309CA324B97E&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">redirect_uri</span><span class="o">:</span> <span class="s1">&#39;https://myapp.example.com/callback&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// All endpoint URLs and capabilities are automatically discovered!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></code></pre></div><p>The library will automatically fetch the discovery document and configure itself with the correct endpoints, supported scopes, and authentication methods.</p>
+<blockquote>
+<p><strong>Note</strong>: The discovery endpoint is publicly accessible and does not require authentication. This is by design, as clients need to discover the configuration before they can authenticate.</p>
+</blockquote>
+<div class="gdoc-page__anchorwrap">
     <h2 id="profile-endpoints">
         Profile endpoints
         <a data-clipboard-text="https://docs.uitsmijter.io/oauth/endpoints/#profile-endpoints" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Profile endpoints" aria-label="Anchor to: Profile endpoints" href="#profile-endpoints">
@@ -2747,8 +2833,21 @@ type.</p>
         </a>
     </h2>
 </div>
-<p>Even the <code>/token/info</code> endpoint is not a standard endpoint in OAuth, it is widely used to provide information about
-access tokens.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="tokeninfo-userinfo-endpoint">
+        /token/info (UserInfo Endpoint)
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/endpoints/#tokeninfo-userinfo-endpoint" class="gdoc-page__anchor clip flex align-center" title="Anchor to: /token/info (UserInfo Endpoint)" aria-label="Anchor to: /token/info (UserInfo Endpoint)" href="#tokeninfo-userinfo-endpoint">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>The <code>/token/info</code> endpoint provides user profile information for the authenticated user. This endpoint serves as
+Uitsmijter&rsquo;s implementation of the OpenID Connect UserInfo endpoint.</p>
+<blockquote>
+<p><strong>Note:</strong> While the OpenID Connect specification defines the standard endpoint as <code>/userinfo</code>, Uitsmijter uses
+<code>/token/info</code> as the UserInfo endpoint. The OpenID Connect Discovery document correctly advertises this endpoint
+as the <code>userinfo_endpoint</code>.</p>
+</blockquote>
 <p>To use this endpoint, you will need to make a GET request to the <code>/token/info</code> endpoint and include the access token in
 the request. For example, you can use the curl command to make a request like this:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl --request GET <span class="se">\
@@ -2762,7 +2861,7 @@ of the authorization that it represents. For example:</p>
 </span></span></code></pre></div><blockquote>
 <p><strong>Customise the profile</strong>:</p>
 <p>The JSON object returned can be customised by the user backend provider. Everything that is returned from
-the <code>userProfile</code> getter is encoded in the JWT and will be decoded in the response of teh <code>/token/info</code> call.</p>
+the <code>userProfile</code> getter is encoded in the JWT and will be decoded in the response of the <code>/token/info</code> call.</p>
 </blockquote>
 <div class="gdoc-page__anchorwrap">
     <h2 id="monitoring-endpoints">

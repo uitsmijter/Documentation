@@ -26,7 +26,7 @@
       <link>https://docs.uitsmijter.io/oauth/endpoints/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/oauth/endpoints/</guid>
-      <description>Available Endpoints An endpoint is a specific location that is capable of accepting incoming requests, and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.</description>
+      <description>Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.</description>
     </item>
     <item>
       <title>JWT Decoding</title>

@@ -12,7 +12,7 @@
       <link>https://docs.uitsmijter.io/providers/providers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/providers/providers/</guid>
-      <description>General provider information Because Uitsmijter does not store any user data to authenticate a login, request providers are written to check if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store.</description>
+      <description>General provider information Because Uitsmijter does not store user authentication data, providers are written to verify if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store.&#xA;The design of the authorization server is built to work with different - especially already existing - backends.</description>
     </item>
     <item>
       <title>User Login Provider</title>

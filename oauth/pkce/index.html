@@ -50,7 +50,7 @@ A description of the authorization code flow with PKCE:" />
       "url" : "https://docs.uitsmijter.io/oauth/pkce/",
       "headline": "PKCE",
       "description": "Authorization Code Flow with Proof Key for Code Exchange The Authorization Code Flow with Proof Key for Code Exchange (PKCE) is an OAuth 2.0 flow that is used to secure the authorization process in native applications and single-page applications (SPAs). It is an extension to the standard authorization code flow, and it adds a step that helps to prevent authorization code interception attacks.\nA description of the authorization code flow with PKCE:",
-      "wordCount" : "883",
+      "wordCount" : "877",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2541,13 +2541,11 @@ and that only the intended client can obtain an access token.</p>
 reason not to. For example if you are using a client library or framework that does not support PKCE: PKCE is a
 relatively new extension to OAuth 2.0, so some client libraries or frameworks might not yet support it. In this case,
 you would not be able to use PKCE with these libraries or frameworks. Consider to update the client library.</p>
-<p>Clients as describes in <a
+<p>Clients as described in <a
   class="gdoc-markdown__link"
   href="/configuration/tenant_client_config"
->tenant and client configuration</a> can be set to except
-PKCE-only
-clients. This should be the default and could be the default if not set explicitly to <code>false</code> in the configuration of
-the client.</p>
+>tenant and client configuration</a> can be set to accept
+only PKCE requests. This should be the default behavior unless explicitly set to <code>false</code> in the client configuration.</p>
 <div class="gdoc-page__anchorwrap">
     <h2 id="generating-a-code-verifier">
         Generating a code verifier

@@ -12,7 +12,7 @@
       <link>https://docs.uitsmijter.io/general/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/general/about/</guid>
-      <description>About Uitsmijter is a versatile OAuth2 authorization server and a Kubernetes Middleware for Traefik.&#xA;On one side it provides a flexible and powerful basis for new projects, on the other hand it has been built with the focus to comfortably bring existing, mostly monolithic applications into the microservice, cloud- and multi-cloud world.&#xA;It offers multi-tenant single sign-on via secure, low-maintenance and easy-to-implement middleware, as well as protocol-compliant OAuth 2.0 authorization workflows.</description>
+      <description>About Uitsmijter is a versatile OAuth2 authorization server and a Kubernetes Middleware for Traefik.&#xA;On one hand, it provides a flexible and powerful basis for new projects; on the other hand, it has been built with the focus of comfortably bringing existing, mostly monolithic applications into the microservice, cloud, and multi-cloud world.&#xA;It offers multi-tenant single sign-on via secure, low-maintenance, and easy-to-implement middleware, as well as protocol-compliant OAuth 2.0 authorization workflows.</description>
     </item>
     <item>
       <title>Enterprise Edition Installation</title>
@@ -26,7 +26,7 @@
       <link>https://docs.uitsmijter.io/providers/providers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/providers/providers/</guid>
-      <description>General provider information Because Uitsmijter does not store any user data to authenticate a login, request providers are written to check if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store.</description>
+      <description>General provider information Because Uitsmijter does not store user authentication data, providers are written to verify if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store.&#xA;The design of the authorization server is built to work with different - especially already existing - backends.</description>
     </item>
     <item>
       <title>Helm configuration</title>
@@ -96,7 +96,7 @@
       <link>https://docs.uitsmijter.io/interceptor/interceptor/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/interceptor/interceptor/</guid>
-      <description>Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, then the middleware forwards the request to the requested resource.&#xA;For other ingress controllers support please feel free to contact our development and consulting team.</description>
+      <description>Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested, the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, the middleware forwards the request to the requested resource.&#xA;For support of other ingress controllers, please feel free to contact our development and consulting team.</description>
     </item>
     <item>
       <title>Terminology</title>
@@ -124,7 +124,7 @@
       <link>https://docs.uitsmijter.io/oauth/endpoints/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/oauth/endpoints/</guid>
-      <description>Available Endpoints An endpoint is a specific location that is capable of accepting incoming requests, and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.</description>
+      <description>Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.</description>
     </item>
     <item>
       <title>Example Deployment</title>
@@ -215,7 +215,7 @@
       <link>https://docs.uitsmijter.io/general/quickstart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/general/quickstart/</guid>
-      <description>Quick Start Guide for Kubernetes This guide covers all you need to get up and running with Uitsmijter. The documentation is based on a fictive Project for better understanding when and why to set some configurations.&#xA;Meet the requirements This quick start guide assumes that the requirements are given. See this list of requirements that cover the following criteria:&#xA;Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e.</description>
+      <description>Quick Start Guide for Kubernetes This guide covers everything you need to get up and running with Uitsmijter. The documentation is based on a fictional project to provide better understanding of when and why to set specific configurations.&#xA;Meet the requirements This quick start guide assumes that the requirements are met. See this list of requirements that covers the following criteria:&#xA;Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e.</description>
     </item>
     <item>
       <title>Frequently Asked Questions</title>

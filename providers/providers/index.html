@@ -12,7 +12,8 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="General provider information Because Uitsmijter does not store any user data to authenticate a login, request providers are written to check if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store." />
+  <meta name="description" content="General provider information Because Uitsmijter does not store user authentication data, providers are written to verify if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store.
+The design of the authorization server is built to work with different - especially already existing - backends." />
 
     <title>General provider information | Uitsmijter Documentation</title>
 
@@ -26,7 +27,8 @@
     content="General provider information"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="General provider information Because Uitsmijter does not store any user data to authenticate a login, request providers are written to check if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store." />
+  <meta property="og:description" content="General provider information Because Uitsmijter does not store user authentication data, providers are written to verify if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store.
+The design of the authorization server is built to work with different - especially already existing - backends." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/providers/providers/" />
 
@@ -35,7 +37,8 @@
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="General provider information" />
-  <meta name="twitter:description" content="General provider information Because Uitsmijter does not store any user data to authenticate a login, request providers are written to check if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store." />
+  <meta name="twitter:description" content="General provider information Because Uitsmijter does not store user authentication data, providers are written to verify if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store.
+The design of the authorization server is built to work with different - especially already existing - backends." />
 
 
   <script type="application/ld+json">
@@ -46,8 +49,8 @@
       "name": "General provider information",
       "url" : "https://docs.uitsmijter.io/providers/providers/",
       "headline": "General provider information",
-      "description": "General provider information Because Uitsmijter does not store any user data to authenticate a login, request providers are written to check if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store.",
-      "wordCount" : "590",
+      "description": "General provider information Because Uitsmijter does not store user authentication data, providers are written to verify if given credentials are valid. Each tenant has a set of providers to do certain tasks. The User Login Provider is responsible for the user backend which knows how to verify user credentials. The User Validation Provider is responsible to check if a username still exists in the backend user store.\nThe design of the authorization server is built to work with different - especially already existing - backends.",
+      "wordCount" : "568",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2506,8 +2509,7 @@
         </a>
     </h1>
 </div>
-<p>Because Uitsmijter does not store any user data to authenticate a login, request providers are written to check if given
-credentials are valid. Each <code>tenant</code> has a set of providers to do certain tasks.
+<p>Because Uitsmijter does not store user authentication data, providers are written to verify if given credentials are valid. Each <code>tenant</code> has a set of providers to do certain tasks.
 The <a
   class="gdoc-markdown__link"
   href="/providers/userloginprovider"
@@ -2608,9 +2610,9 @@ upon <a
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">constructor(args) { commit(true); }</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">get isValid() { return true }</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>}<span class="w">
-</span></span></span></code></pre></div><p>The providers are responsible for verifying the user and getting the profile of a user into the authorization server.
-Providers are only glue code and normally should not implement any business logic at all.
-Usually, providers are sending a request to some service and committing the result back.</p>
+</span></span></span></code></pre></div><p>The providers are responsible for verifying the user and retrieving the user profile for the authorization server.
+Providers are only glue code and normally should not implement any business logic.
+Typically, providers send a request to a service and commit the result back.</p>
 <p>Example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">  </span><span class="nt">providers</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="p">|</span><span class="sd">
@@ -2670,10 +2672,9 @@ your operation is done. You also <strong>have to</strong> provide one getter:</p
 <ul>
 <li>isValid</li>
 </ul>
-<p>The execution time of a provider is limited. The advanced setting <code>SCRIPT_TIMEOUT</code> can manipulate that behaviour in the
-future, but the default (and this is what you should use, if not less) is set to <strong>30 seconds</strong>. The provider has to
-complete all tasks within this time limit, this includes performing all necessary requests and reply with the
-result.</p>
+<p>Provider execution time is limited. The advanced setting <code>SCRIPT_TIMEOUT</code> can modify this behavior.
+The default timeout is <strong>30 seconds</strong>, which is recommended unless you need a shorter timeout. The provider must
+complete all tasks within this time limit, including performing all necessary requests and returning the result.</p>
 <div class="gdoc-page__anchorwrap">
     <h2 id="further-readings">
         Further readings

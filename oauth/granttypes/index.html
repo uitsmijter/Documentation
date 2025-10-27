@@ -56,7 +56,7 @@ Authorization Code The authorization code flow is a way to grant access to a pro
       "url" : "https://docs.uitsmijter.io/oauth/granttypes/",
       "headline": "Grant Types",
       "description": "Grant Types In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.\nConfiguration Grant types can be set at Client level.\ngrant_types: - authorization_code - refresh_token - password If none of any grant type is specified, that authorization_code and refresh_token are enabled by default.\nAuthorization Code The authorization code flow is a way to grant access to a protected resource, such as an API, by an external client.",
-      "wordCount" : "1313",
+      "wordCount" : "1301",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2739,8 +2739,7 @@ expired, without requiring the user to go through the authorization process agai
     </h2>
 </div>
 <p>Clients explicitly have to turn on the <code>password</code> grant type to support it!</p>
-<p>The <code>password</code> grant type should be used <strong>for testing purposes only</strong>. In OAuth the <code>password</code> grant type is often
-called <code>implicit grant flow</code>. The user directly sends the username and the <strong>cleartext password</strong> to
+<p>The <code>password</code> grant type should be used <strong>for testing purposes only</strong>. The user directly sends the username and the <strong>cleartext password</strong> to
 the <code>Authorization server</code> and receives a valid <code>access token</code> when the credentials match.</p>
 <p>The returned token contains only a valid <code>access token</code> without a <code>refresh token</code>. Users with this kind of token pair
 have to log in again after the valid token period expires.</p>
