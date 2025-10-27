@@ -7,20 +7,20 @@ weight: 1
 
 Uitsmijter is a versatile OAuth2 authorization server and a Kubernetes Middleware for Traefik.
 
-On one side it provides a flexible and powerful basis for new projects, on the other hand it has been built with the
-focus to comfortably bring existing, mostly monolithic applications into the microservice, cloud- and multi-cloud world.
+On one hand, it provides a flexible and powerful basis for new projects; on the other hand, it has been built with the
+focus of comfortably bringing existing, mostly monolithic applications into the microservice, cloud, and multi-cloud world.
 
-It offers multi-tenant single sign-on via secure, low-maintenance and easy-to-implement middleware, as well as
+It offers multi-tenant single sign-on via secure, low-maintenance, and easy-to-implement middleware, as well as
 protocol-compliant OAuth 2.0 authorization workflows. Both processes work hand in hand and, after minimal and
-easy-to-understand configuration in a short time after foolproof and fully automated (Infrastructure As Code)
+easy-to-understand configuration, can be operational in a short time following foolproof and fully automated (Infrastructure as Code)
 installation.
 
-A company-wide login can be put into operation within the shortest possible time in a vendor-neutral manner and without
-data specifications on your user profiles, even without changing the user database. It is important that your data
-contents and data structures as well as the data management can be determined by you at any time.
+A company-wide login can be put into operation in the shortest possible time in a vendor-neutral manner without
+data specifications for your user profiles, and even without changing the user database. It is important that your data
+content, data structures, and data management can be determined by you at any time.
 
-Uitsmijter does not bring its own user data storage, but offers interfaces to use your
-existing databases and services in a simple, secure and elegant way.
+Uitsmijter does not provide its own user data storage but offers interfaces to use your
+existing databases and services in a simple, secure, and elegant way.
 
 Read more [about our motivation](/general/motivation) for Uitsmijter
 
@@ -36,10 +36,10 @@ In addition to RFC 6749, there are several other RFCs that define specific aspec
 example, [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.html) defines the Bearer Token usage, which specifies how to
 use access tokens in HTTP requests.
 
-All information you need to install, configure, run the server, as well as configuring the client libraries are covered
-in this documentation. Our goal is to present you everything you need in an understandable language. If you are missing
-some aspects, please do not hesitate to [contact us](mailto:sales@uitsmijter.io). We are improving the documentation
-constantly. Your feedback is welcome.
+All information you need to install, configure, and run the server, as well as configure the client libraries, is covered
+in this documentation. Our goal is to present everything you need in an understandable language. If you find
+some aspects are missing, please do not hesitate to [contact us](mailto:sales@uitsmijter.io). We are continuously improving the documentation.
+Your feedback is welcome.
 
 ## Further readings
 

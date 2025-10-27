@@ -5,23 +5,20 @@ weight: 5
 
 # Quick Start Guide for Kubernetes
 
-This guide covers all you need to get up and running with Uitsmijter. The documentation is based on a fictive Project
-for better understanding when and why to set some configurations.
+This guide covers everything you need to get up and running with Uitsmijter. The documentation is based on a fictional project
+to provide better understanding of when and why to set specific configurations.
 
 ## Meet the requirements
 
-This quick start guide assumes that the requirements are given. See [this list of requirements](/general/requirements)
-that
-cover
-the following criteria:
+This quick start guide assumes that the requirements are met. See [this list of requirements](/general/requirements) that covers the following criteria:
 
 - Kubernetes is up and running
 - Traefik is up and running
 - Your cluster is able to get valid certificates for ingresses, e.g. with cert-manager
 
-## Needed privileges to deploy onto your cluster
+## Required privileges to deploy onto your cluster
 
-To deploy a working instance of Uitsmijter you need to have privileges on the kubernetes cluster that allow you to
+To deploy a working instance of Uitsmijter, you need privileges on the Kubernetes cluster that allow you to
 deploy the following resource kinds:
 
 **A service account with a cluster role** is needed to allow Uitsmijter to read its `CustomResources`
@@ -34,7 +31,7 @@ deploy the following resource kinds:
 
 - CustomResourceDefinition
 
-**Kubernetes Resources will be installed** during the installation:
+**Kubernetes resources will be installed** during the installation:
 
 - Namespace
 - ConfigMap
@@ -45,12 +42,11 @@ deploy the following resource kinds:
 - Ingress
 - HorizontalPodAutoscaler
 
-**The Interceptor-Mode is relying on Traefik Middlewares** that will be set up during the installation:
+**The Interceptor-Mode relies on Traefik Middlewares** that will be set up during the installation:
 
 - Middleware
 
-**CustomResources, declared by `CustomResourceDefinition` should be allowed to create, list and edit** by your account
-in your namespaces:
+**CustomResources declared by `CustomResourceDefinition` should allow your account to create, list, and edit** in your namespaces:
 
 - Client
 - Tenant
@@ -60,8 +56,8 @@ your system administrator for help.
 
 ## Prepare the installation
 
-Uitsmijter offers a [🔗 Helm](https://helm.sh) installation routine. Download the Values.yaml first and change the
-values for your needs. The following example describes the sections on a fictive project. You have to change the values
+Uitsmijter offers a [🔗 Helm](https://helm.sh) installation routine. Download the Values.yaml first and adjust the
+values for your needs. The following example describes the sections for a fictional project. You will need to change the values
 accordingly.
 
 **The Project Setup**:
@@ -69,10 +65,10 @@ We are planning a new customer portal for the domain `example.com`. The portal s
 send small notes to a selected group of recipients. However, we are planning to create different Microservices behind
 a Single-Page-Application (SPA).
 
-The SPA shows general available content and offers a login button. Various functions are available only if a user is
-logged in. Without a valid login the user sees marketing project information provided by a cms. After login the user has
-access to its own profile, address book and incoming messages and also allowed to write a new message to all
-participants of the address book.
+The SPA shows generally available content and offers a login button. Various functions are available only if a user is
+logged in. Without a valid login, the user sees marketing project information provided by a CMS. After login, the user has
+access to their own profile, address book, and incoming messages and is also allowed to write a new message to all
+participants in the address book.
 
 The business requirements say that certain users with the `partner` role should have an extra functionality that is
 available as a link to a portal that is made by another team. If the user is logged in to example.com then the user
@@ -88,17 +84,17 @@ So far so good. The architecture of the new project is set and looks like this:
 - Inbox backend (inbox.srv.example.com)
 - Send messages backend (send.srv.example.com)
 
-> As you can see we do make the services public available! We will secure them later on with a JWT. To make it
-> accessible from within the SPA it should be publicly available, otherwise we would need
+> As you can see, we do make the services publicly available! We will secure them later with a JWT. To make them
+> accessible from within the SPA, they should be publicly available; otherwise, we would need
 > a [🔗 BFF](https://blog.bitsrc.io/bff-pattern-backend-for-frontend-an-introduction-e4fa965128bf).
 
 **Create a User Backend**:
-> Somewhere user data must be stored. **Uitsmijter does not store any account data, profiles or passwords**. To create a
-> store for the users credentials either a service must be created or selected from the existing once. In our example
-> the `Profile backend` would fit, but this we want to make public available and the user store should only be
+> User data must be stored somewhere. **Uitsmijter does not store any account data, profiles, or passwords**. To create a
+> store for user credentials, either a service must be created or selected from the existing ones. In our example,
+> the `Profile backend` would fit, but we want to make this publicly available, and the user store should only be
 > accessible
-> within the cluster. So we could do an extra route that is only available from a private service but for the sake of
-> security and the luck of a new project we create a service that is just there to store user credentials.
+> within the cluster. We could create an extra route that is only available from a private service, but for the sake of
+> security and the benefit of a new project, we will create a service dedicated to storing user credentials.
 
 This new `Credentials service` got one route named: "POST: /validate-login" and fires a query against a database:
 
@@ -111,9 +107,9 @@ WHERE `username` = ?
 
 _In our example passwords are stored as a sha256-Hash. You can choose between sha256, md5 and plain text._
 
-Some other applications will fill in the users after registration. This is out of scope for now. Important is that
-the `/validate-login` takes two parameters: `username` and `passwordHash` and returns a status 200 with a user profile
-object or some unauthorised error if the credentials do not match.
+Other applications will populate the users after registration. This is out of scope for now. The important thing is that
+`/validate-login` takes two parameters: `username` and `passwordHash`, and returns a status 200 with a user profile
+object or an unauthorized error if the credentials do not match.
 
 In case the credentials match, return the user profile object:
 
@@ -147,9 +143,9 @@ spec:
 ```
 
 **It's time to install Uitsmijter!**:
-At this point in time, we need some service that handles the authorisation for our project. We do not want to log in
-multiple times to different portals, and we do not want to authenticate the user in all backends. Backends should be
-denied the access if a user request with an invalid token, and access data on the users behalf if the token is correct.
+At this point, we need a service that handles the authorization for our project. We do not want to log in
+multiple times to different portals, and we do not want to authenticate the user in all backends. Backends should
+deny access if a user requests with an invalid token, and access data on the user's behalf if the token is correct.
 
 That implies that we expect some criteria:
 
@@ -159,7 +155,7 @@ That implies that we expect some criteria:
 - To allow other Portals (like partner.example.com) to join the SSO, authorisation must be outside the main portal
 
 **Edit the Uitsmijter Values.yaml**:
-In this section we go through all the available settings and describe them in detail with recommended settings for the
+In this section, we will go through all available settings and describe them in detail with recommended settings for the
 demo project described above.
 
 ### Namespace
@@ -168,11 +164,11 @@ demo project described above.
 namespaceOverride: ""
 ```
 
-This value specifies the namespace in which Uitsmijter should be installed. We recommend to install into the default
-namespace: `uitsmijter`. If you are planning installation into another namespace, you have to adjust Middleware paths
-later on. That is very easy if you know what you are doing, but can be confusing if you are new to Kubernetes or
+This value specifies the namespace in which Uitsmijter should be installed. We recommend installing into the default
+namespace: `uitsmijter`. If you are planning to install into another namespace, you will need to adjust Middleware paths
+later. This is straightforward if you know what you are doing, but can be confusing if you are new to Kubernetes or
 [🔗 Ingress middleware with Traefik](https://doc.traefik.io/traefik/middlewares/overview/). If you want to start without
-hassle and without debugging it is highly recommended to install Uitsmijter in the desired namespace first.
+hassle and debugging, it is highly recommended to install Uitsmijter in the default namespace first.
 
 ### Repository, Images and Tags
 
@@ -183,19 +179,19 @@ image:
   tag: ""
 ```
 
-If you downloaded the newest version from the public repository the settings are just fine and work out of the box.
-Only if you host Docker images at a private repository you need to change the `image.repository` path to locate to your
+If you downloaded the newest version from the public repository, the settings are fine and work out of the box.
+Only if you host Docker images in a private repository do you need to change the `image.repository` path to point to your
 private copy of the image. For example: `docker.example.com/sso/uitsmijter`.
 
-> We **do not recommend** to host a single private copy of Uitsmijter in your own repository, because we are updating
-> the images to fix bugs and improve features frequently. To get informed about updates and pull from the latest version
-> you may want to clone a mirror of the whole repository instead. If you do not know how to do this,
+> We **do not recommend** hosting a single private copy of Uitsmijter in your own repository because we update
+> the images to fix bugs and improve features frequently. To stay informed about updates and pull from the latest version,
+> you may want to clone a mirror of the entire repository instead. If you do not know how to do this,
 > please [ask for assistance](mailto:sales@uitsmijter.io).
 
-The Version `tag` is set automatically according to the Application version of the Helm chart. Please be sure that you
+The version `tag` is set automatically according to the application version of the Helm chart. Please ensure that you
 have downloaded the latest version.
-Only if you are doing an upgrade, you have to set the version by hand. For example upgrading from version `1.0.0` to
-version `1.0.1` you have to set the tag:
+Only if you are performing an upgrade do you need to set the version manually. For example, when upgrading from version `1.0.0` to
+version `1.0.1`, you need to set the tag:
 
 ```yaml
   tag: "1.0.1"
@@ -207,8 +203,8 @@ version `1.0.1` you have to set the tag:
 imagePullSecrets:
 ```
 
-Default is blank, because Uitsmijter is public available. But if you are cloning the repository into your private one,
-it may be secured by a imagePullSecret. You can define the name of the secret here.
+Default is blank because Uitsmijter is publicly available. However, if you are cloning the repository to your private one,
+it may be secured by an imagePullSecret. You can define the name of the secret here.
 
 > Beware that the secret must be present in the namespace of Uitsmijter!
 
@@ -231,9 +227,9 @@ installSA: true
 
 You **have to** change the values of the passwords in `jwtSecret` and `redisPassword`!
 
-The `jwtSecret` is a global passphrase with which all JWTs are signed. Applications dealing with the JWT must know
-this shared secret. The `jwtSecret` should be set while installation and kept on the server only. We highly
-recommend to use [🔗 config-syncer](https://github.com/kubeops/config-syncer) to share the secret into other namespaces.
+The `jwtSecret` is a global passphrase with which all JWTs are signed. Applications dealing with JWTs must know
+this shared secret. The `jwtSecret` should be set during installation and kept on the server only. We highly
+recommend using [🔗 config-syncer](https://github.com/kubeops/config-syncer) to share the secret to other namespaces.
 
 From the example above we decided that the `Profile backend`, `Address book backend`, `Inbox backend`
 and `Send messages backend` will get their own namespaces to collect the backend and the databases, as well as services
@@ -245,11 +241,10 @@ and ingresses all together in the domain of the service:
 - sender
 
 The `jwtSecret` will be created as a secret in the `uitsmijter` namespace (_if not changed with `namespaceOverride`_).
-All the backends need to know about the secret to validate the incoming JWT. Rather than creating handwritten
-secrets in all the four namespaces that can run out of sync can run out of sync while rolling the secret (_that you
-should do from time to
-time_), we recommend to **sync** the secret from the `uitsmijter` namespace into the `profile`, `address`, `inbox`
-and `sender`namespace.
+All backends need to know the secret to validate incoming JWTs. Rather than creating manual
+secrets in all four namespaces that can fall out of sync when rotating the secret (_which you
+should do from time to time_), we recommend **syncing** the secret from the `uitsmijter` namespace to the `profile`, `address`, `inbox`,
+and `sender` namespaces.
 
 To sync the secret into namespaces add a label to the namespace the secret has to sync in:
 
@@ -268,12 +263,12 @@ please take a look at
 the [🔗 config-syncer documentation](https://appscode.com/products/kubed/v0.12.0/guides/config-syncer/intra-cluster/).
 
 The Uitsmijter installation will set up a [🔗 Redis database](https://redis.io) to store refresh tokens.
-The `redisPassword` will only be used inside the `uitsmijter` namespace, and you **have to** replace the value while
-installing.
+The `redisPassword` will only be used inside the `uitsmijter` namespace, and you **must** replace the value during
+installation.
 
-> Attention: after changing the redis password you have to roll out redis again and restart the services. We recommend
-> to generate a random password at the first installation and keep it secret for the implementation. To roll the
-> secret you may want to come back later and [🔗 read this article](https://redis.io/docs/management/security/acl/).
+> Attention: after changing the Redis password, you must roll out Redis again and restart the services. We recommend
+> generating a random password at the first installation and keeping it secret during implementation. To rotate the
+> secret, you may want to return later and [🔗 read this article](https://redis.io/docs/management/security/acl/).
 
 The `storageClassName` highly depends on your Kubernetes installation.
 You can list all available storage classes with kubectl:
@@ -301,35 +296,35 @@ config:
 ```
 
 **logFormat**:
-The log format can be switched between `console` and `ndjson`. console will print out each log entry on a single line
-with the level and the server time:
+The log format can be switched between `console` and `ndjson`. Console will print each log entry on a single line
+with the level and server time:
 
 ```text
 [NOTICE]   Wed, 21 Dec 2022 10:48:24 GMT: Server starting on http://127.0.0.1:8080 
 ```
 
-If you are using a log aggregator it is more familiar to log in [🔗 ndjson](http://ndjson.org):
+If you are using a log aggregator, it is more convenient to log in [🔗 ndjson](http://ndjson.org):
 
 ```text
 {"function":"start(address:)","level":"NOTICE","date":"2022-12-21T10:52:18Z","message":"Server starting on http:\/\/127.0.0.1:8080"}
 ```
 
 **logLevel**:
-The standard log level is `info` and provides a good overview of what Uitsmijter is doing. `info` also prints out
-notices, errors and critical alerts as well.
+The standard log level is `info` and provides a good overview of what Uitsmijter is doing. `info` also prints
+notices, errors, and critical alerts.
 
-In case you want to see more of the applications behavior you may want to switch on the development `trace` logs. And if
-you just want to get alerts about things that do not go well, you can suppress most of the info and notices by setting
+If you want to see more of the application's behavior, you may want to enable the development `trace` logs. If
+you only want alerts about issues, you can suppress most info and notices by setting
 the log level to `error`.
 
 > Everything about logging is [described in this separate section](/configuration/logging)
 
 **cookieExpirationInDays**:
-You can adjust the days a cookie is valid without refreshing its value. A valid cookie means that the user is logged in.
-This is highly important for the Interceptor-Mode, because if you are deleting a user it can still use your service for
-the period of the cookie time! A good value to start with is **1 day**. A deleted user is valid for the maximum of 24h
-in [Interceptor-Mode](/interceptor/interceptor) and with maximum of `tokenExpirationInHours` for
-each [OAuth-FLow](/oauth/flow).
+You can adjust how many days a cookie is valid without refreshing its value. A valid cookie means the user is logged in.
+This is highly important for Interceptor-Mode because if you delete a user, they can still use your service for
+the duration of the cookie lifetime! A good starting value is **1 day**. A deleted user remains valid for a maximum of 24 hours
+in [Interceptor-Mode](/interceptor/interceptor) and for a maximum of `tokenExpirationInHours` for
+each [OAuth-Flow](/oauth/flow).
 
 > The cookie expiration time has to be always equal or greater than the token expiration.
 > _In the example project we assume that a user pays in a monthly subscription, and we do not have external resources
@@ -337,30 +332,30 @@ each [OAuth-FLow](/oauth/flow).
 > will fit our needs later on, too._
 
 **tokenExpirationInHours**:
-In [OAuth-FLow](/oauth/flow) the user exchanges an authorization code (see [grant_types](/oauth/granttypes)) for an
+In [OAuth-Flow](/oauth/flow), the user exchanges an authorization code (see [grant_types](/oauth/granttypes)) for an
 access and refresh token.
-If the access token expires, a new valid one can obtained with the refresh token.
+If the access token expires, a new valid one can be obtained with the refresh token.
 
-As long as the access token is not expired, a user is logged in, even if the user has been deleted from the credentials
+As long as the access token has not expired, a user is logged in, even if the user has been deleted from the credentials
 service.
-In the example of `2 hours` the user can access our portal at least for a maximum of 2 hours before being kicked out.
-This setting is regardless of the cookie lifetime.
+With the example value of `2 hours`, the user can access our portal for a maximum of 2 hours before being kicked out.
+This setting is independent of the cookie lifetime.
 
 > Special case **silent login**: If silent login is turned on, the login might happen automatically!
 > You should only rely on the token expiration time when silent login is turned off (enabled by default).
 > More information is provided in the [tenant and client configuration](/configuration/tenant_client_config) section.
 
 **tokenRefreshExpirationInHours**:
-For every code exchange and every refresh the authorisation server generates a pair of an access token and a refresh
-token. The access token is a Bearer encoded JWT with the user profile encoded. The refresh token is a random key that
+For every code exchange and every refresh, the authorization server generates a pair of an access token and a refresh
+token. The access token is a Bearer-encoded JWT with the user profile encoded. The refresh token is a random key that
 can be used to refresh the access token.
-If an access token gets invalid, the user (mostly the library that is used) can get a new fresh valid access token with
+If an access token becomes invalid, the user (or the library being used) can obtain a new valid access token with
 the refresh token (see [grant_types](/oauth/granttypes)).
 
-Uitsmijter stores the refresh tokens for a defined amount of time. If a user has a valid and known refresh token, an
+Uitsmijter stores refresh tokens for a defined amount of time. If a user has a valid and known refresh token, an
 access token can be requested.
 
-Therefor the refresh expiration period **must be** longer than the access token.
+Therefore, the refresh expiration period **must be** longer than the access token expiration.
 
 > Do you know those mobile Apps where you are always logged in after initial registration? Those apps know you because
 > they have a very long refresh token period (sometimes ~1 year). When opening the app the first thing is to exchange
@@ -368,16 +363,16 @@ Therefor the refresh expiration period **must be** longer than the access token.
 > access token, regardless of the period, with the very long-lived refresh token. This is the way you are always signed
 > in. In our example after 30 days (720 hours) of inactivity the user must log in with credentials again.
 
-Our recommendation for the first installation is set as defaults. You may want to adjust the settings later on to fit to
-your business model. If you need any assistance please to not hesitate
+Our recommendation for the first installation is to use the default settings. You may want to adjust the settings later to fit
+your business model. If you need any assistance, please do not hesitate
 to [contact our consultants](mailto:sales@uitsmijzter.io) or ask the community.
 
 ### Domains
 
-Uitsmijter should run at least on one domain. At least, because Uitsmijter is multi tenant and multi client aware and
-one instance _can_ run for more than one domain. For large installations with multiple different brands it may be a good
-idea to run one clustered Uitsmijter and provide the login functionality to different domains, so that a login does not
-change the main domain to ensure the trust level for your customers.
+Uitsmijter should run on at least one domain. We say "at least" because Uitsmijter is multi-tenant and multi-client aware, and
+one instance _can_ run on more than one domain. For large installations with multiple different brands, it may be a good
+idea to run one clustered Uitsmijter instance and provide login functionality to different domains so that a login does not
+change the main domain, ensuring the trust level for your customers.
 
 ```yaml
 domains:
@@ -427,16 +422,16 @@ Read more about the [helm charts](/configuration/helm) configuration.
 
 ## Create the first Tenant
 
-In the project example we are setting up Uitsmijter for one domain and one company. Only one tenant is needed. Examples
-for a multi-tenant setup is given in the [tenant and client configuration](/configuration/tenant_client_config) section.
-Our one and only tenant is called `portal`. For the configuration of this tenant we first create a new namespace
-to collect all overall settings there:
+In the project example, we are setting up Uitsmijter for one domain and one company. Only one tenant is needed. Examples
+for a multi-tenant setup are given in the [tenant and client configuration](/configuration/tenant_client_config) section.
+Our single tenant is called `portal`. For the configuration of this tenant, we first create a new namespace
+to collect all overall settings:
 
 ```shell
 kubectl create ns portal
 ```
 
-In that namespace we will add the tenant. Therefore, we have to define it first:
+In that namespace, we will add the tenant. First, we need to define it:
 
 ```yaml
 ---

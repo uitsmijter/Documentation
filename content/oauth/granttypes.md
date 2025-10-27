@@ -158,8 +158,7 @@ curl -v \
 
 Clients explicitly have to turn on the `password` grant type to support it!
 
-The `password` grant type should be used **for testing purposes only**. In OAuth the `password` grant type is often
-called `implicit grant flow`. The user directly sends the username and the **cleartext password** to
+The `password` grant type should be used **for testing purposes only**. The user directly sends the username and the **cleartext password** to
 the `Authorization server` and receives a valid `access token` when the credentials match.
 
 The returned token contains only a valid `access token` without a `refresh token`. Users with this kind of token pair

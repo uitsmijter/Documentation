@@ -71,7 +71,7 @@ config:
             method: "post",
             body: { user: credentials.username, password: md5(credentials.password) }
           }).then((result) => {
-            console.log("User Login", credentials.username, r.code);
+            console.log("User Login", credentials.username, result.status);
             if(result.status === 200){
               this.isLoggedIn = true;
               this.profile = result.body;
@@ -98,7 +98,7 @@ config:
             method: "post",
             body: { user: args.username }
           }).then((result) => {
-            console.log("User Validation", args.username, r.code);
+            console.log("User Validation", args.username, result.status);
             if(result.status === 200){
               this.isValid = true;
               return commit(this.isValid);
@@ -175,7 +175,7 @@ spec:
 
 | Property          | Mandatory | Default | Example                               | Discussion                                                                                                                                                                                                                                           |
 |-------------------|-----------|---------|---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name              | yes       | -       | `bbnc`                                | The name of the tenant depends to your architectural discussions. Consider creating tenants for different brands or companies or teams inside your company. Remember: tenants are seperated spaces inside one instance.                              |
+| name              | yes       | -       | `bbnc`                                | The name of the tenant depends on your architectural decisions. Consider creating tenants for different brands, companies, or teams within your organization. Remember: tenants are separated spaces within a single instance.                              |
 | hosts             | yes       | -       | `["bnbc.example", "us.bnbc.example"]` | A concrete list of hosts for which the server serves the tenant. Overlapping hosts in different tenants are not allowed, they have to be unique. Be sure that the hosts are configured as ingress hosts too. |
 | interceptor       | no        |         |                              | _see the full example above_ |
 | interceptor.enabled | yes    |         |  | Can be set to `false` if the tenant should not support the [Interceptor-Mode](/interceptor/interceptor). |
@@ -233,7 +233,7 @@ config:
   secret: aejochiecaishee4ootooSh3ph
 ```
 
-> Remember. For Kubernetes warp name into `metadata` and rename `config` to `spec`:
+> Remember: For Kubernetes, wrap the name in `metadata` and rename `config` to `spec`:
 
 ```yaml
 metadata:
@@ -278,7 +278,7 @@ spec:
 | Property      | Mandatory | Default                                 | Example                                                       | Discussion                                                                                                                                                                                                          |
 |---------------|-----------|-----------------------------------------|---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ident         | yes       | A random UUID                           | `58392627-0121-4721-9DAC-D358BDD86CA6`                        | The ident is the internal primary key for that client.                                                                                                                                                              |
-| name          | yes       | -                                       | `bnbc-ios-app`                                                | Give the client a unique and specific name. Client should be reelect the device classes that you do need to target with specific rights and get individual statistics from.                                         |
+| name          | yes       | -                                       | `bnbc-ios-app`                                                | Give the client a unique and specific name. Clients should reflect the device classes that you need to target with specific rights and to get individual statistics from.                                         |
 | tenantname    | yes       | -                                       | `bnbc-tenant`                                                 | The name of the tenant for which this client is for. On kubernetes this must contain the tenants namespace: `[tennant namespace]/bnbc-tenant`                                                                       |
 | redirect_urls | yes       | -                                       | `["https://www.bnbc.(example&#124;example.com)/bnbc-club/*"]` | A client sends a redirect url to which the response will be redirected to. Specify the allowed urls for security reasons, otherwise it will be possible to hijack the token in the response. See information below. |
 | grant_types   | no        | ["authorization_code", "refresh_token"] | `["password"]`                                                | A list of allowed grant types. If not set, a default set will be applied: `authorization_code`, `refresh_token`. If you need to support the “password" grant, you must specify it explicitly!                       |
@@ -316,4 +316,4 @@ applications that run on a server controlled by developers and whose source code
 applications are considered public clients. Since anyone running a Javascript application can easily see the source
 code of the application, a secret would be easily visible there.
 
-Set a secret for server-side applications where the user does not have access to the source code. 
+Set a secret for server-side applications where users cannot access the source code. 

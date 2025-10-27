@@ -23,5 +23,5 @@ weight: 2
     A Tenant can be a company or a product with unique user group.
     It has Clients which represent different applications. See also [Configuration/Tenant](/configuration/entities#Tenant).
 - `JWT` - A JSON Web Token is a method for representing claims securely between two parties as defined in RFC 7519.
-- `Provider` - A provider are lightweight scripts that establish a seamless connection between Uitsmijter and a user
+- `Provider` - Providers are lightweight scripts that establish a seamless connection between Uitsmijter and a user
   data store
