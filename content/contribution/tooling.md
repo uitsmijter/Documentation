@@ -161,6 +161,54 @@ test suites. After the test a coverage reports is generated.
 ./tooling.sh test
 ```
 
+#### Filtering Unit Tests
+
+You can filter unit tests to run only specific test targets, suites, or individual tests by passing a filter argument directly after the `test` command:
+
+```shell
+# Run all tests in a specific target
+./tooling.sh test <filter>
+
+# Examples:
+./tooling.sh test ServerTests                        # Run all ServerTests
+./tooling.sh test LoggerTests                        # Run all LoggerTests
+./tooling.sh test Uitsmijter-AuthServerTests         # Run all Uitsmijter-AuthServerTests
+```
+
+**Dash vs Underscore Automatic Conversion:**
+
+Swift test automatically converts target names containing dashes (`-`) to underscores (`_`) in test identifiers. The tooling automatically handles this conversion, so you can use either format:
+
+```bash
+# Both work (dashes are automatically converted to underscores)
+./tooling.sh test Uitsmijter-AuthServerTests
+./tooling.sh test Uitsmijter_AuthServerTests
+```
+
+**Advanced Filtering:**
+
+You can also filter by suite name or individual test:
+
+```bash
+# Filter by suite
+./tooling.sh test "ServerTests.AppTests"
+
+# Filter by specific test
+./tooling.sh test "ServerTests.AppTests/testHelloWorld"
+```
+
+The test script shows debug output when a filter is applied:
+
+```
+Test filter:  --filter Uitsmijter_AuthServerTests
+```
+
+Or when no filter is set:
+
+```
+No test filter set - running all tests
+```
+
 ### e2e
 
 Besides the bespoken UnitTests, `e2e` runs end-to-end tests which can be found as shell scripts in `/Tests/e2e/`.
@@ -191,6 +239,35 @@ option `--dirty` to the command.
 
 > Do never ever use a --dirty flag in a CI! The safety of a fresh (non cached) release is always more important than
 > saving CI-hours. Use `--dirty` in your own workflow only.
+
+#### Filtering E2E Tests
+
+You can filter e2e tests to run only specific test scenarios using the `--filter` flag with a test name pattern. The e2e tests use [🔗 Playwright](https://playwright.dev/) and support filtering by test description:
+
+```shell
+# Filter e2e tests by pattern
+./tooling.sh e2e --filter "<pattern>"
+
+# Examples:
+./tooling.sh e2e --filter "should respond with error"
+./tooling.sh e2e --filter "login"
+./tooling.sh e2e --filter "OAuth"
+```
+
+You can combine the `--filter` flag with other options:
+
+```bash
+# Run filtered tests with dirty build (faster development)
+./tooling.sh e2e --dirty --filter "login"
+
+# Run filtered tests with fast mode (single browser)
+./tooling.sh e2e --fast --filter "should respond with error"
+
+# Combine all options
+./tooling.sh e2e --dirty --fast --filter "OAuth"
+```
+
+The filter pattern is passed to Playwright's `--grep` option, which matches against test descriptions using regular expressions.
 
 ### run
 
