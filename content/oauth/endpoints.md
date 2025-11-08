@@ -171,6 +171,93 @@ used in certain grant types. The refresh_token is used to obtain a new access to
 without having to prompt the user for their login credentials again. That is strictly forbidden with the password grant
 type.
 
+### /revoke
+
+The `/revoke` endpoint allows clients to notify Uitsmijter that a previously obtained token (access token or refresh token) is no longer needed and should be invalidated. This endpoint implements [RFC 7009: OAuth 2.0 Token Revocation](https://datatracker.ietf.org/doc/html/rfc7009).
+
+**Why use token revocation?**
+
+- **Security**: Proactively invalidate tokens when they're no longer needed (user logs out, app uninstalled)
+- **Privacy**: Allow users to revoke access granted to third-party applications
+- **Best Practice**: Recommended by OAuth 2.0 Security Best Current Practice
+
+**Request format:**
+
+The revocation endpoint accepts HTTP POST requests with `application/x-www-form-urlencoded` content type:
+
+```shell
+curl --request POST \
+  --url https://id.example.com/revoke \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data 'token=V7vZQbJNNY7zR8IWyV7vZQbJNNY7zR8IW' \
+  --data 'token_type_hint=access_token' \
+  --data 'client_id=9095A4F2-35B2-48B1-A325-309CA324B97E' \
+  --data 'client_secret=secret123'
+```
+
+**Parameter description:**
+
+| Parameter       | Required | Description                                                                                                                                                                                                                                             |
+|-----------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| token           | Yes      | The token value to revoke. Can be either an access token (JWT) or refresh token.                                                                                                                                                                        |
+| token_type_hint | No       | Hint about the token type: `access_token` or `refresh_token`. Helps the server optimize token lookup. If the hint is incorrect, the server will search across all token types.                                                                          |
+| client_id       | Yes      | The unique identifier of the client application making the revocation request.                                                                                                                                                                          |
+| client_secret   | Optional | The client secret. REQUIRED for confidential clients (clients with a configured secret). MUST NOT be provided for public clients. The same authentication rules as the token endpoint apply.                                                            |
+
+**Response:**
+
+Per RFC 7009, the authorization server responds with HTTP 200 OK regardless of whether the token was valid, already revoked, or never existed. This prevents information disclosure about token validity.
+
+```http
+HTTP/1.1 200 OK
+```
+
+If client authentication fails, the server returns HTTP 401 Unauthorized:
+
+```http
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{
+  "error": "invalid_client",
+  "error_description": "ERROR.INVALID_CLIENT"
+}
+```
+
+**Token ownership validation:**
+
+The server validates that the token belongs to the requesting client before revoking it. If a client tries to revoke a token that belongs to a different client, the revocation is silently ignored (returns 200 OK without revoking the token).
+
+**Cascading revocation:**
+
+When revoking a refresh token, Uitsmijter also revokes the associated authorization code. This prevents the client from using the authorization code to obtain new tokens after the refresh token has been revoked.
+
+> **Note about JWT access tokens**: Access tokens issued by Uitsmijter are stateless JWTs. While the revocation endpoint accepts and validates access tokens, it cannot truly invalidate them before their expiration time. Future enhancements may include a token blacklist or reduced token lifetimes for revoked tokens.
+
+**Example usage in an application:**
+
+```javascript
+// When user logs out, revoke the refresh token
+async function logout(refreshToken, clientId, clientSecret) {
+  await fetch('https://id.example.com/revoke', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: new URLSearchParams({
+      token: refreshToken,
+      token_type_hint: 'refresh_token',
+      client_id: clientId,
+      client_secret: clientSecret
+    })
+  });
+
+  // Clear local session
+  localStorage.removeItem('refresh_token');
+  localStorage.removeItem('access_token');
+}
+```
+
 ## Discovery endpoints
 
 Discovery endpoints allow OAuth/OpenID Connect clients to automatically discover the configuration and capabilities of Uitsmijter without manual configuration. This is especially useful for dynamic client registration, multi-tenant deployments, and maintaining compatibility across different versions.
@@ -210,6 +297,7 @@ This returns a JSON document with the OpenID Provider Metadata:
   "token_endpoint": "https://id.example.com/token",
   "userinfo_endpoint": "https://id.example.com/userinfo",
   "jwks_uri": "https://id.example.com/.well-known/jwks.json",
+  "revocation_endpoint": "https://id.example.com/revoke",
   "scopes_supported": ["openid", "profile", "email", "read", "write"],
   "response_types_supported": ["code"],
   "grant_types_supported": ["authorization_code", "refresh_token"],
@@ -257,6 +345,151 @@ const userManager = new UserManager({
 The library will automatically fetch the discovery document and configure itself with the correct endpoints, supported scopes, and authentication methods.
 
 > **Note**: The discovery endpoint is publicly accessible and does not require authentication. This is by design, as clients need to discover the configuration before they can authenticate.
+
+### /.well-known/jwks.json
+
+The `/.well-known/jwks.json` endpoint provides the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This endpoint implements [RFC 7517 (JSON Web Key)](https://www.rfc-editor.org/rfc/rfc7517) and is essential for clients that need to verify JWT access tokens signed with asymmetric algorithms.
+
+**Why use JWKS?**
+
+When Uitsmijter signs JWTs with the RS256 algorithm (RSA with SHA-256), clients need access to the public key to verify the JWT signature. The JWKS endpoint provides these public keys in a standardized JSON format that can be:
+
+1. **Automatically fetched**: OAuth libraries can automatically download and cache public keys
+2. **Rotated safely**: Uitsmijter can rotate signing keys while keeping old keys available during a grace period
+3. **Multi-key support**: Multiple active keys can coexist, identified by their `kid` (Key ID)
+4. **Standards-compliant**: Works with all standard JWT libraries and validators
+
+**When is JWKS used?**
+
+- **RS256 JWT verification**: When Uitsmijter is configured with `JWT_ALGORITHM=RS256` (recommended for production)
+- **Token validation**: Resource servers verify access token signatures without contacting Uitsmijter
+- **Stateless authentication**: JWTs can be validated entirely client-side using the public key
+
+**Example**: Fetching the JWKS
+
+```shell
+curl --request GET \
+  --url https://id.example.com/.well-known/jwks.json \
+  --header 'Accept: application/json'
+```
+
+This returns a JSON Web Key Set containing one or more RSA public keys:
+
+```json
+{
+  "keys": [
+    {
+      "kty": "RSA",
+      "use": "sig",
+      "kid": "2024-11-08",
+      "alg": "RS256",
+      "n": "0vx7agoebGcQSu...V_3Qb",
+      "e": "AQAB"
+    },
+    {
+      "kty": "RSA",
+      "use": "sig",
+      "kid": "2024-11-01",
+      "alg": "RS256",
+      "n": "xjlCRBqkO8WJ...kQb",
+      "e": "AQAB"
+    }
+  ]
+}
+```
+
+**JWKS Response fields:**
+
+| Field | Description |
+|-------|-------------|
+| `keys` | Array of JSON Web Keys. Multiple keys support key rotation. |
+| `kty` | Key Type. Always "RSA" for Uitsmijter's asymmetric keys. |
+| `use` | Public Key Use. Always "sig" (signature verification). |
+| `kid` | Key ID. Matches the `kid` field in JWT headers for key selection. Format: `YYYY-MM-DD`. |
+| `alg` | Algorithm. Always "RS256" (RSA Signature with SHA-256). |
+| `n` | RSA Modulus. The public key modulus, base64url-encoded. |
+| `e` | RSA Exponent. The public key exponent, base64url-encoded. Usually "AQAB" (65537). |
+
+**Caching:**
+
+The JWKS endpoint includes caching headers to improve performance:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=3600
+```
+
+Clients should cache the JWKS for up to 1 hour (3600 seconds) and only re-fetch when:
+- The cache expires
+- A JWT contains a `kid` that's not in the cached JWKS
+- Key validation fails (may indicate key rotation)
+
+**Verifying JWTs with JWKS:**
+
+Most JWT libraries support automatic JWKS fetching. Example with `jsonwebtoken` (Node.js):
+
+```javascript
+import jwt from 'jsonwebtoken';
+import jwksClient from 'jwks-rsa';
+
+const client = jwksClient({
+  jwksUri: 'https://id.example.com/.well-known/jwks.json',
+  cache: true,
+  cacheMaxAge: 3600000 // 1 hour
+});
+
+function getKey(header, callback) {
+  client.getSigningKey(header.kid, (err, key) => {
+    const signingKey = key.getPublicKey();
+    callback(null, signingKey);
+  });
+}
+
+// Verify a JWT
+jwt.verify(token, getKey, { algorithms: ['RS256'] }, (err, decoded) => {
+  if (err) {
+    console.error('Invalid token:', err);
+  } else {
+    console.log('Valid token:', decoded);
+  }
+});
+```
+
+**Key rotation:**
+
+When Uitsmijter rotates signing keys:
+
+1. A new key is generated with a new `kid` (based on the current date)
+2. The new key becomes the active signing key for new JWTs
+3. Old keys remain in the JWKS for a grace period (e.g., 7-30 days)
+4. Clients can verify both old and new JWTs during the rotation period
+5. Expired keys are eventually removed from the JWKS
+
+This ensures zero-downtime key rotation without invalidating existing JWTs.
+
+**Algorithm selection:**
+
+Uitsmijter supports two JWT signing algorithms:
+
+- **HS256** (HMAC with SHA-256): Symmetric algorithm using a shared secret. Default for backward compatibility. JWKS not used.
+- **RS256** (RSA with SHA-256): Asymmetric algorithm using RSA key pairs. **Recommended for production.** Requires JWKS.
+
+To enable RS256 and JWKS, set the environment variable:
+
+```yaml
+JWT_ALGORITHM: RS256
+```
+
+When `JWT_ALGORITHM=HS256` (or not set), the JWKS endpoint still returns a valid (though empty or legacy) response for compatibility, but HS256 tokens don't require JWKS for verification.
+
+> **Security recommendation**: Use RS256 in production. It provides better security because:
+> - Public keys can be distributed safely (via JWKS)
+> - Private keys never leave the authorization server
+> - Resource servers can verify tokens without sharing secrets
+> - Key rotation is safer and more manageable
+
+> **Note**: The JWKS endpoint is publicly accessible and does not require authentication. Public keys are safe to distribute—they can only verify signatures, not create them.
 
 ## Profile endpoints
 
@@ -348,6 +581,8 @@ well as about the overall system status over time.
 | `uitsmijter_authorize_attempts`  | Histogram of OAuth authorization attempts regardless of result (success/failure).       |
 | `uitsmijter_oauth_success`       | Counter of successful OAuth token authorizations (all grant types).                     |
 | `uitsmijter_oauth_failure`       | Counter of failed OAuth token authorizations (all grant types).                         |
+| `uitsmijter_revoke_success`      | Counter of successful token revocations.                                                |
+| `uitsmijter_revoke_failure`      | Counter of failed token revocations (authentication failures).                          |
 | `uitsmijter_token_stored`        | Histogram of valid refresh tokens over time.                                            |
 | `uitsmijter_tenants_count`       | Gauge of the current number of managed tenants.                                         |
 | `uitsmijter_clients_count`       | Gauge containing the current number of managed clients for all tenants.                 |
