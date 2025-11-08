@@ -225,6 +225,13 @@
       <description>Why there is no Admin-Interface for Uitsmijter? Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:&#xA;There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing configuration files.</description>
     </item>
     <item>
+      <title>JWT Signing Algorithms</title>
+      <link>https://docs.uitsmijter.io/configuration/jwt_algorithms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.uitsmijter.io/configuration/jwt_algorithms/</guid>
+      <description>JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.&#xA;Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public + private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/.</description>
+    </item>
+    <item>
       <title>Developer Certificate of Origin</title>
       <link>https://docs.uitsmijter.io/contribution/certificate_of_origin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

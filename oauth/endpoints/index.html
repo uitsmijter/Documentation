@@ -47,7 +47,7 @@
       "url" : "https://docs.uitsmijter.io/oauth/endpoints/",
       "headline": "Available Endpoints",
       "description": "Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.",
-      "wordCount" : "2504",
+      "wordCount" : "3614",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -916,6 +916,50 @@
                     class="gdoc-nav__entry"
                   >
                     Logging
+                  </a>
+                </span>
+              
+              
+            </label>
+
+            
+          </li>
+        
+      
+    
+      
+
+      
+        
+      
+
+      
+        
+          
+          
+          
+          
+          
+          
+
+
+          <li>
+            <input
+              type="checkbox"
+              
+                class="hidden"
+              
+            />
+            <label
+              
+            >
+              
+                <span class="flex">
+                  <a
+                    href="/configuration/jwt_algorithms/"
+                    class="gdoc-nav__entry"
+                  >
+                    JWT Signing Algorithms
                   </a>
                 </span>
               
@@ -2740,6 +2784,103 @@ used in certain grant types. The refresh_token is used to obtain a new access to
 without having to prompt the user for their login credentials again. That is strictly forbidden with the password grant
 type.</p>
 <div class="gdoc-page__anchorwrap">
+    <h3 id="revoke">
+        /revoke
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/endpoints/#revoke" class="gdoc-page__anchor clip flex align-center" title="Anchor to: /revoke" aria-label="Anchor to: /revoke" href="#revoke">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>The <code>/revoke</code> endpoint allows clients to notify Uitsmijter that a previously obtained token (access token or refresh token) is no longer needed and should be invalidated. This endpoint implements <a
+  class="gdoc-markdown__link"
+  href="https://datatracker.ietf.org/doc/html/rfc7009"
+>RFC 7009: OAuth 2.0 Token Revocation</a>.</p>
+<p><strong>Why use token revocation?</strong></p>
+<ul>
+<li><strong>Security</strong>: Proactively invalidate tokens when they&rsquo;re no longer needed (user logs out, app uninstalled)</li>
+<li><strong>Privacy</strong>: Allow users to revoke access granted to third-party applications</li>
+<li><strong>Best Practice</strong>: Recommended by OAuth 2.0 Security Best Current Practice</li>
+</ul>
+<p><strong>Request format:</strong></p>
+<p>The revocation endpoint accepts HTTP POST requests with <code>application/x-www-form-urlencoded</code> content type:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl --request POST <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --url https://id.example.com/revoke <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --header <span class="s1">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --data <span class="s1">&#39;token=V7vZQbJNNY7zR8IWyV7vZQbJNNY7zR8IW&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --data <span class="s1">&#39;token_type_hint=access_token&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --data <span class="s1">&#39;client_id=9095A4F2-35B2-48B1-A325-309CA324B97E&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --data <span class="s1">&#39;client_secret=secret123&#39;</span>
+</span></span></code></pre></div><p><strong>Parameter description:</strong></p>
+<div class="table-wrap"> <table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token</td>
+<td>Yes</td>
+<td>The token value to revoke. Can be either an access token (JWT) or refresh token.</td>
+</tr>
+<tr>
+<td>token_type_hint</td>
+<td>No</td>
+<td>Hint about the token type: <code>access_token</code> or <code>refresh_token</code>. Helps the server optimize token lookup. If the hint is incorrect, the server will search across all token types.</td>
+</tr>
+<tr>
+<td>client_id</td>
+<td>Yes</td>
+<td>The unique identifier of the client application making the revocation request.</td>
+</tr>
+<tr>
+<td>client_secret</td>
+<td>Optional</td>
+<td>The client secret. REQUIRED for confidential clients (clients with a configured secret). MUST NOT be provided for public clients. The same authentication rules as the token endpoint apply.</td>
+</tr>
+</tbody>
+</table> </div>
+<p><strong>Response:</strong></p>
+<p>Per RFC 7009, the authorization server responds with HTTP 200 OK regardless of whether the token was valid, already revoked, or never existed. This prevents information disclosure about token validity.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</span></span></code></pre></div><p>If client authentication fails, the server returns HTTP 401 Unauthorized:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">401</span> <span class="ne">Unauthorized</span>
+</span></span><span class="line"><span class="cl"><span class="n">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;error&#34;</span><span class="p">:</span> <span class="s2">&#34;invalid_client&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;error_description&#34;</span><span class="p">:</span> <span class="s2">&#34;ERROR.INVALID_CLIENT&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Token ownership validation:</strong></p>
+<p>The server validates that the token belongs to the requesting client before revoking it. If a client tries to revoke a token that belongs to a different client, the revocation is silently ignored (returns 200 OK without revoking the token).</p>
+<p><strong>Cascading revocation:</strong></p>
+<p>When revoking a refresh token, Uitsmijter also revokes the associated authorization code. This prevents the client from using the authorization code to obtain new tokens after the refresh token has been revoked.</p>
+<blockquote>
+<p><strong>Note about JWT access tokens</strong>: Access tokens issued by Uitsmijter are stateless JWTs. While the revocation endpoint accepts and validates access tokens, it cannot truly invalidate them before their expiration time. Future enhancements may include a token blacklist or reduced token lifetimes for revoked tokens.</p>
+</blockquote>
+<p><strong>Example usage in an application:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// When user logs out, revoke the refresh token
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">async</span> <span class="kd">function</span> <span class="nx">logout</span><span class="p">(</span><span class="nx">refreshToken</span><span class="p">,</span> <span class="nx">clientId</span><span class="p">,</span> <span class="nx">clientSecret</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://id.example.com/revoke&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/x-www-form-urlencoded&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">body</span><span class="o">:</span> <span class="k">new</span> <span class="nx">URLSearchParams</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">token</span><span class="o">:</span> <span class="nx">refreshToken</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">token_type_hint</span><span class="o">:</span> <span class="s1">&#39;refresh_token&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">client_id</span><span class="o">:</span> <span class="nx">clientId</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">client_secret</span><span class="o">:</span> <span class="nx">clientSecret</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Clear local session
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;refresh_token&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;access_token&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="discovery-endpoints">
         Discovery endpoints
         <a data-clipboard-text="https://docs.uitsmijter.io/oauth/endpoints/#discovery-endpoints" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Discovery endpoints" aria-label="Anchor to: Discovery endpoints" href="#discovery-endpoints">
@@ -2788,6 +2929,7 @@ type.</p>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;token_endpoint&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com/token&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;userinfo_endpoint&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com/userinfo&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;jwks_uri&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com/.well-known/jwks.json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;revocation_endpoint&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com/revoke&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;scopes_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;openid&#34;</span><span class="p">,</span> <span class="s2">&#34;profile&#34;</span><span class="p">,</span> <span class="s2">&#34;email&#34;</span><span class="p">,</span> <span class="s2">&#34;read&#34;</span><span class="p">,</span> <span class="s2">&#34;write&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;response_types_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;code&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;grant_types_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;authorization_code&#34;</span><span class="p">,</span> <span class="s2">&#34;refresh_token&#34;</span><span class="p">],</span>
@@ -2824,6 +2966,164 @@ type.</p>
 </span></span></code></pre></div><p>The library will automatically fetch the discovery document and configure itself with the correct endpoints, supported scopes, and authentication methods.</p>
 <blockquote>
 <p><strong>Note</strong>: The discovery endpoint is publicly accessible and does not require authentication. This is by design, as clients need to discover the configuration before they can authenticate.</p>
+</blockquote>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="well-knownjwksjson">
+        /.well-known/jwks.json
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/endpoints/#well-knownjwksjson" class="gdoc-page__anchor clip flex align-center" title="Anchor to: /.well-known/jwks.json" aria-label="Anchor to: /.well-known/jwks.json" href="#well-knownjwksjson">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>The <code>/.well-known/jwks.json</code> endpoint provides the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This endpoint implements <a
+  class="gdoc-markdown__link"
+  href="https://www.rfc-editor.org/rfc/rfc7517"
+>RFC 7517 (JSON Web Key)</a> and is essential for clients that need to verify JWT access tokens signed with asymmetric algorithms.</p>
+<p><strong>Why use JWKS?</strong></p>
+<p>When Uitsmijter signs JWTs with the RS256 algorithm (RSA with SHA-256), clients need access to the public key to verify the JWT signature. The JWKS endpoint provides these public keys in a standardized JSON format that can be:</p>
+<ol>
+<li><strong>Automatically fetched</strong>: OAuth libraries can automatically download and cache public keys</li>
+<li><strong>Rotated safely</strong>: Uitsmijter can rotate signing keys while keeping old keys available during a grace period</li>
+<li><strong>Multi-key support</strong>: Multiple active keys can coexist, identified by their <code>kid</code> (Key ID)</li>
+<li><strong>Standards-compliant</strong>: Works with all standard JWT libraries and validators</li>
+</ol>
+<p><strong>When is JWKS used?</strong></p>
+<ul>
+<li><strong>RS256 JWT verification</strong>: When Uitsmijter is configured with <code>JWT_ALGORITHM=RS256</code> (recommended for production)</li>
+<li><strong>Token validation</strong>: Resource servers verify access token signatures without contacting Uitsmijter</li>
+<li><strong>Stateless authentication</strong>: JWTs can be validated entirely client-side using the public key</li>
+</ul>
+<p><strong>Example</strong>: Fetching the JWKS</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl --request GET <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --url https://id.example.com/.well-known/jwks.json <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --header <span class="s1">&#39;Accept: application/json&#39;</span>
+</span></span></code></pre></div><p>This returns a JSON Web Key Set containing one or more RSA public keys:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;keys&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;kty&#34;</span><span class="p">:</span> <span class="s2">&#34;RSA&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;use&#34;</span><span class="p">:</span> <span class="s2">&#34;sig&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;kid&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-11-08&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;RS256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;n&#34;</span><span class="p">:</span> <span class="s2">&#34;0vx7agoebGcQSu...V_3Qb&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;e&#34;</span><span class="p">:</span> <span class="s2">&#34;AQAB&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;kty&#34;</span><span class="p">:</span> <span class="s2">&#34;RSA&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;use&#34;</span><span class="p">:</span> <span class="s2">&#34;sig&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;kid&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-11-01&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;RS256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;n&#34;</span><span class="p">:</span> <span class="s2">&#34;xjlCRBqkO8WJ...kQb&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;e&#34;</span><span class="p">:</span> <span class="s2">&#34;AQAB&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>JWKS Response fields:</strong></p>
+<div class="table-wrap"> <table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>keys</code></td>
+<td>Array of JSON Web Keys. Multiple keys support key rotation.</td>
+</tr>
+<tr>
+<td><code>kty</code></td>
+<td>Key Type. Always &ldquo;RSA&rdquo; for Uitsmijter&rsquo;s asymmetric keys.</td>
+</tr>
+<tr>
+<td><code>use</code></td>
+<td>Public Key Use. Always &ldquo;sig&rdquo; (signature verification).</td>
+</tr>
+<tr>
+<td><code>kid</code></td>
+<td>Key ID. Matches the <code>kid</code> field in JWT headers for key selection. Format: <code>YYYY-MM-DD</code>.</td>
+</tr>
+<tr>
+<td><code>alg</code></td>
+<td>Algorithm. Always &ldquo;RS256&rdquo; (RSA Signature with SHA-256).</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>RSA Modulus. The public key modulus, base64url-encoded.</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>RSA Exponent. The public key exponent, base64url-encoded. Usually &ldquo;AQAB&rdquo; (65537).</td>
+</tr>
+</tbody>
+</table> </div>
+<p><strong>Caching:</strong></p>
+<p>The JWKS endpoint includes caching headers to improve performance:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</span></span><span class="line"><span class="cl"><span class="n">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+</span></span><span class="line"><span class="cl"><span class="n">Cache-Control</span><span class="o">:</span> <span class="l">public, max-age=3600</span>
+</span></span></code></pre></div><p>Clients should cache the JWKS for up to 1 hour (3600 seconds) and only re-fetch when:</p>
+<ul>
+<li>The cache expires</li>
+<li>A JWT contains a <code>kid</code> that&rsquo;s not in the cached JWKS</li>
+<li>Key validation fails (may indicate key rotation)</li>
+</ul>
+<p><strong>Verifying JWTs with JWKS:</strong></p>
+<p>Most JWT libraries support automatic JWKS fetching. Example with <code>jsonwebtoken</code> (Node.js):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">jwt</span> <span class="nx">from</span> <span class="s1">&#39;jsonwebtoken&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">jwksClient</span> <span class="nx">from</span> <span class="s1">&#39;jwks-rsa&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">jwksClient</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">jwksUri</span><span class="o">:</span> <span class="s1">&#39;https://id.example.com/.well-known/jwks.json&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">cache</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">cacheMaxAge</span><span class="o">:</span> <span class="mi">3600000</span> <span class="c1">// 1 hour
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getKey</span><span class="p">(</span><span class="nx">header</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">client</span><span class="p">.</span><span class="nx">getSigningKey</span><span class="p">(</span><span class="nx">header</span><span class="p">.</span><span class="nx">kid</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">signingKey</span> <span class="o">=</span> <span class="nx">key</span><span class="p">.</span><span class="nx">getPublicKey</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">signingKey</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Verify a JWT
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">getKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;RS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Invalid token:&#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Valid token:&#39;</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><p><strong>Key rotation:</strong></p>
+<p>When Uitsmijter rotates signing keys:</p>
+<ol>
+<li>A new key is generated with a new <code>kid</code> (based on the current date)</li>
+<li>The new key becomes the active signing key for new JWTs</li>
+<li>Old keys remain in the JWKS for a grace period (e.g., 7-30 days)</li>
+<li>Clients can verify both old and new JWTs during the rotation period</li>
+<li>Expired keys are eventually removed from the JWKS</li>
+</ol>
+<p>This ensures zero-downtime key rotation without invalidating existing JWTs.</p>
+<p><strong>Algorithm selection:</strong></p>
+<p>Uitsmijter supports two JWT signing algorithms:</p>
+<ul>
+<li><strong>HS256</strong> (HMAC with SHA-256): Symmetric algorithm using a shared secret. Default for backward compatibility. JWKS not used.</li>
+<li><strong>RS256</strong> (RSA with SHA-256): Asymmetric algorithm using RSA key pairs. <strong>Recommended for production.</strong> Requires JWKS.</li>
+</ul>
+<p>To enable RS256 and JWKS, set the environment variable:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
+</span></span></span></code></pre></div><p>When <code>JWT_ALGORITHM=HS256</code> (or not set), the JWKS endpoint still returns a valid (though empty or legacy) response for compatibility, but HS256 tokens don&rsquo;t require JWKS for verification.</p>
+<blockquote>
+<p><strong>Security recommendation</strong>: Use RS256 in production. It provides better security because:</p>
+<ul>
+<li>Public keys can be distributed safely (via JWKS)</li>
+<li>Private keys never leave the authorization server</li>
+<li>Resource servers can verify tokens without sharing secrets</li>
+<li>Key rotation is safer and more manageable</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong>: The JWKS endpoint is publicly accessible and does not require authentication. Public keys are safe to distribute—they can only verify signatures, not create them.</p>
 </blockquote>
 <div class="gdoc-page__anchorwrap">
     <h2 id="profile-endpoints">
@@ -2968,6 +3268,14 @@ well as about the overall system status over time.</p>
 <tr>
 <td><code>uitsmijter_oauth_failure</code></td>
 <td>Counter of failed OAuth token authorizations (all grant types).</td>
+</tr>
+<tr>
+<td><code>uitsmijter_revoke_success</code></td>
+<td>Counter of successful token revocations.</td>
+</tr>
+<tr>
+<td><code>uitsmijter_revoke_failure</code></td>
+<td>Counter of failed token revocations (authentication failures).</td>
 </tr>
 <tr>
 <td><code>uitsmijter_token_stored</code></td>

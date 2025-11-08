@@ -12,9 +12,10 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="Ingredients for an Uitsmijter 1 teaspoon butter 2 large eggs 2 slices white bread 2 slices shaved boiled ham 2 large slices aged Gouda cheese Salt and Pepper First melt the butter in a frying pan or skillet and fry the eggs. Once the bottoms of the eggs are set, take the pan off the heat, place a lid on the pan and allow the eggs to steam until the top has firmed up." />
+  <meta name="description" content="JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.
+Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public &#43; private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/." />
 
-    <title>Ingredients | Uitsmijter Documentation</title>
+    <title>JWT Signing Algorithms | Uitsmijter Documentation</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
 
@@ -23,36 +24,38 @@
     
   <meta
     property="og:title"
-    content="Ingredients"
+    content="JWT Signing Algorithms"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Ingredients for an Uitsmijter 1 teaspoon butter 2 large eggs 2 slices white bread 2 slices shaved boiled ham 2 large slices aged Gouda cheese Salt and Pepper First melt the butter in a frying pan or skillet and fry the eggs. Once the bottoms of the eggs are set, take the pan off the heat, place a lid on the pan and allow the eggs to steam until the top has firmed up." />
+  <meta property="og:description" content="JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.
+Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public &#43; private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.uitsmijter.io/general/ingredients/" />
+<meta property="og:url" content="https://docs.uitsmijter.io/configuration/jwt_algorithms/" />
 
-<meta property="article:section" content="General" />
+<meta property="article:section" content="Configuration" />
 
 
   <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Ingredients" />
-  <meta name="twitter:description" content="Ingredients for an Uitsmijter 1 teaspoon butter 2 large eggs 2 slices white bread 2 slices shaved boiled ham 2 large slices aged Gouda cheese Salt and Pepper First melt the butter in a frying pan or skillet and fry the eggs. Once the bottoms of the eggs are set, take the pan off the heat, place a lid on the pan and allow the eggs to steam until the top has firmed up." />
+<meta name="twitter:title" content="JWT Signing Algorithms" />
+  <meta name="twitter:description" content="JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.
+Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public &#43; private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/." />
 
 
   <script type="application/ld+json">
   {
       "@context": "http://schema.org",
       "@type": "TechArticle",
-      "articleSection": "General",
-      "name": "Ingredients",
-      "url" : "https://docs.uitsmijter.io/general/ingredients/",
-      "headline": "Ingredients",
-      "description": "Ingredients for an Uitsmijter 1 teaspoon butter 2 large eggs 2 slices white bread 2 slices shaved boiled ham 2 large slices aged Gouda cheese Salt and Pepper First melt the butter in a frying pan or skillet and fry the eggs. Once the bottoms of the eggs are set, take the pan off the heat, place a lid on the pan and allow the eggs to steam until the top has firmed up.",
-      "wordCount" : "131",
+      "articleSection": "Configuration",
+      "name": "JWT Signing Algorithms",
+      "url" : "https://docs.uitsmijter.io/configuration/jwt_algorithms/",
+      "headline": "JWT Signing Algorithms",
+      "description": "JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.\nAlgorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public \u002b private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (\/.",
+      "wordCount" : "1564",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://docs.uitsmijter.io/general/ingredients/"
+          "@id": "https://docs.uitsmijter.io/configuration/jwt_algorithms/"
       },
       "copyrightHolder" : "Uitsmijter Documentation",
       "copyrightYear" : "0001",
@@ -121,7 +124,7 @@
   href="/custom.css"
   media="all"
 />
-  <link href="https://docs.uitsmijter.io/general/ingredients/" rel="canonical" type="text/html" />
+  <link href="https://docs.uitsmijter.io/configuration/jwt_algorithms/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
@@ -957,7 +960,7 @@
                 <span class="flex">
                   <a
                     href="/configuration/jwt_algorithms/"
-                    class="gdoc-nav__entry"
+                    class="gdoc-nav__entry is-active"
                   >
                     JWT Signing Algorithms
                   </a>
@@ -2524,7 +2527,7 @@
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Uitsmijter Documentation</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/general/' href='/general/'><span itemprop='name'>General</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Ingredients</span><meta itemprop='position' content='3' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Uitsmijter Documentation</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/configuration/' href='/configuration/'><span itemprop='name'>Configuration</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>JWT Signing Algorithms</span><meta itemprop='position' content='3' /></li>
   
 
   
@@ -2543,32 +2546,641 @@
     class="gdoc-markdown gdoc-markdown__align--left"
   >
     <div class="gdoc-page__anchorwrap">
-    <h1 id="ingredients-for-an-uitsmijter">
-        Ingredients for an Uitsmijter
-        <a data-clipboard-text="https://docs.uitsmijter.io/general/ingredients/#ingredients-for-an-uitsmijter" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Ingredients for an Uitsmijter" aria-label="Anchor to: Ingredients for an Uitsmijter" href="#ingredients-for-an-uitsmijter">
+    <h1 id="jwt-signing-algorithms">
+        JWT Signing Algorithms
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#jwt-signing-algorithms" class="gdoc-page__anchor clip flex align-center" title="Anchor to: JWT Signing Algorithms" aria-label="Anchor to: JWT Signing Algorithms" href="#jwt-signing-algorithms">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h1>
 </div>
-<p><img
-  src="/resources/uitsmijter-ingredients.jpg"
-  alt="A delicious Uitsmijter"
-  title="A delicious Uitsmijter"
-/></p>
+<p>Uitsmijter supports two JWT signing algorithms for access tokens: <strong>HS256</strong> (HMAC with SHA-256) and <strong>RS256</strong> (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="algorithm-comparison">
+        Algorithm Comparison
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#algorithm-comparison" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Algorithm Comparison" aria-label="Anchor to: Algorithm Comparison" href="#algorithm-comparison">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="table-wrap"> <table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>HS256 (Symmetric)</th>
+<th>RS256 (Asymmetric)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Key Type</strong></td>
+<td>Shared secret (single key)</td>
+<td>RSA key pair (public + private)</td>
+</tr>
+<tr>
+<td><strong>Security</strong></td>
+<td>Good (if secret is protected)</td>
+<td><strong>Better</strong> (private key never shared)</td>
+</tr>
+<tr>
+<td><strong>Key Distribution</strong></td>
+<td>Secret must be shared securely</td>
+<td>Public key can be distributed openly</td>
+</tr>
+<tr>
+<td><strong>Token Verification</strong></td>
+<td>Requires shared secret</td>
+<td>Uses public key (via JWKS)</td>
+</tr>
+<tr>
+<td><strong>Key Rotation</strong></td>
+<td>Requires secret update everywhere</td>
+<td><strong>Seamless</strong> (JWKS supports multiple keys)</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Faster (symmetric crypto)</td>
+<td>Slightly slower (asymmetric crypto)</td>
+</tr>
+<tr>
+<td><strong>Use Case</strong></td>
+<td>Simple deployments, testing</td>
+<td><strong>Production, microservices</strong></td>
+</tr>
+<tr>
+<td><strong>JWKS Endpoint</strong></td>
+<td>Not used</td>
+<td><strong>Required</strong> (<code>/.well-known/jwks.json</code>)</td>
+</tr>
+<tr>
+<td><strong>Default</strong></td>
+<td>Yes (backward compatibility)</td>
+<td>Recommended for new deployments</td>
+</tr>
+</tbody>
+</table> </div>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="hs256-hmac-with-sha-256">
+        HS256 (HMAC with SHA-256)
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#hs256-hmac-with-sha-256" class="gdoc-page__anchor clip flex align-center" title="Anchor to: HS256 (HMAC with SHA-256)" aria-label="Anchor to: HS256 (HMAC with SHA-256)" href="#hs256-hmac-with-sha-256">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>HS256 is a symmetric algorithm that uses a shared secret key to both sign and verify JWTs.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="how-it-works">
+        How it works
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#how-it-works" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How it works" aria-label="Anchor to: How it works" href="#how-it-works">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ol>
+<li>Uitsmijter signs JWTs using a secret key (from <code>JWT_SECRET</code> environment variable)</li>
+<li>Resource servers verify JWTs using the <strong>same secret key</strong></li>
+<li>The secret must be securely shared between Uitsmijter and all resource servers</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="configuration">
+        Configuration
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#configuration" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Configuration" aria-label="Anchor to: Configuration" href="#configuration">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>HS256 is the default algorithm for backward compatibility:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># .env or deployment config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># or omit this line entirely (defaults to HS256)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l">your-secret-key-at-least-256-bits</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="when-to-use-hs256">
+        When to use HS256
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#when-to-use-hs256" class="gdoc-page__anchor clip flex align-center" title="Anchor to: When to use HS256" aria-label="Anchor to: When to use HS256" href="#when-to-use-hs256">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
 <ul>
-<li>1 teaspoon butter</li>
-<li>2 large eggs</li>
-<li>2 slices white bread</li>
-<li>2 slices shaved boiled ham</li>
-<li>2 large slices aged Gouda cheese</li>
-<li>Salt and Pepper</li>
+<li><strong>Development and testing</strong>: Simple setup, no key management</li>
+<li><strong>Monolithic applications</strong>: Single application verifies tokens</li>
+<li><strong>Legacy systems</strong>: Already using HS256 and shared secrets</li>
+<li><strong>High-performance scenarios</strong>: Marginally faster than RS256</li>
 </ul>
-<p>First melt the butter in a frying pan or skillet and fry the eggs. Once the bottoms of the eggs are set, take the pan
-off the heat, place a lid on the pan and allow the eggs to steam until the top has firmed up. If you prefer your
-eggs more thoroughly cooked, flip them over and fry until the yolk is done to your liking.</p>
-<p>Lightly toast the bread and place the slices of toast on a plate. Top the toast with ham and cheese and put the
-fried eggs on top of it.</p>
-<p>Season to taste with salt and pepper.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="security-considerations">
+        Security considerations
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#security-considerations" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Security considerations" aria-label="Anchor to: Security considerations" href="#security-considerations">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ul>
+<li><strong>Secret management</strong>: The <code>JWT_SECRET</code> must be kept confidential</li>
+<li><strong>Secret distribution</strong>: Every service that verifies tokens needs the secret</li>
+<li><strong>Key rotation</strong>: Rotating keys requires updating all services simultaneously</li>
+<li><strong>Compromise risk</strong>: If one service is compromised, the secret is exposed</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="rs256-rsa-with-sha-256">
+        RS256 (RSA with SHA-256)
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#rs256-rsa-with-sha-256" class="gdoc-page__anchor clip flex align-center" title="Anchor to: RS256 (RSA with SHA-256)" aria-label="Anchor to: RS256 (RSA with SHA-256)" href="#rs256-rsa-with-sha-256">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>RS256 is an asymmetric algorithm that uses an RSA key pair: a private key for signing and a public key for verification.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="how-it-works-1">
+        How it works
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#how-it-works-1" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How it works" aria-label="Anchor to: How it works" href="#how-it-works-1">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ol>
+<li>Uitsmijter generates an RSA key pair (2048-bit)</li>
+<li>Uitsmijter signs JWTs with the <strong>private key</strong> (kept secret)</li>
+<li>Uitsmijter publishes the <strong>public key</strong> via the JWKS endpoint (<code>/.well-known/jwks.json</code>)</li>
+<li>Resource servers fetch the public key from JWKS</li>
+<li>Resource servers verify JWTs using the public key (no secrets needed)</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="configuration-1">
+        Configuration
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#configuration-1" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Configuration" aria-label="Anchor to: Configuration" href="#configuration-1">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Enable RS256 by setting the <code>JWT_ALGORITHM</code> environment variable:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># .env or deployment config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
+</span></span></span></code></pre></div><p>That&rsquo;s it! Uitsmijter will automatically:</p>
+<ul>
+<li>Generate RSA key pairs on startup</li>
+<li>Publish public keys at <code>/.well-known/jwks.json</code></li>
+<li>Include <code>kid</code> (Key ID) in JWT headers</li>
+<li>Support key rotation</li>
+</ul>
+<p>You do <strong>not</strong> need to manually generate or manage RSA keys.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="when-to-use-rs256-recommended">
+        When to use RS256 (Recommended)
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#when-to-use-rs256-recommended" class="gdoc-page__anchor clip flex align-center" title="Anchor to: When to use RS256 (Recommended)" aria-label="Anchor to: When to use RS256 (Recommended)" href="#when-to-use-rs256-recommended">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ul>
+<li><strong>Production deployments</strong>: Superior security and key management</li>
+<li><strong>Microservices architecture</strong>: Each service can verify tokens independently</li>
+<li><strong>Multi-tenant systems</strong>: Different tenants can have different keys</li>
+<li><strong>Compliance requirements</strong>: Many standards require asymmetric signing</li>
+<li><strong>Key rotation</strong>: Seamless rotation without service disruption</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="security-advantages">
+        Security advantages
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#security-advantages" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Security advantages" aria-label="Anchor to: Security advantages" href="#security-advantages">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ul>
+<li><strong>Private key protection</strong>: Private keys never leave Uitsmijter</li>
+<li><strong>Public key distribution</strong>: Public keys can be shared openly (via JWKS)</li>
+<li><strong>No shared secrets</strong>: Resource servers don&rsquo;t need confidential data</li>
+<li><strong>Key rotation</strong>: Old keys remain in JWKS during grace period</li>
+<li><strong>Compromise mitigation</strong>: Compromising a resource server doesn&rsquo;t expose signing keys</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="migrating-from-hs256-to-rs256">
+        Migrating from HS256 to RS256
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#migrating-from-hs256-to-rs256" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Migrating from HS256 to RS256" aria-label="Anchor to: Migrating from HS256 to RS256" href="#migrating-from-hs256-to-rs256">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="zero-downtime-migration-strategy">
+        Zero-Downtime Migration Strategy
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#zero-downtime-migration-strategy" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Zero-Downtime Migration Strategy" aria-label="Anchor to: Zero-Downtime Migration Strategy" href="#zero-downtime-migration-strategy">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>This migration strategy allows you to switch from HS256 to RS256 without invalidating existing tokens or causing downtime.</p>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="step-1-understand-the-impact">
+        Step 1: Understand the impact
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-1-understand-the-impact" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 1: Understand the impact" aria-label="Anchor to: Step 1: Understand the impact" href="#step-1-understand-the-impact">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p><strong>What changes:</strong></p>
+<ul>
+<li>JWT signing algorithm changes from HS256 to RS256</li>
+<li>JWT header includes <code>kid</code> field for key identification</li>
+<li>Public keys become available at <code>/.well-known/jwks.json</code></li>
+<li>Resource servers must fetch public keys from JWKS (instead of using shared secret)</li>
+</ul>
+<p><strong>What stays the same:</strong></p>
+<ul>
+<li>JWT payload structure (claims remain unchanged)</li>
+<li>Token expiration times</li>
+<li>OAuth endpoints and flows</li>
+<li>Client applications (if using standard OAuth libraries)</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="step-2-update-resource-servers-first">
+        Step 2: Update resource servers first
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-2-update-resource-servers-first" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 2: Update resource servers first" aria-label="Anchor to: Step 2: Update resource servers first" href="#step-2-update-resource-servers-first">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>Before switching Uitsmijter to RS256, update all resource servers to support JWKS-based verification. Most JWT libraries support this with minimal changes.</p>
+<p><strong>Example: Node.js with <code>jsonwebtoken</code> and <code>jwks-rsa</code></strong></p>
+<p>Before (HS256):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">jwt</span> <span class="nx">from</span> <span class="s1">&#39;jsonwebtoken&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">secret</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">JWT_SECRET</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Verify token
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">secret</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;HS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></code></pre></div><p>After (RS256 with JWKS):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">jwt</span> <span class="nx">from</span> <span class="s1">&#39;jsonwebtoken&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">jwksClient</span> <span class="nx">from</span> <span class="s1">&#39;jwks-rsa&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">jwksClient</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">jwksUri</span><span class="o">:</span> <span class="s1">&#39;https://id.example.com/.well-known/jwks.json&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">cache</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">cacheMaxAge</span><span class="o">:</span> <span class="mi">3600000</span> <span class="c1">// 1 hour
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getKey</span><span class="p">(</span><span class="nx">header</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">client</span><span class="p">.</span><span class="nx">getSigningKey</span><span class="p">(</span><span class="nx">header</span><span class="p">.</span><span class="nx">kid</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">signingKey</span> <span class="o">=</span> <span class="nx">key</span><span class="p">.</span><span class="nx">getPublicKey</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">signingKey</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Verify token (works with both HS256 and RS256)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">getKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;HS256&#39;</span><span class="p">,</span> <span class="s1">&#39;RS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></code></pre></div><p><strong>Key points:</strong></p>
+<ul>
+<li>Keep <code>HS256</code> in the <code>algorithms</code> array temporarily (supports both algorithms)</li>
+<li>The JWKS client will automatically fetch and cache public keys</li>
+<li>Works with HS256 tokens (falls back to cached secret) and RS256 tokens (uses JWKS)</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="step-3-deploy-updated-resource-servers">
+        Step 3: Deploy updated resource servers
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-3-deploy-updated-resource-servers" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 3: Deploy updated resource servers" aria-label="Anchor to: Step 3: Deploy updated resource servers" href="#step-3-deploy-updated-resource-servers">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>Deploy the updated resource servers that support JWKS. Verify that they can still validate existing HS256 tokens.</p>
+<p>Test with a sample HS256 token:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Authorization: Bearer YOUR_HS256_TOKEN&#34;</span> https://your-api.example.com/protected
+</span></span></code></pre></div><p>The request should succeed, confirming backward compatibility.</p>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="step-4-switch-uitsmijter-to-rs256">
+        Step 4: Switch Uitsmijter to RS256
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-4-switch-uitsmijter-to-rs256" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 4: Switch Uitsmijter to RS256" aria-label="Anchor to: Step 4: Switch Uitsmijter to RS256" href="#step-4-switch-uitsmijter-to-rs256">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>Update Uitsmijter&rsquo;s configuration to use RS256:</p>
+<p><strong>Kubernetes/Helm:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># values.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Docker Compose:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">JWT_ALGORITHM=RS256</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Direct deployment:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">JWT_ALGORITHM</span><span class="o">=</span>RS256
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h4 id="step-5-restart-uitsmijter">
+        Step 5: Restart Uitsmijter
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-5-restart-uitsmijter" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 5: Restart Uitsmijter" aria-label="Anchor to: Step 5: Restart Uitsmijter" href="#step-5-restart-uitsmijter">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>Restart Uitsmijter to apply the new configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Kubernetes</span>
+</span></span><span class="line"><span class="cl">kubectl rollout restart deployment/uitsmijter
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Docker Compose</span>
+</span></span><span class="line"><span class="cl">docker-compose restart uitsmijter
+</span></span></code></pre></div><p>Uitsmijter will:</p>
+<ol>
+<li>Generate a new RSA key pair on startup</li>
+<li>Start signing new JWTs with RS256</li>
+<li>Publish the public key at <code>/.well-known/jwks.json</code></li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="step-6-verify-rs256-tokens">
+        Step 6: Verify RS256 tokens
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-6-verify-rs256-tokens" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 6: Verify RS256 tokens" aria-label="Anchor to: Step 6: Verify RS256 tokens" href="#step-6-verify-rs256-tokens">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>Test that new tokens are signed with RS256:</p>
+<ol>
+<li>Obtain a new access token:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Use your OAuth flow to get a new token</span>
+</span></span><span class="line"><span class="cl">curl -X POST https://id.example.com/token <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="nv">grant_type</span><span class="o">=</span>authorization_code <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="nv">code</span><span class="o">=</span>YOUR_CODE <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="nv">client_id</span><span class="o">=</span>YOUR_CLIENT_ID
+</span></span></code></pre></div><ol start="2">
+<li>Decode the JWT header (without verifying):</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Extract and decode the header</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;YOUR_TOKEN&#34;</span> <span class="p">|</span> cut -d<span class="s1">&#39;.&#39;</span> -f1 <span class="p">|</span> base64 -d
+</span></span></code></pre></div><p>Expected output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;RS256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;typ&#34;</span><span class="p">:</span> <span class="s2">&#34;JWT&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;kid&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-11-08&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="3">
+<li>Verify the token works with your resource servers:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Authorization: Bearer YOUR_RS256_TOKEN&#34;</span> https://your-api.example.com/protected
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h4 id="step-7-wait-for-hs256-tokens-to-expire">
+        Step 7: Wait for HS256 tokens to expire
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-7-wait-for-hs256-tokens-to-expire" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 7: Wait for HS256 tokens to expire" aria-label="Anchor to: Step 7: Wait for HS256 tokens to expire" href="#step-7-wait-for-hs256-tokens-to-expire">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>Old HS256 tokens remain valid until they expire (typically 2 hours by default). During this grace period:</p>
+<ul>
+<li>New tokens are signed with RS256</li>
+<li>Old HS256 tokens continue to work</li>
+<li>Resource servers support both algorithms</li>
+</ul>
+<p><strong>Monitor token expiration:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Check when the last HS256 token will expire</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Default token lifetime is 2 hours</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h4 id="step-8-remove-hs256-support-optional">
+        Step 8: Remove HS256 support (optional)
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-8-remove-hs256-support-optional" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 8: Remove HS256 support (optional)" aria-label="Anchor to: Step 8: Remove HS256 support (optional)" href="#step-8-remove-hs256-support-optional">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>After all HS256 tokens have expired (wait at least <code>TOKEN_EXPIRATION_IN_HOURS</code> × 2), you can remove HS256 support from resource servers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// Remove &#39;HS256&#39; from algorithms array
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">getKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;RS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Now only accepts RS256 tokens
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></code></pre></div><p>You can also remove the <code>JWT_SECRET</code> environment variable from resource servers (no longer needed).</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="rollback-strategy">
+        Rollback Strategy
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#rollback-strategy" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Rollback Strategy" aria-label="Anchor to: Rollback Strategy" href="#rollback-strategy">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>If you encounter issues during migration, you can rollback to HS256:</p>
+<ol>
+<li>Change <code>JWT_ALGORITHM</code> back to <code>HS256</code> (or remove it)</li>
+<li>Restart Uitsmijter</li>
+<li>New tokens will be signed with HS256 again</li>
+<li>RS256 tokens issued during the RS256 period will fail verification after rollback</li>
+</ol>
+<p><strong>Important:</strong> Plan the migration during a maintenance window or low-traffic period to minimize impact.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="key-rotation-rs256-only">
+        Key Rotation (RS256 only)
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#key-rotation-rs256-only" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Key Rotation (RS256 only)" aria-label="Anchor to: Key Rotation (RS256 only)" href="#key-rotation-rs256-only">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>With RS256, you can rotate signing keys without downtime:</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="manual-key-rotation">
+        Manual key rotation
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#manual-key-rotation" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Manual key rotation" aria-label="Anchor to: Manual key rotation" href="#manual-key-rotation">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ol>
+<li>Generate a new key by restarting Uitsmijter</li>
+<li>The new key gets a new <code>kid</code> (current date: <code>YYYY-MM-DD</code>)</li>
+<li>New JWTs are signed with the new key</li>
+<li>Old public keys remain in JWKS for verification</li>
+<li>After grace period, old keys can be removed from JWKS</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="automatic-key-rotation">
+        Automatic key rotation
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#automatic-key-rotation" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Automatic key rotation" aria-label="Anchor to: Automatic key rotation" href="#automatic-key-rotation">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Uitsmijter doesn&rsquo;t currently implement automatic key rotation, but you can implement it using:</p>
+<ol>
+<li><strong>Scheduled restarts</strong>: Restart Uitsmijter monthly/quarterly (generates new key)</li>
+<li><strong>External key management</strong>: Use Kubernetes secrets rotation</li>
+<li><strong>Manual rotation</strong>: Generate new key via admin endpoint (future feature)</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="best-practices-for-key-rotation">
+        Best practices for key rotation
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#best-practices-for-key-rotation" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Best practices for key rotation" aria-label="Anchor to: Best practices for key rotation" href="#best-practices-for-key-rotation">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ul>
+<li><strong>Grace period</strong>: Keep old keys in JWKS for at least 2× token lifetime</li>
+<li><strong>Monitoring</strong>: Monitor JWT verification failures during rotation</li>
+<li><strong>Documentation</strong>: Document which <code>kid</code> is active at any time</li>
+<li><strong>Testing</strong>: Test rotation in staging before production</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="troubleshooting">
+        Troubleshooting
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#troubleshooting" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Troubleshooting" aria-label="Anchor to: Troubleshooting" href="#troubleshooting">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="invalid-signature-errors-after-switching-to-rs256">
+        &ldquo;Invalid signature&rdquo; errors after switching to RS256
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#invalid-signature-errors-after-switching-to-rs256" class="gdoc-page__anchor clip flex align-center" title="Anchor to: &ldquo;Invalid signature&rdquo; errors after switching to RS256" aria-label="Anchor to: &ldquo;Invalid signature&rdquo; errors after switching to RS256" href="#invalid-signature-errors-after-switching-to-rs256">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Cause</strong>: Resource servers are still trying to verify RS256 tokens with HS256 secret.</p>
+<p><strong>Solution</strong>: Ensure resource servers are updated to use JWKS (Step 2 of migration guide).</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="jwks-endpoint-returns-empty-keys-array">
+        JWKS endpoint returns empty <code>keys</code> array
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#jwks-endpoint-returns-empty-keys-array" class="gdoc-page__anchor clip flex align-center" title="Anchor to: JWKS endpoint returns empty keys array" aria-label="Anchor to: JWKS endpoint returns empty keys array" href="#jwks-endpoint-returns-empty-keys-array">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Cause</strong>: <code>JWT_ALGORITHM</code> is still set to HS256 or not set.</p>
+<p><strong>Solution</strong>: Verify <code>JWT_ALGORITHM=RS256</code> is set and restart Uitsmijter.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="kid-not-found-in-jwks-errors">
+        &ldquo;kid not found in JWKS&rdquo; errors
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#kid-not-found-in-jwks-errors" class="gdoc-page__anchor clip flex align-center" title="Anchor to: &ldquo;kid not found in JWKS&rdquo; errors" aria-label="Anchor to: &ldquo;kid not found in JWKS&rdquo; errors" href="#kid-not-found-in-jwks-errors">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Cause</strong>: Resource server&rsquo;s JWKS cache is stale, or key was rotated.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Clear JWKS cache (most libraries auto-refresh)</li>
+<li>Verify JWKS endpoint contains the <code>kid</code> from the JWT header</li>
+<li>Check that clocks are synchronized (NTP)</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="performance-degradation-after-switching-to-rs256">
+        Performance degradation after switching to RS256
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#performance-degradation-after-switching-to-rs256" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Performance degradation after switching to RS256" aria-label="Anchor to: Performance degradation after switching to RS256" href="#performance-degradation-after-switching-to-rs256">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Cause</strong>: RS256 is slightly slower than HS256 (asymmetric crypto overhead).</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Enable JWKS caching in resource servers (default: 1 hour)</li>
+<li>Use CDN or caching proxy for JWKS endpoint</li>
+<li>Consider increasing token expiration time to reduce token issuance frequency</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="resource-server-cant-reach-jwks-endpoint">
+        Resource server can&rsquo;t reach JWKS endpoint
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#resource-server-cant-reach-jwks-endpoint" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Resource server can&rsquo;t reach JWKS endpoint" aria-label="Anchor to: Resource server can&rsquo;t reach JWKS endpoint" href="#resource-server-cant-reach-jwks-endpoint">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Cause</strong>: Network policy, firewall, or DNS issue.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Verify resource server can reach <code>https://id.example.com/.well-known/jwks.json</code></li>
+<li>Check network policies allow outbound HTTPS</li>
+<li>Use internal DNS or service discovery if applicable</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="environment-variables">
+        Environment Variables
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#environment-variables" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Environment Variables" aria-label="Anchor to: Environment Variables" href="#environment-variables">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="jwt_algorithm">
+        JWT_ALGORITHM
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#jwt_algorithm" class="gdoc-page__anchor clip flex align-center" title="Anchor to: JWT_ALGORITHM" aria-label="Anchor to: JWT_ALGORITHM" href="#jwt_algorithm">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Controls the JWT signing algorithm.</p>
+<p><strong>Values:</strong></p>
+<ul>
+<li><code>HS256</code> (default): HMAC with SHA-256 (symmetric)</li>
+<li><code>RS256</code>: RSA with SHA-256 (asymmetric)</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="jwt_secret">
+        JWT_SECRET
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#jwt_secret" class="gdoc-page__anchor clip flex align-center" title="Anchor to: JWT_SECRET" aria-label="Anchor to: JWT_SECRET" href="#jwt_secret">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>(HS256 only) The shared secret used for HS256 signing.</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>Minimum 256 bits (32 characters)</li>
+<li>Must be kept confidential</li>
+<li>Must match on all services verifying tokens</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l">your-secret-key-at-least-32-characters-long</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Not used when <code>JWT_ALGORITHM=RS256</code></strong>.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="token_expiration_in_hours">
+        TOKEN_EXPIRATION_IN_HOURS
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#token_expiration_in_hours" class="gdoc-page__anchor clip flex align-center" title="Anchor to: TOKEN_EXPIRATION_IN_HOURS" aria-label="Anchor to: TOKEN_EXPIRATION_IN_HOURS" href="#token_expiration_in_hours">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Controls JWT access token expiration time.</p>
+<p><strong>Default:</strong> <code>2</code> (2 hours)</p>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">TOKEN_EXPIRATION_IN_HOURS</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
+</span></span></span></code></pre></div><p>Affects:</p>
+<ul>
+<li>Access token lifetime</li>
+<li>Grace period for key rotation (should be 2× this value)</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="further-reading">
+        Further Reading
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#further-reading" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Further Reading" aria-label="Anchor to: Further Reading" href="#further-reading">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<ul>
+<li><a
+  class="gdoc-markdown__link"
+  href="https://www.rfc-editor.org/rfc/rfc7517"
+>RFC 7517 - JSON Web Key (JWK)</a></li>
+<li><a
+  class="gdoc-markdown__link"
+  href="https://www.rfc-editor.org/rfc/rfc7518"
+>RFC 7518 - JSON Web Algorithms (JWA)</a></li>
+<li><a
+  class="gdoc-markdown__link"
+  href="https://openid.net/specs/openid-connect-discovery-1_0.html"
+>OpenID Connect Discovery</a></li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/oauth/endpoints"
+>Available Endpoints</a></li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/oauth/jwt_decoding"
+>JWT Decoding</a></li>
+</ul>
 
   </article>
 
