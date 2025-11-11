@@ -47,7 +47,7 @@
       "url" : "https://docs.uitsmijter.io/configuration/tenant_client_config/",
       "headline": "Tenant and client configuration",
       "description": "Tenant and client configuration Uitsmijter’s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment.",
-      "wordCount" : "1775",
+      "wordCount" : "2057",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -960,6 +960,50 @@
                     class="gdoc-nav__entry"
                   >
                     JWT Signing Algorithms
+                  </a>
+                </span>
+              
+              
+            </label>
+
+            
+          </li>
+        
+      
+    
+      
+
+      
+        
+      
+
+      
+        
+          
+          
+          
+          
+          
+          
+
+
+          <li>
+            <input
+              type="checkbox"
+              
+                class="hidden"
+              
+            />
+            <label
+              
+            >
+              
+                <span class="flex">
+                  <a
+                    href="/configuration/tenant_algorithm_migration/"
+                    class="gdoc-nav__entry"
+                  >
+                    Migrating to Per-Tenant JWT Algorithms
                   </a>
                 </span>
               
@@ -2870,8 +2914,125 @@ the Uitsmijter authentication server.</p>
 <td><code>false</code></td>
 <td>When this option is enabled and a client has a valid auth cookie shared with the login page, its login information will be used to authenticate the user without asking for a username or password.</td>
 </tr>
+<tr>
+<td>jwt_algorithm</td>
+<td>no</td>
+<td>(from JWT_ALGORITHM env)</td>
+<td><code>RS256</code> or <code>HS256</code></td>
+<td>JWT signing algorithm for this tenant. If not set, falls back to the global JWT_ALGORITHM environment variable. Use <code>RS256</code> for production (asymmetric, better security, supports key rotation), or <code>HS256</code> for development/legacy systems (symmetric, requires JWT_SECRET). See <a
+  class="gdoc-markdown__link"
+  href="/configuration/jwt_algorithms"
+>JWT Algorithms</a> for detailed comparison.</td>
+</tr>
 </tbody>
 </table> </div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="jwt-algorithm-configuration">
+        JWT Algorithm Configuration
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_client_config/#jwt-algorithm-configuration" class="gdoc-page__anchor clip flex align-center" title="Anchor to: JWT Algorithm Configuration" aria-label="Anchor to: JWT Algorithm Configuration" href="#jwt-algorithm-configuration">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Each tenant can use its own JWT signing algorithm, independent of other tenants in the same instance. This allows gradual migration from HS256 to RS256, or mixing tenants with different security requirements.</p>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="hs256-symmetric">
+        HS256 (Symmetric)
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_client_config/#hs256-symmetric" class="gdoc-page__anchor clip flex align-center" title="Anchor to: HS256 (Symmetric)" aria-label="Anchor to: HS256 (Symmetric)" href="#hs256-symmetric">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">HS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">providers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">ldap-provider.js</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Characteristics:</strong></p>
+<ul>
+<li>Uses shared secret from <code>JWT_SECRET</code> environment variable</li>
+<li>Simpler configuration, good for development</li>
+<li>All services verifying tokens need the secret</li>
+<li>No key rotation support</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="rs256-asymmetric-recommended">
+        RS256 (Asymmetric, Recommended)
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_client_config/#rs256-asymmetric-recommended" class="gdoc-page__anchor clip flex align-center" title="Anchor to: RS256 (Asymmetric, Recommended)" aria-label="Anchor to: RS256 (Asymmetric, Recommended)" href="#rs256-asymmetric-recommended">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">providers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">ldap-provider.js</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Characteristics:</strong></p>
+<ul>
+<li>Uses RSA key pairs (automatically generated)</li>
+<li>Private key stays in Uitsmijter</li>
+<li>Public keys distributed via JWKS endpoint (<code>/.well-known/jwks.json</code>)</li>
+<li>Supports seamless key rotation</li>
+<li>Better security (recommended for production)</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="fallback-behavior">
+        Fallback Behavior
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_client_config/#fallback-behavior" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Fallback Behavior" aria-label="Anchor to: Fallback Behavior" href="#fallback-behavior">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>If <code>jwt_algorithm</code> is not specified, the tenant uses the global <code>JWT_ALGORITHM</code> environment variable:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># No jwt_algorithm specified</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">providers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">ldap-provider.js</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Will use JWT_ALGORITHM from environment (default: HS256)</span><span class="w">
+</span></span></span></code></pre></div><p>This ensures backward compatibility with existing configurations.</p>
+<div class="gdoc-page__anchorwrap">
+    <h4 id="mixed-algorithms">
+        Mixed Algorithms
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_client_config/#mixed-algorithms" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Mixed Algorithms" aria-label="Anchor to: Mixed Algorithms" href="#mixed-algorithms">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h4>
+</div>
+<p>Different tenants can use different algorithms in the same Uitsmijter instance:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Tenant A uses HS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">legacy-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">HS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">legacy.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant B uses RS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">modern-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">app.example.com</span><span class="w">
+</span></span></span></code></pre></div><p>This is useful for:</p>
+<ul>
+<li>Gradual migration from HS256 to RS256</li>
+<li>Different security requirements per tenant</li>
+<li>Testing RS256 with a subset of tenants</li>
+</ul>
+<p>See <a
+  class="gdoc-markdown__link"
+  href="/configuration/jwt_algorithms"
+>JWT Algorithms</a> for migration strategies and detailed algorithm comparison.</p>
 <div class="gdoc-page__anchorwrap">
     <h2 id="clients">
         Clients

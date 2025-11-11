@@ -12,10 +12,11 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="Install Uitsmijter on Kubernetes Here are the steps to install Uitsmijter on Kubernetes:
-Prepare the installation Make sure the following requirements are met: Kubernetes is up and running. Traefik is up and running. Your cluster can obtain valid certificates for Ingresses, e.g. with cert-manager. Ensure that you have the following authorizations in the Kubernetes cluster: Permissions to deploy ClusterRole, ClusterRoleBinding and ServiceAccount. Permissions to deploy CustomResourceDefinition. Permissions to deploy various Kubernetes resources, including Namespace, ConfigMap, Secret, Service, Deployment, StatefulSet, Ingress and HorizontalPodAutoscaler." />
+  <meta name="description" content="Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.
+Overview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:
+Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed deployments: Run HS256 and RS256 tenants in the same instance Gradual rollout: Test RS256 with pilot tenants before full deployment Before You Start Compatibility: Per-tenant algorithm selection is available in Uitsmijter CE 0." />
 
-    <title>Kubernetes | Uitsmijter Documentation</title>
+    <title>Migrating to Per-Tenant JWT Algorithms | Uitsmijter Documentation</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
 
@@ -24,38 +25,40 @@ Prepare the installation Make sure the following requirements are met: Kubernete
     
   <meta
     property="og:title"
-    content="Kubernetes"
+    content="Migrating to Per-Tenant JWT Algorithms"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Install Uitsmijter on Kubernetes Here are the steps to install Uitsmijter on Kubernetes:
-Prepare the installation Make sure the following requirements are met: Kubernetes is up and running. Traefik is up and running. Your cluster can obtain valid certificates for Ingresses, e.g. with cert-manager. Ensure that you have the following authorizations in the Kubernetes cluster: Permissions to deploy ClusterRole, ClusterRoleBinding and ServiceAccount. Permissions to deploy CustomResourceDefinition. Permissions to deploy various Kubernetes resources, including Namespace, ConfigMap, Secret, Service, Deployment, StatefulSet, Ingress and HorizontalPodAutoscaler." />
+  <meta property="og:description" content="Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.
+Overview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:
+Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed deployments: Run HS256 and RS256 tenants in the same instance Gradual rollout: Test RS256 with pilot tenants before full deployment Before You Start Compatibility: Per-tenant algorithm selection is available in Uitsmijter CE 0." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.uitsmijter.io/installation/kubernetes/" />
+<meta property="og:url" content="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/" />
 
-<meta property="article:section" content="Installation" />
+<meta property="article:section" content="Configuration" />
 
 
   <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Kubernetes" />
-  <meta name="twitter:description" content="Install Uitsmijter on Kubernetes Here are the steps to install Uitsmijter on Kubernetes:
-Prepare the installation Make sure the following requirements are met: Kubernetes is up and running. Traefik is up and running. Your cluster can obtain valid certificates for Ingresses, e.g. with cert-manager. Ensure that you have the following authorizations in the Kubernetes cluster: Permissions to deploy ClusterRole, ClusterRoleBinding and ServiceAccount. Permissions to deploy CustomResourceDefinition. Permissions to deploy various Kubernetes resources, including Namespace, ConfigMap, Secret, Service, Deployment, StatefulSet, Ingress and HorizontalPodAutoscaler." />
+<meta name="twitter:title" content="Migrating to Per-Tenant JWT Algorithms" />
+  <meta name="twitter:description" content="Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.
+Overview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:
+Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed deployments: Run HS256 and RS256 tenants in the same instance Gradual rollout: Test RS256 with pilot tenants before full deployment Before You Start Compatibility: Per-tenant algorithm selection is available in Uitsmijter CE 0." />
 
 
   <script type="application/ld+json">
   {
       "@context": "http://schema.org",
       "@type": "TechArticle",
-      "articleSection": "Installation",
-      "name": "Kubernetes",
-      "url" : "https://docs.uitsmijter.io/installation/kubernetes/",
-      "headline": "Kubernetes",
-      "description": "Install Uitsmijter on Kubernetes Here are the steps to install Uitsmijter on Kubernetes:\nPrepare the installation Make sure the following requirements are met: Kubernetes is up and running. Traefik is up and running. Your cluster can obtain valid certificates for Ingresses, e.g. with cert-manager. Ensure that you have the following authorizations in the Kubernetes cluster: Permissions to deploy ClusterRole, ClusterRoleBinding and ServiceAccount. Permissions to deploy CustomResourceDefinition. Permissions to deploy various Kubernetes resources, including Namespace, ConfigMap, Secret, Service, Deployment, StatefulSet, Ingress and HorizontalPodAutoscaler.",
-      "wordCount" : "351",
+      "articleSection": "Configuration",
+      "name": "Migrating to Per-Tenant JWT Algorithms",
+      "url" : "https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/",
+      "headline": "Migrating to Per-Tenant JWT Algorithms",
+      "description": "Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.\nOverview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:\nZero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed deployments: Run HS256 and RS256 tenants in the same instance Gradual rollout: Test RS256 with pilot tenants before full deployment Before You Start Compatibility: Per-tenant algorithm selection is available in Uitsmijter CE 0.",
+      "wordCount" : "946",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://docs.uitsmijter.io/installation/kubernetes/"
+          "@id": "https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/"
       },
       "copyrightHolder" : "Uitsmijter Documentation",
       "copyrightYear" : "0001",
@@ -124,7 +127,7 @@ Prepare the installation Make sure the following requirements are met: Kubernete
   href="/custom.css"
   media="all"
 />
-  <link href="https://docs.uitsmijter.io/installation/kubernetes/" rel="canonical" type="text/html" />
+  <link href="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
@@ -642,7 +645,7 @@ Prepare the installation Make sure the following requirements are met: Kubernete
                 <span class="flex">
                   <a
                     href="/installation/kubernetes/"
-                    class="gdoc-nav__entry is-active"
+                    class="gdoc-nav__entry"
                   >
                     Kubernetes
                   </a>
@@ -1004,7 +1007,7 @@ Prepare the installation Make sure the following requirements are met: Kubernete
                 <span class="flex">
                   <a
                     href="/configuration/tenant_algorithm_migration/"
-                    class="gdoc-nav__entry"
+                    class="gdoc-nav__entry is-active"
                   >
                     Migrating to Per-Tenant JWT Algorithms
                   </a>
@@ -2571,7 +2574,7 @@ Prepare the installation Make sure the following requirements are met: Kubernete
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Uitsmijter Documentation</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/installation/' href='/installation/'><span itemprop='name'>Installation</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Kubernetes</span><meta itemprop='position' content='3' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Uitsmijter Documentation</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/configuration/' href='/configuration/'><span itemprop='name'>Configuration</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Migrating to Per-Tenant JWT Algorithms</span><meta itemprop='position' content='3' /></li>
   
 
   
@@ -2590,129 +2593,406 @@ Prepare the installation Make sure the following requirements are met: Kubernete
     class="gdoc-markdown gdoc-markdown__align--left"
   >
     <div class="gdoc-page__anchorwrap">
-    <h1 id="install-uitsmijter-on-kubernetes">
-        Install Uitsmijter on Kubernetes
-        <a data-clipboard-text="https://docs.uitsmijter.io/installation/kubernetes/#install-uitsmijter-on-kubernetes" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Install Uitsmijter on Kubernetes" aria-label="Anchor to: Install Uitsmijter on Kubernetes" href="#install-uitsmijter-on-kubernetes">
+    <h1 id="migrating-to-per-tenant-jwt-algorithms">
+        Migrating to Per-Tenant JWT Algorithms
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#migrating-to-per-tenant-jwt-algorithms" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Migrating to Per-Tenant JWT Algorithms" aria-label="Anchor to: Migrating to Per-Tenant JWT Algorithms" href="#migrating-to-per-tenant-jwt-algorithms">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h1>
 </div>
-<p>Here are the steps to install Uitsmijter on Kubernetes:</p>
+<p>This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.</p>
 <div class="gdoc-page__anchorwrap">
-    <h2 id="prepare-the-installation">
-        Prepare the installation
-        <a data-clipboard-text="https://docs.uitsmijter.io/installation/kubernetes/#prepare-the-installation" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Prepare the installation" aria-label="Anchor to: Prepare the installation" href="#prepare-the-installation">
+    <h2 id="overview">
+        Overview
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#overview" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Overview" aria-label="Anchor to: Overview" href="#overview">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:</p>
+<ul>
+<li><strong>Zero-downtime migration</strong>: Migrate tenants from HS256 to RS256 one at a time</li>
+<li><strong>Mixed deployments</strong>: Run HS256 and RS256 tenants in the same instance</li>
+<li><strong>Gradual rollout</strong>: Test RS256 with pilot tenants before full deployment</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="before-you-start">
+        Before You Start
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#before-you-start" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Before You Start" aria-label="Anchor to: Before You Start" href="#before-you-start">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p><strong>Compatibility</strong>: Per-tenant algorithm selection is available in Uitsmijter CE 0.11.0 and later.</p>
+<p><strong>Current behavior</strong>:</p>
+<ul>
+<li>All tenants use the same algorithm (from <code>JWT_ALGORITHM</code> environment variable)</li>
+<li>Default: HS256</li>
+</ul>
+<p><strong>New behavior</strong>:</p>
+<ul>
+<li>Each tenant can specify <code>jwt_algorithm</code> in its configuration</li>
+<li>Tenants without <code>jwt_algorithm</code> fall back to <code>JWT_ALGORITHM</code> (backward compatible)</li>
+<li>Default fallback: HS256</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="backward-compatibility">
+        Backward Compatibility
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#backward-compatibility" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Backward Compatibility" aria-label="Anchor to: Backward Compatibility" href="#backward-compatibility">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Existing configurations <strong>continue to work without changes</strong>:</p>
+<p><strong>Before (all tenants use global setting):</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Environment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">HS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant (no algorithm specified)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
+</span></span></span></code></pre></div><p><strong>After (same behavior):</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Environment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># Still used by tenants without jwt_algorithm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant (no algorithm specified → inherits HS256 from environment)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
+</span></span></span></code></pre></div><p><strong>No action required</strong> for existing deployments.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="migration-scenarios">
+        Migration Scenarios
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#migration-scenarios" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Migration Scenarios" aria-label="Anchor to: Migration Scenarios" href="#migration-scenarios">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="scenario-1-migrate-all-tenants-to-rs256">
+        Scenario 1: Migrate all tenants to RS256
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#scenario-1-migrate-all-tenants-to-rs256" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Scenario 1: Migrate all tenants to RS256" aria-label="Anchor to: Scenario 1: Migrate all tenants to RS256" href="#scenario-1-migrate-all-tenants-to-rs256">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Goal</strong>: Move all tenants from HS256 to RS256 at once (simple deployments)</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Update resource servers to support JWKS (see <a
+  class="gdoc-markdown__link"
+  href="/configuration/jwt_algorithms#migrating-from-hs256-to-rs256"
+>JWT Algorithms - Migration</a>)</li>
+<li>Set global <code>JWT_ALGORITHM=RS256</code></li>
+<li>Restart Uitsmijter</li>
+<li>Wait for old HS256 tokens to expire (2× token lifetime)</li>
+</ol>
+<p><strong>No tenant configuration changes needed</strong> (tenants inherit global setting).</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="scenario-2-gradual-per-tenant-migration">
+        Scenario 2: Gradual per-tenant migration
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#scenario-2-gradual-per-tenant-migration" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Scenario 2: Gradual per-tenant migration" aria-label="Anchor to: Scenario 2: Gradual per-tenant migration" href="#scenario-2-gradual-per-tenant-migration">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Goal</strong>: Migrate tenants one at a time (recommended for multi-tenant production)</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li><strong>Update resource servers</strong> to support both HS256 and RS256:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">jwt</span> <span class="nx">from</span> <span class="s1">&#39;jsonwebtoken&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">jwksClient</span> <span class="nx">from</span> <span class="s1">&#39;jwks-rsa&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">jwksClient</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">jwksUri</span><span class="o">:</span> <span class="s1">&#39;https://id.example.com/.well-known/jwks.json&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">cache</span><span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getKey</span><span class="p">(</span><span class="nx">header</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">header</span><span class="p">.</span><span class="nx">alg</span> <span class="o">===</span> <span class="s1">&#39;HS256&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">JWT_SECRET</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">client</span><span class="p">.</span><span class="nx">getSigningKey</span><span class="p">(</span><span class="nx">header</span><span class="p">.</span><span class="nx">kid</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">signingKey</span> <span class="o">=</span> <span class="nx">key</span><span class="p">.</span><span class="nx">getPublicKey</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">signingKey</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">getKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;HS256&#39;</span><span class="p">,</span> <span class="s1">&#39;RS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Handles both HS256 and RS256 tokens
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></code></pre></div><ol start="2">
+<li>
+<p><strong>Choose a pilot tenant</strong> for initial RS256 rollout:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">pilot-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># ← Tenant-specific override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">pilot.example.com</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Apply the tenant update</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f pilot-tenant.yaml
+</span></span><span class="line"><span class="cl"><span class="c1"># or for file-based:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Restart Uitsmijter to reload tenant config</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Monitor pilot tenant</strong>:</p>
+<ul>
+<li>Verify new tokens have <code>alg: RS256</code> in header</li>
+<li>Check resource servers correctly verify tokens</li>
+<li>Monitor for 2× token lifetime (4 hours default)</li>
+</ul>
+</li>
+<li>
+<p><strong>Migrate remaining tenants</strong> (one at a time or in batches):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># ← Add to each tenant</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Update global default</strong> (optional, after all tenants migrated):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># New global default</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Clean up tenant configs</strong> (optional):
+Remove <code>jwt_algorithm</code> from tenants (will inherit global RS256).</p>
+</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="scenario-3-mixed-algorithm-deployment">
+        Scenario 3: Mixed algorithm deployment
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#scenario-3-mixed-algorithm-deployment" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Scenario 3: Mixed algorithm deployment" aria-label="Anchor to: Scenario 3: Mixed algorithm deployment" href="#scenario-3-mixed-algorithm-deployment">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Goal</strong>: Keep some tenants on HS256, migrate others to RS256 (permanent mixed state)</p>
+<p><strong>Use cases</strong>:</p>
+<ul>
+<li>Legacy tenants require HS256 for compatibility</li>
+<li>Internal tools use HS256, customer-facing apps use RS256</li>
+<li>Different security tiers</li>
+</ul>
+<p><strong>Configuration</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Global fallback</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># Default for tenants without jwt_algorithm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant A: Internal tools (uses global HS256)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">internal-tools</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">internal.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># No jwt_algorithm → inherits HS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant B: Customer portal (overrides with RS256)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">customer-portal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Tenant-specific override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">portal.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant C: Legacy app (explicitly stays on HS256)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">legacy-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># Explicit HS256 (not relying on global default)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">legacy.example.com</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="validation-and-testing">
+        Validation and Testing
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#validation-and-testing" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Validation and Testing" aria-label="Anchor to: Validation and Testing" href="#validation-and-testing">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="verify-tenant-algorithm">
+        Verify tenant algorithm
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#verify-tenant-algorithm" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Verify tenant algorithm" aria-label="Anchor to: Verify tenant algorithm" href="#verify-tenant-algorithm">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Kubernetes</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get tenant my-tenant -o yaml <span class="p">|</span> grep jwt_algorithm
+</span></span></code></pre></div><p><strong>Expected output</strong> (tenant-specific):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Expected output</strong> (inheriting global):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># (no jwt_algorithm field)</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="check-token-algorithm">
+        Check token algorithm
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#check-token-algorithm" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Check token algorithm" aria-label="Anchor to: Check token algorithm" href="#check-token-algorithm">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ol>
+<li>Obtain a token for the tenant</li>
+<li>Decode the JWT header:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;TOKEN_HERE&#34;</span> <span class="p">|</span> cut -d<span class="s1">&#39;.&#39;</span> -f1 <span class="p">|</span> base64 -d <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>Check <code>alg</code> field:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;RS256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;typ&#34;</span><span class="p">:</span> <span class="s2">&#34;JWT&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;kid&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-11-10&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="verify-jwks-endpoint">
+        Verify JWKS endpoint
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#verify-jwks-endpoint" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Verify JWKS endpoint" aria-label="Anchor to: Verify JWKS endpoint" href="#verify-jwks-endpoint">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl https://id.example.com/.well-known/jwks.json <span class="p">|</span> jq
+</span></span></code></pre></div><p><strong>Expected output</strong> (if any tenant uses RS256):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;keys&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;kty&#34;</span><span class="p">:</span> <span class="s2">&#34;RSA&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;use&#34;</span><span class="p">:</span> <span class="s2">&#34;sig&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;kid&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-11-10&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;n&#34;</span><span class="p">:</span> <span class="s2">&#34;...&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;e&#34;</span><span class="p">:</span> <span class="s2">&#34;AQAB&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Expected output</strong> (all tenants use HS256):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;keys&#34;</span><span class="p">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="rollback">
+        Rollback
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#rollback" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Rollback" aria-label="Anchor to: Rollback" href="#rollback">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>If issues occur, you can rollback individual tenants:</p>
+<p><strong>Rollback single tenant to HS256</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># Revert to HS256</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Rollback all tenants</strong>:
+Remove <code>jwt_algorithm</code> from all tenants, ensure <code>JWT_ALGORITHM=HS256</code> (or unset).</p>
+<p><strong>Important</strong>: After rollback, RS256 tokens issued before rollback will fail verification.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="troubleshooting">
+        Troubleshooting
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#troubleshooting" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Troubleshooting" aria-label="Anchor to: Troubleshooting" href="#troubleshooting">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="tenant-tokens-fail-verification">
+        Tenant tokens fail verification
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#tenant-tokens-fail-verification" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Tenant tokens fail verification" aria-label="Anchor to: Tenant tokens fail verification" href="#tenant-tokens-fail-verification">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Symptoms</strong>: 401 Unauthorized errors for specific tenant</p>
+<p><strong>Diagnosis</strong>:</p>
+<ol>
+<li>Check tenant algorithm: <code>kubectl get tenant TENANT_NAME -o yaml | grep jwt_algorithm</code></li>
+<li>Check token header: Decode JWT, verify <code>alg</code> matches tenant configuration</li>
+<li>Check resource server: Ensure it supports the algorithm (HS256 or RS256)</li>
+</ol>
+<p><strong>Solution</strong>: Ensure resource server configuration matches tenant algorithm.</p>
+<hr>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="jwks-endpoint-empty-despite-rs256-tenant">
+        JWKS endpoint empty despite RS256 tenant
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#jwks-endpoint-empty-despite-rs256-tenant" class="gdoc-page__anchor clip flex align-center" title="Anchor to: JWKS endpoint empty despite RS256 tenant" aria-label="Anchor to: JWKS endpoint empty despite RS256 tenant" href="#jwks-endpoint-empty-despite-rs256-tenant">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Symptoms</strong>: <code>{&quot;keys&quot;: []}</code> even though tenant uses RS256</p>
+<p><strong>Diagnosis</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get tenants -o yaml <span class="p">|</span> grep jwt_algorithm
+</span></span></code></pre></div><p><strong>Solution</strong>: Verify at least one tenant has <code>jwt_algorithm: RS256</code>. Restart Uitsmijter to regenerate keys.</p>
+<hr>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="mixed-verification-fails">
+        Mixed verification fails
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#mixed-verification-fails" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Mixed verification fails" aria-label="Anchor to: Mixed verification fails" href="#mixed-verification-fails">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Symptoms</strong>: Some tenants work, others fail with &ldquo;invalid signature&rdquo;</p>
+<p><strong>Diagnosis</strong>: Check resource server configuration</p>
+<p><strong>Solution</strong>: Ensure resource server supports both HS256 and RS256 (see example above).</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="best-practices">
+        Best Practices
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#best-practices" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Best Practices" aria-label="Anchor to: Best Practices" href="#best-practices">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<ol>
+<li><strong>Test in staging first</strong>: Always test per-tenant algorithms in staging before production</li>
+<li><strong>Monitor during migration</strong>: Watch for verification errors during rollout</li>
+<li><strong>Migrate gradually</strong>: Start with 1-2 pilot tenants, then expand</li>
+<li><strong>Document tenant algorithms</strong>: Keep a list of which tenants use which algorithm</li>
+<li><strong>Plan token expiration</strong>: Wait 2× token lifetime after changes before cleanup</li>
+<li><strong>Update resource servers first</strong>: Always update resource servers before changing tenant algorithms</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="further-reading">
+        Further Reading
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/#further-reading" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Further Reading" aria-label="Anchor to: Further Reading" href="#further-reading">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
 </div>
 <ul>
-<li>Make sure the following requirements are met:
-<ul>
-<li>Kubernetes is up and running.</li>
-<li>Traefik is up and running.</li>
-<li>Your cluster can obtain valid certificates for Ingresses, e.g. with cert-manager.</li>
-</ul>
-</li>
-<li>Ensure that you have the following authorizations in the Kubernetes cluster:
-<ul>
-<li>Permissions to deploy ClusterRole, ClusterRoleBinding and ServiceAccount.</li>
-<li>Permissions to deploy CustomResourceDefinition.</li>
-<li>Permissions to deploy various Kubernetes resources, including Namespace, ConfigMap, Secret, Service, Deployment, StatefulSet, Ingress and HorizontalPodAutoscaler.</li>
-<li>Permissions to set up Traefik middlewares.</li>
-<li>Permissions to create, list and edit CustomResources (client and tenant) in your namespaces.</li>
-</ul>
-</li>
-<li>Download the file <a
-  class="gdoc-markdown__link"
-  href="https://raw.githubusercontent.com/uitsmijter/charts/refs/heads/main/charts/uitsmijter/values.yaml"
->values.yaml</a> from the Uitsmijter <a
-  class="gdoc-markdown__link"
-  href="https://charts.uitsmijter.io"
->Helm chart</a>.</li>
 <li><a
   class="gdoc-markdown__link"
-  href="/configuration"
->Customize</a> the values in the file <code>values.yaml</code> to your needs.</li>
+  href="/configuration/jwt_algorithms"
+>JWT Algorithms</a> - Detailed algorithm comparison</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/configuration/tenant_client_config"
+>Tenant Configuration</a> - Full tenant configuration reference</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/oauth/endpoints#well-knownjwksjson"
+>JWKS Endpoint</a> - JWKS endpoint documentation</li>
 </ul>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="install-uitsmijter">
-        Install Uitsmijter
-        <a data-clipboard-text="https://docs.uitsmijter.io/installation/kubernetes/#install-uitsmijter" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Install Uitsmijter" aria-label="Anchor to: Install Uitsmijter" href="#install-uitsmijter">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div>
-<p>Add Uitsmijter Helm repository:</p>
-<pre tabindex="0"><code>$ helm repo add uitsmijter https://charts.uitsmijter.io/
-</code></pre><p>Update Helm:</p>
-<pre tabindex="0"><code>$ helmet update
-</code></pre><p>Install the Uitsmijter Helm chart:</p>
-<pre tabindex="0"><code>$ helm install uitsmijter uitsmijter/uitsmijter
-</code></pre><blockquote>
-<p>Make sure that your user has the permissions to edit clients and tenants in your namespaces.</p>
-</blockquote>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="creating-the-first-tenant">
-        Creating the first tenant
-        <a data-clipboard-text="https://docs.uitsmijter.io/installation/kubernetes/#creating-the-first-tenant" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Creating the first tenant" aria-label="Anchor to: Creating the first tenant" href="#creating-the-first-tenant">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div>
-<p>Create a new namespace for your tenant:</p>
-<pre tabindex="0"><code>$ kubectl create ns &lt;tenant-name&gt;
-</code></pre><p>Define your <a
-  class="gdoc-markdown__link"
-  href="/configuration/entities"
->tenant</a> in a YAML file. Make sure you specify
-valid <a
-  class="gdoc-markdown__link"
-  href="/providers"
->provider</a> scripts that connect to your user authentication service.</p>
-<p>Apply the tenant to the namespace you created:</p>
-<pre tabindex="0"><code>$ kubectl apply -n &lt;tenant-name&gt; &lt;tenant-yaml-file&gt;
-</code></pre><div class="gdoc-page__anchorwrap">
-    <h2 id="creating-a-client">
-        Creating a client
-        <a data-clipboard-text="https://docs.uitsmijter.io/installation/kubernetes/#creating-a-client" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Creating a client" aria-label="Anchor to: Creating a client" href="#creating-a-client">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div>
-<p>Define your <a
-  class="gdoc-markdown__link"
-  href="/configuration/entities"
->client</a> in a YAML file. Make sure that the tenant name matches the tenant
-you created and that the UUID “ident” is unique in the Uitsmijter universe in your cluster.</p>
-<p>Apply the client to the namespace:</p>
-<pre tabindex="0"><code>$ kubectl apply -n &lt;tenant-name&gt; &lt;client-yaml-file&gt;
-</code></pre><div class="gdoc-page__anchorwrap">
-    <h2 id="check-the-uitsmijter-configuration">
-        Check the Uitsmijter configuration
-        <a data-clipboard-text="https://docs.uitsmijter.io/installation/kubernetes/#check-the-uitsmijter-configuration" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Check the Uitsmijter configuration" aria-label="Anchor to: Check the Uitsmijter configuration" href="#check-the-uitsmijter-configuration">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div>
-<p>Check the auth server logs to ensure that the tenant and client have been loaded without errors:</p>
-<pre tabindex="0"><code>kubectl logs -n uitsmijter -l app=uitsmijter -l component=authserver
-</code></pre><div class="gdoc-page__anchorwrap">
-    <h2 id="additional-settings">
-        Additional settings
-        <a data-clipboard-text="https://docs.uitsmijter.io/installation/kubernetes/#additional-settings" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Additional settings" aria-label="Anchor to: Additional settings" href="#additional-settings">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div>
-<p>Once you have completed these steps, you should have successfully installed Uitsmijter on your Kubernetes cluster.
-You can now start implementing OAuth login flows in your applications.</p>
-<p>The sources do not contain information on how to customize the <code>Values.yaml</code> file for your needs.
-Additional information on customizing the <code>Values.yaml</code> file can be found in the
-Uitsmijter <a
-  class="gdoc-markdown__link"
-  href="/configuration/helm"
->Helm Chart</a> documentation.</p>
 
   </article>
 

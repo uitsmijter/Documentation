@@ -42,5 +42,12 @@
       <guid>https://docs.uitsmijter.io/configuration/jwt_algorithms/</guid>
       <description>JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.&#xA;Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public + private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/.</description>
     </item>
+    <item>
+      <title>Migrating to Per-Tenant JWT Algorithms</title>
+      <link>https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/</guid>
+      <description>Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.&#xA;Overview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:&#xA;Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed deployments: Run HS256 and RS256 tenants in the same instance Gradual rollout: Test RS256 with pilot tenants before full deployment Before You Start Compatibility: Per-tenant algorithm selection is available in Uitsmijter CE 0.</description>
+    </item>
   </channel>
 </rss>

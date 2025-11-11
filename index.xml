@@ -239,6 +239,13 @@
       <description>Developer Certificate of Origin Version 1.1&#xA;Copyright (C) 2004, 2006 The Linux Foundation and its contributors.&#xA;Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.&#xA;Developer&amp;rsquo;s Certificate of Origin 1.1&#xA;By making a contribution to this project, I certify that:&#xA;(a) The contribution was created in whole or in part by me and I have the right to submit it under the open source license indicated in the file; or</description>
     </item>
     <item>
+      <title>Migrating to Per-Tenant JWT Algorithms</title>
+      <link>https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/</guid>
+      <description>Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.&#xA;Overview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:&#xA;Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed deployments: Run HS256 and RS256 tenants in the same instance Gradual rollout: Test RS256 with pilot tenants before full deployment Before You Start Compatibility: Per-tenant algorithm selection is available in Uitsmijter CE 0.</description>
+    </item>
+    <item>
       <title>Code of Conduct</title>
       <link>https://docs.uitsmijter.io/contribution/codeofconduct/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
