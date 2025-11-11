@@ -194,6 +194,95 @@ spec:
 | templates.region            | no  | `us-east-1`        | `eu-central-1`            | S3 region (if needed) |
 | providers         | yes       | -       | _see the full example above_          | A list of [providers](/providers/providers). Providers are glue code only to request data from user backend systems. Consider using internal private cluster links.                                                                                  |
 | silent_login      | no        | `true`  | `false`                               | When this option is enabled and a client has a valid auth cookie shared with the login page, its login information will be used to authenticate the user without asking for a username or password.                                                  |
+| jwt_algorithm     | no        | (from JWT_ALGORITHM env) | `RS256` or `HS256` | JWT signing algorithm for this tenant. If not set, falls back to the global JWT_ALGORITHM environment variable. Use `RS256` for production (asymmetric, better security, supports key rotation), or `HS256` for development/legacy systems (symmetric, requires JWT_SECRET). See [JWT Algorithms](/configuration/jwt_algorithms) for detailed comparison. |
+
+### JWT Algorithm Configuration
+
+Each tenant can use its own JWT signing algorithm, independent of other tenants in the same instance. This allows gradual migration from HS256 to RS256, or mixing tenants with different security requirements.
+
+#### HS256 (Symmetric)
+
+```yaml
+spec:
+  hosts:
+    - example.com
+  jwt_algorithm: HS256
+  providers:
+    - ldap-provider.js
+```
+
+**Characteristics:**
+- Uses shared secret from `JWT_SECRET` environment variable
+- Simpler configuration, good for development
+- All services verifying tokens need the secret
+- No key rotation support
+
+#### RS256 (Asymmetric, Recommended)
+
+```yaml
+spec:
+  hosts:
+    - example.com
+  jwt_algorithm: RS256
+  providers:
+    - ldap-provider.js
+```
+
+**Characteristics:**
+- Uses RSA key pairs (automatically generated)
+- Private key stays in Uitsmijter
+- Public keys distributed via JWKS endpoint (`/.well-known/jwks.json`)
+- Supports seamless key rotation
+- Better security (recommended for production)
+
+#### Fallback Behavior
+
+If `jwt_algorithm` is not specified, the tenant uses the global `JWT_ALGORITHM` environment variable:
+
+```yaml
+# No jwt_algorithm specified
+spec:
+  hosts:
+    - example.com
+  providers:
+    - ldap-provider.js
+  # Will use JWT_ALGORITHM from environment (default: HS256)
+```
+
+This ensures backward compatibility with existing configurations.
+
+#### Mixed Algorithms
+
+Different tenants can use different algorithms in the same Uitsmijter instance:
+
+```yaml
+# Tenant A uses HS256
+apiVersion: "uitsmijter.io/v1"
+kind: Tenant
+metadata:
+  name: legacy-tenant
+spec:
+  jwt_algorithm: HS256
+  hosts:
+    - legacy.example.com
+---
+# Tenant B uses RS256
+apiVersion: "uitsmijter.io/v1"
+kind: Tenant
+metadata:
+  name: modern-tenant
+spec:
+  jwt_algorithm: RS256
+  hosts:
+    - app.example.com
+```
+
+This is useful for:
+- Gradual migration from HS256 to RS256
+- Different security requirements per tenant
+- Testing RS256 with a subset of tenants
+
+See [JWT Algorithms](/configuration/jwt_algorithms) for migration strategies and detailed algorithm comparison.
 
 ## Clients
 
