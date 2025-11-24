@@ -361,7 +361,7 @@ When Uitsmijter signs JWTs with the RS256 algorithm (RSA with SHA-256), clients 
 
 **When is JWKS used?**
 
-- **RS256 JWT verification**: When Uitsmijter is configured with `JWT_ALGORITHM=RS256` (recommended for production)
+- **RS256 JWT verification**: When a tenant is configured with `jwt_algorithm: RS256` (recommended for production)
 - **Token validation**: Resource servers verify access token signatures without contacting Uitsmijter
 - **Stateless authentication**: JWTs can be validated entirely client-side using the public key
 
@@ -475,13 +475,21 @@ Uitsmijter supports two JWT signing algorithms:
 - **HS256** (HMAC with SHA-256): Symmetric algorithm using a shared secret. Default for backward compatibility. JWKS not used.
 - **RS256** (RSA with SHA-256): Asymmetric algorithm using RSA key pairs. **Recommended for production.** Requires JWKS.
 
-To enable RS256 and JWKS, set the environment variable:
+To enable RS256 and JWKS, configure it in your tenant:
 
 ```yaml
-JWT_ALGORITHM: RS256
+# Tenant configuration
+apiVersion: "uitsmijter.io/v1"
+kind: Tenant
+metadata:
+  name: my-tenant
+spec:
+  hosts:
+    - example.com
+  jwt_algorithm: RS256  # Enable RS256 for this tenant
 ```
 
-When `JWT_ALGORITHM=HS256` (or not set), the JWKS endpoint still returns a valid (though empty or legacy) response for compatibility, but HS256 tokens don't require JWKS for verification.
+When a tenant uses HS256 (or doesn't specify `jwt_algorithm`), tokens for that tenant don't require JWKS for verification. The JWKS endpoint will only include keys for tenants configured with RS256.
 
 > **Security recommendation**: Use RS256 in production. It provides better security because:
 > - Public keys can be distributed safely (via JWKS)

@@ -194,7 +194,7 @@ spec:
 | templates.region            | no  | `us-east-1`        | `eu-central-1`            | S3 region (if needed) |
 | providers         | yes       | -       | _see the full example above_          | A list of [providers](/providers/providers). Providers are glue code only to request data from user backend systems. Consider using internal private cluster links.                                                                                  |
 | silent_login      | no        | `true`  | `false`                               | When this option is enabled and a client has a valid auth cookie shared with the login page, its login information will be used to authenticate the user without asking for a username or password.                                                  |
-| jwt_algorithm     | no        | (from JWT_ALGORITHM env) | `RS256` or `HS256` | JWT signing algorithm for this tenant. If not set, falls back to the global JWT_ALGORITHM environment variable. Use `RS256` for production (asymmetric, better security, supports key rotation), or `HS256` for development/legacy systems (symmetric, requires JWT_SECRET). See [JWT Algorithms](/configuration/jwt_algorithms) for detailed comparison. |
+| jwt_algorithm     | no        | `HS256` | `RS256` or `HS256` | JWT signing algorithm for this tenant. Defaults to `HS256` if not specified. Use `RS256` for production (asymmetric, better security, supports key rotation every 90 days), or `HS256` for development/legacy systems (symmetric, requires JWT_SECRET). See [JWT Algorithms](/configuration/jwt_algorithms) for detailed comparison. |
 
 ### JWT Algorithm Configuration
 
@@ -235,9 +235,9 @@ spec:
 - Supports seamless key rotation
 - Better security (recommended for production)
 
-#### Fallback Behavior
+#### Default Behavior
 
-If `jwt_algorithm` is not specified, the tenant uses the global `JWT_ALGORITHM` environment variable:
+If `jwt_algorithm` is not specified, the tenant defaults to HS256:
 
 ```yaml
 # No jwt_algorithm specified
@@ -246,10 +246,10 @@ spec:
     - example.com
   providers:
     - ldap-provider.js
-  # Will use JWT_ALGORITHM from environment (default: HS256)
+  # Defaults to HS256
 ```
 
-This ensures backward compatibility with existing configurations.
+This ensures backward compatibility with existing configurations and provides a secure default for development.
 
 #### Mixed Algorithms
 

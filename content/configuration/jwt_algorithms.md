@@ -33,11 +33,20 @@ HS256 is a symmetric algorithm that uses a shared secret key to both sign and ve
 
 ### Configuration
 
-HS256 is the default algorithm for backward compatibility:
+HS256 is the default algorithm. Configure it in your tenant YAML:
 
 ```yaml
-# .env or deployment config
-JWT_ALGORITHM: HS256  # or omit this line entirely (defaults to HS256)
+# Tenant configuration (optional, defaults to HS256 if omitted)
+apiVersion: "uitsmijter.io/v1"
+kind: Tenant
+metadata:
+  name: my-tenant
+spec:
+  hosts:
+    - example.com
+  jwt_algorithm: HS256  # Optional: defaults to HS256 if not specified
+
+# Environment (HS256 requires JWT_SECRET)
 JWT_SECRET: your-secret-key-at-least-256-bits
 ```
 
@@ -69,18 +78,25 @@ RS256 is an asymmetric algorithm that uses an RSA key pair: a private key for si
 
 ### Configuration
 
-Enable RS256 by setting the `JWT_ALGORITHM` environment variable:
+Enable RS256 in your tenant configuration:
 
 ```yaml
-# .env or deployment config
-JWT_ALGORITHM: RS256
+# Tenant configuration
+apiVersion: "uitsmijter.io/v1"
+kind: Tenant
+metadata:
+  name: my-tenant
+spec:
+  hosts:
+    - example.com
+  jwt_algorithm: RS256  # Use RS256 for this tenant
 ```
 
 That's it! Uitsmijter will automatically:
-- Generate RSA key pairs on startup
+- Generate RSA key pairs on first use
 - Publish public keys at `/.well-known/jwks.json`
 - Include `kid` (Key ID) in JWT headers
-- Support key rotation
+- Support key rotation (every 90 days)
 
 You do **not** need to manually generate or manage RSA keys.
 
@@ -178,43 +194,52 @@ curl -H "Authorization: Bearer YOUR_HS256_TOKEN" https://your-api.example.com/pr
 
 The request should succeed, confirming backward compatibility.
 
-#### Step 4: Switch Uitsmijter to RS256
+#### Step 4: Update tenant configuration to RS256
 
-Update Uitsmijter's configuration to use RS256:
+Update your tenant configuration to use RS256:
 
-**Kubernetes/Helm:**
+**Kubernetes (CRD):**
 ```yaml
-# values.yaml
-env:
-  JWT_ALGORITHM: RS256
+# tenant.yaml
+apiVersion: "uitsmijter.io/v1"
+kind: Tenant
+metadata:
+  name: my-tenant
+spec:
+  hosts:
+    - example.com
+  jwt_algorithm: RS256  # Add this line
 ```
 
-**Docker Compose:**
+**File-based configuration:**
 ```yaml
-environment:
-  - JWT_ALGORITHM=RS256
+# tenants/my-tenant.yaml
+name: my-tenant
+config:
+  hosts:
+    - example.com
+  jwt_algorithm: RS256  # Add this line
+  providers:
+    - my-provider.js
 ```
 
-**Direct deployment:**
-```bash
-export JWT_ALGORITHM=RS256
-```
+#### Step 5: Apply tenant configuration
 
-#### Step 5: Restart Uitsmijter
-
-Restart Uitsmijter to apply the new configuration:
+Apply the updated tenant configuration:
 
 ```bash
-# Kubernetes
+# Kubernetes (CRD)
+kubectl apply -f tenant.yaml
+
+# File-based: Restart Uitsmijter to reload configuration
 kubectl rollout restart deployment/uitsmijter
-
-# Docker Compose
+# or
 docker-compose restart uitsmijter
 ```
 
 Uitsmijter will:
-1. Generate a new RSA key pair on startup
-2. Start signing new JWTs with RS256
+1. Generate a new RSA key pair if none exists
+2. Start signing new JWTs for this tenant with RS256
 3. Publish the public key at `/.well-known/jwks.json`
 
 #### Step 6: Verify RS256 tokens
@@ -280,8 +305,8 @@ You can also remove the `JWT_SECRET` environment variable from resource servers 
 
 If you encounter issues during migration, you can rollback to HS256:
 
-1. Change `JWT_ALGORITHM` back to `HS256` (or remove it)
-2. Restart Uitsmijter
+1. Update tenant configuration: change `jwt_algorithm` to `HS256` (or remove the field)
+2. Apply the updated tenant configuration (Kubernetes) or restart Uitsmijter (file-based)
 3. New tokens will be signed with HS256 again
 4. RS256 tokens issued during the RS256 period will fail verification after rollback
 
@@ -324,9 +349,9 @@ Uitsmijter doesn't currently implement automatic key rotation, but you can imple
 
 ### JWKS endpoint returns empty `keys` array
 
-**Cause**: `JWT_ALGORITHM` is still set to HS256 or not set.
+**Cause**: No tenant is configured to use RS256.
 
-**Solution**: Verify `JWT_ALGORITHM=RS256` is set and restart Uitsmijter.
+**Solution**: Verify at least one tenant has `jwt_algorithm: RS256` in its configuration and restart Uitsmijter if using file-based configuration.
 
 ### "kid not found in JWKS" errors
 
@@ -355,11 +380,13 @@ Uitsmijter doesn't currently implement automatic key rotation, but you can imple
 - Check network policies allow outbound HTTPS
 - Use internal DNS or service discovery if applicable
 
-## Environment Variables
+## Configuration Reference
 
-### JWT_ALGORITHM
+### jwt_algorithm (Tenant Configuration)
 
-Controls the JWT signing algorithm.
+Controls the JWT signing algorithm for a specific tenant.
+
+**Location:** Tenant YAML configuration (`spec.jwt_algorithm`)
 
 **Values:**
 - `HS256` (default): HMAC with SHA-256 (symmetric)
@@ -367,10 +394,19 @@ Controls the JWT signing algorithm.
 
 **Example:**
 ```yaml
-JWT_ALGORITHM: RS256
+apiVersion: "uitsmijter.io/v1"
+kind: Tenant
+metadata:
+  name: my-tenant
+spec:
+  hosts:
+    - example.com
+  jwt_algorithm: RS256  # Tenant-specific algorithm
 ```
 
-### JWT_SECRET
+**Note:** If omitted, defaults to HS256 for backward compatibility.
+
+### JWT_SECRET (Environment Variable)
 
 (HS256 only) The shared secret used for HS256 signing.
 
@@ -384,22 +420,26 @@ JWT_ALGORITHM: RS256
 JWT_SECRET: your-secret-key-at-least-32-characters-long
 ```
 
-**Not used when `JWT_ALGORITHM=RS256`**.
+**Not used when tenant is configured with `jwt_algorithm: RS256`**.
 
-### TOKEN_EXPIRATION_IN_HOURS
+### TOKEN_EXPIRATION_IN_HOURS (Environment Variable)
 
 Controls JWT access token expiration time.
+
+**Location:** Environment variable
 
 **Default:** `2` (2 hours)
 
 **Example:**
 ```yaml
+# Environment configuration
 TOKEN_EXPIRATION_IN_HOURS: 8
 ```
 
 Affects:
 - Access token lifetime
 - Grace period for key rotation (should be 2× this value)
+- Migration grace period for algorithm changes
 
 ## Further Reading
 

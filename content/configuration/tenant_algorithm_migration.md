@@ -17,27 +17,27 @@ Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenan
 
 ## Before You Start
 
-**Compatibility**: Per-tenant algorithm selection is available in Uitsmijter CE 0.11.0 and later.
+**Compatibility**: Per-tenant algorithm selection is available in Uitsmijter CE 0.10.1 and later.
 
-**Current behavior**:
-- All tenants use the same algorithm (from `JWT_ALGORITHM` environment variable)
+**Current behavior** (0.10.1+):
+- Each tenant specifies `jwt_algorithm` in its configuration
+- Tenants without `jwt_algorithm` default to HS256
+- No global `JWT_ALGORITHM` environment variable
+
+**Previous behavior** (0.10.0 and earlier):
+- All tenants used the same algorithm (from `JWT_ALGORITHM` environment variable)
 - Default: HS256
-
-**New behavior**:
-- Each tenant can specify `jwt_algorithm` in its configuration
-- Tenants without `jwt_algorithm` fall back to `JWT_ALGORITHM` (backward compatible)
-- Default fallback: HS256
 
 ## Backward Compatibility
 
-Existing configurations **continue to work without changes**:
+Existing tenant configurations **continue to work without changes**:
 
-**Before (all tenants use global setting):**
+**Version 0.10.0 and earlier:**
 ```yaml
-# Environment
+# Environment variable controlled global algorithm
 JWT_ALGORITHM: HS256
 
-# Tenant (no algorithm specified)
+# Tenant (no algorithm specified, used global setting)
 apiVersion: "uitsmijter.io/v1"
 kind: Tenant
 metadata:
@@ -47,12 +47,11 @@ spec:
     - example.com
 ```
 
-**After (same behavior):**
+**Version 0.10.1+ (current):**
 ```yaml
-# Environment
-JWT_ALGORITHM: HS256  # Still used by tenants without jwt_algorithm
+# No JWT_ALGORITHM environment variable needed
 
-# Tenant (no algorithm specified → inherits HS256 from environment)
+# Tenant (no algorithm specified → defaults to HS256)
 apiVersion: "uitsmijter.io/v1"
 kind: Tenant
 metadata:
@@ -60,9 +59,13 @@ metadata:
 spec:
   hosts:
     - example.com
+  # jwt_algorithm: HS256  # Optional, defaults to HS256
 ```
 
-**No action required** for existing deployments.
+**Migration from 0.10.0 to 0.10.1+:**
+- Remove `JWT_ALGORITHM` environment variable from deployment
+- Tenants without `jwt_algorithm` will default to HS256 (same as before)
+- **No tenant configuration changes required** if staying with default HS256
 
 ## Migration Scenarios
 
@@ -73,11 +76,11 @@ spec:
 **Steps**:
 
 1. Update resource servers to support JWKS (see [JWT Algorithms - Migration](/configuration/jwt_algorithms#migrating-from-hs256-to-rs256))
-2. Set global `JWT_ALGORITHM=RS256`
-3. Restart Uitsmijter
+2. Add `jwt_algorithm: RS256` to all tenant configurations
+3. Apply tenant configurations (Kubernetes) or restart Uitsmijter (file-based)
 4. Wait for old HS256 tokens to expire (2× token lifetime)
 
-**No tenant configuration changes needed** (tenants inherit global setting).
+**Note**: You need to update each tenant configuration individually to specify RS256.
 
 ### Scenario 2: Gradual per-tenant migration
 
@@ -142,13 +145,11 @@ jwt.verify(token, getKey, { algorithms: ['HS256', 'RS256'] }, (err, decoded) => 
      jwt_algorithm: RS256  # ← Add to each tenant
    ```
 
-6. **Update global default** (optional, after all tenants migrated):
-   ```yaml
-   JWT_ALGORITHM: RS256  # New global default
+6. **Verify all tenants** are using RS256:
+   ```bash
+   # Check tenant configurations
+   kubectl get tenants -o yaml | grep -A 5 jwt_algorithm
    ```
-
-7. **Clean up tenant configs** (optional):
-   Remove `jwt_algorithm` from tenants (will inherit global RS256).
 
 ### Scenario 3: Mixed algorithm deployment
 
@@ -162,11 +163,7 @@ jwt.verify(token, getKey, { algorithms: ['HS256', 'RS256'] }, (err, decoded) => 
 **Configuration**:
 
 ```yaml
-# Global fallback
-JWT_ALGORITHM: HS256  # Default for tenants without jwt_algorithm
-
----
-# Tenant A: Internal tools (uses global HS256)
+# Tenant A: Internal tools (uses default HS256)
 apiVersion: "uitsmijter.io/v1"
 kind: Tenant
 metadata:
@@ -174,27 +171,27 @@ metadata:
 spec:
   hosts:
     - internal.example.com
-  # No jwt_algorithm → inherits HS256
+  # No jwt_algorithm → defaults to HS256
 
 ---
-# Tenant B: Customer portal (overrides with RS256)
+# Tenant B: Customer portal (uses RS256)
 apiVersion: "uitsmijter.io/v1"
 kind: Tenant
 metadata:
   name: customer-portal
 spec:
-  jwt_algorithm: RS256  # Tenant-specific override
+  jwt_algorithm: RS256  # Explicit RS256
   hosts:
     - portal.example.com
 
 ---
-# Tenant C: Legacy app (explicitly stays on HS256)
+# Tenant C: Legacy app (explicitly uses HS256)
 apiVersion: "uitsmijter.io/v1"
 kind: Tenant
 metadata:
   name: legacy-app
 spec:
-  jwt_algorithm: HS256  # Explicit HS256 (not relying on global default)
+  jwt_algorithm: HS256  # Explicit HS256 (clearer than relying on default)
   hosts:
     - legacy.example.com
 ```
@@ -273,7 +270,7 @@ spec:
 ```
 
 **Rollback all tenants**:
-Remove `jwt_algorithm` from all tenants, ensure `JWT_ALGORITHM=HS256` (or unset).
+Remove `jwt_algorithm` from all tenants (will default to HS256).
 
 **Important**: After rollback, RS256 tokens issued before rollback will fail verification.
 
