@@ -53,7 +53,7 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
       "url" : "https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/",
       "headline": "Migrating to Per-Tenant JWT Algorithms",
       "description": "Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.\nOverview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:\nZero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed deployments: Run HS256 and RS256 tenants in the same instance Gradual rollout: Test RS256 with pilot tenants before full deployment Before You Start Compatibility: Per-tenant algorithm selection is available in Uitsmijter CE 0.",
-      "wordCount" : "946",
+      "wordCount" : "974",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -140,7 +140,7 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
-    var u="//matomo.muppets.ausdertechnik.de/";
+    var u="//matomo.benjamin.ausdertechnik.de/";
     _paq.push(['setTrackerUrl', u+'matomo.php']);
     _paq.push(['setSiteId', '2']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -2623,17 +2623,17 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
         </a>
     </h2>
 </div>
-<p><strong>Compatibility</strong>: Per-tenant algorithm selection is available in Uitsmijter CE 0.11.0 and later.</p>
-<p><strong>Current behavior</strong>:</p>
+<p><strong>Compatibility</strong>: Per-tenant algorithm selection is available in Uitsmijter CE 0.10.1 and later.</p>
+<p><strong>Current behavior</strong> (0.10.1+):</p>
 <ul>
-<li>All tenants use the same algorithm (from <code>JWT_ALGORITHM</code> environment variable)</li>
-<li>Default: HS256</li>
+<li>Each tenant specifies <code>jwt_algorithm</code> in its configuration</li>
+<li>Tenants without <code>jwt_algorithm</code> default to HS256</li>
+<li>No global <code>JWT_ALGORITHM</code> environment variable</li>
 </ul>
-<p><strong>New behavior</strong>:</p>
+<p><strong>Previous behavior</strong> (0.10.0 and earlier):</p>
 <ul>
-<li>Each tenant can specify <code>jwt_algorithm</code> in its configuration</li>
-<li>Tenants without <code>jwt_algorithm</code> fall back to <code>JWT_ALGORITHM</code> (backward compatible)</li>
-<li>Default fallback: HS256</li>
+<li>All tenants used the same algorithm (from <code>JWT_ALGORITHM</code> environment variable)</li>
+<li>Default: HS256</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
     <h2 id="backward-compatibility">
@@ -2643,12 +2643,12 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
         </a>
     </h2>
 </div>
-<p>Existing configurations <strong>continue to work without changes</strong>:</p>
-<p><strong>Before (all tenants use global setting):</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Environment</span><span class="w">
+<p>Existing tenant configurations <strong>continue to work without changes</strong>:</p>
+<p><strong>Version 0.10.0 and earlier:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Environment variable controlled global algorithm</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">HS256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant (no algorithm specified)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant (no algorithm specified, used global setting)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
@@ -2656,11 +2656,10 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
-</span></span></span></code></pre></div><p><strong>After (same behavior):</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Environment</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># Still used by tenants without jwt_algorithm</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Version 0.10.1+ (current):</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># No JWT_ALGORITHM environment variable needed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant (no algorithm specified → inherits HS256 from environment)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant (no algorithm specified → defaults to HS256)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
@@ -2668,7 +2667,13 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
-</span></span></span></code></pre></div><p><strong>No action required</strong> for existing deployments.</p>
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># jwt_algorithm: HS256  # Optional, defaults to HS256</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Migration from 0.10.0 to 0.10.1+:</strong></p>
+<ul>
+<li>Remove <code>JWT_ALGORITHM</code> environment variable from deployment</li>
+<li>Tenants without <code>jwt_algorithm</code> will default to HS256 (same as before)</li>
+<li><strong>No tenant configuration changes required</strong> if staying with default HS256</li>
+</ul>
 <div class="gdoc-page__anchorwrap">
     <h2 id="migration-scenarios">
         Migration Scenarios
@@ -2692,11 +2697,11 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
   class="gdoc-markdown__link"
   href="/configuration/jwt_algorithms#migrating-from-hs256-to-rs256"
 >JWT Algorithms - Migration</a>)</li>
-<li>Set global <code>JWT_ALGORITHM=RS256</code></li>
-<li>Restart Uitsmijter</li>
+<li>Add <code>jwt_algorithm: RS256</code> to all tenant configurations</li>
+<li>Apply tenant configurations (Kubernetes) or restart Uitsmijter (file-based)</li>
 <li>Wait for old HS256 tokens to expire (2× token lifetime)</li>
 </ol>
-<p><strong>No tenant configuration changes needed</strong> (tenants inherit global setting).</p>
+<p><strong>Note</strong>: You need to update each tenant configuration individually to specify RS256.</p>
 <div class="gdoc-page__anchorwrap">
     <h3 id="scenario-2-gradual-per-tenant-migration">
         Scenario 2: Gradual per-tenant migration
@@ -2764,13 +2769,10 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># ← Add to each tenant</span><span class="w">
 </span></span></span></code></pre></div></li>
 <li>
-<p><strong>Update global default</strong> (optional, after all tenants migrated):</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># New global default</span><span class="w">
-</span></span></span></code></pre></div></li>
-<li>
-<p><strong>Clean up tenant configs</strong> (optional):
-Remove <code>jwt_algorithm</code> from tenants (will inherit global RS256).</p>
-</li>
+<p><strong>Verify all tenants</strong> are using RS256:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Check tenant configurations</span>
+</span></span><span class="line"><span class="cl">kubectl get tenants -o yaml <span class="p">|</span> grep -A <span class="m">5</span> jwt_algorithm
+</span></span></code></pre></div></li>
 </ol>
 <div class="gdoc-page__anchorwrap">
     <h3 id="scenario-3-mixed-algorithm-deployment">
@@ -2788,11 +2790,7 @@ Remove <code>jwt_algorithm</code> from tenants (will inherit global RS256).</p>
 <li>Different security tiers</li>
 </ul>
 <p><strong>Configuration</strong>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Global fallback</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># Default for tenants without jwt_algorithm</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant A: Internal tools (uses global HS256)</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Tenant A: Internal tools (uses default HS256)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
@@ -2800,27 +2798,27 @@ Remove <code>jwt_algorithm</code> from tenants (will inherit global RS256).</p>
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">internal.example.com</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># No jwt_algorithm → inherits HS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># No jwt_algorithm → defaults to HS256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant B: Customer portal (overrides with RS256)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant B: Customer portal (uses RS256)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">customer-portal</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Tenant-specific override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Explicit RS256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">portal.example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant C: Legacy app (explicitly stays on HS256)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant C: Legacy app (explicitly uses HS256)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">legacy-app</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># Explicit HS256 (not relying on global default)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># Explicit HS256 (clearer than relying on default)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">legacy.example.com</span><span class="w">
 </span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
@@ -2904,7 +2902,7 @@ Remove <code>jwt_algorithm</code> from tenants (will inherit global RS256).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># Revert to HS256</span><span class="w">
 </span></span></span></code></pre></div><p><strong>Rollback all tenants</strong>:
-Remove <code>jwt_algorithm</code> from all tenants, ensure <code>JWT_ALGORITHM=HS256</code> (or unset).</p>
+Remove <code>jwt_algorithm</code> from all tenants (will default to HS256).</p>
 <p><strong>Important</strong>: After rollback, RS256 tokens issued before rollback will fail verification.</p>
 <div class="gdoc-page__anchorwrap">
     <h2 id="troubleshooting">

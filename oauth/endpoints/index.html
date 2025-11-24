@@ -47,7 +47,7 @@
       "url" : "https://docs.uitsmijter.io/oauth/endpoints/",
       "headline": "Available Endpoints",
       "description": "Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.",
-      "wordCount" : "3614",
+      "wordCount" : "3640",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -134,7 +134,7 @@
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
-    var u="//matomo.muppets.ausdertechnik.de/";
+    var u="//matomo.benjamin.ausdertechnik.de/";
     _paq.push(['setTrackerUrl', u+'matomo.php']);
     _paq.push(['setSiteId', '2']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -3033,7 +3033,7 @@ type.</p>
 </ol>
 <p><strong>When is JWKS used?</strong></p>
 <ul>
-<li><strong>RS256 JWT verification</strong>: When Uitsmijter is configured with <code>JWT_ALGORITHM=RS256</code> (recommended for production)</li>
+<li><strong>RS256 JWT verification</strong>: When a tenant is configured with <code>jwt_algorithm: RS256</code> (recommended for production)</li>
 <li><strong>Token validation</strong>: Resource servers verify access token signatures without contacting Uitsmijter</li>
 <li><strong>Stateless authentication</strong>: JWTs can be validated entirely client-side using the public key</li>
 </ul>
@@ -3154,9 +3154,17 @@ type.</p>
 <li><strong>HS256</strong> (HMAC with SHA-256): Symmetric algorithm using a shared secret. Default for backward compatibility. JWKS not used.</li>
 <li><strong>RS256</strong> (RSA with SHA-256): Asymmetric algorithm using RSA key pairs. <strong>Recommended for production.</strong> Requires JWKS.</li>
 </ul>
-<p>To enable RS256 and JWKS, set the environment variable:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
-</span></span></span></code></pre></div><p>When <code>JWT_ALGORITHM=HS256</code> (or not set), the JWKS endpoint still returns a valid (though empty or legacy) response for compatibility, but HS256 tokens don&rsquo;t require JWKS for verification.</p>
+<p>To enable RS256 and JWKS, configure it in your tenant:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Tenant configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Enable RS256 for this tenant</span><span class="w">
+</span></span></span></code></pre></div><p>When a tenant uses HS256 (or doesn&rsquo;t specify <code>jwt_algorithm</code>), tokens for that tenant don&rsquo;t require JWKS for verification. The JWKS endpoint will only include keys for tenants configured with RS256.</p>
 <blockquote>
 <p><strong>Security recommendation</strong>: Use RS256 in production. It provides better security because:</p>
 <ul>

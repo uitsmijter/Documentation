@@ -47,7 +47,7 @@
       "url" : "https://docs.uitsmijter.io/configuration/tenant_client_config/",
       "headline": "Tenant and client configuration",
       "description": "Tenant and client configuration Uitsmijter’s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment.",
-      "wordCount" : "2057",
+      "wordCount" : "2053",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -134,7 +134,7 @@
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
-    var u="//matomo.muppets.ausdertechnik.de/";
+    var u="//matomo.benjamin.ausdertechnik.de/";
     _paq.push(['setTrackerUrl', u+'matomo.php']);
     _paq.push(['setSiteId', '2']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -2917,9 +2917,9 @@ the Uitsmijter authentication server.</p>
 <tr>
 <td>jwt_algorithm</td>
 <td>no</td>
-<td>(from JWT_ALGORITHM env)</td>
+<td><code>HS256</code></td>
 <td><code>RS256</code> or <code>HS256</code></td>
-<td>JWT signing algorithm for this tenant. If not set, falls back to the global JWT_ALGORITHM environment variable. Use <code>RS256</code> for production (asymmetric, better security, supports key rotation), or <code>HS256</code> for development/legacy systems (symmetric, requires JWT_SECRET). See <a
+<td>JWT signing algorithm for this tenant. Defaults to <code>HS256</code> if not specified. Use <code>RS256</code> for production (asymmetric, better security, supports key rotation every 90 days), or <code>HS256</code> for development/legacy systems (symmetric, requires JWT_SECRET). See <a
   class="gdoc-markdown__link"
   href="/configuration/jwt_algorithms"
 >JWT Algorithms</a> for detailed comparison.</td>
@@ -2979,22 +2979,22 @@ the Uitsmijter authentication server.</p>
 <li>Better security (recommended for production)</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
-    <h4 id="fallback-behavior">
-        Fallback Behavior
-        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_client_config/#fallback-behavior" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Fallback Behavior" aria-label="Anchor to: Fallback Behavior" href="#fallback-behavior">
+    <h4 id="default-behavior">
+        Default Behavior
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_client_config/#default-behavior" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Default Behavior" aria-label="Anchor to: Default Behavior" href="#default-behavior">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h4>
 </div>
-<p>If <code>jwt_algorithm</code> is not specified, the tenant uses the global <code>JWT_ALGORITHM</code> environment variable:</p>
+<p>If <code>jwt_algorithm</code> is not specified, the tenant defaults to HS256:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># No jwt_algorithm specified</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">providers</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">ldap-provider.js</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Will use JWT_ALGORITHM from environment (default: HS256)</span><span class="w">
-</span></span></span></code></pre></div><p>This ensures backward compatibility with existing configurations.</p>
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Defaults to HS256</span><span class="w">
+</span></span></span></code></pre></div><p>This ensures backward compatibility with existing configurations and provides a secure default for development.</p>
 <div class="gdoc-page__anchorwrap">
     <h4 id="mixed-algorithms">
         Mixed Algorithms

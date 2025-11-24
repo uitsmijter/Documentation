@@ -50,7 +50,7 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
       "url" : "https://docs.uitsmijter.io/configuration/jwt_algorithms/",
       "headline": "JWT Signing Algorithms",
       "description": "JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.\nAlgorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public \u002b private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (\/.",
-      "wordCount" : "1564",
+      "wordCount" : "1719",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -137,7 +137,7 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
-    var u="//matomo.muppets.ausdertechnik.de/";
+    var u="//matomo.benjamin.ausdertechnik.de/";
     _paq.push(['setTrackerUrl', u+'matomo.php']);
     _paq.push(['setSiteId', '2']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -2692,9 +2692,18 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
         </a>
     </h3>
 </div>
-<p>HS256 is the default algorithm for backward compatibility:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># .env or deployment config</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># or omit this line entirely (defaults to HS256)</span><span class="w">
+<p>HS256 is the default algorithm. Configure it in your tenant YAML:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Tenant configuration (optional, defaults to HS256 if omitted)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm: HS256  # Optional</span><span class="p">:</span><span class="w"> </span><span class="l">defaults to HS256 if not specified</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Environment (HS256 requires JWT_SECRET)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l">your-secret-key-at-least-256-bits</span><span class="w">
 </span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h3 id="when-to-use-hs256">
@@ -2756,15 +2765,22 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
         </a>
     </h3>
 </div>
-<p>Enable RS256 by setting the <code>JWT_ALGORITHM</code> environment variable:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># .env or deployment config</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
+<p>Enable RS256 in your tenant configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Tenant configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Use RS256 for this tenant</span><span class="w">
 </span></span></span></code></pre></div><p>That&rsquo;s it! Uitsmijter will automatically:</p>
 <ul>
-<li>Generate RSA key pairs on startup</li>
+<li>Generate RSA key pairs on first use</li>
 <li>Publish public keys at <code>/.well-known/jwks.json</code></li>
 <li>Include <code>kid</code> (Key ID) in JWT headers</li>
-<li>Support key rotation</li>
+<li>Support key rotation (every 90 days)</li>
 </ul>
 <p>You do <strong>not</strong> need to manually generate or manage RSA keys.</p>
 <div class="gdoc-page__anchorwrap">
@@ -2895,41 +2911,53 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Authorization: Bearer YOUR_HS256_TOKEN&#34;</span> https://your-api.example.com/protected
 </span></span></code></pre></div><p>The request should succeed, confirming backward compatibility.</p>
 <div class="gdoc-page__anchorwrap">
-    <h4 id="step-4-switch-uitsmijter-to-rs256">
-        Step 4: Switch Uitsmijter to RS256
-        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-4-switch-uitsmijter-to-rs256" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 4: Switch Uitsmijter to RS256" aria-label="Anchor to: Step 4: Switch Uitsmijter to RS256" href="#step-4-switch-uitsmijter-to-rs256">
+    <h4 id="step-4-update-tenant-configuration-to-rs256">
+        Step 4: Update tenant configuration to RS256
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-4-update-tenant-configuration-to-rs256" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 4: Update tenant configuration to RS256" aria-label="Anchor to: Step 4: Update tenant configuration to RS256" href="#step-4-update-tenant-configuration-to-rs256">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h4>
 </div>
-<p>Update Uitsmijter&rsquo;s configuration to use RS256:</p>
-<p><strong>Kubernetes/Helm:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># values.yaml</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">env</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
-</span></span></span></code></pre></div><p><strong>Docker Compose:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">environment</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">JWT_ALGORITHM=RS256</span><span class="w">
-</span></span></span></code></pre></div><p><strong>Direct deployment:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">JWT_ALGORITHM</span><span class="o">=</span>RS256
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
-    <h4 id="step-5-restart-uitsmijter">
-        Step 5: Restart Uitsmijter
-        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-5-restart-uitsmijter" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 5: Restart Uitsmijter" aria-label="Anchor to: Step 5: Restart Uitsmijter" href="#step-5-restart-uitsmijter">
+<p>Update your tenant configuration to use RS256:</p>
+<p><strong>Kubernetes (CRD):</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># tenant.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Add this line</span><span class="w">
+</span></span></span></code></pre></div><p><strong>File-based configuration:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># tenants/my-tenant.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Add this line</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">providers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">my-provider.js</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h4 id="step-5-apply-tenant-configuration">
+        Step 5: Apply tenant configuration
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#step-5-apply-tenant-configuration" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Step 5: Apply tenant configuration" aria-label="Anchor to: Step 5: Apply tenant configuration" href="#step-5-apply-tenant-configuration">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h4>
 </div>
-<p>Restart Uitsmijter to apply the new configuration:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Kubernetes</span>
-</span></span><span class="line"><span class="cl">kubectl rollout restart deployment/uitsmijter
+<p>Apply the updated tenant configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Kubernetes (CRD)</span>
+</span></span><span class="line"><span class="cl">kubectl apply -f tenant.yaml
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Docker Compose</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># File-based: Restart Uitsmijter to reload configuration</span>
+</span></span><span class="line"><span class="cl">kubectl rollout restart deployment/uitsmijter
+</span></span><span class="line"><span class="cl"><span class="c1"># or</span>
 </span></span><span class="line"><span class="cl">docker-compose restart uitsmijter
 </span></span></code></pre></div><p>Uitsmijter will:</p>
 <ol>
-<li>Generate a new RSA key pair on startup</li>
-<li>Start signing new JWTs with RS256</li>
+<li>Generate a new RSA key pair if none exists</li>
+<li>Start signing new JWTs for this tenant with RS256</li>
 <li>Publish the public key at <code>/.well-known/jwks.json</code></li>
 </ol>
 <div class="gdoc-page__anchorwrap">
@@ -3005,8 +3033,8 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 </div>
 <p>If you encounter issues during migration, you can rollback to HS256:</p>
 <ol>
-<li>Change <code>JWT_ALGORITHM</code> back to <code>HS256</code> (or remove it)</li>
-<li>Restart Uitsmijter</li>
+<li>Update tenant configuration: change <code>jwt_algorithm</code> to <code>HS256</code> (or remove the field)</li>
+<li>Apply the updated tenant configuration (Kubernetes) or restart Uitsmijter (file-based)</li>
 <li>New tokens will be signed with HS256 again</li>
 <li>RS256 tokens issued during the RS256 period will fail verification after rollback</li>
 </ol>
@@ -3089,8 +3117,8 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
         </a>
     </h3>
 </div>
-<p><strong>Cause</strong>: <code>JWT_ALGORITHM</code> is still set to HS256 or not set.</p>
-<p><strong>Solution</strong>: Verify <code>JWT_ALGORITHM=RS256</code> is set and restart Uitsmijter.</p>
+<p><strong>Cause</strong>: No tenant is configured to use RS256.</p>
+<p><strong>Solution</strong>: Verify at least one tenant has <code>jwt_algorithm: RS256</code> in its configuration and restart Uitsmijter if using file-based configuration.</p>
 <div class="gdoc-page__anchorwrap">
     <h3 id="kid-not-found-in-jwks-errors">
         &ldquo;kid not found in JWKS&rdquo; errors
@@ -3137,33 +3165,42 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 <li>Use internal DNS or service discovery if applicable</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
-    <h2 id="environment-variables">
-        Environment Variables
-        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#environment-variables" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Environment Variables" aria-label="Anchor to: Environment Variables" href="#environment-variables">
+    <h2 id="configuration-reference">
+        Configuration Reference
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#configuration-reference" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Configuration Reference" aria-label="Anchor to: Configuration Reference" href="#configuration-reference">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
 </div>
 <div class="gdoc-page__anchorwrap">
-    <h3 id="jwt_algorithm">
-        JWT_ALGORITHM
-        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#jwt_algorithm" class="gdoc-page__anchor clip flex align-center" title="Anchor to: JWT_ALGORITHM" aria-label="Anchor to: JWT_ALGORITHM" href="#jwt_algorithm">
+    <h3 id="jwt_algorithm-tenant-configuration">
+        jwt_algorithm (Tenant Configuration)
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#jwt_algorithm-tenant-configuration" class="gdoc-page__anchor clip flex align-center" title="Anchor to: jwt_algorithm (Tenant Configuration)" aria-label="Anchor to: jwt_algorithm (Tenant Configuration)" href="#jwt_algorithm-tenant-configuration">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h3>
 </div>
-<p>Controls the JWT signing algorithm.</p>
+<p>Controls the JWT signing algorithm for a specific tenant.</p>
+<p><strong>Location:</strong> Tenant YAML configuration (<code>spec.jwt_algorithm</code>)</p>
 <p><strong>Values:</strong></p>
 <ul>
 <li><code>HS256</code> (default): HMAC with SHA-256 (symmetric)</li>
 <li><code>RS256</code>: RSA with SHA-256 (asymmetric)</li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
-</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
-    <h3 id="jwt_secret">
-        JWT_SECRET
-        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#jwt_secret" class="gdoc-page__anchor clip flex align-center" title="Anchor to: JWT_SECRET" aria-label="Anchor to: JWT_SECRET" href="#jwt_secret">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Tenant-specific algorithm</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Note:</strong> If omitted, defaults to HS256 for backward compatibility.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="jwt_secret-environment-variable">
+        JWT_SECRET (Environment Variable)
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#jwt_secret-environment-variable" class="gdoc-page__anchor clip flex align-center" title="Anchor to: JWT_SECRET (Environment Variable)" aria-label="Anchor to: JWT_SECRET (Environment Variable)" href="#jwt_secret-environment-variable">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h3>
@@ -3177,23 +3214,26 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 </ul>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l">your-secret-key-at-least-32-characters-long</span><span class="w">
-</span></span></span></code></pre></div><p><strong>Not used when <code>JWT_ALGORITHM=RS256</code></strong>.</p>
+</span></span></span></code></pre></div><p><strong>Not used when tenant is configured with <code>jwt_algorithm: RS256</code></strong>.</p>
 <div class="gdoc-page__anchorwrap">
-    <h3 id="token_expiration_in_hours">
-        TOKEN_EXPIRATION_IN_HOURS
-        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#token_expiration_in_hours" class="gdoc-page__anchor clip flex align-center" title="Anchor to: TOKEN_EXPIRATION_IN_HOURS" aria-label="Anchor to: TOKEN_EXPIRATION_IN_HOURS" href="#token_expiration_in_hours">
+    <h3 id="token_expiration_in_hours-environment-variable">
+        TOKEN_EXPIRATION_IN_HOURS (Environment Variable)
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/jwt_algorithms/#token_expiration_in_hours-environment-variable" class="gdoc-page__anchor clip flex align-center" title="Anchor to: TOKEN_EXPIRATION_IN_HOURS (Environment Variable)" aria-label="Anchor to: TOKEN_EXPIRATION_IN_HOURS (Environment Variable)" href="#token_expiration_in_hours-environment-variable">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h3>
 </div>
 <p>Controls JWT access token expiration time.</p>
+<p><strong>Location:</strong> Environment variable</p>
 <p><strong>Default:</strong> <code>2</code> (2 hours)</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">TOKEN_EXPIRATION_IN_HOURS</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Environment configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">TOKEN_EXPIRATION_IN_HOURS</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
 </span></span></span></code></pre></div><p>Affects:</p>
 <ul>
 <li>Access token lifetime</li>
 <li>Grace period for key rotation (should be 2× this value)</li>
+<li>Migration grace period for algorithm changes</li>
 </ul>
 <div class="gdoc-page__anchorwrap">
     <h2 id="further-reading">
