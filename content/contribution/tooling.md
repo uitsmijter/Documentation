@@ -61,6 +61,7 @@ Additional Parameters:
         --debug                       Enable debug output
         --dirty                       Use incremental temporary runtime for the local cluster
         --fast                        runs tests only on one virtual browser and resolution.
+        --hold                        Keep cluster running after e2e tests (requires manual shutdown)
 
 Example:
         ./tooling build run
@@ -473,6 +474,7 @@ Additional Parameters:
         --debug                       Enable debug output
         --dirty                       Use incremental temporary runtime for the local cluster
         --fast                        runs tests only on one virtual browser and resolution.
+        --hold                        Keep cluster running after e2e tests (requires manual shutdown)
 
 Example:
         ./tooling build run
