@@ -12,10 +12,11 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="Why there is no Admin-Interface for Uitsmijter? Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:
-There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing configuration files." />
+  <meta name="description" content="Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.
+Understanding Clients A client is an OAuth2 application that can:
+Authenticate users via the tenant&rsquo;s authentication providers Request authorization codes and exchange them for access tokens Access protected resources on behalf of authenticated users Track metrics including active sessions and denied login attempts Each client has:" />
 
-    <title>Frequently Asked Questions | Uitsmijter Documentation</title>
+    <title>Managing Clients | Uitsmijter Documentation</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
 
@@ -24,38 +25,40 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
     
   <meta
     property="og:title"
-    content="Frequently Asked Questions"
+    content="Managing Clients"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Why there is no Admin-Interface for Uitsmijter? Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:
-There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing configuration files." />
+  <meta property="og:description" content="Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.
+Understanding Clients A client is an OAuth2 application that can:
+Authenticate users via the tenant’s authentication providers Request authorization codes and exchange them for access tokens Access protected resources on behalf of authenticated users Track metrics including active sessions and denied login attempts Each client has:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.uitsmijter.io/contribution/faq/" />
+<meta property="og:url" content="https://docs.uitsmijter.io/working-with-uitsmijter/clients/" />
 
-<meta property="article:section" content="Contribution" />
+<meta property="article:section" content="Working With Uitsmijter" />
 
 
   <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Frequently Asked Questions" />
-  <meta name="twitter:description" content="Why there is no Admin-Interface for Uitsmijter? Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:
-There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing configuration files." />
+<meta name="twitter:title" content="Managing Clients" />
+  <meta name="twitter:description" content="Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.
+Understanding Clients A client is an OAuth2 application that can:
+Authenticate users via the tenant’s authentication providers Request authorization codes and exchange them for access tokens Access protected resources on behalf of authenticated users Track metrics including active sessions and denied login attempts Each client has:" />
 
 
   <script type="application/ld+json">
   {
       "@context": "http://schema.org",
       "@type": "TechArticle",
-      "articleSection": "Contribution",
-      "name": "Frequently Asked Questions",
-      "url" : "https://docs.uitsmijter.io/contribution/faq/",
-      "headline": "Frequently Asked Questions",
-      "description": "Why there is no Admin-Interface for Uitsmijter? Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:\nThere should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing configuration files.",
-      "wordCount" : "400",
+      "articleSection": "Working With Uitsmijter",
+      "name": "Managing Clients",
+      "url" : "https://docs.uitsmijter.io/working-with-uitsmijter/clients/",
+      "headline": "Managing Clients",
+      "description": "Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.\nUnderstanding Clients A client is an OAuth2 application that can:\nAuthenticate users via the tenant’s authentication providers Request authorization codes and exchange them for access tokens Access protected resources on behalf of authenticated users Track metrics including active sessions and denied login attempts Each client has:",
+      "wordCount" : "1346",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://docs.uitsmijter.io/contribution/faq/"
+          "@id": "https://docs.uitsmijter.io/working-with-uitsmijter/clients/"
       },
       "copyrightHolder" : "Uitsmijter Documentation",
       "copyrightYear" : "0001",
@@ -124,7 +127,7 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
   href="/custom.css"
   media="all"
 />
-  <link href="https://docs.uitsmijter.io/contribution/faq/" rel="canonical" type="text/html" />
+  <link href="https://docs.uitsmijter.io/working-with-uitsmijter/clients/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
@@ -1138,7 +1141,7 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
                 <span class="flex">
                   <a
                     href="/working-with-uitsmijter/clients/"
-                    class="gdoc-nav__entry"
+                    class="gdoc-nav__entry is-active"
                   >
                     Managing Clients
                   </a>
@@ -2352,7 +2355,7 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
                 <span class="flex">
                   <a
                     href="/contribution/faq/"
-                    class="gdoc-nav__entry is-active"
+                    class="gdoc-nav__entry"
                   >
                     Frequently Asked Questions
                   </a>
@@ -2705,7 +2708,7 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Uitsmijter Documentation</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/contribution/' href='/contribution/'><span itemprop='name'>Contribution</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Frequently Asked Questions</span><meta itemprop='position' content='3' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Uitsmijter Documentation</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/working-with-uitsmijter/' href='/working-with-uitsmijter/'><span itemprop='name'>Working with Uitsmijter</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Managing Clients</span><meta itemprop='position' content='3' /></li>
   
 
   
@@ -2724,46 +2727,536 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
     class="gdoc-markdown gdoc-markdown__align--left"
   >
     <div class="gdoc-page__anchorwrap">
-    <h1 id="why-there-is-no-admin-interface-for-uitsmijter">
-        Why there is no Admin-Interface for Uitsmijter?
-        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/faq/#why-there-is-no-admin-interface-for-uitsmijter" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Why there is no Admin-Interface for Uitsmijter?" aria-label="Anchor to: Why there is no Admin-Interface for Uitsmijter?" href="#why-there-is-no-admin-interface-for-uitsmijter">
+    <h1 id="managing-clients">
+        Managing Clients
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#managing-clients" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Managing Clients" aria-label="Anchor to: Managing Clients" href="#managing-clients">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h1>
 </div>
-<p>Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following
-reasons:</p>
-<ol>
-<li>There should be one way to do it (see <a
+<p>Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials.
+This guide shows you how to work with clients using <code>kubectl</code> commands.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="understanding-clients">
+        Understanding Clients
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#understanding-clients" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Understanding Clients" aria-label="Anchor to: Understanding Clients" href="#understanding-clients">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>A client is an OAuth2 application that can:</p>
+<ul>
+<li><strong>Authenticate users</strong> via the tenant&rsquo;s authentication providers</li>
+<li><strong>Request authorization codes</strong> and exchange them for access tokens</li>
+<li><strong>Access protected resources</strong> on behalf of authenticated users</li>
+<li><strong>Track metrics</strong> including active sessions and denied login attempts</li>
+</ul>
+<p>Each client has:</p>
+<ul>
+<li><strong>Unique identifier</strong>: UUID-based client_id</li>
+<li><strong>Optional secret</strong>: For confidential clients (server-side applications)</li>
+<li><strong>Redirect URIs</strong>: Allowed callback URLs after authentication</li>
+<li><strong>Grant types</strong>: Supported OAuth2 flows (authorization_code, refresh_token, password)</li>
+<li><strong>Scopes</strong>: Permissions the client can request</li>
+</ul>
+<p>For conceptual information, see <a
   class="gdoc-markdown__link"
-  href="/contribution/goals"
->Project Goals</a>: Introducing an admin UI means providing
-one other way to configure and manage the server software that is hard to sync back to descriptive files in
-Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing
-configuration files. By sticking solely to YAML configuration files, users
-can leverage their preferred text editors, version control systems, and automation tools, allowing for greater
-flexibility and compatibility with existing workflows.</li>
-<li>YAML configuration files provide a well-established and widely adopted method for configuring
-server software. They are human-readable, versionable, and easy to share, making them a popular choice for many
-server administrators. Adding an admin UI alongside configuration files may introduce confusion and complexity by
-having multiple ways to configure the software, potentially leading to configuration inconsistencies and conflicts.</li>
-<li>Developing and maintaining an admin UI requires additional effort and resources. It involves designing and
-implementing a user-friendly interface, handling user input validation, managing UI-specific issues, and keeping the
-UI in sync with any changes or updates to the underlying server software. This added complexity can increase
-development and maintenance overhead. This is subtracted from the time spent working on an understandable and easy to
-use descriptive setting.</li>
-<li>Server administrators are typically comfortable working with the command line and text-based interfaces. They are
-accustomed to configuring and managing server software through the console and may prefer the flexibility and
-efficiency it offers. Introducing an admin UI may not align with the preferences and expectations of the target
-audience, potentially resulting in a less intuitive or less efficient user experience.</li>
-<li>Web-based admin interfaces introduce additional security risks, such as potential vulnerabilities in the UI
-framework, the need for proper authentication and authorization mechanisms, and the potential for cross-site
-scripting (XSS) or other web-related attacks. By avoiding an admin UI, you can minimize the attack surface and reduce
-the potential for security breaches associated with web-based interfaces.</li>
-<li>An admin UI is the entry to hiding complexity behind shiny buttons and checkboxes. We do not want to hide complexity,
-we want to avid it at the first place.</li>
-</ol>
-<p>This explains why Uitsmijter does not and will never have an administrative interface.</p>
+  href="/configuration/entities"
+>Entities</a>. For configuration details, see <a
+  class="gdoc-markdown__link"
+  href="/configuration/tenant_client_config"
+>Tenant and client configuration</a>.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="listing-clients">
+        Listing Clients
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#listing-clients" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Listing Clients" aria-label="Anchor to: Listing Clients" href="#listing-clients">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>View all clients across all namespaces:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -A
+</span></span></code></pre></div><p><strong>Example output:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">NAMESPACE   NAME            CLIENT-ID                              SESSIONS   DENIED   AGE
+</span></span><span class="line"><span class="cl">cheese      cheese-web      9095A4F2-35B2-48B1-A325-309CA324B97E   8          2        5d
+</span></span><span class="line"><span class="cl">cheese      cheese-mobile   A1B2C3D4-E5F6-7890-ABCD-EF1234567890   4          0        5d
+</span></span><span class="line"><span class="cl">cheese      cheese-api      B2C3D4E5-F6A7-8901-BCDE-F12345678901   0          0        5d
+</span></span><span class="line"><span class="cl">ham         ham-app         C3D4E5F6-A7B8-9012-CDEF-123456789012   8          1        5d
+</span></span><span class="line"><span class="cl">uitsmijter  admin-client    D4E5F6A7-B8C9-0123-DEF1-234567890123   0          0        5d
+</span></span></code></pre></div><p>The output shows:</p>
+<ul>
+<li><strong>NAMESPACE</strong>: Kubernetes namespace (matches the tenant&rsquo;s namespace)</li>
+<li><strong>NAME</strong>: Client identifier</li>
+<li><strong>CLIENT-ID</strong>: UUID used in OAuth2 flows</li>
+<li><strong>SESSIONS</strong>: Number of active user sessions for this client</li>
+<li><strong>DENIED</strong>: Number of failed login attempts</li>
+<li><strong>AGE</strong>: Time since client was created</li>
+</ul>
+<p>List clients in a specific namespace:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -n cheese
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="viewing-client-details">
+        Viewing Client Details
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#viewing-client-details" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Viewing Client Details" aria-label="Anchor to: Viewing Client Details" href="#viewing-client-details">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Get detailed information about a specific client:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl describe client cheese-web -n cheese
+</span></span></code></pre></div><p><strong>Example output:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">Name</span><span class="p">:</span><span class="w">         </span><span class="l">cheese-web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Namespace</span><span class="p">:</span><span class="w">    </span><span class="l">cheese</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Labels</span><span class="p">:</span><span class="w">       </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Annotations</span><span class="p">:</span><span class="w">  </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">API Version</span><span class="p">:</span><span class="w">  </span><span class="l">uitsmijter.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Kind</span><span class="p">:</span><span class="w">         </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Creation Timestamp</span><span class="p">:</span><span class="w">  </span><span class="ld">2025-11-22T10:35:12Z</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Generation</span><span class="p">:</span><span class="w">          </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Resource Version</span><span class="p">:</span><span class="w">    </span><span class="m">12456</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">UID</span><span class="p">:</span><span class="w">                 </span><span class="l">b1c2d3e4-f5a6-7890-2345-678901bcdefg</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Client ID</span><span class="p">:</span><span class="w">  </span><span class="l">9095A4F2-35B2-48B1-A325-309CA324B97E</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Grant Types</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">authorization_code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">refresh_token</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Redirect URIs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">https://app.example.com/callback</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">https://app.example.com/oauth/callback</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Scopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">profile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Secret</span><span class="p">:</span><span class="w">  </span><span class="l">&lt;set&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Tenant</span><span class="p">:</span><span class="w">  </span><span class="l">cheese</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Status</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Active Sessions</span><span class="p">:</span><span class="w">  </span><span class="m">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Denied Attempts</span><span class="p">:</span><span class="w">  </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Last Activity</span><span class="p">:</span><span class="w">    </span><span class="ld">2025-11-27T08:45:22Z</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Last Denied</span><span class="p">:</span><span class="w">      </span><span class="ld">2025-11-26T15:30:10Z</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Phase</span><span class="p">:</span><span class="w">            </span><span class="l">Active</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Events</span><span class="p">:</span><span class="w">            </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>The <code>kubectl describe</code> output provides:</p>
+<ul>
+<li><strong>Spec</strong>: Complete client configuration
+<ul>
+<li><strong>Client ID</strong>: UUID for OAuth2 authorization</li>
+<li><strong>Grant Types</strong>: Supported OAuth2 flows</li>
+<li><strong>Redirect URIs</strong>: Allowed callback URLs</li>
+<li><strong>Scopes</strong>: Available permissions</li>
+<li><strong>Secret</strong>: Whether a client secret is configured (value is not shown for security)</li>
+<li><strong>Tenant</strong>: Associated tenant name</li>
+</ul>
+</li>
+<li><strong>Status</strong>: Real-time metrics
+<ul>
+<li><strong>Active Sessions</strong>: Current logged-in users</li>
+<li><strong>Denied Attempts</strong>: Failed login count</li>
+<li><strong>Last Activity</strong>: Timestamp of most recent successful authentication</li>
+<li><strong>Last Denied</strong>: Timestamp of most recent failed authentication</li>
+<li><strong>Phase</strong>: Operational status</li>
+</ul>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="creating-a-client">
+        Creating a Client
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#creating-a-client" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Creating a Client" aria-label="Anchor to: Creating a Client" href="#creating-a-client">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Create a new client using a YAML manifest:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># client-example.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">webapp-client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">production</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tenant</span><span class="p">:</span><span class="w"> </span><span class="l">example-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="l">F1E2D3C4-B5A6-7890-CDEF-123456789ABC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;your-secure-client-secret-here&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redirect_uris</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">https://webapp.example.com/oauth/callback</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">https://webapp.example.com/auth/callback</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">grant_types</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">authorization_code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">refresh_token</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">profile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">email</span><span class="w">
+</span></span></span></code></pre></div><p>Apply the client configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl apply -f client-example.yaml
+</span></span></code></pre></div><p>Verify the client was created:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client webapp-client -n production
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="client-configuration-best-practices">
+        Client Configuration Best Practices
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#client-configuration-best-practices" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Client Configuration Best Practices" aria-label="Anchor to: Client Configuration Best Practices" href="#client-configuration-best-practices">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Client ID Generation:</strong>
+Generate a secure UUID for the client_id:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">uuidgen <span class="p">|</span> tr <span class="s1">&#39;[:lower:]&#39;</span> <span class="s1">&#39;[:upper:]&#39;</span>
+</span></span></code></pre></div><p><strong>Client Secret (Confidential Clients):</strong>
+For server-side applications, generate a strong secret:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl rand -base64 <span class="m">32</span>
+</span></span></code></pre></div><p><strong>Public Clients:</strong>
+For browser-based or mobile apps, omit the <code>secret</code> field and use PKCE:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tenant</span><span class="p">:</span><span class="w"> </span><span class="l">example-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="l">G2F3E4D5-C6B7-8901-DEFG-234567890BCD</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># No secret for public clients</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redirect_uris</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">https://spa.example.com/callback</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">grant_types</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">authorization_code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">refresh_token</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">profile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">isPkceOnly</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="updating-a-client">
+        Updating a Client
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#updating-a-client" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Updating a Client" aria-label="Anchor to: Updating a Client" href="#updating-a-client">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Edit a client configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl edit client cheese-web -n cheese
+</span></span></code></pre></div><p>Update redirect URIs or scopes and save to apply changes.</p>
+<p>Alternatively, update the YAML file and reapply:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl apply -f client-example.yaml
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="monitoring-client-status">
+        Monitoring Client Status
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#monitoring-client-status" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Monitoring Client Status" aria-label="Anchor to: Monitoring Client Status" href="#monitoring-client-status">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Watch client status in real-time:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -n cheese --watch
+</span></span></code></pre></div><p>Check active session count for a specific client:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client cheese-web -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.activeSessions}&#39;</span>
+</span></span></code></pre></div><p>View denied login attempts:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client cheese-web -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.deniedAttempts}&#39;</span>
+</span></span></code></pre></div><p>Check last authentication activity:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client cheese-web -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.lastActivity}&#39;</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="client-metrics-and-monitoring">
+        Client Metrics and Monitoring
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#client-metrics-and-monitoring" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Client Metrics and Monitoring" aria-label="Anchor to: Client Metrics and Monitoring" href="#client-metrics-and-monitoring">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>View all clients sorted by active sessions:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -A -o json <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jq <span class="s1">&#39;.items | sort_by(.status.activeSessions) | reverse |
+</span></span></span><span class="line"><span class="cl"><span class="s1">      .[] | {name: .metadata.name, namespace: .metadata.namespace,
+</span></span></span><span class="line"><span class="cl"><span class="s1">             sessions: .status.activeSessions}&#39;</span>
+</span></span></code></pre></div><p>Find clients with failed login attempts:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -A -o json <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jq <span class="s1">&#39;.items[] | select(.status.deniedAttempts &gt; 0) |
+</span></span></span><span class="line"><span class="cl"><span class="s1">      {name: .metadata.name, denied: .status.deniedAttempts}&#39;</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="resetting-denied-attempts-counter">
+        Resetting Denied Attempts Counter
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#resetting-denied-attempts-counter" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Resetting Denied Attempts Counter" aria-label="Anchor to: Resetting Denied Attempts Counter" href="#resetting-denied-attempts-counter">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>The denied attempts counter is tracked in memory and persists across pod restarts via Redis. To reset the counter, you can delete and recreate the client status (this does not affect active sessions):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># The counter will reset when new login attempts occur</span>
+</span></span><span class="line"><span class="cl">kubectl annotate client cheese-web -n cheese <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  uitsmijter.io/reset-metrics<span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>date +%s<span class="k">)</span><span class="s2">&#34;</span> --overwrite
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="deleting-a-client">
+        Deleting a Client
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#deleting-a-client" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Deleting a Client" aria-label="Anchor to: Deleting a Client" href="#deleting-a-client">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Delete a client:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl delete client cheese-web -n cheese
+</span></span></code></pre></div><blockquote>
+<p><strong>Warning</strong>: Deleting a client invalidates all active sessions and refresh tokens for that client. Users will need to re-authenticate.</p>
+</blockquote>
+<p>Verify deletion:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client cheese-web -n cheese
+</span></span></code></pre></div><p>Expected output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Error from server (NotFound): clients.uitsmijter.io &#34;cheese-web&#34; not found
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="client-status-phases">
+        Client Status Phases
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#client-status-phases" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Client Status Phases" aria-label="Anchor to: Client Status Phases" href="#client-status-phases">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Clients can be in different phases:</p>
+<div class="table-wrap"> <table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Active</code></td>
+<td>Client is operational and can authenticate users</td>
+</tr>
+<tr>
+<td><code>Pending</code></td>
+<td>Client is being initialized or tenant association is being established</td>
+</tr>
+<tr>
+<td><code>Failed</code></td>
+<td>Configuration error (invalid tenant, malformed redirect URIs, etc.)</td>
+</tr>
+</tbody>
+</table> </div>
+<p>Check client phase:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client cheese-web -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.phase}&#39;</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="troubleshooting">
+        Troubleshooting
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#troubleshooting" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Troubleshooting" aria-label="Anchor to: Troubleshooting" href="#troubleshooting">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="client-shows-pending-phase">
+        Client shows &ldquo;Pending&rdquo; phase
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#client-shows-pending-phase" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Client shows &ldquo;Pending&rdquo; phase" aria-label="Anchor to: Client shows &ldquo;Pending&rdquo; phase" href="#client-shows-pending-phase">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Check if the associated tenant exists:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenant cheese -n cheese
+</span></span></code></pre></div><p>Verify the tenant name matches the client&rsquo;s spec:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client cheese-web -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.tenant}&#39;</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="client-shows-failed-phase">
+        Client shows &ldquo;Failed&rdquo; phase
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#client-shows-failed-phase" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Client shows &ldquo;Failed&rdquo; phase" aria-label="Anchor to: Client shows &ldquo;Failed&rdquo; phase" href="#client-shows-failed-phase">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Check for configuration errors:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl describe client cheese-web -n cheese
+</span></span></code></pre></div><p>Common issues:</p>
+<ul>
+<li><strong>Invalid tenant reference</strong>: Tenant does not exist in the same namespace</li>
+<li><strong>Malformed redirect URIs</strong>: URIs must be absolute URLs with https:// scheme (http:// allowed for localhost)</li>
+<li><strong>Missing client_id</strong>: Must be a valid UUID</li>
+<li><strong>Duplicate client_id</strong>: Another client already uses this UUID</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="sessions-not-updating">
+        Sessions not updating
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#sessions-not-updating" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Sessions not updating" aria-label="Anchor to: Sessions not updating" href="#sessions-not-updating">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Check if Uitsmijter pods are running:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get pods -n uitsmijter -l <span class="nv">app</span><span class="o">=</span>uitsmijter
+</span></span></code></pre></div><p>Verify Redis session storage is healthy:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get pods -n uitsmijter -l <span class="nv">app</span><span class="o">=</span>uitsmijter-sessions
+</span></span><span class="line"><span class="cl">kubectl logs -n uitsmijter -l <span class="nv">app</span><span class="o">=</span>uitsmijter-sessions --tail<span class="o">=</span><span class="m">50</span>
+</span></span></code></pre></div><p>Check Uitsmijter logs for session-related errors:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl logs -n uitsmijter -l <span class="nv">app</span><span class="o">=</span>uitsmijter --tail<span class="o">=</span><span class="m">100</span> <span class="p">|</span> grep -i session
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="high-denied-attempts-count">
+        High denied attempts count
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#high-denied-attempts-count" class="gdoc-page__anchor clip flex align-center" title="Anchor to: High denied attempts count" aria-label="Anchor to: High denied attempts count" href="#high-denied-attempts-count">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>This may indicate:</p>
+<ul>
+<li><strong>Brute force attack</strong>: Monitor for patterns in authentication failures</li>
+<li><strong>Misconfigured application</strong>: Application sending wrong credentials</li>
+<li><strong>User lockout issue</strong>: Users repeatedly entering wrong passwords</li>
+</ul>
+<p>Check Uitsmijter logs for denied login details:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl logs -n uitsmijter -l <span class="nv">app</span><span class="o">=</span>uitsmijter --tail<span class="o">=</span><span class="m">200</span> <span class="p">|</span> grep -i <span class="s2">&#34;login.*fail&#34;</span>
+</span></span></code></pre></div><p>Review Prometheus metrics for detailed failure analysis:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl port-forward -n uitsmijter svc/uitsmijter 8080:8080
+</span></span><span class="line"><span class="cl">curl http://localhost:8080/metrics <span class="p">|</span> grep uitsmijter_login_failure
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="oauth2-grant-types">
+        OAuth2 Grant Types
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#oauth2-grant-types" class="gdoc-page__anchor clip flex align-center" title="Anchor to: OAuth2 Grant Types" aria-label="Anchor to: OAuth2 Grant Types" href="#oauth2-grant-types">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Uitsmijter supports multiple OAuth2 grant types:</p>
+<div class="table-wrap"> <table>
+<thead>
+<tr>
+<th>Grant Type</th>
+<th>Use Case</th>
+<th>Requires Secret</th>
+<th>Supports Refresh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authorization_code</code></td>
+<td>Server-side web apps, SPAs with PKCE</td>
+<td>Optional</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>refresh_token</code></td>
+<td>Renew access tokens without re-login</td>
+<td>Same as client</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>Legacy apps only (not recommended)</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table> </div>
+<p>Configure grant types in the client spec:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">grant_types</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">authorization_code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">refresh_token</span><span class="w">
+</span></span></span></code></pre></div><blockquote>
+<p><strong>Security Recommendation</strong>: Use <code>authorization_code</code> with PKCE for all modern applications. The <code>password</code> grant type should only be enabled for legacy applications that cannot be updated.</p>
+</blockquote>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="advanced-kubectl-operations">
+        Advanced kubectl Operations
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#advanced-kubectl-operations" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Advanced kubectl Operations" aria-label="Anchor to: Advanced kubectl Operations" href="#advanced-kubectl-operations">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Get client as JSON:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client cheese-web -n cheese -o json
+</span></span></code></pre></div><p>Get client as YAML for backup:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client cheese-web -n cheese -o yaml &gt; client-backup.yaml
+</span></span></code></pre></div><p>Extract client_id programmatically:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client cheese-web -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.client_id}&#39;</span>
+</span></span></code></pre></div><p>List all clients for a specific tenant:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -A -o json <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jq <span class="s1">&#39;.items[] | select(.spec.tenant==&#34;cheese&#34;) |
+</span></span></span><span class="line"><span class="cl"><span class="s1">      {name: .metadata.name, client_id: .spec.client_id}&#39;</span>
+</span></span></code></pre></div><p>Find clients without active sessions:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -A -o json <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jq <span class="s1">&#39;.items[] | select(.status.activeSessions == 0) | .metadata.name&#39;</span>
+</span></span></code></pre></div><p>Compare client configurations:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">diff &lt;<span class="o">(</span>kubectl get client cheese-web -n cheese -o yaml<span class="o">)</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     &lt;<span class="o">(</span>kubectl get client cheese-mobile -n cheese -o yaml<span class="o">)</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="security-considerations">
+        Security Considerations
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#security-considerations" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Security Considerations" aria-label="Anchor to: Security Considerations" href="#security-considerations">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="storing-client-secrets">
+        Storing Client Secrets
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#storing-client-secrets" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Storing Client Secrets" aria-label="Anchor to: Storing Client Secrets" href="#storing-client-secrets">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Client secrets are stored in Kubernetes as plaintext in the client CRD.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="redirect-uri-validation">
+        Redirect URI Validation
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#redirect-uri-validation" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Redirect URI Validation" aria-label="Anchor to: Redirect URI Validation" href="#redirect-uri-validation">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Uitsmijter strictly validates redirect URIs to prevent authorization code interception:</p>
+<ul>
+<li>URIs must match one of the configured <code>redirect_uris</code></li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="pkce-proof-key-for-code-exchange">
+        PKCE (Proof Key for Code Exchange)
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#pkce-proof-key-for-code-exchange" class="gdoc-page__anchor clip flex align-center" title="Anchor to: PKCE (Proof Key for Code Exchange)" aria-label="Anchor to: PKCE (Proof Key for Code Exchange)" href="#pkce-proof-key-for-code-exchange">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>For public clients (no secret), always use PKCE:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">/authorize?response_type=code
+</span></span><span class="line"><span class="cl">  &amp;client_id=9095A4F2-35B2-48B1-A325-309CA324B97E
+</span></span><span class="line"><span class="cl">  &amp;redirect_uri=https://app.example.com/callback
+</span></span><span class="line"><span class="cl">  &amp;code_challenge=3VpzZL3DpqEwubIbIVsrOUbvB19kk4yGP7gGaxU/cyQ=
+</span></span><span class="line"><span class="cl">  &amp;code_challenge_method=S256
+</span></span></code></pre></div><p>See <a
+  class="gdoc-markdown__link"
+  href="/oauth/pkce"
+>PKCE Documentation</a> for details.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="further-reading">
+        Further Reading
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#further-reading" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Further Reading" aria-label="Anchor to: Further Reading" href="#further-reading">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<ul>
+<li><a
+  class="gdoc-markdown__link"
+  href="/configuration/entities"
+>Entities</a> - Conceptual overview of clients</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/configuration/tenant_client_config"
+>Tenant and client configuration</a> - Detailed configuration reference</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/working-with-uitsmijter/tenants"
+>Managing Tenants</a> - Working with tenant resources</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/oauth/flow"
+>OAuth Flow</a> - Understanding OAuth2 authorization flows</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/oauth/granttypes"
+>Grant Types</a> - Supported OAuth2 grant types</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/oauth/pkce"
+>PKCE</a> - Authorization Code Flow with Proof Key for Code Exchange</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/oauth/endpoints"
+>Available Endpoints</a> - OAuth2 API endpoints</li>
+</ul>
 
   </article>
 

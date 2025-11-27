@@ -50,6 +50,13 @@
       <description>Login- and Logout-Page Customisation There are multiple ways to customize the login and logout pages.&#xA;The easiest way is to configure additioanl tenant informations like imprint, privacy policy and registration URLs.&#xA;In addition to that it is also possible to change page templates because every tenant can have their own login page.&#xA;Loading templates from template directory In the source code version of Uitsmijter you can to create a folder that is named after the slug of the tenant name.</description>
     </item>
     <item>
+      <title>Managing Tenants</title>
+      <link>https://docs.uitsmijter.io/working-with-uitsmijter/tenants/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.uitsmijter.io/working-with-uitsmijter/tenants/</guid>
+      <description>Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.&#xA;Understanding Tenants A tenant represents an isolated authentication domain with:&#xA;Unique hosts: Domain names that this tenant serves JavaScript providers: Custom authentication logic Configuration: JWT algorithm, interceptor settings, and information URLs For conceptual information about tenants, see Entities.</description>
+    </item>
+    <item>
       <title>OAuth flow</title>
       <link>https://docs.uitsmijter.io/oauth/flow/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -97,6 +104,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/interceptor/interceptor/</guid>
       <description>Interceptor Mode Interceptor mode is used within Traefik2 as a middleware authorization controller. When a resource is requested, the middleware checks if the current user is logged in. If not, the request is redirected to the login page. If the user making the request is logged in, the middleware forwards the request to the requested resource.&#xA;For support of other ingress controllers, please feel free to contact our development and consulting team.</description>
+    </item>
+    <item>
+      <title>Managing Clients</title>
+      <link>https://docs.uitsmijter.io/working-with-uitsmijter/clients/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.uitsmijter.io/working-with-uitsmijter/clients/</guid>
+      <description>Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.&#xA;Understanding Clients A client is an OAuth2 application that can:&#xA;Authenticate users via the tenant&amp;rsquo;s authentication providers Request authorization codes and exchange them for access tokens Access protected resources on behalf of authenticated users Track metrics including active sessions and denied login attempts Each client has:</description>
     </item>
     <item>
       <title>Terminology</title>
@@ -264,7 +278,7 @@
       <link>https://docs.uitsmijter.io/_sidebar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/_sidebar/</guid>
-      <description>Uitsmijter Visit the home of the documentation.&#xA;General About Terminology Motivation Requirements Quick Start Guide Installation Kubernetes Docker Configuration Entities Tenant and client configuration Logging OAuth2 Server OAuth flow Grant types Available Endpoints JWT Decoding Authorization Code Flow with Proof Key for Code Exchange Interceptor Walkthrough Guide Interceptor Mode Example Deployment Migrating a monolith application Providers General provider information User Login Provider Customisation Login Page Development How to start development is covered in the development information section.</description>
+      <description>Uitsmijter Visit the home of the documentation.&#xA;General About Terminology Motivation Requirements Quick Start Guide Installation Kubernetes Docker Configuration Entities Tenant and client configuration Logging Working with Uitsmijter Tenants Clients OAuth2 Server OAuth flow Grant types Available Endpoints JWT Decoding Authorization Code Flow with Proof Key for Code Exchange Interceptor Walkthrough Guide Interceptor Mode Example Deployment Migrating a monolith application Providers General provider information User Login Provider Customisation Login Page Development How to start development is covered in the development information section.</description>
     </item>
     <item>
       <title></title>

@@ -16,6 +16,8 @@
   </url><url>
     <loc>https://docs.uitsmijter.io/customisation/template_login/</loc>
   </url><url>
+    <loc>https://docs.uitsmijter.io/working-with-uitsmijter/tenants/</loc>
+  </url><url>
     <loc>https://docs.uitsmijter.io/oauth/flow/</loc>
   </url><url>
     <loc>https://docs.uitsmijter.io/contribution/development/</loc>
@@ -31,6 +33,8 @@
     <loc>https://docs.uitsmijter.io/installation/</loc>
   </url><url>
     <loc>https://docs.uitsmijter.io/interceptor/interceptor/</loc>
+  </url><url>
+    <loc>https://docs.uitsmijter.io/working-with-uitsmijter/clients/</loc>
   </url><url>
     <loc>https://docs.uitsmijter.io/general/terminology/</loc>
   </url><url>
@@ -51,6 +55,8 @@
     <loc>https://docs.uitsmijter.io/contribution/test_cluster/</loc>
   </url><url>
     <loc>https://docs.uitsmijter.io/providers/uservalidationprovider/</loc>
+  </url><url>
+    <loc>https://docs.uitsmijter.io/working-with-uitsmijter/</loc>
   </url><url>
     <loc>https://docs.uitsmijter.io/contribution/guidelines/</loc>
   </url><url>

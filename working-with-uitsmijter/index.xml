@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Working with Uitsmijter on Uitsmijter Documentation</title>
+    <link>https://docs.uitsmijter.io/working-with-uitsmijter/</link>
+    <description>Recent content in Working with Uitsmijter on Uitsmijter Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://docs.uitsmijter.io/working-with-uitsmijter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing Tenants</title>
+      <link>https://docs.uitsmijter.io/working-with-uitsmijter/tenants/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.uitsmijter.io/working-with-uitsmijter/tenants/</guid>
+      <description>Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.&#xA;Understanding Tenants A tenant represents an isolated authentication domain with:&#xA;Unique hosts: Domain names that this tenant serves JavaScript providers: Custom authentication logic Configuration: JWT algorithm, interceptor settings, and information URLs For conceptual information about tenants, see Entities.</description>
+    </item>
+    <item>
+      <title>Managing Clients</title>
+      <link>https://docs.uitsmijter.io/working-with-uitsmijter/clients/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.uitsmijter.io/working-with-uitsmijter/clients/</guid>
+      <description>Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.&#xA;Understanding Clients A client is an OAuth2 application that can:&#xA;Authenticate users via the tenant&amp;rsquo;s authentication providers Request authorization codes and exchange them for access tokens Access protected resources on behalf of authenticated users Track metrics including active sessions and denied login attempts Each client has:</description>
+    </item>
+  </channel>
+</rss>

@@ -12,10 +12,11 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="Why there is no Admin-Interface for Uitsmijter? Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:
-There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing configuration files." />
+  <meta name="description" content="Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.
+Understanding Tenants A tenant represents an isolated authentication domain with:
+Unique hosts: Domain names that this tenant serves JavaScript providers: Custom authentication logic Configuration: JWT algorithm, interceptor settings, and information URLs For conceptual information about tenants, see Entities." />
 
-    <title>Frequently Asked Questions | Uitsmijter Documentation</title>
+    <title>Managing Tenants | Uitsmijter Documentation</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
 
@@ -24,38 +25,40 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
     
   <meta
     property="og:title"
-    content="Frequently Asked Questions"
+    content="Managing Tenants"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Why there is no Admin-Interface for Uitsmijter? Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:
-There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing configuration files." />
+  <meta property="og:description" content="Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.
+Understanding Tenants A tenant represents an isolated authentication domain with:
+Unique hosts: Domain names that this tenant serves JavaScript providers: Custom authentication logic Configuration: JWT algorithm, interceptor settings, and information URLs For conceptual information about tenants, see Entities." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.uitsmijter.io/contribution/faq/" />
+<meta property="og:url" content="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/" />
 
-<meta property="article:section" content="Contribution" />
+<meta property="article:section" content="Working With Uitsmijter" />
 
 
   <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Frequently Asked Questions" />
-  <meta name="twitter:description" content="Why there is no Admin-Interface for Uitsmijter? Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:
-There should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing configuration files." />
+<meta name="twitter:title" content="Managing Tenants" />
+  <meta name="twitter:description" content="Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.
+Understanding Tenants A tenant represents an isolated authentication domain with:
+Unique hosts: Domain names that this tenant serves JavaScript providers: Custom authentication logic Configuration: JWT algorithm, interceptor settings, and information URLs For conceptual information about tenants, see Entities." />
 
 
   <script type="application/ld+json">
   {
       "@context": "http://schema.org",
       "@type": "TechArticle",
-      "articleSection": "Contribution",
-      "name": "Frequently Asked Questions",
-      "url" : "https://docs.uitsmijter.io/contribution/faq/",
-      "headline": "Frequently Asked Questions",
-      "description": "Why there is no Admin-Interface for Uitsmijter? Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following reasons:\nThere should be one way to do it (see Project Goals: Introducing an admin UI means providing one other way to configure and manage the server software that is hard to sync back to descriptive files in Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing configuration files.",
-      "wordCount" : "400",
+      "articleSection": "Working With Uitsmijter",
+      "name": "Managing Tenants",
+      "url" : "https://docs.uitsmijter.io/working-with-uitsmijter/tenants/",
+      "headline": "Managing Tenants",
+      "description": "Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.\nUnderstanding Tenants A tenant represents an isolated authentication domain with:\nUnique hosts: Domain names that this tenant serves JavaScript providers: Custom authentication logic Configuration: JWT algorithm, interceptor settings, and information URLs For conceptual information about tenants, see Entities.",
+      "wordCount" : "866",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://docs.uitsmijter.io/contribution/faq/"
+          "@id": "https://docs.uitsmijter.io/working-with-uitsmijter/tenants/"
       },
       "copyrightHolder" : "Uitsmijter Documentation",
       "copyrightYear" : "0001",
@@ -124,7 +127,7 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
   href="/custom.css"
   media="all"
 />
-  <link href="https://docs.uitsmijter.io/contribution/faq/" rel="canonical" type="text/html" />
+  <link href="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
@@ -1094,7 +1097,7 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
                 <span class="flex">
                   <a
                     href="/working-with-uitsmijter/tenants/"
-                    class="gdoc-nav__entry"
+                    class="gdoc-nav__entry is-active"
                   >
                     Managing Tenants
                   </a>
@@ -2352,7 +2355,7 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
                 <span class="flex">
                   <a
                     href="/contribution/faq/"
-                    class="gdoc-nav__entry is-active"
+                    class="gdoc-nav__entry"
                   >
                     Frequently Asked Questions
                   </a>
@@ -2705,7 +2708,7 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Uitsmijter Documentation</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/contribution/' href='/contribution/'><span itemprop='name'>Contribution</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Frequently Asked Questions</span><meta itemprop='position' content='3' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Uitsmijter Documentation</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/working-with-uitsmijter/' href='/working-with-uitsmijter/'><span itemprop='name'>Working with Uitsmijter</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>Managing Tenants</span><meta itemprop='position' content='3' /></li>
   
 
   
@@ -2724,46 +2727,358 @@ There should be one way to do it (see Project Goals: Introducing an admin UI mea
     class="gdoc-markdown gdoc-markdown__align--left"
   >
     <div class="gdoc-page__anchorwrap">
-    <h1 id="why-there-is-no-admin-interface-for-uitsmijter">
-        Why there is no Admin-Interface for Uitsmijter?
-        <a data-clipboard-text="https://docs.uitsmijter.io/contribution/faq/#why-there-is-no-admin-interface-for-uitsmijter" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Why there is no Admin-Interface for Uitsmijter?" aria-label="Anchor to: Why there is no Admin-Interface for Uitsmijter?" href="#why-there-is-no-admin-interface-for-uitsmijter">
+    <h1 id="managing-tenants">
+        Managing Tenants
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#managing-tenants" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Managing Tenants" aria-label="Anchor to: Managing Tenants" href="#managing-tenants">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h1>
 </div>
-<p>Adding an admin UI to the server software can have its drawbacks and may not be the best approach for the following
-reasons:</p>
-<ol>
-<li>There should be one way to do it (see <a
+<p>Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration.
+This guide shows you how to work with tenants in a Kubernetes environment using <code>kubectl</code> commands.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="understanding-tenants">
+        Understanding Tenants
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#understanding-tenants" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Understanding Tenants" aria-label="Anchor to: Understanding Tenants" href="#understanding-tenants">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>A tenant represents an isolated authentication domain with:</p>
+<ul>
+<li><strong>Unique hosts</strong>: Domain names that this tenant serves</li>
+<li><strong>JavaScript providers</strong>: Custom authentication logic</li>
+<li><strong>Configuration</strong>: JWT algorithm, interceptor settings, and information URLs</li>
+</ul>
+<p>For conceptual information about tenants, see <a
   class="gdoc-markdown__link"
-  href="/contribution/goals"
->Project Goals</a>: Introducing an admin UI means providing
-one other way to configure and manage the server software that is hard to sync back to descriptive files in
-Kubernetes. This can limit flexibility and customization options for users who prefer different tools for editing
-configuration files. By sticking solely to YAML configuration files, users
-can leverage their preferred text editors, version control systems, and automation tools, allowing for greater
-flexibility and compatibility with existing workflows.</li>
-<li>YAML configuration files provide a well-established and widely adopted method for configuring
-server software. They are human-readable, versionable, and easy to share, making them a popular choice for many
-server administrators. Adding an admin UI alongside configuration files may introduce confusion and complexity by
-having multiple ways to configure the software, potentially leading to configuration inconsistencies and conflicts.</li>
-<li>Developing and maintaining an admin UI requires additional effort and resources. It involves designing and
-implementing a user-friendly interface, handling user input validation, managing UI-specific issues, and keeping the
-UI in sync with any changes or updates to the underlying server software. This added complexity can increase
-development and maintenance overhead. This is subtracted from the time spent working on an understandable and easy to
-use descriptive setting.</li>
-<li>Server administrators are typically comfortable working with the command line and text-based interfaces. They are
-accustomed to configuring and managing server software through the console and may prefer the flexibility and
-efficiency it offers. Introducing an admin UI may not align with the preferences and expectations of the target
-audience, potentially resulting in a less intuitive or less efficient user experience.</li>
-<li>Web-based admin interfaces introduce additional security risks, such as potential vulnerabilities in the UI
-framework, the need for proper authentication and authorization mechanisms, and the potential for cross-site
-scripting (XSS) or other web-related attacks. By avoiding an admin UI, you can minimize the attack surface and reduce
-the potential for security breaches associated with web-based interfaces.</li>
-<li>An admin UI is the entry to hiding complexity behind shiny buttons and checkboxes. We do not want to hide complexity,
-we want to avid it at the first place.</li>
-</ol>
-<p>This explains why Uitsmijter does not and will never have an administrative interface.</p>
+  href="/configuration/entities"
+>Entities</a>. For detailed configuration options, see <a
+  class="gdoc-markdown__link"
+  href="/configuration/tenant_client_config"
+>Tenant and client configuration</a>.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="listing-tenants">
+        Listing Tenants
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#listing-tenants" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Listing Tenants" aria-label="Anchor to: Listing Tenants" href="#listing-tenants">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>View all tenants across all namespaces:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenants -A
+</span></span></code></pre></div><p><strong>Example output:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">NAMESPACE   NAME              PHASE    CLIENTS   SESSIONS   AGE
+</span></span><span class="line"><span class="cl">cheese      cheese            Active   3         12         5d
+</span></span><span class="line"><span class="cl">cheese      cheese-rs256      Active   1         0          5d
+</span></span><span class="line"><span class="cl">ham         ham               Active   1         8          5d
+</span></span><span class="line"><span class="cl">uitsmijter  uitsmijter-tenant Active   1         0          5d
+</span></span></code></pre></div><p>The output shows:</p>
+<ul>
+<li><strong>NAMESPACE</strong>: Kubernetes namespace containing the tenant</li>
+<li><strong>NAME</strong>: Tenant identifier</li>
+<li><strong>PHASE</strong>: Current operational status (Active, Pending, Failed)</li>
+<li><strong>CLIENTS</strong>: Number of configured OAuth2 clients</li>
+<li><strong>SESSIONS</strong>: Active user sessions across all clients</li>
+<li><strong>AGE</strong>: Time since tenant was created</li>
+</ul>
+<p>List tenants in a specific namespace:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenants -n cheese
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="viewing-tenant-details">
+        Viewing Tenant Details
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#viewing-tenant-details" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Viewing Tenant Details" aria-label="Anchor to: Viewing Tenant Details" href="#viewing-tenant-details">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Get detailed information about a specific tenant:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl describe tenant cheese -n cheese
+</span></span></code></pre></div><p><strong>Example output:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">Name</span><span class="p">:</span><span class="w">         </span><span class="l">cheese</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Namespace</span><span class="p">:</span><span class="w">    </span><span class="l">cheese</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Labels</span><span class="p">:</span><span class="w">       </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Annotations</span><span class="p">:</span><span class="w">  </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">API Version</span><span class="p">:</span><span class="w">  </span><span class="l">uitsmijter.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Kind</span><span class="p">:</span><span class="w">         </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Creation Timestamp</span><span class="p">:</span><span class="w">  </span><span class="ld">2025-11-22T10:30:45Z</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Generation</span><span class="p">:</span><span class="w">          </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Resource Version</span><span class="p">:</span><span class="w">    </span><span class="m">12345</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">UID</span><span class="p">:</span><span class="w">                 </span><span class="l">a1b2c3d4-e5f6-7890-1234-567890abcdef</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">id.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">api.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">cookbooks.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Informations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Imprint URL</span><span class="p">:</span><span class="w">   </span><span class="l">https://example.com/imprint</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Privacy URL</span><span class="p">:</span><span class="w">   </span><span class="l">https://example.com/privacy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Register URL</span><span class="p">:</span><span class="w">  </span><span class="l">https://example.com/register</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Interceptor</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Cookie</span><span class="p">:</span><span class="w">   </span><span class="l">.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Domain</span><span class="p">:</span><span class="w">   </span><span class="l">login.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Enabled</span><span class="p">:</span><span class="w">  </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">JWT Algorithm</span><span class="p">:</span><span class="w">  </span><span class="l">HS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Providers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">class UserLoginProvider {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">auth = false;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">constructor(credentials) {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">this.auth = credentials.username.endsWith(&#34;@example.com&#34;);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">commit(true);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">get canLogin() { return this.auth; }</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">get userProfile() { return { name: &#34;Test User&#34; }; }</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">get role() { return &#34;user&#34;; }</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Status</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Clients</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Active Count</span><span class="p">:</span><span class="w">  </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Client Names</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">cheese-web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">cheese-mobile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">cheese-api</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Phase</span><span class="p">:</span><span class="w">  </span><span class="l">Active</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Sessions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Active</span><span class="p">:</span><span class="w">  </span><span class="m">12</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Denied</span><span class="p">:</span><span class="w">  </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Last Updated</span><span class="p">:</span><span class="w">  </span><span class="ld">2025-11-27T08:15:30Z</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Events</span><span class="p">:</span><span class="w">         </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>The <code>kubectl describe</code> output provides:</p>
+<ul>
+<li><strong>Spec</strong>: Complete tenant configuration including hosts, providers, and settings</li>
+<li><strong>Status</strong>: Real-time operational metrics
+<ul>
+<li><strong>Phase</strong>: Current status (Active when all clients are configured correctly)</li>
+<li><strong>Clients</strong>: List of associated OAuth2 clients and count</li>
+<li><strong>Sessions</strong>: Active user sessions and denied login attempts</li>
+<li><strong>Last Updated</strong>: Timestamp of most recent status update</li>
+</ul>
+</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="creating-a-tenant">
+        Creating a Tenant
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#creating-a-tenant" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Creating a Tenant" aria-label="Anchor to: Creating a Tenant" href="#creating-a-tenant">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Create a new tenant using a YAML manifest:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># tenant-example.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">example-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">production</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">auth.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">api.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">informations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">imprint_url</span><span class="p">:</span><span class="w"> </span><span class="l">https://example.com/imprint</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">privacy_url</span><span class="p">:</span><span class="w"> </span><span class="l">https://example.com/privacy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">register_url</span><span class="p">:</span><span class="w"> </span><span class="l">https://example.com/register</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">interceptor</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l">login.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cookie</span><span class="p">:</span><span class="w"> </span><span class="l">.example.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">providers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># User authentication provider</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">      class UserLoginProvider {
+</span></span></span><span class="line"><span class="cl"><span class="sd">        auth = false;
+</span></span></span><span class="line"><span class="cl"><span class="sd">        constructor(credentials) {
+</span></span></span><span class="line"><span class="cl"><span class="sd">          // Connect to your user backend here
+</span></span></span><span class="line"><span class="cl"><span class="sd">          this.auth = credentials.username.endsWith(&#34;@example.com&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="sd">          commit(true);
+</span></span></span><span class="line"><span class="cl"><span class="sd">        }
+</span></span></span><span class="line"><span class="cl"><span class="sd">        get canLogin() { return this.auth; }
+</span></span></span><span class="line"><span class="cl"><span class="sd">        get userProfile() {
+</span></span></span><span class="line"><span class="cl"><span class="sd">          return {
+</span></span></span><span class="line"><span class="cl"><span class="sd">            name: &#34;John Doe&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="sd">            email: credentials.username
+</span></span></span><span class="line"><span class="cl"><span class="sd">          };
+</span></span></span><span class="line"><span class="cl"><span class="sd">        }
+</span></span></span><span class="line"><span class="cl"><span class="sd">        get role() { return &#34;user&#34;; }
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span></code></pre></div><p>Apply the tenant configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl apply -f tenant-example.yaml
+</span></span></code></pre></div><p>Verify the tenant was created:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenant example-tenant -n production
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="updating-a-tenant">
+        Updating a Tenant
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#updating-a-tenant" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Updating a Tenant" aria-label="Anchor to: Updating a Tenant" href="#updating-a-tenant">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Edit a tenant configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl edit tenant cheese -n cheese
+</span></span></code></pre></div><p>This opens the tenant manifest in your default editor. Make changes and save to apply them. Uitsmijter automatically reloads the configuration.</p>
+<p>Alternatively, update the YAML file and reapply:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl apply -f tenant-example.yaml
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="monitoring-tenant-status">
+        Monitoring Tenant Status
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#monitoring-tenant-status" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Monitoring Tenant Status" aria-label="Anchor to: Monitoring Tenant Status" href="#monitoring-tenant-status">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Watch tenant status in real-time:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenants -n cheese --watch
+</span></span></code></pre></div><p>Check if a tenant is active and healthy:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenant cheese -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.phase}&#39;</span>
+</span></span></code></pre></div><p>View active session count:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenant cheese -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.sessions.active}&#39;</span>
+</span></span></code></pre></div><p>View denied login attempts:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenant cheese -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.sessions.denied}&#39;</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="deleting-a-tenant">
+        Deleting a Tenant
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#deleting-a-tenant" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Deleting a Tenant" aria-label="Anchor to: Deleting a Tenant" href="#deleting-a-tenant">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Delete a tenant and all associated data:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl delete tenant cheese -n cheese
+</span></span></code></pre></div><blockquote>
+<p><strong>Warning</strong>: Deleting a tenant also removes all associated clients and active user sessions. Users will need to re-authenticate.</p>
+</blockquote>
+<p>Verify deletion:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenant cheese -n cheese
+</span></span></code></pre></div><p>Expected output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Error from server (NotFound): tenants.uitsmijter.io &#34;cheese&#34; not found
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="tenant-status-phases">
+        Tenant Status Phases
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#tenant-status-phases" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Tenant Status Phases" aria-label="Anchor to: Tenant Status Phases" href="#tenant-status-phases">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Tenants can be in different phases:</p>
+<div class="table-wrap"> <table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Active</code></td>
+<td>Tenant is fully operational with at least one configured client</td>
+</tr>
+<tr>
+<td><code>Pending</code></td>
+<td>Tenant is being initialized or waiting for client configuration</td>
+</tr>
+<tr>
+<td><code>Failed</code></td>
+<td>Configuration error or provider validation failed (check logs for details)</td>
+</tr>
+</tbody>
+</table> </div>
+<p>Check tenant phase:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenant cheese -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.phase}&#39;</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="troubleshooting">
+        Troubleshooting
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#troubleshooting" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Troubleshooting" aria-label="Anchor to: Troubleshooting" href="#troubleshooting">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="tenant-shows-pending-phase">
+        Tenant shows &ldquo;Pending&rdquo; phase
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#tenant-shows-pending-phase" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Tenant shows &ldquo;Pending&rdquo; phase" aria-label="Anchor to: Tenant shows &ldquo;Pending&rdquo; phase" href="#tenant-shows-pending-phase">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>The tenant may be waiting for client configuration. Check if clients exist:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -n cheese
+</span></span></code></pre></div><p>Check Uitsmijter logs for errors:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl logs -n uitsmijter -l <span class="nv">app</span><span class="o">=</span>uitsmijter --tail<span class="o">=</span><span class="m">100</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="tenant-shows-failed-phase">
+        Tenant shows &ldquo;Failed&rdquo; phase
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#tenant-shows-failed-phase" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Tenant shows &ldquo;Failed&rdquo; phase" aria-label="Anchor to: Tenant shows &ldquo;Failed&rdquo; phase" href="#tenant-shows-failed-phase">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Check the tenant events for error messages:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl describe tenant cheese -n cheese
+</span></span></code></pre></div><p>Common issues:</p>
+<ul>
+<li><strong>Invalid JavaScript provider</strong>: Syntax error in provider code</li>
+<li><strong>Missing hosts</strong>: At least one host must be configured</li>
+<li><strong>Duplicate hosts</strong>: A host cannot be assigned to multiple tenants</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="session-count-not-updating">
+        Session count not updating
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#session-count-not-updating" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Session count not updating" aria-label="Anchor to: Session count not updating" href="#session-count-not-updating">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Ensure Uitsmijter pods are running:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get pods -n uitsmijter -l <span class="nv">app</span><span class="o">=</span>uitsmijter
+</span></span></code></pre></div><p>Check Redis session storage is healthy:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get pods -n uitsmijter -l <span class="nv">app</span><span class="o">=</span>uitsmijter-sessions
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="advanced-kubectl-operations">
+        Advanced kubectl Operations
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#advanced-kubectl-operations" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Advanced kubectl Operations" aria-label="Anchor to: Advanced kubectl Operations" href="#advanced-kubectl-operations">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Get tenant as JSON:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenant cheese -n cheese -o json
+</span></span></code></pre></div><p>Get tenant as YAML:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenant cheese -n cheese -o yaml &gt; tenant-backup.yaml
+</span></span></code></pre></div><p>Filter tenants by phase:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenants -A -o json <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jq <span class="s1">&#39;.items[] | select(.status.phase==&#34;Active&#34;) | .metadata.name&#39;</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="further-reading">
+        Further Reading
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/#further-reading" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Further Reading" aria-label="Anchor to: Further Reading" href="#further-reading">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<ul>
+<li><a
+  class="gdoc-markdown__link"
+  href="/configuration/entities"
+>Entities</a> - Conceptual overview of tenants</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/configuration/tenant_client_config"
+>Tenant and client configuration</a> - Detailed configuration reference</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/working-with-uitsmijter/clients"
+>Managing Clients</a> - Working with OAuth2 clients</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/configuration/jwt_algorithms"
+>JWT Algorithms</a> - Choosing between HS256 and RS256</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/providers/providers"
+>Providers</a> - Writing custom authentication providers</li>
+</ul>
 
   </article>
 
