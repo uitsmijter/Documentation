@@ -5,14 +5,14 @@ weight: 1
 
 # Managing Tenants
 
-Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using `kubectl` commands.
+Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. 
+This guide shows you how to work with tenants in a Kubernetes environment using `kubectl` commands.
 
 ## Understanding Tenants
 
 A tenant represents an isolated authentication domain with:
 - **Unique hosts**: Domain names that this tenant serves
 - **JavaScript providers**: Custom authentication logic
-- **Clients**: OAuth2 applications that can authenticate users
 - **Configuration**: JWT algorithm, interceptor settings, and information URLs
 
 For conceptual information about tenants, see [Entities](/configuration/entities). For detailed configuration options, see [Tenant and client configuration](/configuration/tenant_client_config).
@@ -310,17 +310,6 @@ Get tenant as YAML:
 
 ```shell
 kubectl get tenant cheese -n cheese -o yaml > tenant-backup.yaml
-```
-
-List tenants with custom columns:
-
-```shell
-kubectl get tenants -A -o custom-columns=\
-NAME:.metadata.name,\
-NAMESPACE:.metadata.namespace,\
-PHASE:.status.phase,\
-CLIENTS:.status.clients.activeCount,\
-SESSIONS:.status.sessions.active
 ```
 
 Filter tenants by phase:

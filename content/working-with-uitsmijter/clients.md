@@ -5,7 +5,8 @@ weight: 2
 
 # Managing Clients
 
-Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using `kubectl` commands.
+Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. 
+This guide shows you how to work with clients using `kubectl` commands.
 
 ## Understanding Clients
 
@@ -189,6 +190,7 @@ spec:
   scopes:
     - read
     - profile
+  isPkceOnly: true
 ```
 
 ## Updating a Client
@@ -252,17 +254,6 @@ kubectl get clients -A -o json | \
       {name: .metadata.name, denied: .status.deniedAttempts}'
 ```
 
-Monitor client health across all namespaces:
-
-```shell
-kubectl get clients -A -o custom-columns=\
-NAME:.metadata.name,\
-NAMESPACE:.metadata.namespace,\
-SESSIONS:.status.activeSessions,\
-DENIED:.status.deniedAttempts,\
-LAST-ACTIVITY:.status.lastActivity
-```
-
 ## Resetting Denied Attempts Counter
 
 The denied attempts counter is tracked in memory and persists across pod restarts via Redis. To reset the counter, you can delete and recreate the client status (this does not affect active sessions):
@@ -272,8 +263,6 @@ The denied attempts counter is tracked in memory and persists across pod restart
 kubectl annotate client cheese-web -n cheese \
   uitsmijter.io/reset-metrics="$(date +%s)" --overwrite
 ```
-
-> **Note**: The denied attempts counter is primarily for monitoring security threats. It does not block logins automatically.
 
 ## Deleting a Client
 
@@ -450,20 +439,13 @@ diff <(kubectl get client cheese-web -n cheese -o yaml) \
 
 ### Storing Client Secrets
 
-Client secrets are stored in Kubernetes as plaintext in the client CRD. For production environments, consider:
-
-1. **Using Kubernetes Secrets**: Reference secrets via secret references (future enhancement)
-2. **Vault Integration**: Store secrets in HashiCorp Vault
-3. **Public Clients**: Avoid secrets entirely for browser/mobile apps using PKCE
+Client secrets are stored in Kubernetes as plaintext in the client CRD.
 
 ### Redirect URI Validation
 
 Uitsmijter strictly validates redirect URIs to prevent authorization code interception:
 
-- URIs must exactly match one of the configured `redirect_uris`
-- Wildcards are not supported
-- Fragment identifiers (#) are not allowed
-- Query parameters are allowed but not recommended
+- URIs must match one of the configured `redirect_uris`
 
 ### PKCE (Proof Key for Code Exchange)
 
