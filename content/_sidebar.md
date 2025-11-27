@@ -21,6 +21,11 @@ Visit the [home](/home) of the documentation.
 - [Tenant and client configuration](/configuration/tenant_client_config)
 - [Logging](/configuration/logging)
 
+## Working with Uitsmijter
+
+- [Tenants](/working-with-uitsmijter/tenants)
+- [Clients](/working-with-uitsmijter/clients)
+
 ## OAuth2 Server
 
 - [OAuth flow](/oauth/flow)
