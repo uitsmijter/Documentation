@@ -59,7 +59,7 @@ Full Values.yaml namespaceOverride: &#34;&#34; image: repository: ghcr.io/uitsmi
       "url" : "https://docs.uitsmijter.io/configuration/helm/",
       "headline": "Helm configuration",
       "description": "Helm configuration parameters Uitsmijter is best to install over helm.\nhelm repo add uitsmijter https:\/\/charts.uitsmijter.io\/ helm update To list available versions run:\nhelm search repo uitsmijter To see a list with release candidates included:\nhelm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.\nFull Values.yaml namespaceOverride: \u0022\u0022 image: repository: ghcr.io\/uitsmijter\/uitsmijter # Overrides the image tag whose default is the chart appVersion.",
-      "wordCount" : "490",
+      "wordCount" : "517",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2929,6 +2929,11 @@ information please read the <a
 <td>domains.tlsSecretName</td>
 <td></td>
 <td>List of Domains. Entry of the name of the certificate secret.</td>
+</tr>
+<tr>
+<td>traefik.apiVersion</td>
+<td>traefik.io/v1alpha1</td>
+<td>From version <strong>0.10.3</strong> on, uitsmijter supports difefrent traefik crd versions. If you are still on traefik 2, you have to set <code>traefik.containo.us/v1alpha1</code> otherwise leave blank.</td>
 </tr>
 </tbody>
 </table> </div>
