@@ -47,7 +47,7 @@
       "url" : "https://docs.uitsmijter.io/configuration/tenant_client_config/",
       "headline": "Tenant and client configuration",
       "description": "Tenant and client configuration Uitsmijter’s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment.",
-      "wordCount" : "2053",
+      "wordCount" : "2123",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -1412,6 +1412,50 @@
                     class="gdoc-nav__entry"
                   >
                     PKCE
+                  </a>
+                </span>
+              
+              
+            </label>
+
+            
+          </li>
+        
+      
+    
+      
+
+      
+        
+      
+
+      
+        
+          
+          
+          
+          
+          
+          
+
+
+          <li>
+            <input
+              type="checkbox"
+              
+                class="hidden"
+              
+            />
+            <label
+              
+            >
+              
+                <span class="flex">
+                  <a
+                    href="/oauth/scopes/"
+                    class="gdoc-nav__entry"
+                  >
+                    OAuth Scopes and Scope Filtering
                   </a>
                 </span>
               
@@ -3202,6 +3246,9 @@ etc.) -&gt; these are different Clients</li>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">list</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">read</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">can:*</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">referrers</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">https://www.bnbc.example/bnbc-club/login</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">isPkceOnly</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -3242,6 +3289,9 @@ the Uitsmijter authentication server.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">list</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">read</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">can:*</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">referrers</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">https://www.bnbc.example/bnbc-club/login</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">isPkceOnly</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -3305,7 +3355,14 @@ the Uitsmijter authentication server.</p>
 <td>no</td>
 <td>[]</td>
 <td><code>[&quot;recipes:read&quot;, &quot;recipes:write&quot;, &quot;timeline:post&quot;]</code></td>
-<td>A list of allowed scopes for this client. If a client requests scopes, these will be filtered by the one that are allowed.</td>
+<td>A list of allowed scopes for this client. If a client requests scopes, these will be filtered by the ones that are allowed. This controls scopes requested by the OAuth client during authorization.</td>
+</tr>
+<tr>
+<td>allowedProviderScopes</td>
+<td>no</td>
+<td>[]</td>
+<td><code>[&quot;user:*&quot;, &quot;can:*&quot;, &quot;org:read&quot;]</code></td>
+<td>A list of allowed scopes that JavaScript providers can add to user profiles. Supports wildcard patterns (e.g., <code>user:*</code> matches <code>user:list</code>, <code>user:add</code>). Provider-supplied scopes are filtered against this list before being merged with client-requested scopes. Defaults to empty (no provider scopes allowed), providing secure-by-default behavior.</td>
 </tr>
 <tr>
 <td>referrers</td>

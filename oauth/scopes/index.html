@@ -12,11 +12,11 @@
 <meta name="generator" content="Hugo 0.123.7">
 
 
-  <meta name="description" content="User Login Provider A User Login Provider is responsible for resolving a Username and Password to a user profile if the user is valid.
-If the credentials do not match, the provider is responsible for interpreting the error message / code and tell Uitsmijter that the user is invalid.
-At login, Uitsmijter delegates the credentials the user provides via the login form to the user backend provider. The provider must check these credentials against its user data store (e." />
+  <meta name="description" content="OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application&rsquo;s access to a user&rsquo;s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.
+Uitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:
+Client-requested scopes - Scopes that the OAuth client application requests during authorization Provider-supplied scopes - Scopes that JavaScript authentication providers dynamically add based on user context Both types of scopes are independently filtered before being merged into the final JWT token, providing defense-in-depth security." />
 
-    <title>User Login Provider | Uitsmijter Documentation</title>
+    <title>OAuth Scopes and Scope Filtering | Uitsmijter Documentation</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
 
@@ -25,40 +25,40 @@ At login, Uitsmijter delegates the credentials the user provides via the login f
     
   <meta
     property="og:title"
-    content="User Login Provider"
+    content="OAuth Scopes and Scope Filtering"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="User Login Provider A User Login Provider is responsible for resolving a Username and Password to a user profile if the user is valid.
-If the credentials do not match, the provider is responsible for interpreting the error message / code and tell Uitsmijter that the user is invalid.
-At login, Uitsmijter delegates the credentials the user provides via the login form to the user backend provider. The provider must check these credentials against its user data store (e." />
+  <meta property="og:description" content="OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application’s access to a user’s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.
+Uitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:
+Client-requested scopes - Scopes that the OAuth client application requests during authorization Provider-supplied scopes - Scopes that JavaScript authentication providers dynamically add based on user context Both types of scopes are independently filtered before being merged into the final JWT token, providing defense-in-depth security." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.uitsmijter.io/providers/userloginprovider/" />
+<meta property="og:url" content="https://docs.uitsmijter.io/oauth/scopes/" />
 
-<meta property="article:section" content="Providers" />
+<meta property="article:section" content="Oauth" />
 
 
   <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="User Login Provider" />
-  <meta name="twitter:description" content="User Login Provider A User Login Provider is responsible for resolving a Username and Password to a user profile if the user is valid.
-If the credentials do not match, the provider is responsible for interpreting the error message / code and tell Uitsmijter that the user is invalid.
-At login, Uitsmijter delegates the credentials the user provides via the login form to the user backend provider. The provider must check these credentials against its user data store (e." />
+<meta name="twitter:title" content="OAuth Scopes and Scope Filtering" />
+  <meta name="twitter:description" content="OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application’s access to a user’s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.
+Uitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:
+Client-requested scopes - Scopes that the OAuth client application requests during authorization Provider-supplied scopes - Scopes that JavaScript authentication providers dynamically add based on user context Both types of scopes are independently filtered before being merged into the final JWT token, providing defense-in-depth security." />
 
 
   <script type="application/ld+json">
   {
       "@context": "http://schema.org",
       "@type": "TechArticle",
-      "articleSection": "Providers",
-      "name": "User Login Provider",
-      "url" : "https://docs.uitsmijter.io/providers/userloginprovider/",
-      "headline": "User Login Provider",
-      "description": "User Login Provider A User Login Provider is responsible for resolving a Username and Password to a user profile if the user is valid.\nIf the credentials do not match, the provider is responsible for interpreting the error message \/ code and tell Uitsmijter that the user is invalid.\nAt login, Uitsmijter delegates the credentials the user provides via the login form to the user backend provider. The provider must check these credentials against its user data store (e.",
-      "wordCount" : "1330",
+      "articleSection": "Oauth",
+      "name": "OAuth Scopes and Scope Filtering",
+      "url" : "https://docs.uitsmijter.io/oauth/scopes/",
+      "headline": "OAuth Scopes and Scope Filtering",
+      "description": "OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application’s access to a user’s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.\nUitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:\nClient-requested scopes - Scopes that the OAuth client application requests during authorization Provider-supplied scopes - Scopes that JavaScript authentication providers dynamically add based on user context Both types of scopes are independently filtered before being merged into the final JWT token, providing defense-in-depth security.",
+      "wordCount" : "1562",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://docs.uitsmijter.io/providers/userloginprovider/"
+          "@id": "https://docs.uitsmijter.io/oauth/scopes/"
       },
       "copyrightHolder" : "Uitsmijter Documentation",
       "copyrightYear" : "0001",
@@ -127,7 +127,7 @@ At login, Uitsmijter delegates the credentials the user provides via the login f
   href="/custom.css"
   media="all"
 />
-  <link href="https://docs.uitsmijter.io/providers/userloginprovider/" rel="canonical" type="text/html" />
+  <link href="https://docs.uitsmijter.io/oauth/scopes/" rel="canonical" type="text/html" />
 
 <!-- Made with Geekdoc theme https://github.com/thegeeklab/hugo-geekdoc -->
 
@@ -1459,7 +1459,7 @@ At login, Uitsmijter delegates the credentials the user provides via the login f
                 <span class="flex">
                   <a
                     href="/oauth/scopes/"
-                    class="gdoc-nav__entry"
+                    class="gdoc-nav__entry is-active"
                   >
                     OAuth Scopes and Scope Filtering
                   </a>
@@ -1831,7 +1831,7 @@ At login, Uitsmijter delegates the credentials the user provides via the login f
                 <span class="flex">
                   <a
                     href="/providers/userloginprovider/"
-                    class="gdoc-nav__entry is-active"
+                    class="gdoc-nav__entry"
                   >
                     User Login Provider
                   </a>
@@ -2752,7 +2752,7 @@ At login, Uitsmijter delegates the credentials the user provides via the login f
     
   
   
-    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Uitsmijter Documentation</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/providers/' href='/providers/'><span itemprop='name'>Providers</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>User Login Provider</span><meta itemprop='position' content='3' /></li>
+    <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/' href='/'><span itemprop='name'>Uitsmijter Documentation</span></a><meta itemprop='position' content='1' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><a itemscope itemtype='https://schema.org/WebPage' itemprop='item' itemid='/oauth/' href='/oauth/'><span itemprop='name'>OAuth</span></a><meta itemprop='position' content='2' /></li><li> / </li><li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem'><span itemprop='name'>OAuth Scopes and Scope Filtering</span><meta itemprop='position' content='3' /></li>
   
 
   
@@ -2771,241 +2771,257 @@ At login, Uitsmijter delegates the credentials the user provides via the login f
     class="gdoc-markdown gdoc-markdown__align--left"
   >
     <div class="gdoc-page__anchorwrap">
-    <h1 id="user-login-provider">
-        User Login Provider
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#user-login-provider" class="gdoc-page__anchor clip flex align-center" title="Anchor to: User Login Provider" aria-label="Anchor to: User Login Provider" href="#user-login-provider">
+    <h1 id="oauth-scopes-and-scope-filtering">
+        OAuth Scopes and Scope Filtering
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#oauth-scopes-and-scope-filtering" class="gdoc-page__anchor clip flex align-center" title="Anchor to: OAuth Scopes and Scope Filtering" aria-label="Anchor to: OAuth Scopes and Scope Filtering" href="#oauth-scopes-and-scope-filtering">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h1>
 </div>
-<p>A <code>User Login Provider</code> is responsible for resolving a <strong>Username</strong> and <strong>Password</strong> to a user profile if the user is
-valid.</p>
-<p>If the credentials do not match, the provider is responsible for interpreting the error message / code and tell
-Uitsmijter that the user is invalid.</p>
-<p>At login, Uitsmijter delegates the credentials the user provides via the login form to the user backend provider. The
-provider must check these credentials against its user data store (e.g. kubernetes internal server, like described in
-the <a
-  class="gdoc-markdown__link"
-  href="/general/quickstart"
->quick start guide</a>).</p>
-<p>As all providers, the <code>User Login Provider</code> should be written in ECMA-Script. The user service it is requesting can be
-anything that accepts a http request and sends a proper response with valid status codes:</p>
-<ul>
-<li><a
-  class="gdoc-markdown__link"
-  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200"
->🔗 200</a> for OK</li>
-<li><a
-  class="gdoc-markdown__link"
-  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
->🔗 401</a> for Unauthorized</li>
-</ul>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="parameters">
-        Parameters
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#parameters" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Parameters" aria-label="Anchor to: Parameters" href="#parameters">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div>
-<div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>constructor(:credentials)</td>
-<td>A Object with two properties: <code>username</code> and <code>password</code> is passed into the init function.</td>
-</tr>
-</tbody>
-</table> </div>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="methods">
-        Methods
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#methods" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Methods" aria-label="Anchor to: Methods" href="#methods">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div>
-<p>Those methods/getters must be implemented:</p>
-<div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>constructor(:credentials)</td>
-<td>Initialisation method that gets the <code>username</code> and the <code>password</code> for the user in question.</td>
-</tr>
-<tr>
-<td>canLogin</td>
-<td>Getter that should indicate if the current user in context can be logged in (has valid credentials) or not</td>
-</tr>
-<tr>
-<td>userProfile</td>
-<td>Getter that should return the users profile.</td>
-</tr>
-<tr>
-<td>role</td>
-<td>Getter that should return the users role.</td>
-</tr>
-<tr>
-<td>scopes</td>
-<td><strong>Optional</strong> getter that returns an array of scopes to add to the user&rsquo;s JWT token based on user context (roles, groups, permissions).</td>
-</tr>
-</tbody>
-</table> </div>
-<p>After the constructor called <code>commit(:obj)</code> the two getters <code>canLogin</code> and <code>userProfile</code> must have the correct values.
-Before the constructor calls <code>commit(:obj)</code> the values to differentiate the login state have to be set for sure.
-That means, that you should always finish the constructor script execution with a <code>commit(...)</code>.</p>
-<p>Examples:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">isLoggedIn</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">constructor</span><span class="p">(</span><span class="nx">credentials</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// set class variables first
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">isLoggedIn</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// than commit at the end
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">commit</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">get</span>
-</span></span><span class="line"><span class="cl"><span class="nx">canLogin</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">isLoggedIn</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Full example that fetches a cluster internal user data store to validate the credentials. The user data store accepts
-passwords as a sha265 hash:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">UserLoginProvider</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">isLoggedIn</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">profile</span> <span class="o">=</span> <span class="p">{};</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">role</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">constructor</span><span class="p">(</span><span class="nx">credentials</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fetch</span><span class="p">(</span><span class="sb">`http://checkcredentials.checkcredentials.svc.cluster.local/validate-login`</span><span class="p">,</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">method</span><span class="o">:</span> <span class="s2">&#34;post&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">body</span><span class="o">:</span> <span class="p">{</span><span class="nx">username</span><span class="o">:</span> <span class="nx">credentials</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="nx">passwordHash</span><span class="o">:</span> <span class="nx">sha256</span><span class="p">(</span><span class="nx">credentials</span><span class="p">.</span><span class="nx">password</span><span class="p">)}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="kd">var</span> <span class="nx">subject</span> <span class="o">=</span> <span class="p">{};</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">profile</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">isLoggedIn</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">role</span> <span class="o">=</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">role</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                <span class="nx">subject</span> <span class="o">=</span> <span class="p">{</span><span class="nx">subject</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">userId</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">commit</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span> <span class="nx">subject</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">});</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">canLogin</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">isLoggedIn</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">userProfile</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">role</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">role</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
-    <h2 id="optional-committed-subject">
-        Optional committed subject
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#optional-committed-subject" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Optional committed subject" aria-label="Anchor to: Optional committed subject" href="#optional-committed-subject">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div>
-<p>The <code>:obj</code> parameter in <code>commit(:obj)</code> is a variadic list of parameters and <strong>may have</strong> one object included that
-contains an object with a <code>subject</code> property in it. The subject is taken to identify the user across all the systems
-and must be unique for that users.</p>
-<p>A common subject is the <code>userid</code> from your members&rsquo; database, or another person identifier like an <code>uuid</code>, <code>username</code> or
-the
-users personal email` address. You have to take care that the subject is directly correlated to the user without any
-doubt.
-The subject reflects the &ldquo;primary key&rdquo; of the logged-in user.</p>
-<p>If your user data source is in a SQL Database and you validate the login with a simple query like
-<code>select id, username from login where username = '$user' and password ='$pass'</code> than return the <code>id</code> as a subject back
-to Uitsmijter.</p>
-<p>The object with the subject can be enriched with any other data. That data will be written to the log, but ignored for
-further execution. It must contain a <code>subject</code> property, but can contain other properties.</p>
-<p><strong>Examples for valid objects:</strong>
-Just an ID:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="mi">1734034</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>ID with other data;</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Lorene Ibsen&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="mi">1734034</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;instrument&#34;</span><span class="p">:</span> <span class="s2">&#34;Piano&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>String subject:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;lorene.ibsen@example.com&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><blockquote>
-<p><strong>If no subject is specified</strong>, the login name (<code>username</code> from the login section) is used as the subject!
-Since <code>username</code> must be unique from the start, this is a good default value, but you can override it with your
-your own value, e.g. an ID.</p>
-</blockquote>
-<p>The position inside the variadic list is irrelevant. All other parameters will be ignored, but the first one with a
-<code>subject</code> parameter will be evaluated and overwrite the <code>subject</code> of the JWT issued.</p>
-<p><strong>Example of valid commitments:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">commit</span><span class="p">({</span><span class="nx">subject</span><span class="o">:</span> <span class="s2">&#34;lorene.ibsen@example.com&#34;</span><span class="p">})</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">commit</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="p">{</span><span class="nx">subject</span><span class="o">:</span> <span class="s2">&#34;lorene.ibsen@example.com&#34;</span><span class="p">})</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">commit</span><span class="p">({</span><span class="nx">message</span><span class="o">:</span> <span class="s2">&#34;A good login&#34;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&#34;subject&#34;</span><span class="o">:</span> <span class="s2">&#34;lorene.ibsen@example.com&#34;</span><span class="p">},</span> <span class="p">{</span><span class="nx">error</span><span class="o">:</span> <span class="kc">false</span><span class="p">})</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">commit</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;subject&#34;</span><span class="o">:</span> <span class="s2">&#34;lorene.ibsen@example.com&#34;</span><span class="p">},</span> <span class="p">{</span><span class="nx">error</span><span class="o">:</span> <span class="kc">false</span><span class="p">})</span>
-</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
-    <h2 id="dynamic-scope-assignment">
-        Dynamic Scope Assignment
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#dynamic-scope-assignment" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Dynamic Scope Assignment" aria-label="Anchor to: Dynamic Scope Assignment" href="#dynamic-scope-assignment">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h2>
-</div>
-<p>The <code>scopes</code> getter is an <strong>optional</strong> method that allows JavaScript providers to dynamically assign OAuth2 scopes to users based on their authentication context, such as roles, group memberships, permissions, or any other user attributes.</p>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="how-it-works">
-        How It Works
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#how-it-works" class="gdoc-page__anchor clip flex align-center" title="Anchor to: How It Works" aria-label="Anchor to: How It Works" href="#how-it-works">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<p>When a user successfully authenticates:</p>
+<p>OAuth 2.0 scopes are a mechanism to limit an application&rsquo;s access to a user&rsquo;s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.</p>
+<p>Uitsmijter implements a <strong>two-tier scope filtering system</strong> that provides fine-grained control over which scopes are granted to users:</p>
 <ol>
-<li>The provider&rsquo;s <code>scopes</code> getter returns an array of scope strings</li>
-<li>Uitsmijter filters these scopes against the client&rsquo;s <code>allowedProviderScopes</code> configuration</li>
-<li>Allowed provider scopes are merged with client-requested scopes</li>
-<li>The final merged scope list is included in the JWT token&rsquo;s <code>scope</code> claim</li>
+<li><strong>Client-requested scopes</strong> - Scopes that the OAuth client application requests during authorization</li>
+<li><strong>Provider-supplied scopes</strong> - Scopes that JavaScript authentication providers dynamically add based on user context</li>
 </ol>
+<p>Both types of scopes are independently filtered before being merged into the final JWT token, providing defense-in-depth security.</p>
 <div class="gdoc-page__anchorwrap">
-    <h3 id="security-filtering">
-        Security Filtering
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#security-filtering" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Security Filtering" aria-label="Anchor to: Security Filtering" href="#security-filtering">
+    <h2 id="understanding-scopes">
+        Understanding Scopes
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#understanding-scopes" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Understanding Scopes" aria-label="Anchor to: Understanding Scopes" href="#understanding-scopes">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Scopes are strings that represent specific permissions or access levels. They are typically formatted as:</p>
+<ul>
+<li><strong>Simple scopes</strong>: <code>read</code>, <code>write</code>, <code>profile</code>, <code>email</code></li>
+<li><strong>Hierarchical scopes</strong>: <code>user:read</code>, <code>user:write</code>, <code>admin:delete</code>, <code>org:manage</code></li>
+</ul>
+<p>The hierarchical format (using <code>:</code> as a separator) is recommended as it allows for wildcard pattern matching and better organization of permissions.</p>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="two-tier-scope-filtering">
+        Two-Tier Scope Filtering
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#two-tier-scope-filtering" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Two-Tier Scope Filtering" aria-label="Anchor to: Two-Tier Scope Filtering" href="#two-tier-scope-filtering">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="tier-1-client-requested-scopes">
+        Tier 1: Client-Requested Scopes
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#tier-1-client-requested-scopes" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Tier 1: Client-Requested Scopes" aria-label="Anchor to: Tier 1: Client-Requested Scopes" href="#tier-1-client-requested-scopes">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h3>
 </div>
-<p>Provider-returned scopes are <strong>filtered</strong> by the client&rsquo;s <code>allowedProviderScopes</code> configuration before being added to the JWT token. This prevents providers from granting arbitrary scopes:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Client configuration</span><span class="w">
+<p>When an OAuth client initiates an authorization request, it can request specific scopes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">GET /authorize?response_type=code
+</span></span></span><span class="line"><span class="cl"><span class="err">  &amp;client_id=550e8400-e29b-41d4-a716-446655440000
+</span></span></span><span class="line"><span class="cl"><span class="err">  &amp;redirect_uri=https://app.example.com/callback
+</span></span></span><span class="line"><span class="cl"><span class="err">  &amp;scope=openid+email+profile+admin:delete
+</span></span></span></code></pre></div><p>These requested scopes are <strong>filtered</strong> against the client&rsquo;s <code>scopes</code> configuration field:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ident</span><span class="p">:</span><span class="w"> </span><span class="m">550e8400</span>-<span class="l">e29b-41d4-a716-446655440000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">openid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">email</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">profile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># admin:delete is NOT in the allowed list</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Result</strong>: Only <code>openid</code>, <code>email</code>, and <code>profile</code> are allowed. The <code>admin:delete</code> scope is rejected.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="tier-2-provider-supplied-scopes">
+        Tier 2: Provider-Supplied Scopes
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#tier-2-provider-supplied-scopes" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Tier 2: Provider-Supplied Scopes" aria-label="Anchor to: Tier 2: Provider-Supplied Scopes" href="#tier-2-provider-supplied-scopes">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>JavaScript authentication providers can dynamically return scopes based on user context (roles, groups, permissions):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">UserLoginProvider</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">scopes</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Return scopes based on user role
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="s2">&#34;admin&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:*&#34;</span><span class="p">,</span> <span class="s2">&#34;admin:*&#34;</span><span class="p">,</span> <span class="s2">&#34;org:*&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">,</span> <span class="s2">&#34;user:list&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>These provider-returned scopes are <strong>filtered</strong> against the client&rsquo;s <code>allowedProviderScopes</code> configuration field:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-app</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*       </span><span class="w"> </span><span class="c"># Allows user:read, user:write, user:list, etc.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">org:read     </span><span class="w"> </span><span class="c"># Allows only org:read</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">can:*        </span><span class="w"> </span><span class="c"># Allows can:edit, can:delete, etc.</span><span class="w">
-</span></span></span></code></pre></div><p>If the provider returns <code>[&quot;user:list&quot;, &quot;user:add&quot;, &quot;admin:all&quot;]</code> and the client allows <code>[&quot;user:*&quot;, &quot;can:*&quot;]</code>, only <code>[&quot;user:list&quot;, &quot;user:add&quot;]</code> will be added to the token. The <code>admin:all</code> scope is rejected.</p>
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">can:*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># admin:* is NOT in the allowed list</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Result</strong>: Only scopes matching <code>user:*</code> and <code>can:*</code> patterns are allowed. The <code>admin:*</code> scopes are rejected.</p>
 <div class="gdoc-page__anchorwrap">
-    <h3 id="implementation-example">
-        Implementation Example
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#implementation-example" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Implementation Example" aria-label="Anchor to: Implementation Example" href="#implementation-example">
+    <h3 id="final-scope-merging">
+        Final Scope Merging
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#final-scope-merging" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Final Scope Merging" aria-label="Anchor to: Final Scope Merging" href="#final-scope-merging">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>After both filtering steps, the allowed scopes from both tiers are merged and deduplicated:</p>
+<p><strong>Example Flow:</strong></p>
+<ol>
+<li><strong>Client requests</strong>: <code>openid</code>, <code>email</code>, <code>profile</code>, <code>admin:delete</code></li>
+<li><strong>After Tier 1 filtering</strong> (by <code>scopes: [openid, email, profile]</code>): <code>openid</code>, <code>email</code>, <code>profile</code></li>
+<li><strong>Provider returns</strong>: <code>user:list</code>, <code>user:add</code>, <code>admin:all</code></li>
+<li><strong>After Tier 2 filtering</strong> (by <code>allowedProviderScopes: [user:*]</code>): <code>user:list</code>, <code>user:add</code></li>
+<li><strong>Final JWT scopes</strong>: <code>openid</code>, <code>email</code>, <code>profile</code>, <code>user:list</code>, <code>user:add</code></li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="wildcard-pattern-matching">
+        Wildcard Pattern Matching
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#wildcard-pattern-matching" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Wildcard Pattern Matching" aria-label="Anchor to: Wildcard Pattern Matching" href="#wildcard-pattern-matching">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>Both <code>scopes</code> and <code>allowedProviderScopes</code> support wildcard pattern matching using the <code>*</code> character:</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="pattern-matching-rules">
+        Pattern Matching Rules
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#pattern-matching-rules" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Pattern Matching Rules" aria-label="Anchor to: Pattern Matching Rules" href="#pattern-matching-rules">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<div class="table-wrap"> <table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Matches</th>
+<th>Does Not Match</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user:*</code></td>
+<td><code>user:read</code>, <code>user:write</code>, <code>user:list</code>, <code>user:delete</code></td>
+<td><code>user</code>, <code>users:read</code>, <code>admin:read</code></td>
+</tr>
+<tr>
+<td><code>admin:*</code></td>
+<td><code>admin:read</code>, <code>admin:write</code>, <code>admin:delete</code></td>
+<td><code>admin</code>, <code>user:admin</code></td>
+</tr>
+<tr>
+<td><code>*:read</code></td>
+<td>Not supported (wildcard must be at the end)</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>openid</code></td>
+<td><code>openid</code> (exact match only)</td>
+<td><code>openid:profile</code></td>
+</tr>
+</tbody>
+</table> </div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="pattern-matching-examples">
+        Pattern Matching Examples
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#pattern-matching-examples" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Pattern Matching Examples" aria-label="Anchor to: Pattern Matching Examples" href="#pattern-matching-examples">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*       </span><span class="w"> </span><span class="c"># Matches user:read, user:write, user:list, etc.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">org:read     </span><span class="w"> </span><span class="c"># Exact match only</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">can:*        </span><span class="w"> </span><span class="c"># Matches can:edit, can:delete, can:approve, etc.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">openid       </span><span class="w"> </span><span class="c"># Exact match only</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Provider returns:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">,</span> <span class="s2">&#34;user:write&#34;</span><span class="p">,</span> <span class="s2">&#34;org:read&#34;</span><span class="p">,</span> <span class="s2">&#34;org:write&#34;</span><span class="p">,</span> <span class="s2">&#34;can:edit&#34;</span><span class="p">,</span> <span class="s2">&#34;openid&#34;</span><span class="p">]</span>
+</span></span></code></pre></div><p><strong>After filtering:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">,</span> <span class="s2">&#34;user:write&#34;</span><span class="p">,</span> <span class="s2">&#34;org:read&#34;</span><span class="p">,</span> <span class="s2">&#34;can:edit&#34;</span><span class="p">,</span> <span class="s2">&#34;openid&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// org:write is rejected (no match for org:*)
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="configuration">
+        Configuration
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#configuration" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Configuration" aria-label="Anchor to: Configuration" href="#configuration">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="client-configuration">
+        Client Configuration
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#client-configuration" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Client Configuration" aria-label="Anchor to: Client Configuration" href="#client-configuration">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Clients define both types of scope filtering in their configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">webapp-client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">production</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tenant</span><span class="p">:</span><span class="w"> </span><span class="l">example-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="m">550e8400</span>-<span class="l">e29b-41d4-a716-446655440000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redirect_uris</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">https://webapp.example.com/callback</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Tier 1: Client-requested scopes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">openid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">email</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">profile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Tier 2: Provider-supplied scopes</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">org:read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">can:*</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="file-based-configuration">
+        File-Based Configuration
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#file-based-configuration" class="gdoc-page__anchor clip flex align-center" title="Anchor to: File-Based Configuration" aria-label="Anchor to: File-Based Configuration" href="#file-based-configuration">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>For file-based deployments (Docker, local development):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">webapp-client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ident</span><span class="p">:</span><span class="w"> </span><span class="m">550e8400</span>-<span class="l">e29b-41d4-a716-446655440000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tenantname</span><span class="p">:</span><span class="w"> </span><span class="l">example-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redirect_urls</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">https://webapp.example.com/callback</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">openid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">email</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">profile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">org:read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">can:*</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="javascript-provider-implementation">
+        JavaScript Provider Implementation
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#javascript-provider-implementation" class="gdoc-page__anchor clip flex align-center" title="Anchor to: JavaScript Provider Implementation" aria-label="Anchor to: JavaScript Provider Implementation" href="#javascript-provider-implementation">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="basic-implementation">
+        Basic Implementation
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#basic-implementation" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Basic Implementation" aria-label="Anchor to: Basic Implementation" href="#basic-implementation">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h3>
@@ -3025,7 +3041,7 @@ your own value, e.g. an ID.</p>
 </span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">profile</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                <span class="c1">// Assign scopes based on user role
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">this</span><span class="p">.</span><span class="nx">userScopes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">determineScopesFromRole</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">role</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">this</span><span class="p">.</span><span class="nx">userScopes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getScopesForRole</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">role</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                <span class="nx">commit</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span> <span class="p">{</span><span class="nx">subject</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">userId</span><span class="p">});</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -3034,7 +3050,7 @@ your own value, e.g. an ID.</p>
 </span></span><span class="line"><span class="cl">        <span class="p">});</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">determineScopesFromRole</span><span class="p">(</span><span class="nx">role</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">getScopesForRole</span><span class="p">(</span><span class="nx">role</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">switch</span><span class="p">(</span><span class="nx">role</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="s2">&#34;admin&#34;</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:*&#34;</span><span class="p">,</span> <span class="s2">&#34;org:*&#34;</span><span class="p">,</span> <span class="s2">&#34;admin:*&#34;</span><span class="p">];</span>
@@ -3063,131 +3079,405 @@ your own value, e.g. an ID.</p>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
-    <h3 id="use-cases">
-        Use Cases
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#use-cases" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Use Cases" aria-label="Anchor to: Use Cases" href="#use-cases">
+    <h3 id="advanced-implementation-with-group-membership">
+        Advanced Implementation with Group Membership
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#advanced-implementation-with-group-membership" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Advanced Implementation with Group Membership" aria-label="Anchor to: Advanced Implementation with Group Membership" href="#advanced-implementation-with-group-membership">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h3>
 </div>
-<p>Dynamic scope assignment is useful for:</p>
-<ul>
-<li><strong>Role-based access control</strong>: Assign different scopes based on user roles (admin, manager, user)</li>
-<li><strong>Group membership</strong>: Query LDAP/Active Directory and grant scopes based on group memberships</li>
-<li><strong>Database-driven permissions</strong>: Fetch user permissions from a database and convert them to scopes</li>
-<li><strong>Multi-tenant systems</strong>: Assign organization-specific scopes based on tenant membership</li>
-<li><strong>Time-based access</strong>: Grant temporary scopes based on subscription status or trial periods</li>
-</ul>
-<div class="gdoc-page__anchorwrap">
-    <h3 id="important-notes">
-        Important Notes
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#important-notes" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Important Notes" aria-label="Anchor to: Important Notes" href="#important-notes">
-            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
-        </a>
-    </h3>
-</div>
-<ul>
-<li>The <code>scopes</code> getter is <strong>optional</strong>. If not implemented, no provider scopes are added.</li>
-<li>Provider scopes are <strong>always filtered</strong> by the client&rsquo;s <code>allowedProviderScopes</code> configuration.</li>
-<li>If <code>allowedProviderScopes</code> is empty or not set, <strong>no provider scopes</strong> are added (secure by default).</li>
-<li>The <code>scopes</code> getter should return an array of strings (e.g., <code>[&quot;user:read&quot;, &quot;org:write&quot;]</code>).</li>
-<li>Scopes are <strong>merged</strong> with client-requested scopes before being added to the JWT token.</li>
-</ul>
-<p>For more information, see <a
-  class="gdoc-markdown__link"
-  href="/configuration/tenant_client_config"
->Client Configuration</a> and <a
-  class="gdoc-markdown__link"
-  href="/working-with-uitsmijter/clients"
->Managing Clients</a>.</p>
-<div class="gdoc-page__anchorwrap">
-    <h2 id="examples">
-        Examples
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#examples" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Examples" aria-label="Anchor to: Examples" href="#examples">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">UserLoginProvider</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isLoggedIn</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">profile</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">userScopes</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">constructor</span><span class="p">(</span><span class="nx">credentials</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fetch</span><span class="p">(</span><span class="sb">`http://ldap.example.com/authenticate`</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">method</span><span class="o">:</span> <span class="s2">&#34;post&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">body</span><span class="o">:</span> <span class="nx">credentials</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">isLoggedIn</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">profile</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1">// Fetch user groups from LDAP
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">this</span><span class="p">.</span><span class="nx">userScopes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getScopesFromGroups</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">groups</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="nx">commit</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span> <span class="p">{</span><span class="nx">subject</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">dn</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">commit</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">getScopesFromGroups</span><span class="p">(</span><span class="nx">groups</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">scopes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">];</span> <span class="c1">// Base scope for all users
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">groups</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&#34;cn=admins,ou=groups,dc=example,dc=com&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">scopes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&#34;admin:*&#34;</span><span class="p">,</span> <span class="s2">&#34;user:*&#34;</span><span class="p">,</span> <span class="s2">&#34;org:*&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">groups</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&#34;cn=editors,ou=groups,dc=example,dc=com&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">scopes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&#34;content:edit&#34;</span><span class="p">,</span> <span class="s2">&#34;content:publish&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">groups</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&#34;cn=finance,ou=groups,dc=example,dc=com&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">scopes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&#34;invoice:*&#34;</span><span class="p">,</span> <span class="s2">&#34;payment:read&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">scopes</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">canLogin</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">isLoggedIn</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">userProfile</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">role</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">role</span> <span class="o">||</span> <span class="s2">&#34;user&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">scopes</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">userScopes</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="jwt-token-scope-claim">
+        JWT Token Scope Claim
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#jwt-token-scope-claim" class="gdoc-page__anchor clip flex align-center" title="Anchor to: JWT Token Scope Claim" aria-label="Anchor to: JWT Token Scope Claim" href="#jwt-token-scope-claim">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
 </div>
-<p><strong>Simple Example</strong><br>
-This example allows any user whose username is &ldquo;<a
-  class="gdoc-markdown__link"
-  href="mailto:frodo@example.com"
->frodo@example.com</a>&rdquo;. Do not use this in production!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">UserLoginProvider</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">isLoggedIn</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">constructor</span><span class="p">(</span><span class="nx">credentials</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">credentials</span><span class="p">.</span><span class="nx">username</span> <span class="o">==</span> <span class="s2">&#34;frodo@example.com&#34;</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Do not use this in production!
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">this</span><span class="p">.</span><span class="nx">isLoggedIn</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">commit</span><span class="p">({</span><span class="nx">subject</span><span class="o">:</span> <span class="s2">&#34;frodo&#34;</span><span class="p">});</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// Getter
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">get</span> <span class="nx">canLogin</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">isLoggedIn</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">userProfile</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Frodo Baker&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">species</span><span class="o">:</span> <span class="s2">&#34;Musician&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="p">};</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">role</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;user&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+<p>After filtering and merging, the final scopes are included in the JWT token as a <code>scope</code> claim:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;iss&#34;</span><span class="p">:</span> <span class="s2">&#34;https://auth.example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;sub&#34;</span><span class="p">:</span> <span class="s2">&#34;user@example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;aud&#34;</span><span class="p">:</span> <span class="s2">&#34;550e8400-e29b-41d4-a716-446655440000&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;exp&#34;</span><span class="p">:</span> <span class="mi">1736649600</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;iat&#34;</span><span class="p">:</span> <span class="mi">1736563200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;example-tenant&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scope&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;openid&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;email&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;profile&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;user:read&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;user:list&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;profile&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;user@example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;John Doe&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>Fetch Backend Example</strong>
-This example allows a user log in for every user/password combination that is known in a backend system, and dynamically assigns scopes based on the user&rsquo;s role.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">UserLoginProvider</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">isLoggedIn</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">profile</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span></code></pre></div><p>Downstream services can inspect the <code>scope</code> claim to make authorization decisions:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// Example: Check if user has permission
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">decodeJWT</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">authorization</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">constructor</span><span class="p">(</span><span class="nx">credentials</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://example.com/users/auth`</span><span class="p">,</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">method</span><span class="o">:</span> <span class="s2">&#34;post&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">body</span><span class="o">:</span> <span class="nx">credentials</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="kd">var</span> <span class="nx">subject</span> <span class="o">=</span> <span class="p">{};</span>
-</span></span><span class="line"><span class="cl">                <span class="nx">profile</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="k">this</span><span class="p">.</span><span class="nx">isLoggedIn</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">subject</span> <span class="o">=</span> <span class="p">{</span><span class="nx">subject</span><span class="o">:</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">userId</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                <span class="nx">commit</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span> <span class="nx">subject</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">token</span><span class="p">.</span><span class="nx">scope</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&#34;user:write&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Allow user modification
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Deny access
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// Getter
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">get</span> <span class="nx">canLogin</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">isLoggedIn</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">userProfile</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">profile</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">role</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">profile</span><span class="p">.</span><span class="nx">role</span> <span class="o">||</span> <span class="s2">&#34;user&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">scopes</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// Optionally return scopes based on user profile
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">profile</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="s2">&#34;admin&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:*&#34;</span><span class="p">,</span> <span class="s2">&#34;admin:*&#34;</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">profile</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="s2">&#34;manager&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">,</span> <span class="s2">&#34;user:list&#34;</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Example: Check with wildcard pattern
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">hasUserPermission</span> <span class="o">=</span> <span class="nx">token</span><span class="p">.</span><span class="nx">scope</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">s</span> <span class="p">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">&#34;user:&#34;</span><span class="p">));</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="security-considerations">
+        Security Considerations
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#security-considerations" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Security Considerations" aria-label="Anchor to: Security Considerations" href="#security-considerations">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="secure-by-default">
+        Secure by Default
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#secure-by-default" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Secure by Default" aria-label="Anchor to: Secure by Default" href="#secure-by-default">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Uitsmijter follows a <strong>secure by default</strong> approach:</p>
+<ul>
+<li>If <code>scopes</code> is not configured or is empty, <strong>no client-requested scopes</strong> are allowed</li>
+<li>If <code>allowedProviderScopes</code> is not configured or is empty, <strong>no provider-supplied scopes</strong> are allowed</li>
+<li>Both filters must explicitly allow scopes for them to appear in the JWT token</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="defense-in-depth">
+        Defense in Depth
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#defense-in-depth" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Defense in Depth" aria-label="Anchor to: Defense in Depth" href="#defense-in-depth">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>The two-tier filtering system provides defense in depth:</p>
+<ol>
+<li><strong>Compromised client application</strong>: Cannot request excessive scopes (filtered by <code>scopes</code>)</li>
+<li><strong>Compromised JavaScript provider</strong>: Cannot grant excessive scopes (filtered by <code>allowedProviderScopes</code>)</li>
+<li><strong>Both must be compromised</strong> for unauthorized scopes to be granted</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="principle-of-least-privilege">
+        Principle of Least Privilege
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#principle-of-least-privilege" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Principle of Least Privilege" aria-label="Anchor to: Principle of Least Privilege" href="#principle-of-least-privilege">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Configure scopes following the principle of least privilege:</p>
+<p><strong>Good example:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">scopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">openid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">email</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">profile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">user:read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">user:list</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Bad example (too permissive):</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">scopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="s2">&#34;*&#34;</span><span class="w">  </span><span class="c"># Don&#39;t do this!</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="s2">&#34;*&#34;</span><span class="w">  </span><span class="c"># Don&#39;t do this!</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="wildcard-scope-risks">
+        Wildcard Scope Risks
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#wildcard-scope-risks" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Wildcard Scope Risks" aria-label="Anchor to: Wildcard Scope Risks" href="#wildcard-scope-risks">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>While wildcards are convenient, use them carefully:</p>
+<ul>
+<li><code>user:*</code> allows ALL user-related scopes (including <code>user:delete</code>)</li>
+<li>Consider enumerating specific scopes for sensitive operations</li>
+<li>Use wildcards for read-only scopes, enumerate for write/delete scopes</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">user:read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">user:list</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Explicitly allow dangerous operations</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">user:delete</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Don&#39;t use user:* if you want to restrict delete</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="use-cases">
+        Use Cases
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#use-cases" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Use Cases" aria-label="Anchor to: Use Cases" href="#use-cases">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="role-based-access-control-rbac">
+        Role-Based Access Control (RBAC)
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#role-based-access-control-rbac" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Role-Based Access Control (RBAC)" aria-label="Anchor to: Role-Based Access Control (RBAC)" href="#role-based-access-control-rbac">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Different user roles receive different scopes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">getScopesForRole</span><span class="p">(</span><span class="nx">role</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span><span class="p">(</span><span class="nx">role</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="s2">&#34;admin&#34;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:*&#34;</span><span class="p">,</span> <span class="s2">&#34;org:*&#34;</span><span class="p">,</span> <span class="s2">&#34;admin:*&#34;</span><span class="p">,</span> <span class="s2">&#34;audit:read&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="s2">&#34;manager&#34;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">,</span> <span class="s2">&#34;user:list&#34;</span><span class="p">,</span> <span class="s2">&#34;org:read&#34;</span><span class="p">,</span> <span class="s2">&#34;team:*&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="s2">&#34;developer&#34;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">,</span> <span class="s2">&#34;repo:*&#34;</span><span class="p">,</span> <span class="s2">&#34;deploy:staging&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="s2">&#34;user&#34;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">,</span> <span class="s2">&#34;profile:write&#34;</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
-    <h2 id="further-readings">
-        Further readings
-        <a data-clipboard-text="https://docs.uitsmijter.io/providers/userloginprovider/#further-readings" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Further readings" aria-label="Anchor to: Further readings" href="#further-readings">
+    <h3 id="multi-tenant-organizations">
+        Multi-Tenant Organizations
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#multi-tenant-organizations" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Multi-Tenant Organizations" aria-label="Anchor to: Multi-Tenant Organizations" href="#multi-tenant-organizations">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Assign organization-specific scopes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">getScopesForOrganization</span><span class="p">(</span><span class="nx">userId</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">orgs</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getUserOrganizations</span><span class="p">(</span><span class="nx">userId</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">scopes</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">orgs</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">org</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">scopes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`org:</span><span class="si">${</span><span class="nx">org</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">:read`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">org</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="s2">&#34;admin&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">scopes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`org:</span><span class="si">${</span><span class="nx">org</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">:*`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">scopes</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="time-based-access">
+        Time-Based Access
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#time-based-access" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Time-Based Access" aria-label="Anchor to: Time-Based Access" href="#time-based-access">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Grant temporary scopes based on subscription:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">getScopesForUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">scopes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">subscription</span> <span class="o">===</span> <span class="s2">&#34;premium&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">subscriptionExpires</span> <span class="o">&gt;</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">scopes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&#34;premium:*&#34;</span><span class="p">,</span> <span class="s2">&#34;analytics:read&#34;</span><span class="p">,</span> <span class="s2">&#34;export:*&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">trialExpires</span> <span class="o">&gt;</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">scopes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&#34;trial:*&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">scopes</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="troubleshooting">
+        Troubleshooting
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#troubleshooting" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Troubleshooting" aria-label="Anchor to: Troubleshooting" href="#troubleshooting">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="scopes-not-appearing-in-jwt">
+        Scopes Not Appearing in JWT
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#scopes-not-appearing-in-jwt" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Scopes Not Appearing in JWT" aria-label="Anchor to: Scopes Not Appearing in JWT" href="#scopes-not-appearing-in-jwt">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Issue</strong>: Expected scopes are missing from the JWT token.</p>
+<p><strong>Checklist:</strong></p>
+<ol>
+<li>Check client <code>scopes</code> configuration allows the requested scopes</li>
+<li>Check client <code>allowedProviderScopes</code> configuration allows provider-returned scopes</li>
+<li>Verify JavaScript provider&rsquo;s <code>get scopes()</code> method returns the expected scopes</li>
+<li>Check Uitsmijter logs for scope filtering messages</li>
+</ol>
+<p><strong>Debug:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl logs -n uitsmijter -l <span class="nv">app</span><span class="o">=</span>uitsmijter <span class="p">|</span> grep -i scope
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="provider-scopes-not-being-added">
+        Provider Scopes Not Being Added
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#provider-scopes-not-being-added" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Provider Scopes Not Being Added" aria-label="Anchor to: Provider Scopes Not Being Added" href="#provider-scopes-not-being-added">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Issue</strong>: JavaScript provider returns scopes, but they don&rsquo;t appear in the JWT.</p>
+<p><strong>Solution:</strong></p>
+<p>Ensure <code>allowedProviderScopes</code> is configured:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Empty or missing = no provider scopes allowed</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="wildcard-pattern-not-matching">
+        Wildcard Pattern Not Matching
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#wildcard-pattern-not-matching" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Wildcard Pattern Not Matching" aria-label="Anchor to: Wildcard Pattern Not Matching" href="#wildcard-pattern-not-matching">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p><strong>Issue</strong>: Wildcard pattern <code>user:*</code> doesn&rsquo;t match <code>user:read</code>.</p>
+<p><strong>Common Mistakes:</strong></p>
+<ul>
+<li>Wildcard must be at the <strong>end</strong> of the pattern: <code>user:*</code> ✓, <code>*:read</code> ✗</li>
+<li>Pattern is case-sensitive: <code>user:*</code> doesn&rsquo;t match <code>User:read</code></li>
+<li>No match for partial patterns: <code>user:*</code> doesn&rsquo;t match <code>user</code> (missing <code>:</code>)</li>
+</ul>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="migration-guide">
+        Migration Guide
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#migration-guide" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Migration Guide" aria-label="Anchor to: Migration Guide" href="#migration-guide">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="upgrading-from-pre-0103-versions">
+        Upgrading from Pre-0.10.3 Versions
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#upgrading-from-pre-0103-versions" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Upgrading from Pre-0.10.3 Versions" aria-label="Anchor to: Upgrading from Pre-0.10.3 Versions" href="#upgrading-from-pre-0103-versions">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Version 0.10.3 introduced <code>allowedProviderScopes</code>. Existing clients continue to work without changes:</p>
+<p><strong>Before (0.10.2):</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">openid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">email</span><span class="w">
+</span></span></span></code></pre></div><p><strong>After (0.10.3+):</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">openid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">email</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># allowedProviderScopes not set = no provider scopes (backward compatible)</span><span class="w">
+</span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="adding-provider-scopes-to-existing-deployments">
+        Adding Provider Scopes to Existing Deployments
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#adding-provider-scopes-to-existing-deployments" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Adding Provider Scopes to Existing Deployments" aria-label="Anchor to: Adding Provider Scopes to Existing Deployments" href="#adding-provider-scopes-to-existing-deployments">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<ol>
+<li>
+<p><strong>Update CRD</strong> (if using Kubernetes):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl apply -f crd-clients.yaml
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Update client configuration</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">org:read</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Update JavaScript provider</strong> (optional):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">get</span> <span class="nx">scopes</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">,</span> <span class="s2">&#34;user:list&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Test scope filtering</strong>:</p>
+<ul>
+<li>Request an OAuth token</li>
+<li>Decode the JWT</li>
+<li>Verify <code>scope</code> claim contains expected scopes</li>
+</ul>
+</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="best-practices">
+        Best Practices
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#best-practices" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Best Practices" aria-label="Anchor to: Best Practices" href="#best-practices">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<ol>
+<li><strong>Use hierarchical scope naming</strong>: <code>resource:action</code> format (e.g., <code>user:read</code>, <code>org:delete</code>)</li>
+<li><strong>Follow principle of least privilege</strong>: Grant minimum necessary scopes</li>
+<li><strong>Use wildcards for read operations</strong>: <code>user:*</code> for broad read access</li>
+<li><strong>Enumerate sensitive operations</strong>: Explicitly list <code>delete</code>, <code>admin</code>, etc.</li>
+<li><strong>Document scope meanings</strong>: Maintain documentation of what each scope grants</li>
+<li><strong>Test scope filtering</strong>: Verify scopes are correctly filtered in development</li>
+<li><strong>Monitor scope grants</strong>: Review audit logs for unexpected scope assignments</li>
+<li><strong>Rotate scopes periodically</strong>: Consider time-limited scopes for sensitive operations</li>
+</ol>
+<div class="gdoc-page__anchorwrap">
+    <h2 id="further-reading">
+        Further Reading
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/scopes/#further-reading" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Further Reading" aria-label="Anchor to: Further Reading" href="#further-reading">
             <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
         </a>
     </h2>
@@ -3195,8 +3485,28 @@ This example allows a user log in for every user/password combination that is kn
 <ul>
 <li><a
   class="gdoc-markdown__link"
-  href="/providers/uservalidationprovider"
->User Validation Provider</a></li>
+  href="/configuration/tenant_client_config"
+>Client Configuration</a> - Detailed client configuration reference</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/working-with-uitsmijter/clients"
+>Managing Clients</a> - Working with client resources via kubectl</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/providers/userloginprovider"
+>JavaScript Providers</a> - Implementing authentication providers</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/oauth/jwt_decoding"
+>JWT Token Decoding</a> - Understanding and validating JWT tokens</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/oauth/flow"
+>OAuth Flow</a> - Understanding OAuth2 authorization flows</li>
+<li><a
+  class="gdoc-markdown__link"
+  href="/oauth/granttypes"
+>Grant Types</a> - Supported OAuth2 grant types</li>
 </ul>
 
   </article>

@@ -42,5 +42,12 @@
       <guid>https://docs.uitsmijter.io/oauth/pkce/</guid>
       <description>Authorization Code Flow with Proof Key for Code Exchange The Authorization Code Flow with Proof Key for Code Exchange (PKCE) is an OAuth 2.0 flow that is used to secure the authorization process in native applications and single-page applications (SPAs). It is an extension to the standard authorization code flow, and it adds a step that helps to prevent authorization code interception attacks.&#xA;A description of the authorization code flow with PKCE:</description>
     </item>
+    <item>
+      <title>OAuth Scopes and Scope Filtering</title>
+      <link>https://docs.uitsmijter.io/oauth/scopes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.uitsmijter.io/oauth/scopes/</guid>
+      <description>OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application&amp;rsquo;s access to a user&amp;rsquo;s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.&#xA;Uitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:&#xA;Client-requested scopes - Scopes that the OAuth client application requests during authorization Provider-supplied scopes - Scopes that JavaScript authentication providers dynamically add based on user context Both types of scopes are independently filtered before being merged into the final JWT token, providing defense-in-depth security.</description>
+    </item>
   </channel>
 </rss>

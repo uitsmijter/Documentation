@@ -53,7 +53,7 @@ Authenticate users via the tenant’s authentication providers Request authoriza
       "url" : "https://docs.uitsmijter.io/working-with-uitsmijter/clients/",
       "headline": "Managing Clients",
       "description": "Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.\nUnderstanding Clients A client is an OAuth2 application that can:\nAuthenticate users via the tenant’s authentication providers Request authorization codes and exchange them for access tokens Access protected resources on behalf of authenticated users Track metrics including active sessions and denied login attempts Each client has:",
-      "wordCount" : "1346",
+      "wordCount" : "1536",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -1418,6 +1418,50 @@ Authenticate users via the tenant’s authentication providers Request authoriza
                     class="gdoc-nav__entry"
                   >
                     PKCE
+                  </a>
+                </span>
+              
+              
+            </label>
+
+            
+          </li>
+        
+      
+    
+      
+
+      
+        
+      
+
+      
+        
+          
+          
+          
+          
+          
+          
+
+
+          <li>
+            <input
+              type="checkbox"
+              
+                class="hidden"
+              
+            />
+            <label
+              
+            >
+              
+                <span class="flex">
+                  <a
+                    href="/oauth/scopes/"
+                    class="gdoc-nav__entry"
+                  >
+                    OAuth Scopes and Scope Filtering
                   </a>
                 </span>
               
@@ -2828,6 +2872,9 @@ This guide shows you how to work with clients using <code>kubectl</code> command
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">read</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">write</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">profile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Allowed Provider Scopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">user:*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">can:*</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Secret</span><span class="p">:</span><span class="w">  </span><span class="l">&lt;set&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Tenant</span><span class="p">:</span><span class="w">  </span><span class="l">cheese</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Status</span><span class="p">:</span><span class="w">
@@ -2889,6 +2936,10 @@ This guide shows you how to work with clients using <code>kubectl</code> command
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">write</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">profile</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">email</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">org:read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">can:*</span><span class="w">
 </span></span></span></code></pre></div><p>Apply the client configuration:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl apply -f client-example.yaml
 </span></span></code></pre></div><p>Verify the client was created:</p>
@@ -2921,8 +2972,49 @@ For browser-based or mobile apps, omit the <code>secret</code> field and use PKC
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scopes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">read</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">profile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:read</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:list</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">isPkceOnly</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h3 id="provider-scope-filtering">
+        Provider Scope Filtering
+        <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#provider-scope-filtering" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Provider Scope Filtering" aria-label="Anchor to: Provider Scope Filtering" href="#provider-scope-filtering">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Clients can control which scopes JavaScript authentication providers can add to user profiles using the <code>allowedProviderScopes</code> field. This provides a second layer of security beyond client-requested scopes:</p>
+<p><strong>Two-Tier Scope Control:</strong></p>
+<ul>
+<li><code>scopes</code>: Controls what the OAuth client can request during authorization</li>
+<li><code>allowedProviderScopes</code>: Controls what the JavaScript provider can dynamically add based on user context</li>
+</ul>
+<p><strong>Wildcard Pattern Matching:</strong></p>
+<p>The <code>allowedProviderScopes</code> field supports wildcard patterns for flexible configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*       </span><span class="w"> </span><span class="c"># Matches user:read, user:write, user:list, etc.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">org:read     </span><span class="w"> </span><span class="c"># Exact match only</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">can:*        </span><span class="w"> </span><span class="c"># Matches can:edit, can:delete, etc.</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Example Flow:</strong></p>
+<ol>
+<li>Client requests scopes: <code>read</code>, <code>write</code>, <code>admin:delete</code></li>
+<li>Only <code>read</code> and <code>write</code> pass (filtered by <code>scopes: [read, write, profile]</code>)</li>
+<li>JavaScript provider returns scopes: <code>user:list</code>, <code>user:add</code>, <code>admin:all</code></li>
+<li>Only <code>user:list</code> and <code>user:add</code> pass (filtered by <code>allowedProviderScopes: [user:*]</code>)</li>
+<li>Final JWT token contains: <code>read</code>, <code>write</code>, <code>user:list</code>, <code>user:add</code></li>
+</ol>
+<p><strong>Secure by Default:</strong></p>
+<p>If <code>allowedProviderScopes</code> is not configured or is empty, no provider-supplied scopes will be added to the JWT token. This ensures security by requiring explicit configuration.</p>
+<p>For more information, see <a
+  class="gdoc-markdown__link"
+  href="/providers/userloginprovider"
+>JavaScript Providers</a> and <a
+  class="gdoc-markdown__link"
+  href="/configuration/tenant_client_config"
+>Tenant and Client Configuration</a>.</p>
+<div class="gdoc-page__anchorwrap">
     <h2 id="updating-a-client">
         Updating a Client
         <a data-clipboard-text="https://docs.uitsmijter.io/working-with-uitsmijter/clients/#updating-a-client" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Updating a Client" aria-label="Anchor to: Updating a Client" href="#updating-a-client">

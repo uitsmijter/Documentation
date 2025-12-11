@@ -246,6 +246,13 @@
       <description>JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.&#xA;Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public + private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/.</description>
     </item>
     <item>
+      <title>OAuth Scopes and Scope Filtering</title>
+      <link>https://docs.uitsmijter.io/oauth/scopes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.uitsmijter.io/oauth/scopes/</guid>
+      <description>OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application&amp;rsquo;s access to a user&amp;rsquo;s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.&#xA;Uitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:&#xA;Client-requested scopes - Scopes that the OAuth client application requests during authorization Provider-supplied scopes - Scopes that JavaScript authentication providers dynamically add based on user context Both types of scopes are independently filtered before being merged into the final JWT token, providing defense-in-depth security.</description>
+    </item>
+    <item>
       <title>Developer Certificate of Origin</title>
       <link>https://docs.uitsmijter.io/contribution/certificate_of_origin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
