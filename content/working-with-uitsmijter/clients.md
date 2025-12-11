@@ -92,6 +92,9 @@ Spec:
     read
     write
     profile
+  Allowed Provider Scopes:
+    user:*
+    can:*
   Secret:  <set>
   Tenant:  cheese
 Status:
@@ -144,6 +147,10 @@ spec:
     - write
     - profile
     - email
+  allowedProviderScopes:
+    - user:*
+    - org:read
+    - can:*
 ```
 
 Apply the client configuration:
@@ -190,8 +197,44 @@ spec:
   scopes:
     - read
     - profile
+  allowedProviderScopes:
+    - user:read
+    - user:list
   isPkceOnly: true
 ```
+
+### Provider Scope Filtering
+
+Clients can control which scopes JavaScript authentication providers can add to user profiles using the `allowedProviderScopes` field. This provides a second layer of security beyond client-requested scopes:
+
+**Two-Tier Scope Control:**
+- `scopes`: Controls what the OAuth client can request during authorization
+- `allowedProviderScopes`: Controls what the JavaScript provider can dynamically add based on user context
+
+**Wildcard Pattern Matching:**
+
+The `allowedProviderScopes` field supports wildcard patterns for flexible configuration:
+
+```yaml
+spec:
+  allowedProviderScopes:
+    - user:*        # Matches user:read, user:write, user:list, etc.
+    - org:read      # Exact match only
+    - can:*         # Matches can:edit, can:delete, etc.
+```
+
+**Example Flow:**
+1. Client requests scopes: `read`, `write`, `admin:delete`
+2. Only `read` and `write` pass (filtered by `scopes: [read, write, profile]`)
+3. JavaScript provider returns scopes: `user:list`, `user:add`, `admin:all`
+4. Only `user:list` and `user:add` pass (filtered by `allowedProviderScopes: [user:*]`)
+5. Final JWT token contains: `read`, `write`, `user:list`, `user:add`
+
+**Secure by Default:**
+
+If `allowedProviderScopes` is not configured or is empty, no provider-supplied scopes will be added to the JWT token. This ensures security by requiring explicit configuration.
+
+For more information, see [JavaScript Providers](/providers/userloginprovider) and [Tenant and Client Configuration](/configuration/tenant_client_config).
 
 ## Updating a Client
 

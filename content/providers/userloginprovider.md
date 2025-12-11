@@ -38,6 +38,7 @@ Those methods/getters must be implemented:
 | canLogin                  | Getter that should indicate if the current user in context can be logged in (has valid credentials) or not |
 | userProfile               | Getter that should return the users profile.                                                               |
 | role                      | Getter that should return the users role.                                                                  |
+| scopes                    | **Optional** getter that returns an array of scopes to add to the user's JWT token based on user context (roles, groups, permissions). |
 
 After the constructor called `commit(:obj)` the two getters `canLogin` and `userProfile` must have the correct values.
 Before the constructor calls `commit(:obj)` the values to differentiate the login state have to be set for sure.
@@ -172,6 +173,111 @@ commit({message: "A good login"}, {"subject": "lorene.ibsen@example.com"}, {erro
 commit(response.status, {"subject": "lorene.ibsen@example.com"}, {error: false})
 ```
 
+## Dynamic Scope Assignment
+
+The `scopes` getter is an **optional** method that allows JavaScript providers to dynamically assign OAuth2 scopes to users based on their authentication context, such as roles, group memberships, permissions, or any other user attributes.
+
+### How It Works
+
+When a user successfully authenticates:
+
+1. The provider's `scopes` getter returns an array of scope strings
+2. Uitsmijter filters these scopes against the client's `allowedProviderScopes` configuration
+3. Allowed provider scopes are merged with client-requested scopes
+4. The final merged scope list is included in the JWT token's `scope` claim
+
+### Security Filtering
+
+Provider-returned scopes are **filtered** by the client's `allowedProviderScopes` configuration before being added to the JWT token. This prevents providers from granting arbitrary scopes:
+
+```yaml
+# Client configuration
+spec:
+  allowedProviderScopes:
+    - user:*        # Allows user:read, user:write, user:list, etc.
+    - org:read      # Allows only org:read
+    - can:*         # Allows can:edit, can:delete, etc.
+```
+
+If the provider returns `["user:list", "user:add", "admin:all"]` and the client allows `["user:*", "can:*"]`, only `["user:list", "user:add"]` will be added to the token. The `admin:all` scope is rejected.
+
+### Implementation Example
+
+```javascript
+class UserLoginProvider {
+    isLoggedIn = false;
+    profile = {};
+    userScopes = [];
+
+    constructor(credentials) {
+        fetch(`http://auth.example.com/validate`, {
+            method: "post",
+            body: credentials
+        }).then((result) => {
+            if (result.code == 200) {
+                this.isLoggedIn = true;
+                this.profile = JSON.parse(result.body);
+
+                // Assign scopes based on user role
+                this.userScopes = this.determineScopesFromRole(this.profile.role);
+
+                commit(result.code, {subject: this.profile.userId});
+            } else {
+                commit(result.code);
+            }
+        });
+    }
+
+    determineScopesFromRole(role) {
+        switch(role) {
+            case "admin":
+                return ["user:*", "org:*", "admin:*"];
+            case "manager":
+                return ["user:read", "user:list", "org:read"];
+            case "user":
+            default:
+                return ["user:read"];
+        }
+    }
+
+    get canLogin() {
+        return this.isLoggedIn;
+    }
+
+    get userProfile() {
+        return this.profile;
+    }
+
+    get role() {
+        return this.profile.role || "user";
+    }
+
+    get scopes() {
+        return this.userScopes;
+    }
+}
+```
+
+### Use Cases
+
+Dynamic scope assignment is useful for:
+
+- **Role-based access control**: Assign different scopes based on user roles (admin, manager, user)
+- **Group membership**: Query LDAP/Active Directory and grant scopes based on group memberships
+- **Database-driven permissions**: Fetch user permissions from a database and convert them to scopes
+- **Multi-tenant systems**: Assign organization-specific scopes based on tenant membership
+- **Time-based access**: Grant temporary scopes based on subscription status or trial periods
+
+### Important Notes
+
+- The `scopes` getter is **optional**. If not implemented, no provider scopes are added.
+- Provider scopes are **always filtered** by the client's `allowedProviderScopes` configuration.
+- If `allowedProviderScopes` is empty or not set, **no provider scopes** are added (secure by default).
+- The `scopes` getter should return an array of strings (e.g., `["user:read", "org:write"]`).
+- Scopes are **merged** with client-requested scopes before being added to the JWT token.
+
+For more information, see [Client Configuration](/configuration/tenant_client_config) and [Managing Clients](/working-with-uitsmijter/clients).
+
 ## Examples
 
 **Simple Example**  
@@ -206,8 +312,8 @@ class UserLoginProvider {
 }
 ```
 
-**Fetch Backend Example**   
-This example allows a user log in for in every user/password combination that is known in a backend system.
+**Fetch Backend Example**
+This example allows a user log in for every user/password combination that is known in a backend system, and dynamically assigns scopes based on the user's role.
 
 ```js
 class UserLoginProvider {
@@ -241,6 +347,16 @@ class UserLoginProvider {
 
     get role() {
         return profile.role || "user";
+    }
+
+    get scopes() {
+        // Optionally return scopes based on user profile
+        if (profile.role === "admin") {
+            return ["user:*", "admin:*"];
+        } else if (profile.role === "manager") {
+            return ["user:read", "user:list"];
+        }
+        return ["user:read"];
     }
 }
 ```

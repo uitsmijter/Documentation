@@ -316,6 +316,9 @@ config:
     - list
     - read
     - write
+  allowedProviderScopes:
+    - user:*
+    - can:*
   referrers:
     - https://www.bnbc.example/bnbc-club/login
   isPkceOnly: true
@@ -356,6 +359,9 @@ spec:
     - list
     - read
     - write
+  allowedProviderScopes:
+    - user:*
+    - can:*
   referrers:
     - https://www.bnbc.example/bnbc-club/login
   isPkceOnly: true
@@ -371,7 +377,8 @@ spec:
 | tenantname    | yes       | -                                       | `bnbc-tenant`                                                 | The name of the tenant for which this client is for. On kubernetes this must contain the tenants namespace: `[tennant namespace]/bnbc-tenant`                                                                       |
 | redirect_urls | yes       | -                                       | `["https://www.bnbc.(example&#124;example.com)/bnbc-club/*"]` | A client sends a redirect url to which the response will be redirected to. Specify the allowed urls for security reasons, otherwise it will be possible to hijack the token in the response. See information below. |
 | grant_types   | no        | ["authorization_code", "refresh_token"] | `["password"]`                                                | A list of allowed grant types. If not set, a default set will be applied: `authorization_code`, `refresh_token`. If you need to support the “password" grant, you must specify it explicitly!                       |
-| scopes        | no        | []                                      | `["recipes:read", "recipes:write", "timeline:post"]`          | A list of allowed scopes for this client. If a client requests scopes, these will be filtered by the one that are allowed.                                                                                          |
+| scopes        | no        | []                                      | `["recipes:read", "recipes:write", "timeline:post"]`          | A list of allowed scopes for this client. If a client requests scopes, these will be filtered by the ones that are allowed. This controls scopes requested by the OAuth client during authorization.                                                                                          |
+| allowedProviderScopes | no | []                               | `["user:*", "can:*", "org:read"]`                            | A list of allowed scopes that JavaScript providers can add to user profiles. Supports wildcard patterns (e.g., `user:*` matches `user:list`, `user:add`). Provider-supplied scopes are filtered against this list before being merged with client-requested scopes. Defaults to empty (no provider scopes allowed), providing secure-by-default behavior. |
 | referrers     | no        | []                                      | `[https://www.bnbc.example/bnbc-club/login]`                  | If set, only clients that come from these referers are allowed.                                                                                                                                                      |
 | isPkceOnly    | no        | false                                   | `true`                                                        | If set to `true` this client does support [Proof Key for Code Exchange](/oauth/pkce) only.                                                                                                                          |
 | secret        | no        | -                                       | `aejochiecaishee4ootooSh3ph`                                  | if set, the clients have to send this shared secret on requests.                                                                                                                                                  |
