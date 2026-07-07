@@ -196,6 +196,33 @@ spec:
 | silent_login      | no        | `true`  | `false`                               | When this option is enabled and a client has a valid auth cookie shared with the login page, its login information will be used to authenticate the user without asking for a username or password.                                                  |
 | jwt_algorithm     | no        | `HS256` | `RS256` or `HS256` | JWT signing algorithm for this tenant. Defaults to `HS256` if not specified. Use `RS256` for production (asymmetric, better security, supports key rotation every 90 days), or `HS256` for development/legacy systems (symmetric, requires JWT_SECRET). See [JWT Algorithms](/configuration/jwt_algorithms) for detailed comparison. |
 
+### Predefined Providers
+
+Each entry in the `providers` list can be either a raw JavaScript script (as in the examples above) or a
+**predefined-provider object** that references a ready-made provider by type. This lets you reuse a shared provider
+implementation without pasting the full script into every tenant.
+
+```yaml
+spec:
+  hosts:
+    - bnbc.example
+  providers:
+    # A raw JavaScript provider ...
+    - "class UserValidationProvider { [...] }"
+    # ... and a predefined provider referenced by type:
+    - type: uitrusting/v1
+      url: users.srv.cluster.local
+      token: shared-provider-token   # optional
+```
+
+| Property | Mandatory | Default | Example                    | Discussion                                                             |
+|----------|-----------|---------|----------------------------|-----------------------------------------------------------------------|
+| type     | yes       | -       | `uitrusting/v1`            | The identifier of the predefined provider to load.                    |
+| url      | yes       | -       | `users.srv.cluster.local`  | Host of the backend the predefined provider connects to.              |
+| token    | no        | -       | `shared-provider-token`    | Optional authentication token passed to the predefined provider.      |
+
+See [Providers](/providers/providers) for the full list of predefined providers and how they work.
+
 ### JWT Algorithm Configuration
 
 Each tenant can use its own JWT signing algorithm, independent of other tenants in the same instance. This allows gradual migration from HS256 to RS256, or mixing tenants with different security requirements.
@@ -376,7 +403,8 @@ spec:
 | name          | yes       | -                                       | `bnbc-ios-app`                                                | Give the client a unique and specific name. Clients should reflect the device classes that you need to target with specific rights and to get individual statistics from.                                         |
 | tenantname    | yes       | -                                       | `bnbc-tenant`                                                 | The name of the tenant for which this client is for. On kubernetes this must contain the tenants namespace: `[tennant namespace]/bnbc-tenant`                                                                       |
 | redirect_urls | yes       | -                                       | `["https://www.bnbc.(example&#124;example.com)/bnbc-club/*"]` | A client sends a redirect url to which the response will be redirected to. Specify the allowed urls for security reasons, otherwise it will be possible to hijack the token in the response. See information below. |
-| grant_types   | no        | ["authorization_code", "refresh_token"] | `["password"]`                                                | A list of allowed grant types. If not set, a default set will be applied: `authorization_code`, `refresh_token`. If you need to support the “password" grant, you must specify it explicitly!                       |
+| grant_types   | no        | ["authorization_code", "refresh_token"] | `["password"]`                                                | A list of allowed grant types. If not set, a default set will be applied: `authorization_code`, `refresh_token`. If you need to support the “password" grant, you must specify it explicitly! Add `device_code` to enable the OAuth 2.0 Device Authorization Grant (RFC 8628).                       |
+| device_grant_config | no  | -                                       | _see below_                                                  | Optional fine-tuning for the `device_code` grant. Only used when `device_code` is listed in `grant_types`. All keys are optional and override the built-in defaults. See below.                                     |
 | scopes        | no        | []                                      | `["recipes:read", "recipes:write", "timeline:post"]`          | A list of allowed scopes for this client. If a client requests scopes, these will be filtered by the ones that are allowed. This controls scopes requested by the OAuth client during authorization.                                                                                          |
 | allowedProviderScopes | no | []                               | `["user:*", "can:*", "org:read"]`                            | A list of allowed scopes that JavaScript providers can add to user profiles. Supports wildcard patterns (e.g., `user:*` matches `user:list`, `user:add`). Provider-supplied scopes are filtered against this list before being merged with client-requested scopes. Defaults to empty (no provider scopes allowed), providing secure-by-default behavior. |
 | referrers     | no        | []                                      | `[https://www.bnbc.example/bnbc-club/login]`                  | If set, only clients that come from these referers are allowed.                                                                                                                                                      |
@@ -388,6 +416,7 @@ spec:
 - authorization_code
 - refresh_token
 - password
+- device_code
 
 If you allow a `authorization_code`, you should also allow `refresh_token`, because to refresh a token you need to get
 one via the `authorization_code` request.
@@ -395,6 +424,33 @@ The response from a `password` request does not return a refresh token!
 
 Try to avoid the `password` grant in production! It is insecure and should be replaced by a pkce code request. Only
 if you have to support older clients you may need to turn this option on.
+
+Add `device_code` for input-constrained devices (smart TVs, CLIs, IoT) that cannot present a browser. This enables the
+OAuth 2.0 Device Authorization Grant (RFC 8628), where the device shows a short `user_code` that the user enters on a
+second device to authorize the login.
+
+**Device Grant Configuration**
+
+The Device Authorization Grant is enabled purely by listing `device_code` in `grant_types`. The optional
+`device_grant_config` block only overrides the built-in defaults - when it is omitted entirely, the defaults apply.
+
+```yaml
+spec:
+  grant_types:
+    - authorization_code
+    - refresh_token
+    - device_code
+  device_grant_config:
+    expires_in: 1800     # optional, lifetime in seconds of the device_code/user_code (default 1800)
+    interval: 5          # optional, minimum polling interval in seconds (default 5)
+    # verification_uri:  # optional, override the URL shown to the user; auto-detected as https://<host>/activate when omitted
+```
+
+| Property         | Mandatory | Default                   | Example  | Discussion                                                                                                                   |
+|------------------|-----------|---------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------|
+| expires_in       | no        | `1800`                    | `1800`   | Lifetime in seconds of the issued `device_code` and `user_code`. After this window the user has to start the flow again.     |
+| interval         | no        | `5`                       | `5`      | Minimum polling interval in seconds the device must wait between `token` requests while the user completes the login.        |
+| verification_uri | no        | `https://<host>/activate` | `https://login.bnbc.example/activate` | Override the URL shown to the user to enter the `user_code`. Auto-detected as `https://<host>/activate` when omitted. |
 
 **Redirect Urls**
 If the requested `redirect_url` of an `AuthRequest` does not match any of these url patterns, the whole

@@ -46,6 +46,13 @@ You can find an example setup in our [quick start guide](/general/quickstart#cre
 >
 > Use [PKCE](/oauth/pkce) to request an authorization code.
 
+> **Note about `client_secret`**:
+>
+> The authorization endpoint (`/authorize`) does not require or validate the `client_secret`. Per RFC 6749
+> §4.1.1/§3.2.1 the client is only identified here by its `client_id`. Confidential clients authenticate with their
+> secret on the back-channel **token** request (`/token`) instead. This prevents the secret from leaking through the
+> browser front-channel.
+
 **Example**: Request an authorization code with PKCE SHA265 code
 
 ```text
@@ -170,6 +177,53 @@ The refresh_token parameter is only present in the authorization_code grant type
 used in certain grant types. The refresh_token is used to obtain a new access token after the current one expires,
 without having to prompt the user for their login credentials again. That is strictly forbidden with the password grant
 type.
+
+### /oauth/device_authorization
+
+The `/oauth/device_authorization` endpoint is the device authorization request endpoint of the
+[OAuth 2.0 Device Authorization Grant (RFC 8628)](https://datatracker.ietf.org/doc/html/rfc8628). It is used by
+input-constrained devices (command line tools, smart TVs, IoT devices) that authenticate the user on a secondary device
+with a browser.
+
+The device POSTs its `client_id` (and optionally a `scope`) to this endpoint and obtains a `device_code` together with a
+`user_code`. The `device_code` stays on the device and is used to poll the [/token](#token) endpoint, while the
+`user_code` is shown to the user, who enters it in a browser at the [/activate](#activate) verification page.
+
+**Example**: Request a device and user code
+
+```shell
+curl --request POST \
+  --url https://id.example.com/oauth/device_authorization \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data 'client_id=9095A4F2-35B2-48B1-A325-309CA324B97E' \
+  --data 'scope=openid'
+```
+
+The authorization server responds with the device authorization response:
+
+```json
+{
+  "device_code": "GmRhmhcxhwAzkoEqiMEg_DnyEysNkuNhszIySk9eS",
+  "user_code": "WDJB-MJHT",
+  "verification_uri": "https://id.example.com/activate",
+  "expires_in": 1800,
+  "interval": 5
+}
+```
+
+The device then polls the [/token](#token) endpoint using the `device_code` and the
+`urn:ietf:params:oauth:grant-type:device_code` grant type. See the
+[device code grant type](/oauth/granttypes#device-code) for the full flow and polling responses.
+
+### /activate
+
+The `/activate` endpoint is the user-facing verification page of the device authorization grant. The user opens this URL
+(the `verification_uri` returned by [/oauth/device_authorization](#oauthdevice_authorization)) in a browser, enters the
+`user_code` shown on the device and authenticates. After a successful login the user approves the pending device request,
+which allows the device to obtain its tokens from the [/token](#token) endpoint.
+
+`GET /activate` renders the verification form (optionally pre-filled with the `user_code` when it is passed as a query
+parameter), and `POST /activate` submits the entered `user_code` to approve the device.
 
 ### /revoke
 
@@ -306,6 +360,17 @@ This returns a JSON document with the OpenID Provider Metadata:
   "token_endpoint_auth_methods_supported": ["client_secret_post", "client_secret_basic", "none"],
   "code_challenge_methods_supported": ["S256", "plain"],
   "claims_supported": ["sub", "iss", "aud", "exp", "iat", "name", "email", "tenant"]
+}
+```
+
+When a client of the tenant supports the `device_code` grant, the discovery document additionally advertises a
+`device_authorization_endpoint` pointing at [/oauth/device_authorization](#oauthdevice_authorization) and lists
+`urn:ietf:params:oauth:grant-type:device_code` in `grant_types_supported`:
+
+```json
+{
+  "device_authorization_endpoint": "https://id.example.com/oauth/device_authorization",
+  "grant_types_supported": ["authorization_code", "refresh_token", "urn:ietf:params:oauth:grant-type:device_code"]
 }
 ```
 

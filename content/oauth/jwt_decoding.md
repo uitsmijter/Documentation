@@ -40,6 +40,46 @@ claims using the dot notation, like this:
 console.log(decoded.name); // "John Doe"
 ```
 
+## Token Claims
+
+A decoded token contains the standard claims (`iss`, `sub`, `aud`, `exp`, `iat`) alongside Uitsmijter specific claims
+such as `tenant`, `profile`, `scope` and `role`:
+
+```json
+{
+  "iss": "https://auth.example.com",
+  "sub": "user@example.com",
+  "aud": "550e8400-e29b-41d4-a716-446655440000",
+  "exp": 1736649600,
+  "iat": 1736563200,
+  "tenant": "example-tenant",
+  "role": "admin",
+  "roles": [
+    "admin",
+    "editor",
+    "user"
+  ],
+  "scope": [
+    "openid",
+    "email",
+    "profile"
+  ],
+  "profile": {
+    "email": "user@example.com",
+    "name": "John Doe"
+  }
+}
+```
+
+| Claim   | Type            | Discussion                                                                                                                                                            |
+|---------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| role    | string          | The primary role of the user, as returned by the provider's `role` getter.                                                                                            |
+| roles   | array of string | Optional. Present when the provider exposes multiple roles. Contains all roles of the user; the single `role` claim mirrors the primary (first) entry of this list.   |
+| scope   | array of string | The final list of scopes granted to the token after filtering and merging. See [Scopes](/oauth/scopes).                                                               |
+
+The `roles` claim is **omitted for single-role providers**, so tokens issued by existing providers remain unchanged.
+When it is present, the single `role` claim always mirrors the primary (first) role for backward compatibility.
+
 ## Further readings
 
 - [Authorization Code Flow with Proof Key for Code Exchange](/oauth/pkce)

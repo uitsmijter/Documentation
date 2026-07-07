@@ -124,6 +124,56 @@ Provider execution time is limited. The advanced setting `SCRIPT_TIMEOUT` can mo
 The default timeout is **30 seconds**, which is recommended unless you need a shorter timeout. The provider must
 complete all tasks within this time limit, including performing all necessary requests and returning the result.
 
+## Predefined Providers
+
+A tenant's `providers` list entry can be **either** a raw JavaScript script string (as shown above) **or** a
+predefined-provider object that Uitsmijter expands into a generated provider internally. Both styles can be mixed in the
+same list:
+
+```yaml
+providers:
+  - |
+    class UserLoginProvider { /* ... raw script ... */ }
+  - type: uitrusting/v1
+    url: api.uitrusting.svc
+    token: "<optional shared secret>"
+```
+
+A predefined-provider object supports the following keys:
+
+| Key     | Description                                                                                                                       |
+|---------|---------------------------------------------------------------------------------------------------------------------------------|
+| `type`  | The predefined provider type. Currently the only supported value is `uitrusting/v1`.                                             |
+| `url`   | Base URL/host of the external service. If no scheme is given, `http://` is added; the path `/verify` is appended automatically.  |
+| `token` | **Optional** shared secret sent as the `X-Internal-Token` header. Omit it for open/unauthenticated mode.                         |
+
+### uitrusting/v1
+
+For `type: uitrusting/v1`, Uitsmijter generates **both** a `UserLoginProvider` and a `UserValidationProvider` that call
+`POST {url}/verify`:
+
+- **Login** sends JSON `{ tenant, namespace, username, password_hash }`, where `password_hash` is the **SHA256 hex** of
+  the password. The plain password is never transmitted.
+- **Refresh re-validation** sends `{ tenant, namespace, username }` (no hash).
+
+The service always answers with HTTP status `200` and the following JSON body:
+
+```json
+{
+  "known": true,
+  "valid": true,
+  "subject": "1734034",
+  "roles": ["admin", "editor"],
+  "scopes": ["user:read"],
+  "profile": { "name": "Lorene Ibsen" }
+}
+```
+
+The `valid` field decides success — the decision is made on `valid`, **not** on the HTTP status code. The `roles`,
+`scopes` and `profile` fields are only populated when `valid` is `true`.
+
+Predefined providers are additive: raw-string providers are unchanged.
+
 ## Further readings
 
 - [User Login Provider](/providers/userloginprovider)

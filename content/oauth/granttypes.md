@@ -17,6 +17,7 @@ Grant types can be set at `Client` level.
     - authorization_code
     - refresh_token
     - password
+    - device_code
 ```
 
 If none of any grant type is specified, that `authorization_code` and `refresh_token` are enabled by default.
@@ -227,6 +228,108 @@ curl -v \
   -H 'Content-Type: application/json' \
   -H 'Authorisation: Bearer MTQ0NjOkZmQ5OTM5NDE9ZTZjNGZmZjI3' \
   "https://api.example.com/resource" 
+```
+
+## Device Code
+
+The device code grant type implements the
+[OAuth 2.0 Device Authorization Grant (RFC 8628)](https://datatracker.ietf.org/doc/html/rfc8628). It is designed for
+input-constrained devices that either lack a browser or are difficult to type on, such as command line tools, smart TVs,
+media consoles and other IoT devices. Instead of typing their credentials on the device, the user authenticates on a
+secondary device (typically a phone or laptop) that has a full browser.
+
+The flow consists of three steps:
+
+1. **Device authorization request**: The device POSTs to `/oauth/device_authorization` and receives a `device_code`
+   (kept on the device), a `user_code` (shown to the user) and a `verification_uri` that the user should open.
+2. **User authorization**: The user opens the `verification_uri` in a browser on another device, enters the `user_code`
+   and authenticates at `/activate`. After a successful login the user approves the pending device request.
+3. **Token polling**: While the user authorizes on the secondary device, the device polls `POST /token` with its
+   `device_code`. Once the user has approved the request, the token endpoint returns an access token (and a refresh
+   token).
+
+Clients explicitly have to turn on the `device_code` grant type to support it by listing `device_code` in their
+`grant_types`. The behaviour of the flow (for example the polling `interval` or the code lifetime) can optionally be
+tuned per client via `device_grant_config`. Read more on the
+[tenant and client config](/configuration/tenant_client_config) page.
+
+The following values must be set in the request for an access token:
+
+| Property      | Value                                              | Description                                                                                                                    |
+|---------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| grant_type    | urn:ietf:params:oauth:grant-type:device_code       | This tells the server we’re using the device code grant type. The bare `device_code` is also accepted as an alias.             |
+| client_id     | _UUID of the client_                               | The public identifier of the application that the developer obtained during registration                                       |
+| client_secret | (optional)                                         | Must be set if the client request an secret. Reed more on [tenant and client config](/configuration/tenant_client_config) page |
+| device_code   | _device code_                                      | The `device_code` that was returned by the device authorization response.                                                      |
+
+### Polling responses
+
+While the user has not yet approved the request, the device keeps polling the `/token` endpoint. The token endpoint
+responds with one of the following:
+
+| Status | Body                                    | Meaning                                                                       |
+|--------|-----------------------------------------|-------------------------------------------------------------------------------|
+| `200`  | access token (and refresh token)        | The user approved the request. Stop polling and use the token.                |
+| `400`  | `{"error":"authorization_pending"}`     | The user has not yet approved the request. Keep polling at `interval`.        |
+| `400`  | `{"error":"slow_down"}`                 | The device polls too fast. Increase the polling `interval` (by 5 seconds).    |
+| `400`  | `{"error":"access_denied"}`             | The user denied the request. Stop polling.                                    |
+| `400`  | `{"error":"invalid_grant"}`             | The `device_code` is unknown or expired. Stop polling and start a new flow.   |
+
+These errors follow the standard RFC 6749/8628 error shape, so standard OAuth2 client libraries interoperate with the
+device flow without any Uitsmijter-specific handling.
+
+### Example
+
+First, the device requests a `device_code` and a `user_code` from the device authorization endpoint:
+
+```shell
+curl -v \
+  -X POST \
+  -d 'client_id=D742D5BF-0402-4C04-9FF8-94C1D2DA5BE2&scope=openid' \
+  "https://login.example.com/oauth/device_authorization" 
+```
+
+The server replies with the device authorization response:
+
+```json
+{
+  "device_code": "GmRhmhcxhwAzkoEqiMEg_DnyEysNkuNhszIySk9eS",
+  "user_code": "WDJB-MJHT",
+  "verification_uri": "https://login.example.com/activate",
+  "expires_in": 1800,
+  "interval": 5
+}
+```
+
+The device now shows the `user_code` and the `verification_uri` to the user and starts polling the token endpoint with
+the `device_code`:
+
+```shell
+curl -v \
+  -X POST \
+  -d 'grant_type=urn:ietf:params:oauth:grant-type:device_code&client_id=D742D5BF-0402-4C04-9FF8-94C1D2DA5BE2&device_code=GmRhmhcxhwAzkoEqiMEg_DnyEysNkuNhszIySk9eS' \
+  "https://login.example.com/token" 
+```
+
+As long as the user has not approved the request, the server replies with `authorization_pending`:
+
+```json
+{
+  "error": "authorization_pending"
+}
+```
+
+Once the user has entered the `user_code` at the `verification_uri` and approved the request, the server replies with an
+access token and a refresh token:
+
+```json
+{
+  "access_token": "aoth5bie8eiy2iPhaeghai6aijahvaeshungae8phieva6tiebeequ6tushei3ei",
+  "refresh_token": "DOO5AHD6SAi9PA1OOKIAZoOSHOHgO1TO",
+  "token_type": "bearer",
+  "expires_in": 7200,
+  "scope": "openid"
+}
 ```
 
 ## Further readings
