@@ -9,12 +9,11 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="User Validation Provider A user validation provider is responsible for checking if a Username is still valid to access the application. A user could be invalid if the user is removed from the backend user store.
-Everytime a user tries to refresh a token, the User Validation Provider will be asked if the user is still valid. The Provider will not be called on a regular login!
-At login, Uitsmijter delegates the credentials the User Login Provider to the user backend provider." />
+  <meta name="description" content=" User Validation Provider A user validation provider is responsible for checking if a Username is still valid to access the application. A user could be invalid if the user is removed from the backend user store.
+Everytime a user tries to refresh a token, the User Validation Provider will be asked if the user is still valid. The Provider will not be called on a regular login!" />
 
     <title>User Validation Provider | Uitsmijter Documentation</title>
 
@@ -28,9 +27,8 @@ At login, Uitsmijter delegates the credentials the User Login Provider to the us
     content="User Validation Provider"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="User Validation Provider A user validation provider is responsible for checking if a Username is still valid to access the application. A user could be invalid if the user is removed from the backend user store.
-Everytime a user tries to refresh a token, the User Validation Provider will be asked if the user is still valid. The Provider will not be called on a regular login!
-At login, Uitsmijter delegates the credentials the User Login Provider to the user backend provider." />
+  <meta property="og:description" content=" User Validation Provider A user validation provider is responsible for checking if a Username is still valid to access the application. A user could be invalid if the user is removed from the backend user store.
+Everytime a user tries to refresh a token, the User Validation Provider will be asked if the user is still valid. The Provider will not be called on a regular login!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/providers/uservalidationprovider/" />
 
@@ -39,9 +37,8 @@ At login, Uitsmijter delegates the credentials the User Login Provider to the us
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="User Validation Provider" />
-  <meta name="twitter:description" content="User Validation Provider A user validation provider is responsible for checking if a Username is still valid to access the application. A user could be invalid if the user is removed from the backend user store.
-Everytime a user tries to refresh a token, the User Validation Provider will be asked if the user is still valid. The Provider will not be called on a regular login!
-At login, Uitsmijter delegates the credentials the User Login Provider to the user backend provider." />
+  <meta name="twitter:description" content=" User Validation Provider A user validation provider is responsible for checking if a Username is still valid to access the application. A user could be invalid if the user is removed from the backend user store.
+Everytime a user tries to refresh a token, the User Validation Provider will be asked if the user is still valid. The Provider will not be called on a regular login!" />
 
 
   <script type="application/ld+json">
@@ -52,8 +49,8 @@ At login, Uitsmijter delegates the credentials the User Login Provider to the us
       "name": "User Validation Provider",
       "url" : "https://docs.uitsmijter.io/providers/uservalidationprovider/",
       "headline": "User Validation Provider",
-      "description": "User Validation Provider A user validation provider is responsible for checking if a Username is still valid to access the application. A user could be invalid if the user is removed from the backend user store.\nEverytime a user tries to refresh a token, the User Validation Provider will be asked if the user is still valid. The Provider will not be called on a regular login!\nAt login, Uitsmijter delegates the credentials the User Login Provider to the user backend provider.",
-      "wordCount" : "336",
+      "description": " User Validation Provider A user validation provider is responsible for checking if a Username is still valid to access the application. A user could be invalid if the user is removed from the backend user store.\nEverytime a user tries to refresh a token, the User Validation Provider will be asked if the user is still valid. The Provider will not be called on a regular login!",
+      "wordCount" : "460",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2814,18 +2811,18 @@ be anything that accepts a http request and sends a proper response with valid s
     </h2>
 </div>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>constructor(:args)</td>
-<td>A Object with one property: <code>username</code> is passed into the init function.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Parameter</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>constructor(:args)</td>
+          <td>A Object with the properties <code>username</code> and <code>tenant</code> is passed into the init function. <code>tenant</code> carries <code>name</code> and <code>namespace</code>.</td>
+      </tr>
+  </tbody>
 </table> </div>
 <div class="gdoc-page__anchorwrap">
     <h2 id="methods">
@@ -2837,22 +2834,22 @@ be anything that accepts a http request and sends a proper response with valid s
 </div>
 <p>Those methods/getters must be implemented:</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>constructor(:args)</td>
-<td>Initialisation method that gets the <code>username</code> for the user in question.</td>
-</tr>
-<tr>
-<td>isValid</td>
-<td>Getter that should indicate if the current user in context can sill be logged in</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>constructor(:args)</td>
+          <td>Initialisation method that gets the <code>username</code> and the <code>tenant</code> (<code>name</code>, <code>namespace</code>) for the user in question.</td>
+      </tr>
+      <tr>
+          <td>isValid</td>
+          <td>Getter that should indicate if the current user in context can sill be logged in</td>
+      </tr>
+  </tbody>
 </table> </div>
 <p>After the constructor called <code>commit(:args)</code> the getter <code>isValid</code> must have the correct values.</p>
 <p>Examples:</p>
@@ -2861,7 +2858,7 @@ be anything that accepts a http request and sends a proper response with valid s
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">isValid</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// than commit at the end
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">commit</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">    <span class="nx">commit</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">get</span>
@@ -2889,7 +2886,37 @@ be anything that accepts a http request and sends a proper response with valid s
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">isValid</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="tenant-context">
+        Tenant Context
+        <a data-clipboard-text="https://docs.uitsmijter.io/providers/uservalidationprovider/#tenant-context" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Tenant Context" aria-label="Anchor to: Tenant Context" href="#tenant-context">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>In addition to <code>username</code>, the constructor argument carries the <code>tenant</code> the validation is performed for. This lets a
+provider scope its request to the correct tenant, which is useful for multi-tenant user services that share a single
+provider script.</p>
+<p>The <code>tenant</code> object has the following shape:</p>
+<pre tabindex="0"><code>tenant: { name: &#34;&lt;tenant name&gt;&#34;, namespace: &#34;&lt;kubernetes namespace, or null for file-based tenants&gt;&#34; }
+</code></pre><p>Read it via <code>args.tenant.name</code> and <code>args.tenant.namespace</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">constructor</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fetch</span><span class="p">(</span><span class="sb">`http://users.example.com/validate-user`</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">method</span><span class="o">:</span> <span class="s2">&#34;post&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">tenant</span><span class="o">:</span> <span class="nx">args</span><span class="p">.</span><span class="nx">tenant</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">namespace</span><span class="o">:</span> <span class="nx">args</span><span class="p">.</span><span class="nx">tenant</span><span class="p">.</span><span class="nx">namespace</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">username</span><span class="o">:</span> <span class="nx">args</span><span class="p">.</span><span class="nx">username</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="p">.</span><span class="nx">isValid</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">commit</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isValid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This is additive and backward compatible — existing scripts that ignore <code>tenant</code> keep working.</p>
+
   </article>
 
 

@@ -9,10 +9,10 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="JWT Decoding OAuth does not have a specific standard &ldquo;profile endpoint&rdquo; for decoding the content of a JSON Web Token (JWT). OAuth is a standard for authorization, which means that it is primarily concerned with granting and revoking access to resources, rather than with providing information about the user who is accessing the resources. But certain libraries (like oidc-client-ts) expecting it for decoding a profile content, so Uitsmijter supports a decoding endpoint for valid and non expired tokens at GET /token/info." />
+  <meta name="description" content=" JWT Decoding OAuth does not have a specific standard &ldquo;profile endpoint&rdquo; for decoding the content of a JSON Web Token (JWT). OAuth is a standard for authorization, which means that it is primarily concerned with granting and revoking access to resources, rather than with providing information about the user who is accessing the resources. But certain libraries (like oidc-client-ts) expecting it for decoding a profile content, so Uitsmijter supports a decoding endpoint for valid and non expired tokens at GET /token/info. See more details at the endpoint documentation." />
 
     <title>JWT Decoding | Uitsmijter Documentation</title>
 
@@ -26,7 +26,7 @@
     content="JWT Decoding"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="JWT Decoding OAuth does not have a specific standard “profile endpoint” for decoding the content of a JSON Web Token (JWT). OAuth is a standard for authorization, which means that it is primarily concerned with granting and revoking access to resources, rather than with providing information about the user who is accessing the resources. But certain libraries (like oidc-client-ts) expecting it for decoding a profile content, so Uitsmijter supports a decoding endpoint for valid and non expired tokens at GET /token/info." />
+  <meta property="og:description" content=" JWT Decoding OAuth does not have a specific standard “profile endpoint” for decoding the content of a JSON Web Token (JWT). OAuth is a standard for authorization, which means that it is primarily concerned with granting and revoking access to resources, rather than with providing information about the user who is accessing the resources. But certain libraries (like oidc-client-ts) expecting it for decoding a profile content, so Uitsmijter supports a decoding endpoint for valid and non expired tokens at GET /token/info. See more details at the endpoint documentation." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/oauth/jwt_decoding/" />
 
@@ -35,7 +35,7 @@
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="JWT Decoding" />
-  <meta name="twitter:description" content="JWT Decoding OAuth does not have a specific standard “profile endpoint” for decoding the content of a JSON Web Token (JWT). OAuth is a standard for authorization, which means that it is primarily concerned with granting and revoking access to resources, rather than with providing information about the user who is accessing the resources. But certain libraries (like oidc-client-ts) expecting it for decoding a profile content, so Uitsmijter supports a decoding endpoint for valid and non expired tokens at GET /token/info." />
+  <meta name="twitter:description" content=" JWT Decoding OAuth does not have a specific standard “profile endpoint” for decoding the content of a JSON Web Token (JWT). OAuth is a standard for authorization, which means that it is primarily concerned with granting and revoking access to resources, rather than with providing information about the user who is accessing the resources. But certain libraries (like oidc-client-ts) expecting it for decoding a profile content, so Uitsmijter supports a decoding endpoint for valid and non expired tokens at GET /token/info. See more details at the endpoint documentation." />
 
 
   <script type="application/ld+json">
@@ -46,8 +46,8 @@
       "name": "JWT Decoding",
       "url" : "https://docs.uitsmijter.io/oauth/jwt_decoding/",
       "headline": "JWT Decoding",
-      "description": "JWT Decoding OAuth does not have a specific standard “profile endpoint” for decoding the content of a JSON Web Token (JWT). OAuth is a standard for authorization, which means that it is primarily concerned with granting and revoking access to resources, rather than with providing information about the user who is accessing the resources. But certain libraries (like oidc-client-ts) expecting it for decoding a profile content, so Uitsmijter supports a decoding endpoint for valid and non expired tokens at GET \/token\/info.",
-      "wordCount" : "273",
+      "description": " JWT Decoding OAuth does not have a specific standard “profile endpoint” for decoding the content of a JSON Web Token (JWT). OAuth is a standard for authorization, which means that it is primarily concerned with granting and revoking access to resources, rather than with providing information about the user who is accessing the resources. But certain libraries (like oidc-client-ts) expecting it for decoding a profile content, so Uitsmijter supports a decoding endpoint for valid and non expired tokens at GET \/token\/info. See more details at the endpoint documentation.",
+      "wordCount" : "434",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2803,6 +2803,70 @@ this:</p>
 claims using the dot notation, like this:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">decoded</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// &#34;John Doe&#34;
 </span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="token-claims">
+        Token Claims
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/jwt_decoding/#token-claims" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Token Claims" aria-label="Anchor to: Token Claims" href="#token-claims">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>A decoded token contains the standard claims (<code>iss</code>, <code>sub</code>, <code>aud</code>, <code>exp</code>, <code>iat</code>) alongside Uitsmijter specific claims
+such as <code>tenant</code>, <code>profile</code>, <code>scope</code> and <code>role</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;iss&#34;</span><span class="p">:</span> <span class="s2">&#34;https://auth.example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;sub&#34;</span><span class="p">:</span> <span class="s2">&#34;user@example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;aud&#34;</span><span class="p">:</span> <span class="s2">&#34;550e8400-e29b-41d4-a716-446655440000&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;exp&#34;</span><span class="p">:</span> <span class="mi">1736649600</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;iat&#34;</span><span class="p">:</span> <span class="mi">1736563200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;example-tenant&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;admin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;roles&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;admin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;editor&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;user&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scope&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;openid&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;email&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;profile&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;profile&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;user@example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;John Doe&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="table-wrap"> <table>
+  <thead>
+      <tr>
+          <th>Claim</th>
+          <th>Type</th>
+          <th>Discussion</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>role</td>
+          <td>string</td>
+          <td>The primary role of the user, as returned by the provider&rsquo;s <code>role</code> getter.</td>
+      </tr>
+      <tr>
+          <td>roles</td>
+          <td>array of string</td>
+          <td>Optional. Present when the provider exposes multiple roles. Contains all roles of the user; the single <code>role</code> claim mirrors the primary (first) entry of this list.</td>
+      </tr>
+      <tr>
+          <td>scope</td>
+          <td>array of string</td>
+          <td>The final list of scopes granted to the token after filtering and merging. See <a
+  class="gdoc-markdown__link"
+  href="/oauth/scopes"
+>Scopes</a>.</td>
+      </tr>
+  </tbody>
+</table> </div>
+<p>The <code>roles</code> claim is <strong>omitted for single-role providers</strong>, so tokens issued by existing providers remain unchanged.
+When it is present, the single <code>role</code> claim always mirrors the primary (first) role for backward compatibility.</p>
+<div class="gdoc-page__anchorwrap">
     <h2 id="further-readings">
         Further readings
         <a data-clipboard-text="https://docs.uitsmijter.io/oauth/jwt_decoding/#further-readings" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Further readings" aria-label="Anchor to: Further readings" href="#further-readings">

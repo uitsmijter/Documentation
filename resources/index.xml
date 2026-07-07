@@ -4,7 +4,7 @@
     <title>Resources on Uitsmijter Documentation</title>
     <link>https://docs.uitsmijter.io/resources/</link>
     <description>Recent content in Resources on Uitsmijter Documentation</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="https://docs.uitsmijter.io/resources/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -12,7 +12,7 @@
       <link>https://docs.uitsmijter.io/resources/demopage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/resources/demopage/</guid>
-      <description> Demo Deployment Files namespace tenant client content service ingress-open ingress-secured pod </description>
+      <description>&lt;div class=&#34;gdoc-page__anchorwrap&#34;&gt;&#xA;    &lt;h1 id=&#34;demo-deployment-files&#34;&gt;&#xA;        Demo Deployment Files&#xA;        &lt;a data-clipboard-text=&#34;https://docs.uitsmijter.io/resources/demopage/#demo-deployment-files&#34; class=&#34;gdoc-page__anchor clip flex align-center&#34; title=&#34;Anchor to: Demo Deployment Files&#34; aria-label=&#34;Anchor to: Demo Deployment Files&#34; href=&#34;#demo-deployment-files&#34;&gt;&#xA;            &lt;svg class=&#34;gdoc-icon gdoc_link&#34;&gt;&lt;use xlink:href=&#34;#gdoc_link&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&#xA;        &lt;/a&gt;&#xA;    &lt;/h1&gt;&#xA;&lt;/div&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a&#xA;  class=&#34;gdoc-markdown__link&#34;&#xA;  href=&#34;namespace.yaml&#34;&#xA;&gt;namespace&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a&#xA;  class=&#34;gdoc-markdown__link&#34;&#xA;  href=&#34;tenant.yaml&#34;&#xA;&gt;tenant&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a&#xA;  class=&#34;gdoc-markdown__link&#34;&#xA;  href=&#34;client.yaml&#34;&#xA;&gt;client&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a&#xA;  class=&#34;gdoc-markdown__link&#34;&#xA;  href=&#34;content.yaml&#34;&#xA;&gt;content&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a&#xA;  class=&#34;gdoc-markdown__link&#34;&#xA;  href=&#34;service.yaml&#34;&#xA;&gt;service&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a&#xA;  class=&#34;gdoc-markdown__link&#34;&#xA;  href=&#34;ingress-open.yaml&#34;&#xA;&gt;ingress-open&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a&#xA;  class=&#34;gdoc-markdown__link&#34;&#xA;  href=&#34;ingress-secured.yaml&#34;&#xA;&gt;ingress-secured&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a&#xA;  class=&#34;gdoc-markdown__link&#34;&#xA;  href=&#34;pod.yaml&#34;&#xA;&gt;pod&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

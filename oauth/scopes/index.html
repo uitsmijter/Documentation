@@ -9,12 +9,11 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application&rsquo;s access to a user&rsquo;s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.
-Uitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:
-Client-requested scopes - Scopes that the OAuth client application requests during authorization Provider-supplied scopes - Scopes that JavaScript authentication providers dynamically add based on user context Both types of scopes are independently filtered before being merged into the final JWT token, providing defense-in-depth security." />
+  <meta name="description" content=" OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application&rsquo;s access to a user&rsquo;s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.
+Uitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:" />
 
     <title>OAuth Scopes and Scope Filtering | Uitsmijter Documentation</title>
 
@@ -28,9 +27,8 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
     content="OAuth Scopes and Scope Filtering"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application’s access to a user’s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.
-Uitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:
-Client-requested scopes - Scopes that the OAuth client application requests during authorization Provider-supplied scopes - Scopes that JavaScript authentication providers dynamically add based on user context Both types of scopes are independently filtered before being merged into the final JWT token, providing defense-in-depth security." />
+  <meta property="og:description" content=" OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application’s access to a user’s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.
+Uitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/oauth/scopes/" />
 
@@ -39,9 +37,8 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="OAuth Scopes and Scope Filtering" />
-  <meta name="twitter:description" content="OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application’s access to a user’s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.
-Uitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:
-Client-requested scopes - Scopes that the OAuth client application requests during authorization Provider-supplied scopes - Scopes that JavaScript authentication providers dynamically add based on user context Both types of scopes are independently filtered before being merged into the final JWT token, providing defense-in-depth security." />
+  <meta name="twitter:description" content=" OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application’s access to a user’s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.
+Uitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:" />
 
 
   <script type="application/ld+json">
@@ -52,7 +49,7 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
       "name": "OAuth Scopes and Scope Filtering",
       "url" : "https://docs.uitsmijter.io/oauth/scopes/",
       "headline": "OAuth Scopes and Scope Filtering",
-      "description": "OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application’s access to a user’s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.\nUitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:\nClient-requested scopes - Scopes that the OAuth client application requests during authorization Provider-supplied scopes - Scopes that JavaScript authentication providers dynamically add based on user context Both types of scopes are independently filtered before being merged into the final JWT token, providing defense-in-depth security.",
+      "description": " OAuth Scopes and Scope Filtering OAuth 2.0 scopes are a mechanism to limit an application’s access to a user’s resources. Scopes define what permissions an application has and what data it can access on behalf of the user.\nUitsmijter implements a two-tier scope filtering system that provides fine-grained control over which scopes are granted to users:",
       "wordCount" : "1562",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2822,10 +2819,10 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
 </span></span></span><span class="line"><span class="cl"><span class="err">  &amp;scope=openid+email+profile+admin:delete
 </span></span></span></code></pre></div><p>These requested scopes are <strong>filtered</strong> against the client&rsquo;s <code>scopes</code> configuration field:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-app</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ident</span><span class="p">:</span><span class="w"> </span><span class="m">550e8400</span>-<span class="l">e29b-41d4-a716-446655440000</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scopes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">openid</span><span class="w">
@@ -2845,7 +2842,7 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">UserLoginProvider</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="nx">scopes</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// Return scopes based on user role
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="s2">&#34;admin&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="s2">&#34;admin&#34;</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:*&#34;</span><span class="p">,</span> <span class="s2">&#34;admin:*&#34;</span><span class="p">,</span> <span class="s2">&#34;org:*&#34;</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">,</span> <span class="s2">&#34;user:list&#34;</span><span class="p">];</span>
@@ -2853,10 +2850,10 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>These provider-returned scopes are <strong>filtered</strong> against the client&rsquo;s <code>allowedProviderScopes</code> configuration field:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-app</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">user:*</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">can:*</span><span class="w">
@@ -2897,35 +2894,35 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
     </h3>
 </div>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Pattern</th>
-<th>Matches</th>
-<th>Does Not Match</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>user:*</code></td>
-<td><code>user:read</code>, <code>user:write</code>, <code>user:list</code>, <code>user:delete</code></td>
-<td><code>user</code>, <code>users:read</code>, <code>admin:read</code></td>
-</tr>
-<tr>
-<td><code>admin:*</code></td>
-<td><code>admin:read</code>, <code>admin:write</code>, <code>admin:delete</code></td>
-<td><code>admin</code>, <code>user:admin</code></td>
-</tr>
-<tr>
-<td><code>*:read</code></td>
-<td>Not supported (wildcard must be at the end)</td>
-<td>-</td>
-</tr>
-<tr>
-<td><code>openid</code></td>
-<td><code>openid</code> (exact match only)</td>
-<td><code>openid:profile</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Pattern</th>
+          <th>Matches</th>
+          <th>Does Not Match</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>user:*</code></td>
+          <td><code>user:read</code>, <code>user:write</code>, <code>user:list</code>, <code>user:delete</code></td>
+          <td><code>user</code>, <code>users:read</code>, <code>admin:read</code></td>
+      </tr>
+      <tr>
+          <td><code>admin:*</code></td>
+          <td><code>admin:read</code>, <code>admin:write</code>, <code>admin:delete</code></td>
+          <td><code>admin</code>, <code>user:admin</code></td>
+      </tr>
+      <tr>
+          <td><code>*:read</code></td>
+          <td>Not supported (wildcard must be at the end)</td>
+          <td>-</td>
+      </tr>
+      <tr>
+          <td><code>openid</code></td>
+          <td><code>openid</code> (exact match only)</td>
+          <td><code>openid:profile</code></td>
+      </tr>
+  </tbody>
 </table> </div>
 <div class="gdoc-page__anchorwrap">
     <h3 id="pattern-matching-examples">
@@ -2964,11 +2961,11 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
 </div>
 <p>Clients define both types of scope filtering in their configuration:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">webapp-client</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">production</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tenant</span><span class="p">:</span><span class="w"> </span><span class="l">example-tenant</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="m">550e8400</span>-<span class="l">e29b-41d4-a716-446655440000</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redirect_uris</span><span class="p">:</span><span class="w">
@@ -2995,7 +2992,7 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
 </div>
 <p>For file-based deployments (Docker, local development):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">webapp-client</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">config</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ident</span><span class="p">:</span><span class="w"> </span><span class="m">550e8400</span>-<span class="l">e29b-41d4-a716-446655440000</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tenantname</span><span class="p">:</span><span class="w"> </span><span class="l">example-tenant</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redirect_urls</span><span class="p">:</span><span class="w">
@@ -3041,7 +3038,7 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
 </span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">profile</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                <span class="c1">// Assign scopes based on user role
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">this</span><span class="p">.</span><span class="nx">userScopes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getScopesForRole</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">role</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">userScopes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getScopesForRole</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">role</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                <span class="nx">commit</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span> <span class="p">{</span><span class="nx">subject</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">userId</span><span class="p">});</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -3101,7 +3098,7 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
 </span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">profile</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                <span class="c1">// Fetch user groups from LDAP
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">this</span><span class="p">.</span><span class="nx">userScopes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getScopesFromGroups</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">groups</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">userScopes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getScopesFromGroups</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">groups</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                <span class="nx">commit</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span> <span class="p">{</span><span class="nx">subject</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">dn</span><span class="p">});</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -3112,7 +3109,7 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nx">getScopesFromGroups</span><span class="p">(</span><span class="nx">groups</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">scopes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;user:read&#34;</span><span class="p">];</span> <span class="c1">// Base scope for all users
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">groups</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&#34;cn=admins,ou=groups,dc=example,dc=com&#34;</span><span class="p">))</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">scopes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&#34;admin:*&#34;</span><span class="p">,</span> <span class="s2">&#34;user:*&#34;</span><span class="p">,</span> <span class="s2">&#34;org:*&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
@@ -3175,16 +3172,16 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Downstream services can inspect the <code>scope</code> claim to make authorization decisions:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// Example: Check if user has permission
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">decodeJWT</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">authorization</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">decodeJWT</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">authorization</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">token</span><span class="p">.</span><span class="nx">scope</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&#34;user:write&#34;</span><span class="p">))</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// Allow user modification
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// Deny access
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// Example: Check with wildcard pattern
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">hasUserPermission</span> <span class="o">=</span> <span class="nx">token</span><span class="p">.</span><span class="nx">scope</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">s</span> <span class="p">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">&#34;user:&#34;</span><span class="p">));</span>
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">hasUserPermission</span> <span class="o">=</span> <span class="nx">token</span><span class="p">.</span><span class="nx">scope</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">s</span> <span class="p">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">&#34;user:&#34;</span><span class="p">));</span>
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="security-considerations">
         Security Considerations
@@ -3235,13 +3232,13 @@ Client-requested scopes - Scopes that the OAuth client application requests duri
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">openid</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">email</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">profile</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">user:read</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">user:list</span><span class="w">
 </span></span></span></code></pre></div><p><strong>Bad example (too permissive):</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">scopes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="s2">&#34;*&#34;</span><span class="w">  </span><span class="c"># Don&#39;t do this!</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">allowedProviderScopes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="s2">&#34;*&#34;</span><span class="w">  </span><span class="c"># Don&#39;t do this!</span><span class="w">
 </span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h3 id="wildcard-scope-risks">

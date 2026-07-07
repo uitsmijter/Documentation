@@ -9,11 +9,10 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Walkthrough guide for securing static webserver resources The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server.
-For this additional walkthrough documentation we assume that a last-minute change request for the business hits the development team. The requirement is, that the company&rsquo;s Design-Cookbook should be accessible for all partners." />
+  <meta name="description" content=" Walkthrough guide for securing static webserver resources The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server." />
 
     <title>Walkthrough guide | Uitsmijter Documentation</title>
 
@@ -27,8 +26,7 @@ For this additional walkthrough documentation we assume that a last-minute chang
     content="Walkthrough guide"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Walkthrough guide for securing static webserver resources The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server.
-For this additional walkthrough documentation we assume that a last-minute change request for the business hits the development team. The requirement is, that the company’s Design-Cookbook should be accessible for all partners." />
+  <meta property="og:description" content=" Walkthrough guide for securing static webserver resources The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/interceptor/quickstart/" />
 
@@ -37,8 +35,7 @@ For this additional walkthrough documentation we assume that a last-minute chang
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Walkthrough guide" />
-  <meta name="twitter:description" content="Walkthrough guide for securing static webserver resources The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server.
-For this additional walkthrough documentation we assume that a last-minute change request for the business hits the development team. The requirement is, that the company’s Design-Cookbook should be accessible for all partners." />
+  <meta name="twitter:description" content=" Walkthrough guide for securing static webserver resources The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server." />
 
 
   <script type="application/ld+json">
@@ -49,7 +46,7 @@ For this additional walkthrough documentation we assume that a last-minute chang
       "name": "Walkthrough guide",
       "url" : "https://docs.uitsmijter.io/interceptor/quickstart/",
       "headline": "Walkthrough guide",
-      "description": "Walkthrough guide for securing static webserver resources The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server.\nFor this additional walkthrough documentation we assume that a last-minute change request for the business hits the development team. The requirement is, that the company’s Design-Cookbook should be accessible for all partners.",
+      "description": " Walkthrough guide for securing static webserver resources The Project Setup In the quick start guide chapter we have designed a new application with two portals, four services and one user store. The quick start guide shows how to set up Uitsmijter as a multi-tenant, multi-client authorisation server.",
       "wordCount" : "1094",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2892,11 +2889,11 @@ too.</p>
 </blockquote>
 <p>Add this new tenant to the <code>cookbooks</code> namespace:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">cookbook</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">cookbooks.example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">interceptor</span><span class="p">:</span><span class="w">
@@ -2927,7 +2924,7 @@ too.</p>
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get canLogin() { return this.isLoggedIn; }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get userProfile() { return this.profile; }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get role() { return this.role; }
-</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">      class UserValidationProvider {
 </span></span></span><span class="line"><span class="cl"><span class="sd">        isValid = false;
@@ -2944,7 +2941,7 @@ too.</p>
 </span></span></span><span class="line"><span class="cl"><span class="sd">          }); 
 </span></span></span><span class="line"><span class="cl"><span class="sd">        }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get isValid() { return this.isValid; }
-</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">
 </span></span></span></code></pre></div><p>Two changes are made. First <code>interceptor.enabled</code> is set to <code>true</code>. This allows a request to pass the middleware if the
 label is set to the ingress. Secondly, we only allow users with a partner role to get access on this
 tenant. That is made by a change in the provider script:  <code>profile.role.indexOf('partner') &gt; -1</code>.</p>
@@ -2965,16 +2962,16 @@ a client.</p>
 <p>Since the <code>interceptor</code> is marked with <code>enabled: true</code>, we only have to connect the ingress with Uitsmijter.
 Open the ingress file for the cookbook service and add one line.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">networking.k8s.io/v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Ingress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Ingress</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">design-cookbook</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">traefik.ingress.kubernetes.io/router.entrypoints</span><span class="p">:</span><span class="w"> </span><span class="l">websecure</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">traefik.ingress.kubernetes.io/router.tls</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">traefik.ingress.kubernetes.io/router.middlewares</span><span class="p">:</span><span class="w"> </span><span class="l">uitsmijter-forward-auth@kubernetescrd</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tls</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l">example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">

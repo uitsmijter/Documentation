@@ -9,10 +9,10 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Tenant and client configuration Uitsmijter&rsquo;s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment." />
+  <meta name="description" content=" Tenant and client configuration Uitsmijter&rsquo;s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment." />
 
     <title>Tenant and client configuration | Uitsmijter Documentation</title>
 
@@ -26,7 +26,7 @@
     content="Tenant and client configuration"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Tenant and client configuration Uitsmijter’s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment." />
+  <meta property="og:description" content=" Tenant and client configuration Uitsmijter’s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/configuration/tenant_client_config/" />
 
@@ -35,7 +35,7 @@
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Tenant and client configuration" />
-  <meta name="twitter:description" content="Tenant and client configuration Uitsmijter’s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment." />
+  <meta name="twitter:description" content=" Tenant and client configuration Uitsmijter’s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment." />
 
 
   <script type="application/ld+json">
@@ -46,8 +46,8 @@
       "name": "Tenant and client configuration",
       "url" : "https://docs.uitsmijter.io/configuration/tenant_client_config/",
       "headline": "Tenant and client configuration",
-      "description": "Tenant and client configuration Uitsmijter’s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment.",
-      "wordCount" : "2123",
+      "description": " Tenant and client configuration Uitsmijter’s goal is to offer you a login solution that can be adapted to your needs in the best possible way without prescribing the architecture of the user interface, and that can be implemented extremely elegantly and quickly. In order to set up a new system with Uitsmijter or to integrate Uitsmijter into an existing system, settings are necessary that describe the desired system landscape and the surrounding environment.",
+      "wordCount" : "2498",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2818,7 +2818,7 @@ while rollout your Uitsmijter instance.</p>
 </div>
 <p>Full example configuration (config file):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bnbc</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">config</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">bnbc.example</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">interceptor</span><span class="p">:</span><span class="w">
@@ -2858,7 +2858,7 @@ while rollout your Uitsmijter instance.</p>
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get role() {
 </span></span></span><span class="line"><span class="cl"><span class="sd">          return this.profile.role || &#34;user&#34;
 </span></span></span><span class="line"><span class="cl"><span class="sd">        }
-</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">      class UserValidationProvider {
 </span></span></span><span class="line"><span class="cl"><span class="sd">        isValid = false;
@@ -2878,12 +2878,12 @@ while rollout your Uitsmijter instance.</p>
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get isValid() {
 </span></span></span><span class="line"><span class="cl"><span class="sd">          return this.isValid;
 </span></span></span><span class="line"><span class="cl"><span class="sd">        }        
-</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">
 </span></span></span></code></pre></div><p>The above example configuration is for using in a Docker-Environment and in local filesystem mode. In Kubernetes
 change <code>config:</code> to <code>spec</code> and wrap <code>name</code> into <code>metadata</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bnbc</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># ...</span><span class="w">
 </span></span></span></code></pre></div><blockquote>
@@ -2900,7 +2900,7 @@ tenant configuration.</p>
 <p>A minimal (and most used) set of properties to describe a tenant would look like this:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bnbc</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">bnbc.example</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">providers</span><span class="p">:</span><span class="w">
@@ -2916,10 +2916,10 @@ tenant configuration.</p>
 <p>If Uitsmijter run in Kubernetes the configuration of tenants have to be provided as resources within the namespace of
 the Uitsmijter authentication server.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bnbd-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">bnbc.example</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">interceptor</span><span class="p">:</span><span class="w">
@@ -2943,167 +2943,226 @@ the Uitsmijter authentication server.</p>
     </h3>
 </div>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Mandatory</th>
-<th>Default</th>
-<th>Example</th>
-<th>Discussion</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>yes</td>
-<td>-</td>
-<td><code>bbnc</code></td>
-<td>The name of the tenant depends on your architectural decisions. Consider creating tenants for different brands, companies, or teams within your organization. Remember: tenants are separated spaces within a single instance.</td>
-</tr>
-<tr>
-<td>hosts</td>
-<td>yes</td>
-<td>-</td>
-<td><code>[&quot;bnbc.example&quot;, &quot;us.bnbc.example&quot;]</code></td>
-<td>A concrete list of hosts for which the server serves the tenant. Overlapping hosts in different tenants are not allowed, they have to be unique. Be sure that the hosts are configured as ingress hosts too.</td>
-</tr>
-<tr>
-<td>interceptor</td>
-<td>no</td>
-<td></td>
-<td></td>
-<td><em>see the full example above</em></td>
-</tr>
-<tr>
-<td>interceptor.enabled</td>
-<td>yes</td>
-<td></td>
-<td></td>
-<td>Can be set to <code>false</code> if the tenant should not support the <a
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Mandatory</th>
+          <th>Default</th>
+          <th>Example</th>
+          <th>Discussion</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>yes</td>
+          <td>-</td>
+          <td><code>bbnc</code></td>
+          <td>The name of the tenant depends on your architectural decisions. Consider creating tenants for different brands, companies, or teams within your organization. Remember: tenants are separated spaces within a single instance.</td>
+      </tr>
+      <tr>
+          <td>hosts</td>
+          <td>yes</td>
+          <td>-</td>
+          <td><code>[&quot;bnbc.example&quot;, &quot;us.bnbc.example&quot;]</code></td>
+          <td>A concrete list of hosts for which the server serves the tenant. Overlapping hosts in different tenants are not allowed, they have to be unique. Be sure that the hosts are configured as ingress hosts too.</td>
+      </tr>
+      <tr>
+          <td>interceptor</td>
+          <td>no</td>
+          <td></td>
+          <td></td>
+          <td><em>see the full example above</em></td>
+      </tr>
+      <tr>
+          <td>interceptor.enabled</td>
+          <td>yes</td>
+          <td></td>
+          <td></td>
+          <td>Can be set to <code>false</code> if the tenant should not support the <a
   class="gdoc-markdown__link"
   href="/interceptor/interceptor"
 >Interceptor-Mode</a>.</td>
-</tr>
-<tr>
-<td>interceptor.domain</td>
-<td>no</td>
-<td></td>
-<td></td>
-<td>The domain for which the interceptor should be active.</td>
-</tr>
-<tr>
-<td>interceptor.cookie</td>
-<td>no</td>
-<td></td>
-<td></td>
-<td>Cookie domain to be used in the auth cookie.</td>
-</tr>
-<tr>
-<td>informations</td>
-<td>no</td>
-<td></td>
-<td></td>
-<td>Additional data about the tenant.</td>
-</tr>
-<tr>
-<td>informations.imprint_url</td>
-<td>no</td>
-<td></td>
-<td><code>https://bnbc.example/imprint</code></td>
-<td>URL to the imprint page.</td>
-</tr>
-<tr>
-<td>informations.privacy_url</td>
-<td>no</td>
-<td></td>
-<td><code>https://bnbc.example/privacy</code></td>
-<td>URL to the privacy policy.</td>
-</tr>
-<tr>
-<td>informations.register_url</td>
-<td>no</td>
-<td></td>
-<td><code>https://bnbc.example/register</code></td>
-<td>URL to the registration page.</td>
-</tr>
-<tr>
-<td>templates</td>
-<td>no</td>
-<td>not configured</td>
-<td></td>
-<td>S3 configuration to load templatest from</td>
-</tr>
-<tr>
-<td>templates.access_key_id</td>
-<td>yes</td>
-<td></td>
-<td><code>[random name]</code></td>
-<td>Access key ID</td>
-</tr>
-<tr>
-<td>templates.secret_access_key</td>
-<td>yes</td>
-<td></td>
-<td><code>[random secret key]</code></td>
-<td>Secret access key / password</td>
-</tr>
-<tr>
-<td>templates.host</td>
-<td>no</td>
-<td><code>s3.amazonaws.com</code></td>
-<td><code>https://s3.bnbc.example</code></td>
-<td>S3 storage server</td>
-</tr>
-<tr>
-<td>templates.bucket</td>
-<td>yes</td>
-<td></td>
-<td><code>uitsmijter</code></td>
-<td>S3 Bucket name</td>
-</tr>
-<tr>
-<td>templates.path</td>
-<td>no</td>
-<td>-</td>
-<td><code>templates/business</code></td>
-<td>Optional &ldquo;path&rdquo; inside the bucket</td>
-</tr>
-<tr>
-<td>templates.region</td>
-<td>no</td>
-<td><code>us-east-1</code></td>
-<td><code>eu-central-1</code></td>
-<td>S3 region (if needed)</td>
-</tr>
-<tr>
-<td>providers</td>
-<td>yes</td>
-<td>-</td>
-<td><em>see the full example above</em></td>
-<td>A list of <a
+      </tr>
+      <tr>
+          <td>interceptor.domain</td>
+          <td>no</td>
+          <td></td>
+          <td></td>
+          <td>The domain for which the interceptor should be active.</td>
+      </tr>
+      <tr>
+          <td>interceptor.cookie</td>
+          <td>no</td>
+          <td></td>
+          <td></td>
+          <td>Cookie domain to be used in the auth cookie.</td>
+      </tr>
+      <tr>
+          <td>informations</td>
+          <td>no</td>
+          <td></td>
+          <td></td>
+          <td>Additional data about the tenant.</td>
+      </tr>
+      <tr>
+          <td>informations.imprint_url</td>
+          <td>no</td>
+          <td></td>
+          <td><code>https://bnbc.example/imprint</code></td>
+          <td>URL to the imprint page.</td>
+      </tr>
+      <tr>
+          <td>informations.privacy_url</td>
+          <td>no</td>
+          <td></td>
+          <td><code>https://bnbc.example/privacy</code></td>
+          <td>URL to the privacy policy.</td>
+      </tr>
+      <tr>
+          <td>informations.register_url</td>
+          <td>no</td>
+          <td></td>
+          <td><code>https://bnbc.example/register</code></td>
+          <td>URL to the registration page.</td>
+      </tr>
+      <tr>
+          <td>templates</td>
+          <td>no</td>
+          <td>not configured</td>
+          <td></td>
+          <td>S3 configuration to load templatest from</td>
+      </tr>
+      <tr>
+          <td>templates.access_key_id</td>
+          <td>yes</td>
+          <td></td>
+          <td><code>[random name]</code></td>
+          <td>Access key ID</td>
+      </tr>
+      <tr>
+          <td>templates.secret_access_key</td>
+          <td>yes</td>
+          <td></td>
+          <td><code>[random secret key]</code></td>
+          <td>Secret access key / password</td>
+      </tr>
+      <tr>
+          <td>templates.host</td>
+          <td>no</td>
+          <td><code>s3.amazonaws.com</code></td>
+          <td><code>https://s3.bnbc.example</code></td>
+          <td>S3 storage server</td>
+      </tr>
+      <tr>
+          <td>templates.bucket</td>
+          <td>yes</td>
+          <td></td>
+          <td><code>uitsmijter</code></td>
+          <td>S3 Bucket name</td>
+      </tr>
+      <tr>
+          <td>templates.path</td>
+          <td>no</td>
+          <td>-</td>
+          <td><code>templates/business</code></td>
+          <td>Optional &ldquo;path&rdquo; inside the bucket</td>
+      </tr>
+      <tr>
+          <td>templates.region</td>
+          <td>no</td>
+          <td><code>us-east-1</code></td>
+          <td><code>eu-central-1</code></td>
+          <td>S3 region (if needed)</td>
+      </tr>
+      <tr>
+          <td>providers</td>
+          <td>yes</td>
+          <td>-</td>
+          <td><em>see the full example above</em></td>
+          <td>A list of <a
   class="gdoc-markdown__link"
   href="/providers/providers"
 >providers</a>. Providers are glue code only to request data from user backend systems. Consider using internal private cluster links.</td>
-</tr>
-<tr>
-<td>silent_login</td>
-<td>no</td>
-<td><code>true</code></td>
-<td><code>false</code></td>
-<td>When this option is enabled and a client has a valid auth cookie shared with the login page, its login information will be used to authenticate the user without asking for a username or password.</td>
-</tr>
-<tr>
-<td>jwt_algorithm</td>
-<td>no</td>
-<td><code>HS256</code></td>
-<td><code>RS256</code> or <code>HS256</code></td>
-<td>JWT signing algorithm for this tenant. Defaults to <code>HS256</code> if not specified. Use <code>RS256</code> for production (asymmetric, better security, supports key rotation every 90 days), or <code>HS256</code> for development/legacy systems (symmetric, requires JWT_SECRET). See <a
+      </tr>
+      <tr>
+          <td>silent_login</td>
+          <td>no</td>
+          <td><code>true</code></td>
+          <td><code>false</code></td>
+          <td>When this option is enabled and a client has a valid auth cookie shared with the login page, its login information will be used to authenticate the user without asking for a username or password.</td>
+      </tr>
+      <tr>
+          <td>jwt_algorithm</td>
+          <td>no</td>
+          <td><code>HS256</code></td>
+          <td><code>RS256</code> or <code>HS256</code></td>
+          <td>JWT signing algorithm for this tenant. Defaults to <code>HS256</code> if not specified. Use <code>RS256</code> for production (asymmetric, better security, supports key rotation every 90 days), or <code>HS256</code> for development/legacy systems (symmetric, requires JWT_SECRET). See <a
   class="gdoc-markdown__link"
   href="/configuration/jwt_algorithms"
 >JWT Algorithms</a> for detailed comparison.</td>
-</tr>
-</tbody>
+      </tr>
+  </tbody>
 </table> </div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="predefined-providers">
+        Predefined Providers
+        <a data-clipboard-text="https://docs.uitsmijter.io/configuration/tenant_client_config/#predefined-providers" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Predefined Providers" aria-label="Anchor to: Predefined Providers" href="#predefined-providers">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>Each entry in the <code>providers</code> list can be either a raw JavaScript script (as in the examples above) or a
+<strong>predefined-provider object</strong> that references a ready-made provider by type. This lets you reuse a shared provider
+implementation without pasting the full script into every tenant.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">bnbc.example</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">providers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># A raw JavaScript provider ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s2">&#34;class UserValidationProvider { [...] }&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># ... and a predefined provider referenced by type:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">uitrusting/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">users.srv.cluster.local</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l">shared-provider-token  </span><span class="w"> </span><span class="c"># optional</span><span class="w">
+</span></span></span></code></pre></div><div class="table-wrap"> <table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Mandatory</th>
+          <th>Default</th>
+          <th>Example</th>
+          <th>Discussion</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>type</td>
+          <td>yes</td>
+          <td>-</td>
+          <td><code>uitrusting/v1</code></td>
+          <td>The identifier of the predefined provider to load.</td>
+      </tr>
+      <tr>
+          <td>url</td>
+          <td>yes</td>
+          <td>-</td>
+          <td><code>users.srv.cluster.local</code></td>
+          <td>Host of the backend the predefined provider connects to.</td>
+      </tr>
+      <tr>
+          <td>token</td>
+          <td>no</td>
+          <td>-</td>
+          <td><code>shared-provider-token</code></td>
+          <td>Optional authentication token passed to the predefined provider.</td>
+      </tr>
+  </tbody>
+</table> </div>
+<p>See <a
+  class="gdoc-markdown__link"
+  href="/providers/providers"
+>Providers</a> for the full list of predefined providers and how they work.</p>
 <div class="gdoc-page__anchorwrap">
     <h3 id="jwt-algorithm-configuration">
         JWT Algorithm Configuration
@@ -3166,7 +3225,7 @@ the Uitsmijter authentication server.</p>
 </div>
 <p>If <code>jwt_algorithm</code> is not specified, the tenant defaults to HS256:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># No jwt_algorithm specified</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">providers</span><span class="p">:</span><span class="w">
@@ -3183,21 +3242,21 @@ the Uitsmijter authentication server.</p>
 </div>
 <p>Different tenants can use different algorithms in the same Uitsmijter instance:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Tenant A uses HS256</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">legacy-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">HS256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">legacy.example.com</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant B uses RS256</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Tenant B uses RS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">modern-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">app.example.com</span><span class="w">
@@ -3233,7 +3292,7 @@ etc.) -&gt; these are different Clients</li>
 </ul>
 <p>Full example configuration for configuration files</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bnbc-ios-app</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">config</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ident</span><span class="p">:</span><span class="w"> </span><span class="m">58392627-0121-4721</span>-<span class="l">9DAC-D358BDD86CA6</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tenantname</span><span class="p">:</span><span class="w"> </span><span class="l">bnbc-tenant</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redirect_urls</span><span class="p">:</span><span class="w">
@@ -3258,7 +3317,7 @@ etc.) -&gt; these are different Clients</li>
 </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bnbc-ios-app</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">config</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ident</span><span class="p">:</span><span class="w"> </span><span class="m">58392627-0121-4721</span>-<span class="l">9DAC-D358BDD86CA6</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tenantname</span><span class="p">:</span><span class="w"> </span><span class="l">bnbc-tenant</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># [...]</span><span class="w">
@@ -3273,10 +3332,10 @@ etc.) -&gt; these are different Clients</li>
 <p>If Uitsmijter run in Kubernetes the configuration of clients have to be provided as resources within the namespace of
 the Uitsmijter authentication server.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bnbc-ios-app</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ident</span><span class="p">:</span><span class="w"> </span><span class="m">58392627-0121-4721</span>-<span class="l">9DAC-D358BDD86CA6</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tenantname</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;[tenant namespace]/bnbc-tenant&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redirect_urls</span><span class="p">:</span><span class="w">
@@ -3305,102 +3364,159 @@ the Uitsmijter authentication server.</p>
     </h3>
 </div>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Mandatory</th>
-<th>Default</th>
-<th>Example</th>
-<th>Discussion</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ident</td>
-<td>yes</td>
-<td>A random UUID</td>
-<td><code>58392627-0121-4721-9DAC-D358BDD86CA6</code></td>
-<td>The ident is the internal primary key for that client.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>yes</td>
-<td>-</td>
-<td><code>bnbc-ios-app</code></td>
-<td>Give the client a unique and specific name. Clients should reflect the device classes that you need to target with specific rights and to get individual statistics from.</td>
-</tr>
-<tr>
-<td>tenantname</td>
-<td>yes</td>
-<td>-</td>
-<td><code>bnbc-tenant</code></td>
-<td>The name of the tenant for which this client is for. On kubernetes this must contain the tenants namespace: <code>[tennant namespace]/bnbc-tenant</code></td>
-</tr>
-<tr>
-<td>redirect_urls</td>
-<td>yes</td>
-<td>-</td>
-<td><code>[&quot;https://www.bnbc.(example&amp;#124;example.com)/bnbc-club/*&quot;]</code></td>
-<td>A client sends a redirect url to which the response will be redirected to. Specify the allowed urls for security reasons, otherwise it will be possible to hijack the token in the response. See information below.</td>
-</tr>
-<tr>
-<td>grant_types</td>
-<td>no</td>
-<td>[&ldquo;authorization_code&rdquo;, &ldquo;refresh_token&rdquo;]</td>
-<td><code>[&quot;password&quot;]</code></td>
-<td>A list of allowed grant types. If not set, a default set will be applied: <code>authorization_code</code>, <code>refresh_token</code>. If you need to support the “password&quot; grant, you must specify it explicitly!</td>
-</tr>
-<tr>
-<td>scopes</td>
-<td>no</td>
-<td>[]</td>
-<td><code>[&quot;recipes:read&quot;, &quot;recipes:write&quot;, &quot;timeline:post&quot;]</code></td>
-<td>A list of allowed scopes for this client. If a client requests scopes, these will be filtered by the ones that are allowed. This controls scopes requested by the OAuth client during authorization.</td>
-</tr>
-<tr>
-<td>allowedProviderScopes</td>
-<td>no</td>
-<td>[]</td>
-<td><code>[&quot;user:*&quot;, &quot;can:*&quot;, &quot;org:read&quot;]</code></td>
-<td>A list of allowed scopes that JavaScript providers can add to user profiles. Supports wildcard patterns (e.g., <code>user:*</code> matches <code>user:list</code>, <code>user:add</code>). Provider-supplied scopes are filtered against this list before being merged with client-requested scopes. Defaults to empty (no provider scopes allowed), providing secure-by-default behavior.</td>
-</tr>
-<tr>
-<td>referrers</td>
-<td>no</td>
-<td>[]</td>
-<td><code>[https://www.bnbc.example/bnbc-club/login]</code></td>
-<td>If set, only clients that come from these referers are allowed.</td>
-</tr>
-<tr>
-<td>isPkceOnly</td>
-<td>no</td>
-<td>false</td>
-<td><code>true</code></td>
-<td>If set to <code>true</code> this client does support <a
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Mandatory</th>
+          <th>Default</th>
+          <th>Example</th>
+          <th>Discussion</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ident</td>
+          <td>yes</td>
+          <td>A random UUID</td>
+          <td><code>58392627-0121-4721-9DAC-D358BDD86CA6</code></td>
+          <td>The ident is the internal primary key for that client.</td>
+      </tr>
+      <tr>
+          <td>name</td>
+          <td>yes</td>
+          <td>-</td>
+          <td><code>bnbc-ios-app</code></td>
+          <td>Give the client a unique and specific name. Clients should reflect the device classes that you need to target with specific rights and to get individual statistics from.</td>
+      </tr>
+      <tr>
+          <td>tenantname</td>
+          <td>yes</td>
+          <td>-</td>
+          <td><code>bnbc-tenant</code></td>
+          <td>The name of the tenant for which this client is for. On kubernetes this must contain the tenants namespace: <code>[tennant namespace]/bnbc-tenant</code></td>
+      </tr>
+      <tr>
+          <td>redirect_urls</td>
+          <td>yes</td>
+          <td>-</td>
+          <td><code>[&quot;https://www.bnbc.(example&amp;#124;example.com)/bnbc-club/*&quot;]</code></td>
+          <td>A client sends a redirect url to which the response will be redirected to. Specify the allowed urls for security reasons, otherwise it will be possible to hijack the token in the response. See information below.</td>
+      </tr>
+      <tr>
+          <td>grant_types</td>
+          <td>no</td>
+          <td>[&ldquo;authorization_code&rdquo;, &ldquo;refresh_token&rdquo;]</td>
+          <td><code>[&quot;password&quot;]</code></td>
+          <td>A list of allowed grant types. If not set, a default set will be applied: <code>authorization_code</code>, <code>refresh_token</code>. If you need to support the “password&quot; grant, you must specify it explicitly! Add <code>device_code</code> to enable the OAuth 2.0 Device Authorization Grant (RFC 8628).</td>
+      </tr>
+      <tr>
+          <td>device_grant_config</td>
+          <td>no</td>
+          <td>-</td>
+          <td><em>see below</em></td>
+          <td>Optional fine-tuning for the <code>device_code</code> grant. Only used when <code>device_code</code> is listed in <code>grant_types</code>. All keys are optional and override the built-in defaults. See below.</td>
+      </tr>
+      <tr>
+          <td>scopes</td>
+          <td>no</td>
+          <td>[]</td>
+          <td><code>[&quot;recipes:read&quot;, &quot;recipes:write&quot;, &quot;timeline:post&quot;]</code></td>
+          <td>A list of allowed scopes for this client. If a client requests scopes, these will be filtered by the ones that are allowed. This controls scopes requested by the OAuth client during authorization.</td>
+      </tr>
+      <tr>
+          <td>allowedProviderScopes</td>
+          <td>no</td>
+          <td>[]</td>
+          <td><code>[&quot;user:*&quot;, &quot;can:*&quot;, &quot;org:read&quot;]</code></td>
+          <td>A list of allowed scopes that JavaScript providers can add to user profiles. Supports wildcard patterns (e.g., <code>user:*</code> matches <code>user:list</code>, <code>user:add</code>). Provider-supplied scopes are filtered against this list before being merged with client-requested scopes. Defaults to empty (no provider scopes allowed), providing secure-by-default behavior.</td>
+      </tr>
+      <tr>
+          <td>referrers</td>
+          <td>no</td>
+          <td>[]</td>
+          <td><code>[https://www.bnbc.example/bnbc-club/login]</code></td>
+          <td>If set, only clients that come from these referers are allowed.</td>
+      </tr>
+      <tr>
+          <td>isPkceOnly</td>
+          <td>no</td>
+          <td>false</td>
+          <td><code>true</code></td>
+          <td>If set to <code>true</code> this client does support <a
   class="gdoc-markdown__link"
   href="/oauth/pkce"
 >Proof Key for Code Exchange</a> only.</td>
-</tr>
-<tr>
-<td>secret</td>
-<td>no</td>
-<td>-</td>
-<td><code>aejochiecaishee4ootooSh3ph</code></td>
-<td>if set, the clients have to send this shared secret on requests.</td>
-</tr>
-</tbody>
+      </tr>
+      <tr>
+          <td>secret</td>
+          <td>no</td>
+          <td>-</td>
+          <td><code>aejochiecaishee4ootooSh3ph</code></td>
+          <td>if set, the clients have to send this shared secret on requests.</td>
+      </tr>
+  </tbody>
 </table> </div>
 <p><strong>Possible Grant Types</strong></p>
 <ul>
 <li>authorization_code</li>
 <li>refresh_token</li>
 <li>password</li>
+<li>device_code</li>
 </ul>
 <p>If you allow a <code>authorization_code</code>, you should also allow <code>refresh_token</code>, because to refresh a token you need to get
 one via the <code>authorization_code</code> request.
 The response from a <code>password</code> request does not return a refresh token!</p>
 <p>Try to avoid the <code>password</code> grant in production! It is insecure and should be replaced by a pkce code request. Only
 if you have to support older clients you may need to turn this option on.</p>
+<p>Add <code>device_code</code> for input-constrained devices (smart TVs, CLIs, IoT) that cannot present a browser. This enables the
+OAuth 2.0 Device Authorization Grant (RFC 8628), where the device shows a short <code>user_code</code> that the user enters on a
+second device to authorize the login.</p>
+<p><strong>Device Grant Configuration</strong></p>
+<p>The Device Authorization Grant is enabled purely by listing <code>device_code</code> in <code>grant_types</code>. The optional
+<code>device_grant_config</code> block only overrides the built-in defaults - when it is omitted entirely, the defaults apply.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">grant_types</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">authorization_code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">refresh_token</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">device_code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">device_grant_config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expires_in</span><span class="p">:</span><span class="w"> </span><span class="m">1800</span><span class="w">     </span><span class="c"># optional, lifetime in seconds of the device_code/user_code (default 1800)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">          </span><span class="c"># optional, minimum polling interval in seconds (default 5)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># verification_uri:  # optional, override the URL shown to the user; auto-detected as https://&lt;host&gt;/activate when omitted</span><span class="w">
+</span></span></span></code></pre></div><div class="table-wrap"> <table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Mandatory</th>
+          <th>Default</th>
+          <th>Example</th>
+          <th>Discussion</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>expires_in</td>
+          <td>no</td>
+          <td><code>1800</code></td>
+          <td><code>1800</code></td>
+          <td>Lifetime in seconds of the issued <code>device_code</code> and <code>user_code</code>. After this window the user has to start the flow again.</td>
+      </tr>
+      <tr>
+          <td>interval</td>
+          <td>no</td>
+          <td><code>5</code></td>
+          <td><code>5</code></td>
+          <td>Minimum polling interval in seconds the device must wait between <code>token</code> requests while the user completes the login.</td>
+      </tr>
+      <tr>
+          <td>verification_uri</td>
+          <td>no</td>
+          <td><code>https://&lt;host&gt;/activate</code></td>
+          <td><code>https://login.bnbc.example/activate</code></td>
+          <td>Override the URL shown to the user to enter the <code>user_code</code>. Auto-detected as <code>https://&lt;host&gt;/activate</code> when omitted.</td>
+      </tr>
+  </tbody>
+</table> </div>
 <p><strong>Redirect Urls</strong>
 If the requested <code>redirect_url</code> of an <code>AuthRequest</code> does not match any of these url patterns, the whole
 authorization request will be denied.

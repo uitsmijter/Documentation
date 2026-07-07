@@ -9,12 +9,11 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Quick Start Guide for Kubernetes This guide covers everything you need to get up and running with Uitsmijter. The documentation is based on a fictional project to provide better understanding of when and why to set specific configurations.
-Meet the requirements This quick start guide assumes that the requirements are met. See this list of requirements that covers the following criteria:
-Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e." />
+  <meta name="description" content=" Quick Start Guide for Kubernetes This guide covers everything you need to get up and running with Uitsmijter. The documentation is based on a fictional project to provide better understanding of when and why to set specific configurations.
+Meet the requirements This quick start guide assumes that the requirements are met. See this list of requirements that covers the following criteria:" />
 
     <title>Quick Start Guide | Uitsmijter Documentation</title>
 
@@ -28,9 +27,8 @@ Kubernetes is up and running Traefik is up and running Your cluster is able to g
     content="Quick Start Guide"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Quick Start Guide for Kubernetes This guide covers everything you need to get up and running with Uitsmijter. The documentation is based on a fictional project to provide better understanding of when and why to set specific configurations.
-Meet the requirements This quick start guide assumes that the requirements are met. See this list of requirements that covers the following criteria:
-Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e." />
+  <meta property="og:description" content=" Quick Start Guide for Kubernetes This guide covers everything you need to get up and running with Uitsmijter. The documentation is based on a fictional project to provide better understanding of when and why to set specific configurations.
+Meet the requirements This quick start guide assumes that the requirements are met. See this list of requirements that covers the following criteria:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/general/quickstart/" />
 
@@ -39,9 +37,8 @@ Kubernetes is up and running Traefik is up and running Your cluster is able to g
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Quick Start Guide" />
-  <meta name="twitter:description" content="Quick Start Guide for Kubernetes This guide covers everything you need to get up and running with Uitsmijter. The documentation is based on a fictional project to provide better understanding of when and why to set specific configurations.
-Meet the requirements This quick start guide assumes that the requirements are met. See this list of requirements that covers the following criteria:
-Kubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e." />
+  <meta name="twitter:description" content=" Quick Start Guide for Kubernetes This guide covers everything you need to get up and running with Uitsmijter. The documentation is based on a fictional project to provide better understanding of when and why to set specific configurations.
+Meet the requirements This quick start guide assumes that the requirements are met. See this list of requirements that covers the following criteria:" />
 
 
   <script type="application/ld+json">
@@ -52,7 +49,7 @@ Kubernetes is up and running Traefik is up and running Your cluster is able to g
       "name": "Quick Start Guide",
       "url" : "https://docs.uitsmijter.io/general/quickstart/",
       "headline": "Quick Start Guide",
-      "description": "Quick Start Guide for Kubernetes This guide covers everything you need to get up and running with Uitsmijter. The documentation is based on a fictional project to provide better understanding of when and why to set specific configurations.\nMeet the requirements This quick start guide assumes that the requirements are met. See this list of requirements that covers the following criteria:\nKubernetes is up and running Traefik is up and running Your cluster is able to get valid certificates for ingresses, e.",
+      "description": " Quick Start Guide for Kubernetes This guide covers everything you need to get up and running with Uitsmijter. The documentation is based on a fictional project to provide better understanding of when and why to set specific configurations.\nMeet the requirements This quick start guide assumes that the requirements are met. See this list of requirements that covers the following criteria:",
       "wordCount" : "3492",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2893,8 +2890,8 @@ security and the benefit of a new project, we will create a service dedicated to
 </blockquote>
 <p>This new <code>Credentials service</code> got one route named: &ldquo;POST: /validate-login&rdquo; and fires a query against a database:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="k">role</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">profile</span><span class="o">`</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">accounts</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="o">`</span><span class="n">username</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">?</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="n">accounts</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">WHERE</span><span class="w"> </span><span class="o">`</span><span class="n">username</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">?</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="o">`</span><span class="n">passwordhash</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">?</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><p><em>In our example passwords are stored as a sha256-Hash. You can choose between sha256, md5 and plain text.</em></p>
 <p>Other applications will populate the users after registration. This is out of scope for now. The important thing is that
@@ -2911,12 +2908,12 @@ object or an unauthorized error if the credentials do not match.</p>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>We host this little service in the <code>usertrunk</code> namespace with a service that points to the deployment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">usertrunk</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">checkcredentials</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">userdb</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
@@ -3009,10 +3006,10 @@ it may be secured by an imagePullSecret. You can define the name of the secret h
     </h3>
 </div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">jwtSecret</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vosai0za6iex8AelahGemaeBooph6pah6Saezae0oojahfa7Re6leibeeshiu8ie&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">redisPassword</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Shohmaz1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="l">default-ext4</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">installCRD</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">installSA</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">redisPassword</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Shohmaz1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="l">default-ext4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">installCRD</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">installSA</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span></code></pre></div><p>You <strong>have to</strong> change the values of the passwords in <code>jwtSecret</code> and <code>redisPassword</code>!</p>
 <p>The <code>jwtSecret</code> is a global passphrase with which all JWTs are signed. Applications dealing with JWTs must know
 this shared secret. The <code>jwtSecret</code> should be set during installation and kept on the server only. We highly
@@ -3036,9 +3033,9 @@ should do from time to time</em>), we recommend <strong>syncing</strong> the sec
 and <code>sender</code> namespaces.</p>
 <p>To sync the secret into namespaces add a label to the namespace the secret has to sync in:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Namespace</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Namespace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">profiles</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">jwt-secret/sync</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
@@ -3256,11 +3253,11 @@ to collect all overall settings:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl create ns portal
 </span></span></code></pre></div><p>In that namespace, we will add the tenant. First, we need to define it:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">portal</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">portal.example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">partner.example.com</span><span class="w">
@@ -3275,12 +3272,12 @@ to collect all overall settings:</p>
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get canLogin() { return true; }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get userProfile() { return {message:&#34;DO NOT USE THIS IN PRODUCTION&#34;}; }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get role() { return &#34;development&#34;; }
-</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">      class UserValidationProvider {
 </span></span></span><span class="line"><span class="cl"><span class="sd">        constructor(args) { commit(true); }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        isValid() { return true; }
-</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">
 </span></span></span></code></pre></div><p>Save the file to <code>portal-tenant.yaml</code>.</p>
 <p>Important for HPA: Change the <code>ident</code> with a new generated uuid and keep it consistent along the tenant name.
 You can learn everything about tenants in <a
@@ -3391,11 +3388,11 @@ script prepares the class variables that are consumed by the auth server later i
 an SPA and an App). The client defines what OAuth-Flows are allowed and what scopes a user can have if asked for.</p>
 <p>Here is an example client for our SPA at <code>portal.portal.com</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">example-portal</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ident</span><span class="p">:</span><span class="w"> </span><span class="l">540FF520-2BDF-4C6F-9D9F-DC88A9DB41F6</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tenantname</span><span class="p">:</span><span class="w"> </span><span class="l">portal/portal</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redirect_urls</span><span class="p">:</span><span class="w">

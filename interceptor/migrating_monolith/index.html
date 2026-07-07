@@ -9,10 +9,10 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Migrating a monolith application into microservices with single sign on Page navigation:
+  <meta name="description" content=" Migrating a monolith application into microservices with single sign on Page navigation:
 General Discussion Facing the problems of an application migration path The Demo-Project used for this documentation Configuring Uitsmijter checkcredentials Proxy Service Changes that need to be made You have made it! General Discussion Articles Available Please checkout our article that discuss the general thoughts behind agile migration. Facing the problems of an application migration path Monolithic applications with their own login have one or more of the following factors in common:" />
 
     <title>Migrating a monolith | Uitsmijter Documentation</title>
@@ -27,7 +27,7 @@ General Discussion Facing the problems of an application migration path The Demo
     content="Migrating a monolith"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Migrating a monolith application into microservices with single sign on Page navigation:
+  <meta property="og:description" content=" Migrating a monolith application into microservices with single sign on Page navigation:
 General Discussion Facing the problems of an application migration path The Demo-Project used for this documentation Configuring Uitsmijter checkcredentials Proxy Service Changes that need to be made You have made it! General Discussion Articles Available Please checkout our article that discuss the general thoughts behind agile migration. Facing the problems of an application migration path Monolithic applications with their own login have one or more of the following factors in common:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/interceptor/migrating_monolith/" />
@@ -37,7 +37,7 @@ General Discussion Facing the problems of an application migration path The Demo
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Migrating a monolith" />
-  <meta name="twitter:description" content="Migrating a monolith application into microservices with single sign on Page navigation:
+  <meta name="twitter:description" content=" Migrating a monolith application into microservices with single sign on Page navigation:
 General Discussion Facing the problems of an application migration path The Demo-Project used for this documentation Configuring Uitsmijter checkcredentials Proxy Service Changes that need to be made You have made it! General Discussion Articles Available Please checkout our article that discuss the general thoughts behind agile migration. Facing the problems of an application migration path Monolithic applications with their own login have one or more of the following factors in common:" />
 
 
@@ -49,7 +49,7 @@ General Discussion Facing the problems of an application migration path The Demo
       "name": "Migrating a monolith",
       "url" : "https://docs.uitsmijter.io/interceptor/migrating_monolith/",
       "headline": "Migrating a monolith",
-      "description": "Migrating a monolith application into microservices with single sign on Page navigation:\nGeneral Discussion Facing the problems of an application migration path The Demo-Project used for this documentation Configuring Uitsmijter checkcredentials Proxy Service Changes that need to be made You have made it! General Discussion Articles Available Please checkout our article that discuss the general thoughts behind agile migration. Facing the problems of an application migration path Monolithic applications with their own login have one or more of the following factors in common:",
+      "description": " Migrating a monolith application into microservices with single sign on Page navigation:\nGeneral Discussion Facing the problems of an application migration path The Demo-Project used for this documentation Configuring Uitsmijter checkcredentials Proxy Service Changes that need to be made You have made it! General Discussion Articles Available Please checkout our article that discuss the general thoughts behind agile migration. Facing the problems of an application migration path Monolithic applications with their own login have one or more of the following factors in common:",
       "wordCount" : "3065",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2908,44 +2908,44 @@ things
   title="Database Diagram"
 /></p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Table</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>failed_jobs</td>
-<td>Internal from the <a
+  <thead>
+      <tr>
+          <th>Table</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>failed_jobs</td>
+          <td>Internal from the <a
   class="gdoc-markdown__link"
   href="https://laravel.com/"
 >🔗Laravel framework</a> this legacy application is build upon. Queues in Laravel stores failed asynchronous job into the table.</td>
-</tr>
-<tr>
-<td>migrations</td>
-<td><a
+      </tr>
+      <tr>
+          <td>migrations</td>
+          <td><a
   class="gdoc-markdown__link"
   href="https://laravel.com/"
 >🔗 Laravel</a> provides database agnostic support for creating and manipulating tables across all supported database systems. The table stores the state of the database.</td>
-</tr>
-<tr>
-<td>users</td>
-<td>All users are stored in this table along a encrypted password and the email address of the user.</td>
-</tr>
-<tr>
-<td>sessions</td>
-<td>This application is a legacy monolith with its own user login. The active logins are stored in server sessions and be tracked in this database. <sub>1</sub></td>
-</tr>
-<tr>
-<td>password_resets</td>
-<td>Laravel provides convenient services for sending password reset links and secure resetting passwords.</td>
-</tr>
-<tr>
-<td>todos</td>
-<td>For demonstartion purpose the application handels todo actions that are stored in this table. A foreign key to the users table links the user who created the task.</td>
-</tr>
-</tbody>
+      </tr>
+      <tr>
+          <td>users</td>
+          <td>All users are stored in this table along a encrypted password and the email address of the user.</td>
+      </tr>
+      <tr>
+          <td>sessions</td>
+          <td>This application is a legacy monolith with its own user login. The active logins are stored in server sessions and be tracked in this database. <sub>1</sub></td>
+      </tr>
+      <tr>
+          <td>password_resets</td>
+          <td>Laravel provides convenient services for sending password reset links and secure resetting passwords.</td>
+      </tr>
+      <tr>
+          <td>todos</td>
+          <td>For demonstartion purpose the application handels todo actions that are stored in this table. A foreign key to the users table links the user who created the task.</td>
+      </tr>
+  </tbody>
 </table> </div>
 <blockquote>
 <p>1: This tutorial assumes that your monolithic application runs already on <a
@@ -3015,12 +3015,12 @@ a <a
 >interceptor</a> mode.</p>
 <p>Create a Tenant:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Tasks</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">todo-application</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">todo.example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">interceptor</span><span class="p">:</span><span class="w">
@@ -3035,13 +3035,13 @@ a <a
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get canLogin() { return this.auth; }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get userProfile() { return { name: &#34;No User&#34; }; }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get role() { return &#34;user&#34;; }
-</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">      class UserValidationProvider {
 </span></span></span><span class="line"><span class="cl"><span class="sd">        valid = false;
 </span></span></span><span class="line"><span class="cl"><span class="sd">        constructor(args) { this.valid = false; commit(this.valid); }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get isValid() { return this.valid; }
-</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">
 </span></span></span></code></pre></div><blockquote>
 <p>All details for tenant configuration are bespoken
 in <a
@@ -3070,12 +3070,12 @@ build the route to our existing legacy application we will never be able to pull
 We do not need a Client for the interceptor mode, yet.</p>
 <p>The Tenant for the ToDo application:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Tasks</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">todo-application</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">todo.example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">interceptor</span><span class="p">:</span><span class="w">
@@ -3106,7 +3106,7 @@ We do not need a Client for the interceptor mode, yet.</p>
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get canLogin() { return this.isLoggedIn; }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get userProfile() { return this.profile; }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get role() { return this.role; }
-</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">      class UserValidationProvider {
 </span></span></span><span class="line"><span class="cl"><span class="sd">        isValid = false;
@@ -3127,7 +3127,7 @@ We do not need a Client for the interceptor mode, yet.</p>
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get isValid() {
 </span></span></span><span class="line"><span class="cl"><span class="sd">          return this.isValid;
 </span></span></span><span class="line"><span class="cl"><span class="sd">        }
-</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">
 </span></span></span></code></pre></div><p>The little ECMA-Scripts in the tenant providers do the following:</p>
 <ul>
 <li>
@@ -3244,12 +3244,12 @@ if the user is still valid.</p>
 >Bcrypt library</a>.</p>
 <p>Enough coding. To access the service inside Kubernetes a service must be applied:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">checkcredentials</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">todo-application</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">checkcredentials</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
@@ -3293,9 +3293,9 @@ to handle the JWT parsing.</p>
 </span></span><span class="line"><span class="cl">        <span class="s1">&#39;jwt.auth&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">\App\Http\Middleware\EncryptCookies</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// [...]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">],</span>
+</span></span></span><span class="line"><span class="cl">    <span class="p">],</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// [...]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">];</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">];</span>
 </span></span></code></pre></div><p>Then we need a <code>JWTAuthProvider</code> which handles the user management by loading the existing user when it exists.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">JWTAuthProvider</span> <span class="k">extends</span> <span class="nx">JWTAuthIlluminate</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
@@ -3312,10 +3312,10 @@ to handle the JWT parsing.</p>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// Log in the user for the request
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">auth</span><span class="o">-&gt;</span><span class="na">setUser</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">auth</span><span class="o">-&gt;</span><span class="na">setUser</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// User is authorized
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>To further prepare the application for the time when the available users are managed by another micro service completely,
@@ -3327,26 +3327,26 @@ instead of returning false which would abort the request:</p>
 </span></span><span class="line"><span class="cl">    <span class="nv">$auth</span> <span class="o">=</span> <span class="nx">app</span><span class="p">(</span><span class="s1">&#39;tymon.jwt.auth&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">// Load payload data
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">$payload</span> <span class="o">=</span> <span class="nv">$auth</span><span class="o">-&gt;</span><span class="na">getPayload</span><span class="p">();</span>
+</span></span></span><span class="line"><span class="cl">    <span class="nv">$payload</span> <span class="o">=</span> <span class="nv">$auth</span><span class="o">-&gt;</span><span class="na">getPayload</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">// Create user
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">(</span><span class="k">new</span> <span class="nx">User</span><span class="p">([</span>
+</span></span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="k">new</span> <span class="nx">User</span><span class="p">([</span>
 </span></span><span class="line"><span class="cl">        <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="nv">$payload</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;sub&#39;</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">        <span class="s1">&#39;name&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$payload</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">)[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">        <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">]))</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">// Load created users data
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nv">$user</span> <span class="o">=</span> <span class="nx">User</span><span class="o">::</span><span class="na">whereEmail</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">first</span><span class="p">();</span>
+</span></span></span><span class="line"><span class="cl">    <span class="nv">$user</span> <span class="o">=</span> <span class="nx">User</span><span class="o">::</span><span class="na">whereEmail</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">first</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This auth provider can now be configured in <code>config/jwt.php</code> (which can be generated by running
 <code>php artisan vendor:publish --provider=&quot;PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider&quot;</code>)
 by overwriting the <code>providers.auth</code> setting:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="s1">&#39;providers&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// [...]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s1">&#39;auth&#39;</span> <span class="o">=&gt;</span> <span class="nx">App\Http\Helpers\JWTAuthProvider</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl">    <span class="s1">&#39;auth&#39;</span> <span class="o">=&gt;</span> <span class="nx">App\Http\Helpers\JWTAuthProvider</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// [...]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">],</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">],</span>
 </span></span></code></pre></div><p>It needes the <code>JWT_SECRET</code> configured in the environment (which is Uitsmijters <code>jwtSecret</code> shared secret),
 for example in the projects <code>.env</code> file.</p>
 <p>To support logout, the <code>AuthenticatedSessionController::destroy</code> method must be extended to use the <code>jwt</code> auth guard
@@ -3354,7 +3354,7 @@ and redirect to the Uitsmijter servers <code>/logout</code> endpoint with the ri
 <p>That guard has to be configured in <code>config/auth.php</code> by extending the <code>guards</code> list:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="s1">&#39;guards&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// [...]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s1">&#39;jwt&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span></span></span><span class="line"><span class="cl">    <span class="s1">&#39;jwt&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="s1">&#39;driver&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jwt&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="s1">&#39;provider&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">],</span>

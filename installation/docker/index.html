@@ -9,14 +9,12 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Installing Uitsmijter on Docker Uitsmijter is designed for a Docker-only environment, too. This mode is for small installations that does not require a Kubernetes Cluster.
+  <meta name="description" content=" Installing Uitsmijter on Docker Uitsmijter is designed for a Docker-only environment, too. This mode is for small installations that does not require a Kubernetes Cluster.
 Prerequisites Ensure Docker is installed and running on your system.
-Prepare Docker Environment Download Docker Compose Files from the dedicated repository.
-Obtain docker-compose.yml and .env files, placing them in the same directory.
-Configure Environment Variables Edit the .env file to customize environment variables like IMAGENAME, TAG, LOG_LEVEL, etc." />
+Prepare Docker Environment Download Docker Compose Files from the dedicated repository." />
 
     <title>Docker | Uitsmijter Documentation</title>
 
@@ -30,11 +28,9 @@ Configure Environment Variables Edit the .env file to customize environment vari
     content="Docker"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Installing Uitsmijter on Docker Uitsmijter is designed for a Docker-only environment, too. This mode is for small installations that does not require a Kubernetes Cluster.
+  <meta property="og:description" content=" Installing Uitsmijter on Docker Uitsmijter is designed for a Docker-only environment, too. This mode is for small installations that does not require a Kubernetes Cluster.
 Prerequisites Ensure Docker is installed and running on your system.
-Prepare Docker Environment Download Docker Compose Files from the dedicated repository.
-Obtain docker-compose.yml and .env files, placing them in the same directory.
-Configure Environment Variables Edit the .env file to customize environment variables like IMAGENAME, TAG, LOG_LEVEL, etc." />
+Prepare Docker Environment Download Docker Compose Files from the dedicated repository." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/installation/docker/" />
 
@@ -43,11 +39,9 @@ Configure Environment Variables Edit the .env file to customize environment vari
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Docker" />
-  <meta name="twitter:description" content="Installing Uitsmijter on Docker Uitsmijter is designed for a Docker-only environment, too. This mode is for small installations that does not require a Kubernetes Cluster.
+  <meta name="twitter:description" content=" Installing Uitsmijter on Docker Uitsmijter is designed for a Docker-only environment, too. This mode is for small installations that does not require a Kubernetes Cluster.
 Prerequisites Ensure Docker is installed and running on your system.
-Prepare Docker Environment Download Docker Compose Files from the dedicated repository.
-Obtain docker-compose.yml and .env files, placing them in the same directory.
-Configure Environment Variables Edit the .env file to customize environment variables like IMAGENAME, TAG, LOG_LEVEL, etc." />
+Prepare Docker Environment Download Docker Compose Files from the dedicated repository." />
 
 
   <script type="application/ld+json">
@@ -58,7 +52,7 @@ Configure Environment Variables Edit the .env file to customize environment vari
       "name": "Docker",
       "url" : "https://docs.uitsmijter.io/installation/docker/",
       "headline": "Docker",
-      "description": "Installing Uitsmijter on Docker Uitsmijter is designed for a Docker-only environment, too. This mode is for small installations that does not require a Kubernetes Cluster.\nPrerequisites Ensure Docker is installed and running on your system.\nPrepare Docker Environment Download Docker Compose Files from the dedicated repository.\nObtain docker-compose.yml and .env files, placing them in the same directory.\nConfigure Environment Variables Edit the .env file to customize environment variables like IMAGENAME, TAG, LOG_LEVEL, etc.",
+      "description": " Installing Uitsmijter on Docker Uitsmijter is designed for a Docker-only environment, too. This mode is for small installations that does not require a Kubernetes Cluster.\nPrerequisites Ensure Docker is installed and running on your system.\nPrepare Docker Environment Download Docker Compose Files from the dedicated repository.",
       "wordCount" : "357",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2831,45 +2825,45 @@ files, placing them in the same directory.</p>
 <p>Edit the <code>.env</code> file to customize environment variables like IMAGENAME, TAG, LOG_LEVEL, etc.</p>
 <p><strong>Important variables to change</strong></p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ROUTE</td>
-<td>Specify the domains under which Uitsmijter should be accessible. Use <a
+  <thead>
+      <tr>
+          <th>Variable</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ROUTE</td>
+          <td>Specify the domains under which Uitsmijter should be accessible. Use <a
   class="gdoc-markdown__link"
   href="https://doc.traefik.io/traefik/routing/overview/"
 >Traefik routing</a> syntax.</td>
-</tr>
-<tr>
-<td>AUTHSERVER_URL</td>
-<td>To use Uitsmijter in <a
+      </tr>
+      <tr>
+          <td>AUTHSERVER_URL</td>
+          <td>To use Uitsmijter in <a
   class="gdoc-markdown__link"
   href="/interceptor"
 >interceptor mode</a>, the service definition of your application needs the domain of the Uitsmijter. See Example below.</td>
-</tr>
-<tr>
-<td>TLS</td>
-<td>If you set <code>TLS</code> to true (which is strongly recommended in production use), <a
+      </tr>
+      <tr>
+          <td>TLS</td>
+          <td>If you set <code>TLS</code> to true (which is strongly recommended in production use), <a
   class="gdoc-markdown__link"
   href="https://traefik.io"
 >Traefik</a> will be instructed to obtain and install a certificate con <a
   class="gdoc-markdown__link"
   href="https://letsencrypt.org"
 >LetsEncrypt</a>.</td>
-</tr>
-<tr>
-<td>TAG</td>
-<td>In production, pin the <code>TAG</code> to the <a
+      </tr>
+      <tr>
+          <td>TAG</td>
+          <td>In production, pin the <code>TAG</code> to the <a
   class="gdoc-markdown__link"
   href="https://github.com/uitsmijter/Uitsmijter/releases"
 >latest release</a> of Uitsmijter.</td>
-</tr>
-</tbody>
+      </tr>
+  </tbody>
 </table> </div>
 <div class="gdoc-page__anchorwrap">
     <h2 id="run-the-docker-containers">

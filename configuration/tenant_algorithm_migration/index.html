@@ -9,12 +9,11 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.
-Overview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:
-Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed deployments: Run HS256 and RS256 tenants in the same instance Gradual rollout: Test RS256 with pilot tenants before full deployment Before You Start Compatibility: Per-tenant algorithm selection is available in Uitsmijter CE 0." />
+  <meta name="description" content=" Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.
+Overview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:" />
 
     <title>Migrating to Per-Tenant JWT Algorithms | Uitsmijter Documentation</title>
 
@@ -28,9 +27,8 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
     content="Migrating to Per-Tenant JWT Algorithms"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.
-Overview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:
-Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed deployments: Run HS256 and RS256 tenants in the same instance Gradual rollout: Test RS256 with pilot tenants before full deployment Before You Start Compatibility: Per-tenant algorithm selection is available in Uitsmijter CE 0." />
+  <meta property="og:description" content=" Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.
+Overview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/" />
 
@@ -39,9 +37,8 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Migrating to Per-Tenant JWT Algorithms" />
-  <meta name="twitter:description" content="Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.
-Overview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:
-Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed deployments: Run HS256 and RS256 tenants in the same instance Gradual rollout: Test RS256 with pilot tenants before full deployment Before You Start Compatibility: Per-tenant algorithm selection is available in Uitsmijter CE 0." />
+  <meta name="twitter:description" content=" Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.
+Overview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:" />
 
 
   <script type="application/ld+json">
@@ -52,7 +49,7 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
       "name": "Migrating to Per-Tenant JWT Algorithms",
       "url" : "https://docs.uitsmijter.io/configuration/tenant_algorithm_migration/",
       "headline": "Migrating to Per-Tenant JWT Algorithms",
-      "description": "Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.\nOverview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:\nZero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed deployments: Run HS256 and RS256 tenants in the same instance Gradual rollout: Test RS256 with pilot tenants before full deployment Before You Start Compatibility: Per-tenant algorithm selection is available in Uitsmijter CE 0.",
+      "description": " Migrating to Per-Tenant JWT Algorithms This guide helps you migrate from global JWT algorithm configuration to per-tenant configuration.\nOverview Uitsmijter supports per-tenant JWT algorithm selection, allowing different tenants to use HS256 or RS256 independently. This enables:",
       "wordCount" : "974",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2824,25 +2821,25 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
 <p>Existing tenant configurations <strong>continue to work without changes</strong>:</p>
 <p><strong>Version 0.10.0 and earlier:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Environment variable controlled global algorithm</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">HS256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">JWT_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l">HS256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant (no algorithm specified, used global setting)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Tenant (no algorithm specified, used global setting)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
 </span></span></span></code></pre></div><p><strong>Version 0.10.1+ (current):</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># No JWT_ALGORITHM environment variable needed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant (no algorithm specified → defaults to HS256)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Tenant (no algorithm specified → defaults to HS256)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># jwt_algorithm: HS256  # Optional, defaults to HS256</span><span class="w">
@@ -2914,15 +2911,15 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">getKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;HS256&#39;</span><span class="p">,</span> <span class="s1">&#39;RS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// Handles both HS256 and RS256 tokens
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></div><ol start="2">
 <li>
 <p><strong>Choose a pilot tenant</strong> for initial RS256 rollout:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">pilot-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># ← Tenant-specific override</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">pilot.example.com</span><span class="w">
@@ -2969,33 +2966,33 @@ Zero-downtime migration: Migrate tenants from HS256 to RS256 one at a time Mixed
 </ul>
 <p><strong>Configuration</strong>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Tenant A: Internal tools (uses default HS256)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">internal-tools</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">internal.example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># No jwt_algorithm → defaults to HS256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant B: Customer portal (uses RS256)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Tenant B: Customer portal (uses RS256)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">customer-portal</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Explicit RS256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">portal.example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Tenant C: Legacy app (explicitly uses HS256)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Tenant C: Legacy app (explicitly uses HS256)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">legacy-app</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">HS256 </span><span class="w"> </span><span class="c"># Explicit HS256 (clearer than relying on default)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">legacy.example.com</span><span class="w">

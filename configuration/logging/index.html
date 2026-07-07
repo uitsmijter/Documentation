@@ -9,13 +9,12 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Logging The Uitsmijter authorisation server logs in different levels and formats. As default, it logs in INFO and plain strings onto the console but ndjson format is also supported.
+  <meta name="description" content=" Logging The Uitsmijter authorisation server logs in different levels and formats. As default, it logs in INFO and plain strings onto the console but ndjson format is also supported.
 The default might change in the future because ndjson is more commonly used.
-Setting the level The following levels are available:
-Name Description trace Appropriate for messages that contain information normally of use only when tracing the execution of a program." />
+Setting the level The following levels are available:" />
 
     <title>Logging | Uitsmijter Documentation</title>
 
@@ -29,10 +28,9 @@ Name Description trace Appropriate for messages that contain information normall
     content="Logging"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Logging The Uitsmijter authorisation server logs in different levels and formats. As default, it logs in INFO and plain strings onto the console but ndjson format is also supported.
+  <meta property="og:description" content=" Logging The Uitsmijter authorisation server logs in different levels and formats. As default, it logs in INFO and plain strings onto the console but ndjson format is also supported.
 The default might change in the future because ndjson is more commonly used.
-Setting the level The following levels are available:
-Name Description trace Appropriate for messages that contain information normally of use only when tracing the execution of a program." />
+Setting the level The following levels are available:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/configuration/logging/" />
 
@@ -41,10 +39,9 @@ Name Description trace Appropriate for messages that contain information normall
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Logging" />
-  <meta name="twitter:description" content="Logging The Uitsmijter authorisation server logs in different levels and formats. As default, it logs in INFO and plain strings onto the console but ndjson format is also supported.
+  <meta name="twitter:description" content=" Logging The Uitsmijter authorisation server logs in different levels and formats. As default, it logs in INFO and plain strings onto the console but ndjson format is also supported.
 The default might change in the future because ndjson is more commonly used.
-Setting the level The following levels are available:
-Name Description trace Appropriate for messages that contain information normally of use only when tracing the execution of a program." />
+Setting the level The following levels are available:" />
 
 
   <script type="application/ld+json">
@@ -55,7 +52,7 @@ Name Description trace Appropriate for messages that contain information normall
       "name": "Logging",
       "url" : "https://docs.uitsmijter.io/configuration/logging/",
       "headline": "Logging",
-      "description": "Logging The Uitsmijter authorisation server logs in different levels and formats. As default, it logs in INFO and plain strings onto the console but ndjson format is also supported.\nThe default might change in the future because ndjson is more commonly used.\nSetting the level The following levels are available:\nName Description trace Appropriate for messages that contain information normally of use only when tracing the execution of a program.",
+      "description": " Logging The Uitsmijter authorisation server logs in different levels and formats. As default, it logs in INFO and plain strings onto the console but ndjson format is also supported.\nThe default might change in the future because ndjson is more commonly used.\nSetting the level The following levels are available:",
       "wordCount" : "285",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2797,42 +2794,42 @@ console but ndjson format is also supported.</p>
 </div>
 <p>The following levels are available:</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>trace</td>
-<td>Appropriate for messages that contain information normally of use only when tracing the execution of a program.</td>
-</tr>
-<tr>
-<td>debug</td>
-<td>Appropriate for messages that contain information normally of use only when debugging a program.</td>
-</tr>
-<tr>
-<td>info</td>
-<td>Appropriate for informational messages.</td>
-</tr>
-<tr>
-<td>notice</td>
-<td>Appropriate for conditions that are not error conditions, but that may require special handling.</td>
-</tr>
-<tr>
-<td>warning</td>
-<td>Appropriate for messages that are not error conditions, but more severe than notice.</td>
-</tr>
-<tr>
-<td>error</td>
-<td>Appropriate for error conditions.</td>
-</tr>
-<tr>
-<td>critical</td>
-<td>Appropriate for critical error conditions that usually require immediate attention.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Name</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>trace</td>
+          <td>Appropriate for messages that contain information normally of use only when tracing the execution of a program.</td>
+      </tr>
+      <tr>
+          <td>debug</td>
+          <td>Appropriate for messages that contain information normally of use only when debugging a program.</td>
+      </tr>
+      <tr>
+          <td>info</td>
+          <td>Appropriate for informational messages.</td>
+      </tr>
+      <tr>
+          <td>notice</td>
+          <td>Appropriate for conditions that are not error conditions, but that may require special handling.</td>
+      </tr>
+      <tr>
+          <td>warning</td>
+          <td>Appropriate for messages that are not error conditions, but more severe than notice.</td>
+      </tr>
+      <tr>
+          <td>error</td>
+          <td>Appropriate for error conditions.</td>
+      </tr>
+      <tr>
+          <td>critical</td>
+          <td>Appropriate for critical error conditions that usually require immediate attention.</td>
+      </tr>
+  </tbody>
 </table> </div>
 <p>Set the <code>LOG_LEVEL</code> as an environment variable to get the logs of the level of detail you need.</p>
 <p>If you run Uitsmijter in local development mode, you can set the environment variable <code>LOG_LEVEL</code> in the file <code>.env</code>.</p>
@@ -2855,22 +2852,22 @@ look at the <a
 </div>
 <p>Those formats are available</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>console</td>
-<td>Logs a plain log string in the format of <code>[ level ] Message</code>.</td>
-</tr>
-<tr>
-<td>ndjson</td>
-<td>Logs detailed information as a one line json string.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Name</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>console</td>
+          <td>Logs a plain log string in the format of <code>[ level ] Message</code>.</td>
+      </tr>
+      <tr>
+          <td>ndjson</td>
+          <td>Logs detailed information as a one line json string.</td>
+      </tr>
+  </tbody>
 </table> </div>
 <p>Set the <code>LOG_FORMAT</code> as environment variable to log in the needed form.</p>
 <p>If you run Uitsmijter in local development mode, you can set the environment variable <code>LOG_LEVEL</code> in the file <code>.env</code>.</p>

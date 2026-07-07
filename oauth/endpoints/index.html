@@ -9,10 +9,10 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
+  <meta name="description" content=" Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
 
     <title>Available Endpoints | Uitsmijter Documentation</title>
 
@@ -26,7 +26,7 @@
     content="Available Endpoints"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
+  <meta property="og:description" content=" Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/oauth/endpoints/" />
 
@@ -35,7 +35,7 @@
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Available Endpoints" />
-  <meta name="twitter:description" content="Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
+  <meta name="twitter:description" content=" Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage." />
 
 
   <script type="application/ld+json">
@@ -46,8 +46,8 @@
       "name": "Available Endpoints",
       "url" : "https://docs.uitsmijter.io/oauth/endpoints/",
       "headline": "Available Endpoints",
-      "description": "Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.",
-      "wordCount" : "3640",
+      "description": " Available Endpoints An endpoint is a specific location capable of accepting incoming requests and is usually a specific URL (Uniform Resource Locator) that is provided by an API (Application Programming Interface). An API is a set of programming instructions and standards for accessing a web-based software application or web tool. APIs allow different software systems to communicate with each other, and enable functionality such as requesting data from a server, or sending data to a server for storage.",
+      "wordCount" : "3980",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2829,6 +2829,13 @@ The <code>/authorize</code> endpoint will redirect to a callback url with an aut
   href="/oauth/pkce"
 >PKCE</a> to request an authorization code.</p>
 </blockquote>
+<blockquote>
+<p><strong>Note about <code>client_secret</code></strong>:</p>
+<p>The authorization endpoint (<code>/authorize</code>) does not require or validate the <code>client_secret</code>. Per RFC 6749
+§4.1.1/§3.2.1 the client is only identified here by its <code>client_id</code>. Confidential clients authenticate with their
+secret on the back-channel <strong>token</strong> request (<code>/token</code>) instead. This prevents the secret from leaking through the
+browser front-channel.</p>
+</blockquote>
 <p><strong>Example</strong>: Request an authorization code with PKCE SHA265 code</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">    /authorize
 </span></span><span class="line"><span class="cl">        ?response_type=code
@@ -2840,48 +2847,48 @@ The <code>/authorize</code> endpoint will redirect to a callback url with an aut
 </span></span><span class="line"><span class="cl">        &amp;code_challenge_method=S256
 </span></span></code></pre></div><p><strong>Parameter description</strong>:</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>response_type</td>
-<td>Specifies the type of response that the authorization server should return. The value is <code>code</code>, which indicates that the authorization server should return an authorization code as the response is the only allowed option.</td>
-</tr>
-<tr>
-<td>client_id</td>
-<td>This is the unique identifier of the client application that is making the request. Read more information about <a
+  <thead>
+      <tr>
+          <th>Parameter</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>response_type</td>
+          <td>Specifies the type of response that the authorization server should return. The value is <code>code</code>, which indicates that the authorization server should return an authorization code as the response is the only allowed option.</td>
+      </tr>
+      <tr>
+          <td>client_id</td>
+          <td>This is the unique identifier of the client application that is making the request. Read more information about <a
   class="gdoc-markdown__link"
   href="/configuration/tenant_client_config"
 >client configuration</a>.</td>
-</tr>
-<tr>
-<td>redirect_uri</td>
-<td>This is the URL that the user should be redirected to after the authorization server grant access to the client application.</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>This specifies the scope of the authorization that is being requested. The value of scope is a comma-separated list of permissions that the client application is requesting access to. It have to be a subset of the allowed client-level scopes.</td>
-</tr>
-<tr>
-<td>state</td>
-<td>This is an optional parameter that can be used to pass along state information between the authorization request and the response. The <code>state</code>&rsquo;s value will be returned by the authorisation server response.</td>
-</tr>
-<tr>
-<td>code_challenge</td>
-<td>This is an optional parameter that is used as part of the OAuth 2.0 <a
+      </tr>
+      <tr>
+          <td>redirect_uri</td>
+          <td>This is the URL that the user should be redirected to after the authorization server grant access to the client application.</td>
+      </tr>
+      <tr>
+          <td>scope</td>
+          <td>This specifies the scope of the authorization that is being requested. The value of scope is a comma-separated list of permissions that the client application is requesting access to. It have to be a subset of the allowed client-level scopes.</td>
+      </tr>
+      <tr>
+          <td>state</td>
+          <td>This is an optional parameter that can be used to pass along state information between the authorization request and the response. The <code>state</code>&rsquo;s value will be returned by the authorisation server response.</td>
+      </tr>
+      <tr>
+          <td>code_challenge</td>
+          <td>This is an optional parameter that is used as part of the OAuth 2.0 <a
   class="gdoc-markdown__link"
   href="/oauth/pkce"
 >Proof Key for Code Exchange (PKCE)</a> extension. It represents a challenge value that is generated by the client application and sent to the authorization server as part of the authorization request.</td>
-</tr>
-<tr>
-<td>code_challenge_method</td>
-<td>Is an optional parameter that is used in conjunction with code_challenge and specifies the method that was used to generate the challenge value. In this case, the value is S256, which indicates that the challenge value was generated using the SHA-256 hash function. Possible values are: S256 or PLAIN</td>
-</tr>
-</tbody>
+      </tr>
+      <tr>
+          <td>code_challenge_method</td>
+          <td>Is an optional parameter that is used in conjunction with code_challenge and specifies the method that was used to generate the challenge value. In this case, the value is S256, which indicates that the challenge value was generated using the SHA-256 hash function. Possible values are: S256 or PLAIN</td>
+      </tr>
+  </tbody>
 </table> </div>
 <p>In case the authorisation process succeeded the authorisation server responds with a redirect:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
@@ -2945,38 +2952,38 @@ The ability to serve a <code>password</code> grant type must be enabled explicit
 </blockquote>
 <p><strong>Parameter description</strong>:</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>grant_type</td>
-<td>Specifies the type of grant that is being requested. The grant type determines the flow that will be used to obtain the access token. The first example uses the authorization_code grant type, which means that the client application is requesting an access token by providing an authorization code that was previously obtained through the authorization flow. The second example uses the password grant type, which means that the client application is requesting an access token by providing the user&rsquo;s login credentials (username and password).</td>
-</tr>
-<tr>
-<td>client_id</td>
-<td>Is the unique identifier of the client application that is making the request.</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>This specifies the scope of the authorization that is being requested. The value of scope is a space-separated list of permissions that the client application is requesting access to.</td>
-</tr>
-<tr>
-<td>code</td>
-<td>This is the authorization code that the client application is using to request an access token. This parameter is only used in the first example (authorization_code grant type) and is not present in the second (password grant type) example.</td>
-</tr>
-<tr>
-<td>username</td>
-<td>This is the username of the user who is granting authorization to the client application.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>the password of the user who is granting authorization to the client application. This parameter is only used in the password grant type.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Parameter</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>grant_type</td>
+          <td>Specifies the type of grant that is being requested. The grant type determines the flow that will be used to obtain the access token. The first example uses the authorization_code grant type, which means that the client application is requesting an access token by providing an authorization code that was previously obtained through the authorization flow. The second example uses the password grant type, which means that the client application is requesting an access token by providing the user&rsquo;s login credentials (username and password).</td>
+      </tr>
+      <tr>
+          <td>client_id</td>
+          <td>Is the unique identifier of the client application that is making the request.</td>
+      </tr>
+      <tr>
+          <td>scope</td>
+          <td>This specifies the scope of the authorization that is being requested. The value of scope is a space-separated list of permissions that the client application is requesting access to.</td>
+      </tr>
+      <tr>
+          <td>code</td>
+          <td>This is the authorization code that the client application is using to request an access token. This parameter is only used in the first example (authorization_code grant type) and is not present in the second (password grant type) example.</td>
+      </tr>
+      <tr>
+          <td>username</td>
+          <td>This is the username of the user who is granting authorization to the client application.</td>
+      </tr>
+      <tr>
+          <td>password</td>
+          <td>the password of the user who is granting authorization to the client application. This parameter is only used in the password grant type.</td>
+      </tr>
+  </tbody>
 </table> </div>
 <p>A possible response from the authorization server for the first example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -3006,6 +3013,73 @@ used in certain grant types. The refresh_token is used to obtain a new access to
 without having to prompt the user for their login credentials again. That is strictly forbidden with the password grant
 type.</p>
 <div class="gdoc-page__anchorwrap">
+    <h3 id="oauthdevice_authorization">
+        /oauth/device_authorization
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/endpoints/#oauthdevice_authorization" class="gdoc-page__anchor clip flex align-center" title="Anchor to: /oauth/device_authorization" aria-label="Anchor to: /oauth/device_authorization" href="#oauthdevice_authorization">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>The <code>/oauth/device_authorization</code> endpoint is the device authorization request endpoint of the
+<a
+  class="gdoc-markdown__link"
+  href="https://datatracker.ietf.org/doc/html/rfc8628"
+>OAuth 2.0 Device Authorization Grant (RFC 8628)</a>. It is used by
+input-constrained devices (command line tools, smart TVs, IoT devices) that authenticate the user on a secondary device
+with a browser.</p>
+<p>The device POSTs its <code>client_id</code> (and optionally a <code>scope</code>) to this endpoint and obtains a <code>device_code</code> together with a
+<code>user_code</code>. The <code>device_code</code> stays on the device and is used to poll the <a
+  class="gdoc-markdown__link"
+  href="#token"
+>/token</a> endpoint, while the
+<code>user_code</code> is shown to the user, who enters it in a browser at the <a
+  class="gdoc-markdown__link"
+  href="#activate"
+>/activate</a> verification page.</p>
+<p><strong>Example</strong>: Request a device and user code</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl --request POST <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --url https://id.example.com/oauth/device_authorization <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --header <span class="s1">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --data <span class="s1">&#39;client_id=9095A4F2-35B2-48B1-A325-309CA324B97E&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --data <span class="s1">&#39;scope=openid&#39;</span>
+</span></span></code></pre></div><p>The authorization server responds with the device authorization response:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;device_code&#34;</span><span class="p">:</span> <span class="s2">&#34;GmRhmhcxhwAzkoEqiMEg_DnyEysNkuNhszIySk9eS&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;user_code&#34;</span><span class="p">:</span> <span class="s2">&#34;WDJB-MJHT&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;verification_uri&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com/activate&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;expires_in&#34;</span><span class="p">:</span> <span class="mi">1800</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;interval&#34;</span><span class="p">:</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The device then polls the <a
+  class="gdoc-markdown__link"
+  href="#token"
+>/token</a> endpoint using the <code>device_code</code> and the
+<code>urn:ietf:params:oauth:grant-type:device_code</code> grant type. See the
+<a
+  class="gdoc-markdown__link"
+  href="/oauth/granttypes#device-code"
+>device code grant type</a> for the full flow and polling responses.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="activate">
+        /activate
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/endpoints/#activate" class="gdoc-page__anchor clip flex align-center" title="Anchor to: /activate" aria-label="Anchor to: /activate" href="#activate">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>The <code>/activate</code> endpoint is the user-facing verification page of the device authorization grant. The user opens this URL
+(the <code>verification_uri</code> returned by <a
+  class="gdoc-markdown__link"
+  href="#oauthdevice_authorization"
+>/oauth/device_authorization</a>) in a browser, enters the
+<code>user_code</code> shown on the device and authenticates. After a successful login the user approves the pending device request,
+which allows the device to obtain its tokens from the <a
+  class="gdoc-markdown__link"
+  href="#token"
+>/token</a> endpoint.</p>
+<p><code>GET /activate</code> renders the verification form (optionally pre-filled with the <code>user_code</code> when it is passed as a query
+parameter), and <code>POST /activate</code> submits the entered <code>user_code</code> to approve the device.</p>
+<div class="gdoc-page__anchorwrap">
     <h3 id="revoke">
         /revoke
         <a data-clipboard-text="https://docs.uitsmijter.io/oauth/endpoints/#revoke" class="gdoc-page__anchor clip flex align-center" title="Anchor to: /revoke" aria-label="Anchor to: /revoke" href="#revoke">
@@ -3026,43 +3100,43 @@ type.</p>
 <p><strong>Request format:</strong></p>
 <p>The revocation endpoint accepts HTTP POST requests with <code>application/x-www-form-urlencoded</code> content type:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl --request POST <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --url https://id.example.com/revoke <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --header <span class="s1">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --data <span class="s1">&#39;token=V7vZQbJNNY7zR8IWyV7vZQbJNNY7zR8IW&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --data <span class="s1">&#39;token_type_hint=access_token&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --data <span class="s1">&#39;client_id=9095A4F2-35B2-48B1-A325-309CA324B97E&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --data <span class="s1">&#39;client_secret=secret123&#39;</span>
+</span></span></span><span class="line"><span class="cl">  --url https://id.example.com/revoke <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --header <span class="s1">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --data <span class="s1">&#39;token=V7vZQbJNNY7zR8IWyV7vZQbJNNY7zR8IW&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --data <span class="s1">&#39;token_type_hint=access_token&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --data <span class="s1">&#39;client_id=9095A4F2-35B2-48B1-A325-309CA324B97E&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --data <span class="s1">&#39;client_secret=secret123&#39;</span>
 </span></span></code></pre></div><p><strong>Parameter description:</strong></p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>token</td>
-<td>Yes</td>
-<td>The token value to revoke. Can be either an access token (JWT) or refresh token.</td>
-</tr>
-<tr>
-<td>token_type_hint</td>
-<td>No</td>
-<td>Hint about the token type: <code>access_token</code> or <code>refresh_token</code>. Helps the server optimize token lookup. If the hint is incorrect, the server will search across all token types.</td>
-</tr>
-<tr>
-<td>client_id</td>
-<td>Yes</td>
-<td>The unique identifier of the client application making the revocation request.</td>
-</tr>
-<tr>
-<td>client_secret</td>
-<td>Optional</td>
-<td>The client secret. REQUIRED for confidential clients (clients with a configured secret). MUST NOT be provided for public clients. The same authentication rules as the token endpoint apply.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Parameter</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>token</td>
+          <td>Yes</td>
+          <td>The token value to revoke. Can be either an access token (JWT) or refresh token.</td>
+      </tr>
+      <tr>
+          <td>token_type_hint</td>
+          <td>No</td>
+          <td>Hint about the token type: <code>access_token</code> or <code>refresh_token</code>. Helps the server optimize token lookup. If the hint is incorrect, the server will search across all token types.</td>
+      </tr>
+      <tr>
+          <td>client_id</td>
+          <td>Yes</td>
+          <td>The unique identifier of the client application making the revocation request.</td>
+      </tr>
+      <tr>
+          <td>client_secret</td>
+          <td>Optional</td>
+          <td>The client secret. REQUIRED for confidential clients (clients with a configured secret). MUST NOT be provided for public clients. The same authentication rules as the token endpoint apply.</td>
+      </tr>
+  </tbody>
 </table> </div>
 <p><strong>Response:</strong></p>
 <p>Per RFC 7009, the authorization server responds with HTTP 200 OK regardless of whether the token was valid, already revoked, or never existed. This prevents information disclosure about token validity.</p>
@@ -3084,7 +3158,7 @@ type.</p>
 </blockquote>
 <p><strong>Example usage in an application:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// When user logs out, revoke the refresh token
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">async</span> <span class="kd">function</span> <span class="nx">logout</span><span class="p">(</span><span class="nx">refreshToken</span><span class="p">,</span> <span class="nx">clientId</span><span class="p">,</span> <span class="nx">clientSecret</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">logout</span><span class="p">(</span><span class="nx">refreshToken</span><span class="p">,</span> <span class="nx">clientId</span><span class="p">,</span> <span class="nx">clientSecret</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://id.example.com/revoke&#39;</span><span class="p">,</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
@@ -3099,7 +3173,7 @@ type.</p>
 </span></span><span class="line"><span class="cl">  <span class="p">});</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="c1">// Clear local session
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;refresh_token&#39;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;refresh_token&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;access_token&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
@@ -3142,8 +3216,8 @@ type.</p>
 </ol>
 <p><strong>Example</strong>: Fetching discovery metadata</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl --request GET <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --url https://id.example.com/.well-known/openid-configuration <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --header <span class="s1">&#39;Accept: application/json&#39;</span>
+</span></span></span><span class="line"><span class="cl">  --url https://id.example.com/.well-known/openid-configuration <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --header <span class="s1">&#39;Accept: application/json&#39;</span>
 </span></span></code></pre></div><p>This returns a JSON document with the OpenID Provider Metadata:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com&#34;</span><span class="p">,</span>
@@ -3160,6 +3234,16 @@ type.</p>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;token_endpoint_auth_methods_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;client_secret_post&#34;</span><span class="p">,</span> <span class="s2">&#34;client_secret_basic&#34;</span><span class="p">,</span> <span class="s2">&#34;none&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;code_challenge_methods_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;S256&#34;</span><span class="p">,</span> <span class="s2">&#34;plain&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;claims_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;sub&#34;</span><span class="p">,</span> <span class="s2">&#34;iss&#34;</span><span class="p">,</span> <span class="s2">&#34;aud&#34;</span><span class="p">,</span> <span class="s2">&#34;exp&#34;</span><span class="p">,</span> <span class="s2">&#34;iat&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;email&#34;</span><span class="p">,</span> <span class="s2">&#34;tenant&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>When a client of the tenant supports the <code>device_code</code> grant, the discovery document additionally advertises a
+<code>device_authorization_endpoint</code> pointing at <a
+  class="gdoc-markdown__link"
+  href="#oauthdevice_authorization"
+>/oauth/device_authorization</a> and lists
+<code>urn:ietf:params:oauth:grant-type:device_code</code> in <code>grant_types_supported</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;device_authorization_endpoint&#34;</span><span class="p">:</span> <span class="s2">&#34;https://id.example.com/oauth/device_authorization&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;grant_types_supported&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;authorization_code&#34;</span><span class="p">,</span> <span class="s2">&#34;refresh_token&#34;</span><span class="p">,</span> <span class="s2">&#34;urn:ietf:params:oauth:grant-type:device_code&#34;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><strong>Multi-tenant discovery</strong></p>
 <p>Each tenant in Uitsmijter has its own discovery endpoint with tenant-specific configuration:</p>
@@ -3181,10 +3265,10 @@ type.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">userManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserManager</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">authority</span><span class="o">:</span> <span class="s1">&#39;https://id.example.com&#39;</span><span class="p">,</span>  <span class="c1">// Base URL - library fetches /.well-known/openid-configuration
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">client_id</span><span class="o">:</span> <span class="s1">&#39;9095A4F2-35B2-48B1-A325-309CA324B97E&#39;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nx">client_id</span><span class="o">:</span> <span class="s1">&#39;9095A4F2-35B2-48B1-A325-309CA324B97E&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">redirect_uri</span><span class="o">:</span> <span class="s1">&#39;https://myapp.example.com/callback&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// All endpoint URLs and capabilities are automatically discovered!
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></div><p>The library will automatically fetch the discovery document and configure itself with the correct endpoints, supported scopes, and authentication methods.</p>
 <blockquote>
 <p><strong>Note</strong>: The discovery endpoint is publicly accessible and does not require authentication. This is by design, as clients need to discover the configuration before they can authenticate.</p>
@@ -3217,8 +3301,8 @@ type.</p>
 </ul>
 <p><strong>Example</strong>: Fetching the JWKS</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl --request GET <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --url https://id.example.com/.well-known/jwks.json <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --header <span class="s1">&#39;Accept: application/json&#39;</span>
+</span></span></span><span class="line"><span class="cl">  --url https://id.example.com/.well-known/jwks.json <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --header <span class="s1">&#39;Accept: application/json&#39;</span>
 </span></span></code></pre></div><p>This returns a JSON Web Key Set containing one or more RSA public keys:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;keys&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -3242,42 +3326,42 @@ type.</p>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><strong>JWKS Response fields:</strong></p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>keys</code></td>
-<td>Array of JSON Web Keys. Multiple keys support key rotation.</td>
-</tr>
-<tr>
-<td><code>kty</code></td>
-<td>Key Type. Always &ldquo;RSA&rdquo; for Uitsmijter&rsquo;s asymmetric keys.</td>
-</tr>
-<tr>
-<td><code>use</code></td>
-<td>Public Key Use. Always &ldquo;sig&rdquo; (signature verification).</td>
-</tr>
-<tr>
-<td><code>kid</code></td>
-<td>Key ID. Matches the <code>kid</code> field in JWT headers for key selection. Format: <code>YYYY-MM-DD</code>.</td>
-</tr>
-<tr>
-<td><code>alg</code></td>
-<td>Algorithm. Always &ldquo;RS256&rdquo; (RSA Signature with SHA-256).</td>
-</tr>
-<tr>
-<td><code>n</code></td>
-<td>RSA Modulus. The public key modulus, base64url-encoded.</td>
-</tr>
-<tr>
-<td><code>e</code></td>
-<td>RSA Exponent. The public key exponent, base64url-encoded. Usually &ldquo;AQAB&rdquo; (65537).</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Field</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>keys</code></td>
+          <td>Array of JSON Web Keys. Multiple keys support key rotation.</td>
+      </tr>
+      <tr>
+          <td><code>kty</code></td>
+          <td>Key Type. Always &ldquo;RSA&rdquo; for Uitsmijter&rsquo;s asymmetric keys.</td>
+      </tr>
+      <tr>
+          <td><code>use</code></td>
+          <td>Public Key Use. Always &ldquo;sig&rdquo; (signature verification).</td>
+      </tr>
+      <tr>
+          <td><code>kid</code></td>
+          <td>Key ID. Matches the <code>kid</code> field in JWT headers for key selection. Format: <code>YYYY-MM-DD</code>.</td>
+      </tr>
+      <tr>
+          <td><code>alg</code></td>
+          <td>Algorithm. Always &ldquo;RS256&rdquo; (RSA Signature with SHA-256).</td>
+      </tr>
+      <tr>
+          <td><code>n</code></td>
+          <td>RSA Modulus. The public key modulus, base64url-encoded.</td>
+      </tr>
+      <tr>
+          <td><code>e</code></td>
+          <td>RSA Exponent. The public key exponent, base64url-encoded. Usually &ldquo;AQAB&rdquo; (65537).</td>
+      </tr>
+  </tbody>
 </table> </div>
 <p><strong>Caching:</strong></p>
 <p>The JWKS endpoint includes caching headers to improve performance:</p>
@@ -3299,7 +3383,7 @@ type.</p>
 </span></span><span class="line"><span class="cl">  <span class="nx">jwksUri</span><span class="o">:</span> <span class="s1">&#39;https://id.example.com/.well-known/jwks.json&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">cache</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">cacheMaxAge</span><span class="o">:</span> <span class="mi">3600000</span> <span class="c1">// 1 hour
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getKey</span><span class="p">(</span><span class="nx">header</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">client</span><span class="p">.</span><span class="nx">getSigningKey</span><span class="p">(</span><span class="nx">header</span><span class="p">.</span><span class="nx">kid</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -3309,7 +3393,7 @@ type.</p>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// Verify a JWT
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">getKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;RS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">getKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;RS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Invalid token:&#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -3334,11 +3418,11 @@ type.</p>
 </ul>
 <p>To enable RS256 and JWKS, configure it in your tenant:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Tenant configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Enable RS256 for this tenant</span><span class="w">
@@ -3381,8 +3465,8 @@ as the <code>userinfo_endpoint</code>.</p>
 <p>To use this endpoint, you will need to make a GET request to the <code>/token/info</code> endpoint and include the access token in
 the request. For example, you can use the curl command to make a request like this:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl --request GET <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --url https://YOUR_AUTH0_DOMAIN/token/info <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --header <span class="s1">&#39;Authorization: Bearer YOUR_ACCESS_TOKEN&#39;</span>
+</span></span></span><span class="line"><span class="cl">  --url https://YOUR_AUTH0_DOMAIN/token/info <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --header <span class="s1">&#39;Authorization: Bearer YOUR_ACCESS_TOKEN&#39;</span>
 </span></span></code></pre></div><p>This will return a JSON object containing information about the access token, such as its expiration time and the scope
 of the authorization that it represents. For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -3448,78 +3532,78 @@ from various sources.</p>
 The installation precess has a Grafana dashboard attached, that can be used to see business metrics about each tenant as
 well as about the overall system status over time.</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>http_request_duration_seconds</code></td>
-<td>Summary of all requested paths by method and status.</td>
-</tr>
-<tr>
-<td><code>http_requests_total</code></td>
-<td>Counters of total http requests by path, status and method.</td>
-</tr>
-<tr>
-<td><code>uitsmijter_login_attempts</code></td>
-<td>Histogram of the number of total login attempts regardless of result (success/failure).</td>
-</tr>
-<tr>
-<td><code>uitsmijter_login_success</code></td>
-<td>Counter of successful logins.</td>
-</tr>
-<tr>
-<td><code>uitsmijter_login_failure</code></td>
-<td>Counter of failed logins (wrong credentials or technical failure).</td>
-</tr>
-<tr>
-<td><code>uitsmijter_logout</code></td>
-<td>Counter of successful logout actions.</td>
-</tr>
-<tr>
-<td><code>uitsmijter_interceptor_success</code></td>
-<td>Counter of authorized accesses to pages using the interceptor middleware.</td>
-</tr>
-<tr>
-<td><code>uitsmijter_interceptor_failure</code></td>
-<td>Counter of failures trying to access pages using the interceptor middleware.</td>
-</tr>
-<tr>
-<td><code>uitsmijter_authorize_attempts</code></td>
-<td>Histogram of OAuth authorization attempts regardless of result (success/failure).</td>
-</tr>
-<tr>
-<td><code>uitsmijter_oauth_success</code></td>
-<td>Counter of successful OAuth token authorizations (all grant types).</td>
-</tr>
-<tr>
-<td><code>uitsmijter_oauth_failure</code></td>
-<td>Counter of failed OAuth token authorizations (all grant types).</td>
-</tr>
-<tr>
-<td><code>uitsmijter_revoke_success</code></td>
-<td>Counter of successful token revocations.</td>
-</tr>
-<tr>
-<td><code>uitsmijter_revoke_failure</code></td>
-<td>Counter of failed token revocations (authentication failures).</td>
-</tr>
-<tr>
-<td><code>uitsmijter_token_stored</code></td>
-<td>Histogram of valid refresh tokens over time.</td>
-</tr>
-<tr>
-<td><code>uitsmijter_tenants_count</code></td>
-<td>Gauge of the current number of managed tenants.</td>
-</tr>
-<tr>
-<td><code>uitsmijter_clients_count</code></td>
-<td>Gauge containing the current number of managed clients for all tenants.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Field</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>http_request_duration_seconds</code></td>
+          <td>Summary of all requested paths by method and status.</td>
+      </tr>
+      <tr>
+          <td><code>http_requests_total</code></td>
+          <td>Counters of total http requests by path, status and method.</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_login_attempts</code></td>
+          <td>Histogram of the number of total login attempts regardless of result (success/failure).</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_login_success</code></td>
+          <td>Counter of successful logins.</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_login_failure</code></td>
+          <td>Counter of failed logins (wrong credentials or technical failure).</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_logout</code></td>
+          <td>Counter of successful logout actions.</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_interceptor_success</code></td>
+          <td>Counter of authorized accesses to pages using the interceptor middleware.</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_interceptor_failure</code></td>
+          <td>Counter of failures trying to access pages using the interceptor middleware.</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_authorize_attempts</code></td>
+          <td>Histogram of OAuth authorization attempts regardless of result (success/failure).</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_oauth_success</code></td>
+          <td>Counter of successful OAuth token authorizations (all grant types).</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_oauth_failure</code></td>
+          <td>Counter of failed OAuth token authorizations (all grant types).</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_revoke_success</code></td>
+          <td>Counter of successful token revocations.</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_revoke_failure</code></td>
+          <td>Counter of failed token revocations (authentication failures).</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_token_stored</code></td>
+          <td>Histogram of valid refresh tokens over time.</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_tenants_count</code></td>
+          <td>Gauge of the current number of managed tenants.</td>
+      </tr>
+      <tr>
+          <td><code>uitsmijter_clients_count</code></td>
+          <td>Gauge containing the current number of managed clients for all tenants.</td>
+      </tr>
+  </tbody>
 </table> </div>
 <div class="gdoc-page__anchorwrap">
     <h2 id="further-readings">

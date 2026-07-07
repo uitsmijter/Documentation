@@ -9,13 +9,12 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Grant Types In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.
+  <meta name="description" content=" Grant Types In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.
 Configuration Grant types can be set at Client level.
-grant_types: - authorization_code - refresh_token - password If none of any grant type is specified, that authorization_code and refresh_token are enabled by default.
-Authorization Code The authorization code flow is a way to grant access to a protected resource, such as an API, by an external client." />
+grant_types: - authorization_code - refresh_token - password - device_code If none of any grant type is specified, that authorization_code and refresh_token are enabled by default." />
 
     <title>Grant Types | Uitsmijter Documentation</title>
 
@@ -29,10 +28,9 @@ Authorization Code The authorization code flow is a way to grant access to a pro
     content="Grant Types"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Grant Types In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.
+  <meta property="og:description" content=" Grant Types In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.
 Configuration Grant types can be set at Client level.
-grant_types: - authorization_code - refresh_token - password If none of any grant type is specified, that authorization_code and refresh_token are enabled by default.
-Authorization Code The authorization code flow is a way to grant access to a protected resource, such as an API, by an external client." />
+grant_types: - authorization_code - refresh_token - password - device_code If none of any grant type is specified, that authorization_code and refresh_token are enabled by default." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/oauth/granttypes/" />
 
@@ -41,10 +39,9 @@ Authorization Code The authorization code flow is a way to grant access to a pro
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Grant Types" />
-  <meta name="twitter:description" content="Grant Types In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.
+  <meta name="twitter:description" content=" Grant Types In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.
 Configuration Grant types can be set at Client level.
-grant_types: - authorization_code - refresh_token - password If none of any grant type is specified, that authorization_code and refresh_token are enabled by default.
-Authorization Code The authorization code flow is a way to grant access to a protected resource, such as an API, by an external client." />
+grant_types: - authorization_code - refresh_token - password - device_code If none of any grant type is specified, that authorization_code and refresh_token are enabled by default." />
 
 
   <script type="application/ld+json">
@@ -55,8 +52,8 @@ Authorization Code The authorization code flow is a way to grant access to a pro
       "name": "Grant Types",
       "url" : "https://docs.uitsmijter.io/oauth/granttypes/",
       "headline": "Grant Types",
-      "description": "Grant Types In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.\nConfiguration Grant types can be set at Client level.\ngrant_types: - authorization_code - refresh_token - password If none of any grant type is specified, that authorization_code and refresh_token are enabled by default.\nAuthorization Code The authorization code flow is a way to grant access to a protected resource, such as an API, by an external client.",
-      "wordCount" : "1301",
+      "description": " Grant Types In OAuth 2.0, the term “grant type” refers to the way an application gets an access token. Uitsmijter supports several grant types.\nConfiguration Grant types can be set at Client level.\ngrant_types: - authorization_code - refresh_token - password - device_code If none of any grant type is specified, that authorization_code and refresh_token are enabled by default.",
+      "wordCount" : "1868",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -2796,6 +2793,7 @@ Uitsmijter supports several grant types.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">authorization_code</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">refresh_token</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">password</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">device_code</span><span class="w">
 </span></span></span></code></pre></div><p>If none of any grant type is specified, that <code>authorization_code</code> and <code>refresh_token</code> are enabled by default.</p>
 <div class="gdoc-page__anchorwrap">
     <h2 id="authorization-code">
@@ -2827,49 +2825,49 @@ commonly used by web applications, as it allows the client to access resources o
 handle the user&rsquo;s credentials directly.</p>
 <p>The following values must be set in the request for an access token:</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>grant_type</td>
-<td>authorization_code</td>
-<td>This tells the server we’re using the authorization_code grant type</td>
-</tr>
-<tr>
-<td>client_id</td>
-<td><em>UUID of the client</em></td>
-<td>The public identifier of the application that the developer obtained during registration</td>
-</tr>
-<tr>
-<td>client_secret</td>
-<td>(optional)</td>
-<td>Must be set if the client request an secret. Reed more on <a
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Value</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>grant_type</td>
+          <td>authorization_code</td>
+          <td>This tells the server we’re using the authorization_code grant type</td>
+      </tr>
+      <tr>
+          <td>client_id</td>
+          <td><em>UUID of the client</em></td>
+          <td>The public identifier of the application that the developer obtained during registration</td>
+      </tr>
+      <tr>
+          <td>client_secret</td>
+          <td>(optional)</td>
+          <td>Must be set if the client request an secret. Reed more on <a
   class="gdoc-markdown__link"
   href="/configuration/tenant_client_config"
 >tenant and client config</a> page</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>(optional)</td>
-<td>If the application is requesting a token with limited scope, it should provide the requested scopes here</td>
-</tr>
-<tr>
-<td>code</td>
-<td><em>authorization code</em></td>
-<td>The previous requested authorisation code. See <a
+      </tr>
+      <tr>
+          <td>scope</td>
+          <td>(optional)</td>
+          <td>If the application is requesting a token with limited scope, it should provide the requested scopes here</td>
+      </tr>
+      <tr>
+          <td>code</td>
+          <td><em>authorization code</em></td>
+          <td>The previous requested authorisation code. See <a
   class="gdoc-markdown__link"
   href="/oauth/endpoints"
 >endpoints</a> and <a
   class="gdoc-markdown__link"
   href="/oauth/flow"
 >OAuth flow</a></td>
-</tr>
-</tbody>
+      </tr>
+  </tbody>
 </table> </div>
 <div class="gdoc-page__anchorwrap">
     <h3 id="example">
@@ -2880,9 +2878,9 @@ handle the user&rsquo;s credentials directly.</p>
     </h3>
 </div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -v <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -X POST <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl">  -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -d <span class="s1">&#39;
 </span></span></span><span class="line"><span class="cl"><span class="s1">  {
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;grant_type&#34;: &#34;authorization_code&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;client_id&#34;: &#34;D742D5BF-0402-4C04-9FF8-94C1D2DA5BE2&#34;,
@@ -2890,7 +2888,7 @@ handle the user&rsquo;s credentials directly.</p>
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;code&#34;: &#34;fuc6Ohah3ail&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s1">  }
 </span></span></span><span class="line"><span class="cl"><span class="s1">  &#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;https://login.example.com/token&#34;</span> 
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;https://login.example.com/token&#34;</span> 
 </span></span></code></pre></div><p>The server replies with an access token and a refresh token:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;access_token&#34;</span><span class="p">:</span> <span class="s2">&#34;aoth5bie8eiy2iPhaeghai6aijahvaeshungae8phieva6tiebeequ6tushei3ei&#34;</span><span class="p">,</span>
@@ -2901,9 +2899,9 @@ handle the user&rsquo;s credentials directly.</p>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>You can use that <code>access_token</code> to make request to API backends by setting the value to the authorisation header:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -v <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s1">&#39;Authorisation: Bearer aoth5bie8eiy2iPhaeghai6aijahvaeshungae8phieva6tiebeequ6tushei3ei&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;https://api.example.com/resource&#34;</span> 
+</span></span></span><span class="line"><span class="cl">  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -H <span class="s1">&#39;Authorisation: Bearer aoth5bie8eiy2iPhaeghai6aijahvaeshungae8phieva6tiebeequ6tushei3ei&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;https://api.example.com/resource&#34;</span> 
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="refresh-token">
         Refresh Token
@@ -2926,43 +2924,43 @@ resource just like the original access token.</li>
 expired, without requiring the user to go through the authorization process again.</p>
 <p>The following values must be set in the request for an access token:</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>grant_type</td>
-<td>refresh_token</td>
-<td>This tells the server we’re using the refresh token grant type</td>
-</tr>
-<tr>
-<td>client_id</td>
-<td><em>UUID of the client</em></td>
-<td>The public identifier of the application that the developer obtained during registration</td>
-</tr>
-<tr>
-<td>client_secret</td>
-<td>(optional)</td>
-<td>Must be set if the client request an secret. Reed more on <a
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Value</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>grant_type</td>
+          <td>refresh_token</td>
+          <td>This tells the server we’re using the refresh token grant type</td>
+      </tr>
+      <tr>
+          <td>client_id</td>
+          <td><em>UUID of the client</em></td>
+          <td>The public identifier of the application that the developer obtained during registration</td>
+      </tr>
+      <tr>
+          <td>client_secret</td>
+          <td>(optional)</td>
+          <td>Must be set if the client request an secret. Reed more on <a
   class="gdoc-markdown__link"
   href="/configuration/tenant_client_config"
 >tenant and client config</a> page</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>(optional)</td>
-<td>If the application is requesting a token with limited scope, it should provide the requested scopes here</td>
-</tr>
-<tr>
-<td>refresh_token</td>
-<td><em>token</em></td>
-<td>The previous requested refresh token that came with the last access token.</td>
-</tr>
-</tbody>
+      </tr>
+      <tr>
+          <td>scope</td>
+          <td>(optional)</td>
+          <td>If the application is requesting a token with limited scope, it should provide the requested scopes here</td>
+      </tr>
+      <tr>
+          <td>refresh_token</td>
+          <td><em>token</em></td>
+          <td>The previous requested refresh token that came with the last access token.</td>
+      </tr>
+  </tbody>
 </table> </div>
 <div class="gdoc-page__anchorwrap">
     <h3 id="example-1">
@@ -2973,16 +2971,16 @@ expired, without requiring the user to go through the authorization process agai
     </h3>
 </div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -v <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -X POST <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl">  -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -d <span class="s1">&#39;
 </span></span></span><span class="line"><span class="cl"><span class="s1">  {
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;grant_type&#34;: &#34;refresh_token&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;client_id&#34;: &#34;D742D5BF-0402-4C04-9FF8-94C1D2DA5BE2&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;refresh_token&#34;: &#34;DOO5AHD6SAi9PA1OOKIAZoOSHOHgO1TO&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s1">  }
 </span></span></span><span class="line"><span class="cl"><span class="s1">  &#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;https://login.example.com/token&#34;</span> 
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;https://login.example.com/token&#34;</span> 
 </span></span></code></pre></div><p>The server replies with a fresh access token and a new refresh token:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;access_token&#34;</span><span class="p">:</span> <span class="s2">&#34;ga2iqueikaathoiK8Aeghiew5oos5phohtaize3dimiev8ooDautha3mipei6dee&#34;</span><span class="p">,</span>
@@ -2993,9 +2991,9 @@ expired, without requiring the user to go through the authorization process agai
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>You can use that new <code>access_token</code> to make request to API backends by setting the value to the authorisation header:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -v <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s1">&#39;Authorisation: Bearer ga2iqueikaathoiK8Aeghiew5oos5phohtaize3dimiev8ooDautha3mipei6dee&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;https://api.example.com/resource&#34;</span> 
+</span></span></span><span class="line"><span class="cl">  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -H <span class="s1">&#39;Authorisation: Bearer ga2iqueikaathoiK8Aeghiew5oos5phohtaize3dimiev8ooDautha3mipei6dee&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;https://api.example.com/resource&#34;</span> 
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="password">
         Password
@@ -3024,48 +3022,48 @@ may want to turn this grant type on for development. Please migrate your app to 
 going life.</p>
 <p>The following values must be set in the request for an access token:</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>grant_type</td>
-<td>password</td>
-<td>This tells the server we’re using the password grant type</td>
-</tr>
-<tr>
-<td>client_id</td>
-<td><em>UUID of the client</em></td>
-<td>The public identifier of the application that the developer obtained during registration</td>
-</tr>
-<tr>
-<td>client_secret</td>
-<td>(optional)</td>
-<td>Must be set if the client request an secret. Reed more on <a
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Value</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>grant_type</td>
+          <td>password</td>
+          <td>This tells the server we’re using the password grant type</td>
+      </tr>
+      <tr>
+          <td>client_id</td>
+          <td><em>UUID of the client</em></td>
+          <td>The public identifier of the application that the developer obtained during registration</td>
+      </tr>
+      <tr>
+          <td>client_secret</td>
+          <td>(optional)</td>
+          <td>Must be set if the client request an secret. Reed more on <a
   class="gdoc-markdown__link"
   href="/configuration/tenant_client_config"
 >tenant and client config</a> page</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>(optional)</td>
-<td>If the application is requesting a token with limited scope, it should provide the requested scopes here</td>
-</tr>
-<tr>
-<td>username</td>
-<td></td>
-<td>The user’s username that they entered into the application</td>
-</tr>
-<tr>
-<td>password</td>
-<td></td>
-<td>The user’s password that they entered into the application</td>
-</tr>
-</tbody>
+      </tr>
+      <tr>
+          <td>scope</td>
+          <td>(optional)</td>
+          <td>If the application is requesting a token with limited scope, it should provide the requested scopes here</td>
+      </tr>
+      <tr>
+          <td>username</td>
+          <td></td>
+          <td>The user’s username that they entered into the application</td>
+      </tr>
+      <tr>
+          <td>password</td>
+          <td></td>
+          <td>The user’s password that they entered into the application</td>
+      </tr>
+  </tbody>
 </table> </div>
 <div class="gdoc-page__anchorwrap">
     <h3 id="example-2">
@@ -3076,9 +3074,9 @@ going life.</p>
     </h3>
 </div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -v <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -X POST <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl">  -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -d <span class="s1">&#39;
 </span></span></span><span class="line"><span class="cl"><span class="s1">  {
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;grant_type&#34;: &#34;password&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;client_id&#34;: &#34;e92b4a0b-d1d7-4d55-b2e3-dc570faca745&#34;,
@@ -3088,7 +3086,7 @@ going life.</p>
 </span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;password&#34;: &#34;Tes1Pas5w0r1&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s1">  }
 </span></span></span><span class="line"><span class="cl"><span class="s1">  &#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;https://login.example.com/token&#34;</span> 
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;https://login.example.com/token&#34;</span> 
 </span></span></code></pre></div><p>The server replies with an access token:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;access_token&#34;</span><span class="p">:</span> <span class="s2">&#34;MTQ0NjOkZmQ5OTM5NDE9ZTZjNGZmZjI3&#34;</span><span class="p">,</span>
@@ -3098,9 +3096,165 @@ going life.</p>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>You can use that <code>access_token</code> to make request to API backends by setting the value to the authorisation header:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -v <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s1">&#39;Authorisation: Bearer MTQ0NjOkZmQ5OTM5NDE9ZTZjNGZmZjI3&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;https://api.example.com/resource&#34;</span> 
+</span></span></span><span class="line"><span class="cl">  -H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -H <span class="s1">&#39;Authorisation: Bearer MTQ0NjOkZmQ5OTM5NDE9ZTZjNGZmZjI3&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;https://api.example.com/resource&#34;</span> 
+</span></span></code></pre></div><div class="gdoc-page__anchorwrap">
+    <h2 id="device-code">
+        Device Code
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/granttypes/#device-code" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Device Code" aria-label="Anchor to: Device Code" href="#device-code">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h2>
+</div>
+<p>The device code grant type implements the
+<a
+  class="gdoc-markdown__link"
+  href="https://datatracker.ietf.org/doc/html/rfc8628"
+>OAuth 2.0 Device Authorization Grant (RFC 8628)</a>. It is designed for
+input-constrained devices that either lack a browser or are difficult to type on, such as command line tools, smart TVs,
+media consoles and other IoT devices. Instead of typing their credentials on the device, the user authenticates on a
+secondary device (typically a phone or laptop) that has a full browser.</p>
+<p>The flow consists of three steps:</p>
+<ol>
+<li><strong>Device authorization request</strong>: The device POSTs to <code>/oauth/device_authorization</code> and receives a <code>device_code</code>
+(kept on the device), a <code>user_code</code> (shown to the user) and a <code>verification_uri</code> that the user should open.</li>
+<li><strong>User authorization</strong>: The user opens the <code>verification_uri</code> in a browser on another device, enters the <code>user_code</code>
+and authenticates at <code>/activate</code>. After a successful login the user approves the pending device request.</li>
+<li><strong>Token polling</strong>: While the user authorizes on the secondary device, the device polls <code>POST /token</code> with its
+<code>device_code</code>. Once the user has approved the request, the token endpoint returns an access token (and a refresh
+token).</li>
+</ol>
+<p>Clients explicitly have to turn on the <code>device_code</code> grant type to support it by listing <code>device_code</code> in their
+<code>grant_types</code>. The behaviour of the flow (for example the polling <code>interval</code> or the code lifetime) can optionally be
+tuned per client via <code>device_grant_config</code>. Read more on the
+<a
+  class="gdoc-markdown__link"
+  href="/configuration/tenant_client_config"
+>tenant and client config</a> page.</p>
+<p>The following values must be set in the request for an access token:</p>
+<div class="table-wrap"> <table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Value</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>grant_type</td>
+          <td>urn:ietf:params:oauth:grant-type:device_code</td>
+          <td>This tells the server we’re using the device code grant type. The bare <code>device_code</code> is also accepted as an alias.</td>
+      </tr>
+      <tr>
+          <td>client_id</td>
+          <td><em>UUID of the client</em></td>
+          <td>The public identifier of the application that the developer obtained during registration</td>
+      </tr>
+      <tr>
+          <td>client_secret</td>
+          <td>(optional)</td>
+          <td>Must be set if the client request an secret. Reed more on <a
+  class="gdoc-markdown__link"
+  href="/configuration/tenant_client_config"
+>tenant and client config</a> page</td>
+      </tr>
+      <tr>
+          <td>device_code</td>
+          <td><em>device code</em></td>
+          <td>The <code>device_code</code> that was returned by the device authorization response.</td>
+      </tr>
+  </tbody>
+</table> </div>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="polling-responses">
+        Polling responses
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/granttypes/#polling-responses" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Polling responses" aria-label="Anchor to: Polling responses" href="#polling-responses">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>While the user has not yet approved the request, the device keeps polling the <code>/token</code> endpoint. The token endpoint
+responds with one of the following:</p>
+<div class="table-wrap"> <table>
+  <thead>
+      <tr>
+          <th>Status</th>
+          <th>Body</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>200</code></td>
+          <td>access token (and refresh token)</td>
+          <td>The user approved the request. Stop polling and use the token.</td>
+      </tr>
+      <tr>
+          <td><code>400</code></td>
+          <td><code>{&quot;error&quot;:&quot;authorization_pending&quot;}</code></td>
+          <td>The user has not yet approved the request. Keep polling at <code>interval</code>.</td>
+      </tr>
+      <tr>
+          <td><code>400</code></td>
+          <td><code>{&quot;error&quot;:&quot;slow_down&quot;}</code></td>
+          <td>The device polls too fast. Increase the polling <code>interval</code> (by 5 seconds).</td>
+      </tr>
+      <tr>
+          <td><code>400</code></td>
+          <td><code>{&quot;error&quot;:&quot;access_denied&quot;}</code></td>
+          <td>The user denied the request. Stop polling.</td>
+      </tr>
+      <tr>
+          <td><code>400</code></td>
+          <td><code>{&quot;error&quot;:&quot;invalid_grant&quot;}</code></td>
+          <td>The <code>device_code</code> is unknown or expired. Stop polling and start a new flow.</td>
+      </tr>
+  </tbody>
+</table> </div>
+<p>These errors follow the standard RFC 6749/8628 error shape, so standard OAuth2 client libraries interoperate with the
+device flow without any Uitsmijter-specific handling.</p>
+<div class="gdoc-page__anchorwrap">
+    <h3 id="example-3">
+        Example
+        <a data-clipboard-text="https://docs.uitsmijter.io/oauth/granttypes/#example-3" class="gdoc-page__anchor clip flex align-center" title="Anchor to: Example" aria-label="Anchor to: Example" href="#example-3">
+            <svg class="gdoc-icon gdoc_link"><use xlink:href="#gdoc_link"></use></svg>
+        </a>
+    </h3>
+</div>
+<p>First, the device requests a <code>device_code</code> and a <code>user_code</code> from the device authorization endpoint:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -v <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -d <span class="s1">&#39;client_id=D742D5BF-0402-4C04-9FF8-94C1D2DA5BE2&amp;scope=openid&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;https://login.example.com/oauth/device_authorization&#34;</span> 
+</span></span></code></pre></div><p>The server replies with the device authorization response:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;device_code&#34;</span><span class="p">:</span> <span class="s2">&#34;GmRhmhcxhwAzkoEqiMEg_DnyEysNkuNhszIySk9eS&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;user_code&#34;</span><span class="p">:</span> <span class="s2">&#34;WDJB-MJHT&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;verification_uri&#34;</span><span class="p">:</span> <span class="s2">&#34;https://login.example.com/activate&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;expires_in&#34;</span><span class="p">:</span> <span class="mi">1800</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;interval&#34;</span><span class="p">:</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The device now shows the <code>user_code</code> and the <code>verification_uri</code> to the user and starts polling the token endpoint with
+the <code>device_code</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -v <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -d <span class="s1">&#39;grant_type=urn:ietf:params:oauth:grant-type:device_code&amp;client_id=D742D5BF-0402-4C04-9FF8-94C1D2DA5BE2&amp;device_code=GmRhmhcxhwAzkoEqiMEg_DnyEysNkuNhszIySk9eS&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;https://login.example.com/token&#34;</span> 
+</span></span></code></pre></div><p>As long as the user has not approved the request, the server replies with <code>authorization_pending</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;error&#34;</span><span class="p">:</span> <span class="s2">&#34;authorization_pending&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Once the user has entered the <code>user_code</code> at the <code>verification_uri</code> and approved the request, the server replies with an
+access token and a refresh token:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;access_token&#34;</span><span class="p">:</span> <span class="s2">&#34;aoth5bie8eiy2iPhaeghai6aijahvaeshungae8phieva6tiebeequ6tushei3ei&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;refresh_token&#34;</span><span class="p">:</span> <span class="s2">&#34;DOO5AHD6SAi9PA1OOKIAZoOSHOHgO1TO&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;token_type&#34;</span><span class="p">:</span> <span class="s2">&#34;bearer&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;expires_in&#34;</span><span class="p">:</span> <span class="mi">7200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scope&#34;</span><span class="p">:</span> <span class="s2">&#34;openid&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="further-readings">
         Further readings

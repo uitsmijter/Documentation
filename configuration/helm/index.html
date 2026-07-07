@@ -9,14 +9,13 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Helm configuration parameters Uitsmijter is best to install over helm.
+  <meta name="description" content=" Helm configuration parameters Uitsmijter is best to install over helm.
 helm repo add uitsmijter https://charts.uitsmijter.io/ helm update To list available versions run:
 helm search repo uitsmijter To see a list with release candidates included:
-helm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.
-Full Values.yaml namespaceOverride: &#34;&#34; image: repository: ghcr.io/uitsmijter/uitsmijter # Overrides the image tag whose default is the chart appVersion." />
+helm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide." />
 
     <title>Helm configuration | Uitsmijter Documentation</title>
 
@@ -30,11 +29,10 @@ Full Values.yaml namespaceOverride: &#34;&#34; image: repository: ghcr.io/uitsmi
     content="Helm configuration"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Helm configuration parameters Uitsmijter is best to install over helm.
+  <meta property="og:description" content=" Helm configuration parameters Uitsmijter is best to install over helm.
 helm repo add uitsmijter https://charts.uitsmijter.io/ helm update To list available versions run:
 helm search repo uitsmijter To see a list with release candidates included:
-helm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.
-Full Values.yaml namespaceOverride: &#34;&#34; image: repository: ghcr.io/uitsmijter/uitsmijter # Overrides the image tag whose default is the chart appVersion." />
+helm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/configuration/helm/" />
 
@@ -43,11 +41,10 @@ Full Values.yaml namespaceOverride: &#34;&#34; image: repository: ghcr.io/uitsmi
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Helm configuration" />
-  <meta name="twitter:description" content="Helm configuration parameters Uitsmijter is best to install over helm.
+  <meta name="twitter:description" content=" Helm configuration parameters Uitsmijter is best to install over helm.
 helm repo add uitsmijter https://charts.uitsmijter.io/ helm update To list available versions run:
 helm search repo uitsmijter To see a list with release candidates included:
-helm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.
-Full Values.yaml namespaceOverride: &#34;&#34; image: repository: ghcr.io/uitsmijter/uitsmijter # Overrides the image tag whose default is the chart appVersion." />
+helm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide." />
 
 
   <script type="application/ld+json">
@@ -58,7 +55,7 @@ Full Values.yaml namespaceOverride: &#34;&#34; image: repository: ghcr.io/uitsmi
       "name": "Helm configuration",
       "url" : "https://docs.uitsmijter.io/configuration/helm/",
       "headline": "Helm configuration",
-      "description": "Helm configuration parameters Uitsmijter is best to install over helm.\nhelm repo add uitsmijter https:\/\/charts.uitsmijter.io\/ helm update To list available versions run:\nhelm search repo uitsmijter To see a list with release candidates included:\nhelm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.\nFull Values.yaml namespaceOverride: \u0022\u0022 image: repository: ghcr.io\/uitsmijter\/uitsmijter # Overrides the image tag whose default is the chart appVersion.",
+      "description": " Helm configuration parameters Uitsmijter is best to install over helm.\nhelm repo add uitsmijter https:\/\/charts.uitsmijter.io\/ helm update To list available versions run:\nhelm search repo uitsmijter To see a list with release candidates included:\nhelm search repo uitsmijter --devel The complete Values.yaml is presented first, than the parameters are described as on overview. For detailed information please read the quick start guide.",
       "wordCount" : "517",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2809,21 +2806,21 @@ information please read the <a
 </div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">namespaceOverride</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">image</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">image</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io/uitsmijter/uitsmijter</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Overrides the image tag whose default is the chart appVersion.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Always</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">imagePullSecrets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">imagePullSecrets</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">gitlab-auth</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jwtSecret</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vosai0za6iex8AelahGemaeBooph6pah6Saezae0oojahfa7Re6leibeeshiu8ie&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">redisPassword</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Shohmaz1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;default-ext4&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">installCRD</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">installSA</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">jwtSecret</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vosai0za6iex8AelahGemaeBooph6pah6Saezae0oojahfa7Re6leibeeshiu8ie&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">redisPassword</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Shohmaz1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;default-ext4&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">installCRD</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">installSA</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">config</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Log format options: console|ndjson</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">logFormat</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;console&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Log level options: trace|info|error|critical</span><span class="w">
@@ -2837,7 +2834,7 @@ information please read the <a
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">scoped</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">domains</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">domains</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;nightly.example.com&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tlsSecretName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;example.com&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;nightly2.example.com&#34;</span><span class="w">
@@ -2851,135 +2848,135 @@ information please read the <a
     </h2>
 </div>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>namespaceOverride</td>
-<td>uitsmijter</td>
-<td>Namespace to install Uitsmijter to.</td>
-</tr>
-<tr>
-<td>image.repository</td>
-<td></td>
-<td>Docker repository for the Uitsmijter server image.</td>
-</tr>
-<tr>
-<td>image.tag</td>
-<td></td>
-<td>Version-Tag to install. Must be present in the <code>image.repository</code>.</td>
-</tr>
-<tr>
-<td>image.pullPolicy</td>
-<td>Always</td>
-<td>The pull policy of the used image.</td>
-</tr>
-<tr>
-<td>imagePullSecrets.name</td>
-<td></td>
-<td>When using a private repository, the name of the dockerPullSecret. See <a
+  <thead>
+      <tr>
+          <th>Parameter</th>
+          <th>Default</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>namespaceOverride</td>
+          <td>uitsmijter</td>
+          <td>Namespace to install Uitsmijter to.</td>
+      </tr>
+      <tr>
+          <td>image.repository</td>
+          <td></td>
+          <td>Docker repository for the Uitsmijter server image.</td>
+      </tr>
+      <tr>
+          <td>image.tag</td>
+          <td></td>
+          <td>Version-Tag to install. Must be present in the <code>image.repository</code>.</td>
+      </tr>
+      <tr>
+          <td>image.pullPolicy</td>
+          <td>Always</td>
+          <td>The pull policy of the used image.</td>
+      </tr>
+      <tr>
+          <td>imagePullSecrets.name</td>
+          <td></td>
+          <td>When using a private repository, the name of the dockerPullSecret. See <a
   class="gdoc-markdown__link"
   href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/"
 >🔗 Pull an Image from a Private Registry</a></td>
-</tr>
-<tr>
-<td>jwtSecret</td>
-<td></td>
-<td>Passphrase with that each JWT-token is signed.</td>
-</tr>
-<tr>
-<td>redisPassword</td>
-<td></td>
-<td>Password for the <a
+      </tr>
+      <tr>
+          <td>jwtSecret</td>
+          <td></td>
+          <td>Passphrase with that each JWT-token is signed.</td>
+      </tr>
+      <tr>
+          <td>redisPassword</td>
+          <td></td>
+          <td>Password for the <a
   class="gdoc-markdown__link"
   href="https://redis.io"
 >🔗 Redis</a> database where all refresh tokens are stored.</td>
-</tr>
-<tr>
-<td>storageClassName</td>
-<td></td>
-<td>Kubernetes <a
+      </tr>
+      <tr>
+          <td>storageClassName</td>
+          <td></td>
+          <td>Kubernetes <a
   class="gdoc-markdown__link"
   href="https://kubernetes.io/docs/concepts/storage/storage-classes/"
 >🔗 Storage Class</a> to use to store the redis data.</td>
-</tr>
-<tr>
-<td>installCRD</td>
-<td>true</td>
-<td>Install necessary <a
+      </tr>
+      <tr>
+          <td>installCRD</td>
+          <td>true</td>
+          <td>Install necessary <a
   class="gdoc-markdown__link"
   href="https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/"
 >🔗 Custom Resource Definitions</a> for <code>Tenants</code> and <code>Clients</code>.</td>
-</tr>
-<tr>
-<td>installSA</td>
-<td>true</td>
-<td>Install <a
+      </tr>
+      <tr>
+          <td>installSA</td>
+          <td>true</td>
+          <td>Install <a
   class="gdoc-markdown__link"
   href="https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/"
 >🔗 Service Accounts</a> to allow to read <code>Tenants</code> and <code>Clients</code>.</td>
-</tr>
-<tr>
-<td>config.logFormat</td>
-<td>console</td>
-<td>Log format options: <code>console</code> or <code>ndjson</code>.</td>
-</tr>
-<tr>
-<td>config.logLevel</td>
-<td>info</td>
-<td>Level of log verbosity. Options: <code>trace</code>, <code>info</code>, <code>error</code> or <code>critical</code></td>
-</tr>
-<tr>
-<td>config.cookieExpirationInDays</td>
-<td>7</td>
-<td>Days a cookie is valid without refreshing its value.</td>
-</tr>
-<tr>
-<td>config.tokenExpirationInHours</td>
-<td>2</td>
-<td>Invalidates the JWT-Token after number of hours.</td>
-</tr>
-<tr>
-<td>config.tokenRefreshExpirationInHours</td>
-<td>720</td>
-<td>Invalidates the refresh token after number of hours.</td>
-</tr>
-<tr>
-<td>config.displayVersion</td>
-<td>true</td>
-<td>Displays the version information of Uitsmijter under /versions publicly for all. You can turn this off for security reasons.</td>
-</tr>
-<tr>
-<td>config.crd.enabled</td>
-<td>true</td>
-<td>Enables supoprt for loading Custom Resource Definitions of Tenants and Clients, should be <code>true</code> for Kubernetes installations.</td>
-</tr>
-<tr>
-<td>config.crd.scoped</td>
-<td>false</td>
-<td>Restrict Uitsmijter Custom Resource Definitions loader to load only tenants and clients from the namespace in which Uitsmijter itself is installed.</td>
-</tr>
-<tr>
-<td>domains.domain</td>
-<td></td>
-<td>List of Domains. Entry of the domain where Uitsmijter is listening on.</td>
-</tr>
-<tr>
-<td>domains.tlsSecretName</td>
-<td></td>
-<td>List of Domains. Entry of the name of the certificate secret.</td>
-</tr>
-<tr>
-<td>traefik.apiVersion</td>
-<td>traefik.io/v1alpha1</td>
-<td>From version <strong>0.10.3</strong> on, uitsmijter supports difefrent traefik crd versions. If you are still on traefik 2, you have to set <code>traefik.containo.us/v1alpha1</code> otherwise leave blank.</td>
-</tr>
-</tbody>
+      </tr>
+      <tr>
+          <td>config.logFormat</td>
+          <td>console</td>
+          <td>Log format options: <code>console</code> or <code>ndjson</code>.</td>
+      </tr>
+      <tr>
+          <td>config.logLevel</td>
+          <td>info</td>
+          <td>Level of log verbosity. Options: <code>trace</code>, <code>info</code>, <code>error</code> or <code>critical</code></td>
+      </tr>
+      <tr>
+          <td>config.cookieExpirationInDays</td>
+          <td>7</td>
+          <td>Days a cookie is valid without refreshing its value.</td>
+      </tr>
+      <tr>
+          <td>config.tokenExpirationInHours</td>
+          <td>2</td>
+          <td>Invalidates the JWT-Token after number of hours.</td>
+      </tr>
+      <tr>
+          <td>config.tokenRefreshExpirationInHours</td>
+          <td>720</td>
+          <td>Invalidates the refresh token after number of hours.</td>
+      </tr>
+      <tr>
+          <td>config.displayVersion</td>
+          <td>true</td>
+          <td>Displays the version information of Uitsmijter under /versions publicly for all. You can turn this off for security reasons.</td>
+      </tr>
+      <tr>
+          <td>config.crd.enabled</td>
+          <td>true</td>
+          <td>Enables supoprt for loading Custom Resource Definitions of Tenants and Clients, should be <code>true</code> for Kubernetes installations.</td>
+      </tr>
+      <tr>
+          <td>config.crd.scoped</td>
+          <td>false</td>
+          <td>Restrict Uitsmijter Custom Resource Definitions loader to load only tenants and clients from the namespace in which Uitsmijter itself is installed.</td>
+      </tr>
+      <tr>
+          <td>domains.domain</td>
+          <td></td>
+          <td>List of Domains. Entry of the domain where Uitsmijter is listening on.</td>
+      </tr>
+      <tr>
+          <td>domains.tlsSecretName</td>
+          <td></td>
+          <td>List of Domains. Entry of the name of the certificate secret.</td>
+      </tr>
+      <tr>
+          <td>traefik.apiVersion</td>
+          <td>traefik.io/v1alpha1</td>
+          <td>From version <strong>0.10.3</strong> on, uitsmijter supports difefrent traefik crd versions. If you are still on traefik 2, you have to set <code>traefik.containo.us/v1alpha1</code> otherwise leave blank.</td>
+      </tr>
+  </tbody>
 </table> </div>
 <div class="gdoc-page__anchorwrap">
     <h2 id="install-uitsmijter-helm-charts">

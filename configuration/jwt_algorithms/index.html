@@ -9,11 +9,11 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.
-Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public &#43; private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/." />
+  <meta name="description" content=" JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.
+Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public &#43; private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/.well-known/jwks.json) Default Yes (backward compatibility) Recommended for new deployments HS256 (HMAC with SHA-256) HS256 is a symmetric algorithm that uses a shared secret key to both sign and verify JWTs." />
 
     <title>JWT Signing Algorithms | Uitsmijter Documentation</title>
 
@@ -27,8 +27,8 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
     content="JWT Signing Algorithms"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.
-Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public &#43; private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/." />
+  <meta property="og:description" content=" JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.
+Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public &#43; private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/.well-known/jwks.json) Default Yes (backward compatibility) Recommended for new deployments HS256 (HMAC with SHA-256) HS256 is a symmetric algorithm that uses a shared secret key to both sign and verify JWTs." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/configuration/jwt_algorithms/" />
 
@@ -37,8 +37,8 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="JWT Signing Algorithms" />
-  <meta name="twitter:description" content="JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.
-Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public &#43; private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/." />
+  <meta name="twitter:description" content=" JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.
+Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public &#43; private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (/.well-known/jwks.json) Default Yes (backward compatibility) Recommended for new deployments HS256 (HMAC with SHA-256) HS256 is a symmetric algorithm that uses a shared secret key to both sign and verify JWTs." />
 
 
   <script type="application/ld+json">
@@ -49,7 +49,7 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
       "name": "JWT Signing Algorithms",
       "url" : "https://docs.uitsmijter.io/configuration/jwt_algorithms/",
       "headline": "JWT Signing Algorithms",
-      "description": "JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.\nAlgorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public \u002b private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (\/.",
+      "description": " JWT Signing Algorithms Uitsmijter supports two JWT signing algorithms for access tokens: HS256 (HMAC with SHA-256) and RS256 (RSA with SHA-256). This guide explains the differences between these algorithms and how to migrate from HS256 to RS256.\nAlgorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Shared secret (single key) RSA key pair (public \u002b private) Security Good (if secret is protected) Better (private key never shared) Key Distribution Secret must be shared securely Public key can be distributed openly Token Verification Requires shared secret Uses public key (via JWKS) Key Rotation Requires secret update everywhere Seamless (JWKS supports multiple keys) Performance Faster (symmetric crypto) Slightly slower (asymmetric crypto) Use Case Simple deployments, testing Production, microservices JWKS Endpoint Not used Required (\/.well-known\/jwks.json) Default Yes (backward compatibility) Recommended for new deployments HS256 (HMAC with SHA-256) HS256 is a symmetric algorithm that uses a shared secret key to both sign and verify JWTs.",
       "wordCount" : "1719",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2785,60 +2785,60 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
     </h2>
 </div>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>HS256 (Symmetric)</th>
-<th>RS256 (Asymmetric)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Key Type</strong></td>
-<td>Shared secret (single key)</td>
-<td>RSA key pair (public + private)</td>
-</tr>
-<tr>
-<td><strong>Security</strong></td>
-<td>Good (if secret is protected)</td>
-<td><strong>Better</strong> (private key never shared)</td>
-</tr>
-<tr>
-<td><strong>Key Distribution</strong></td>
-<td>Secret must be shared securely</td>
-<td>Public key can be distributed openly</td>
-</tr>
-<tr>
-<td><strong>Token Verification</strong></td>
-<td>Requires shared secret</td>
-<td>Uses public key (via JWKS)</td>
-</tr>
-<tr>
-<td><strong>Key Rotation</strong></td>
-<td>Requires secret update everywhere</td>
-<td><strong>Seamless</strong> (JWKS supports multiple keys)</td>
-</tr>
-<tr>
-<td><strong>Performance</strong></td>
-<td>Faster (symmetric crypto)</td>
-<td>Slightly slower (asymmetric crypto)</td>
-</tr>
-<tr>
-<td><strong>Use Case</strong></td>
-<td>Simple deployments, testing</td>
-<td><strong>Production, microservices</strong></td>
-</tr>
-<tr>
-<td><strong>JWKS Endpoint</strong></td>
-<td>Not used</td>
-<td><strong>Required</strong> (<code>/.well-known/jwks.json</code>)</td>
-</tr>
-<tr>
-<td><strong>Default</strong></td>
-<td>Yes (backward compatibility)</td>
-<td>Recommended for new deployments</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>HS256 (Symmetric)</th>
+          <th>RS256 (Asymmetric)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Key Type</strong></td>
+          <td>Shared secret (single key)</td>
+          <td>RSA key pair (public + private)</td>
+      </tr>
+      <tr>
+          <td><strong>Security</strong></td>
+          <td>Good (if secret is protected)</td>
+          <td><strong>Better</strong> (private key never shared)</td>
+      </tr>
+      <tr>
+          <td><strong>Key Distribution</strong></td>
+          <td>Secret must be shared securely</td>
+          <td>Public key can be distributed openly</td>
+      </tr>
+      <tr>
+          <td><strong>Token Verification</strong></td>
+          <td>Requires shared secret</td>
+          <td>Uses public key (via JWKS)</td>
+      </tr>
+      <tr>
+          <td><strong>Key Rotation</strong></td>
+          <td>Requires secret update everywhere</td>
+          <td><strong>Seamless</strong> (JWKS supports multiple keys)</td>
+      </tr>
+      <tr>
+          <td><strong>Performance</strong></td>
+          <td>Faster (symmetric crypto)</td>
+          <td>Slightly slower (asymmetric crypto)</td>
+      </tr>
+      <tr>
+          <td><strong>Use Case</strong></td>
+          <td>Simple deployments, testing</td>
+          <td><strong>Production, microservices</strong></td>
+      </tr>
+      <tr>
+          <td><strong>JWKS Endpoint</strong></td>
+          <td>Not used</td>
+          <td><strong>Required</strong> (<code>/.well-known/jwks.json</code>)</td>
+      </tr>
+      <tr>
+          <td><strong>Default</strong></td>
+          <td>Yes (backward compatibility)</td>
+          <td>Recommended for new deployments</td>
+      </tr>
+  </tbody>
 </table> </div>
 <div class="gdoc-page__anchorwrap">
     <h2 id="hs256-hmac-with-sha-256">
@@ -2872,17 +2872,17 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 </div>
 <p>HS256 is the default algorithm. Configure it in your tenant YAML:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Tenant configuration (optional, defaults to HS256 if omitted)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm: HS256  # Optional</span><span class="p">:</span><span class="w"> </span><span class="l">defaults to HS256 if not specified</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Environment (HS256 requires JWT_SECRET)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l">your-secret-key-at-least-256-bits</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Environment (HS256 requires JWT_SECRET)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l">your-secret-key-at-least-256-bits</span><span class="w">
 </span></span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h3 id="when-to-use-hs256">
         When to use HS256
@@ -2945,11 +2945,11 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 </div>
 <p>Enable RS256 in your tenant configuration:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Tenant configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Use RS256 for this tenant</span><span class="w">
@@ -3046,9 +3046,9 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">secret</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">JWT_SECRET</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// Verify token
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">secret</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;HS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">secret</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;HS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></div><p>After (RS256 with JWKS):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">jwt</span> <span class="nx">from</span> <span class="s1">&#39;jsonwebtoken&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">jwksClient</span> <span class="nx">from</span> <span class="s1">&#39;jwks-rsa&#39;</span><span class="p">;</span>
@@ -3057,7 +3057,7 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 </span></span><span class="line"><span class="cl">  <span class="nx">jwksUri</span><span class="o">:</span> <span class="s1">&#39;https://id.example.com/.well-known/jwks.json&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">cache</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">cacheMaxAge</span><span class="o">:</span> <span class="mi">3600000</span> <span class="c1">// 1 hour
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getKey</span><span class="p">(</span><span class="nx">header</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">client</span><span class="p">.</span><span class="nx">getSigningKey</span><span class="p">(</span><span class="nx">header</span><span class="p">.</span><span class="nx">kid</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -3067,9 +3067,9 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// Verify token (works with both HS256 and RS256)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">getKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;HS256&#39;</span><span class="p">,</span> <span class="s1">&#39;RS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">getKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;HS256&#39;</span><span class="p">,</span> <span class="s1">&#39;RS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></div><p><strong>Key points:</strong></p>
 <ul>
 <li>Keep <code>HS256</code> in the <code>algorithms</code> array temporarily (supports both algorithms)</li>
@@ -3099,18 +3099,18 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 <p>Update your tenant configuration to use RS256:</p>
 <p><strong>Kubernetes (CRD):</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># tenant.yaml</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Add this line</span><span class="w">
 </span></span></span></code></pre></div><p><strong>File-based configuration:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># tenants/my-tenant.yaml</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">config</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Add this line</span><span class="w">
@@ -3152,9 +3152,9 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Use your OAuth flow to get a new token</span>
 </span></span><span class="line"><span class="cl">curl -X POST https://id.example.com/token <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="nv">grant_type</span><span class="o">=</span>authorization_code <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="nv">code</span><span class="o">=</span>YOUR_CODE <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="nv">client_id</span><span class="o">=</span>YOUR_CLIENT_ID
+</span></span></span><span class="line"><span class="cl">  -d <span class="nv">grant_type</span><span class="o">=</span>authorization_code <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -d <span class="nv">code</span><span class="o">=</span>YOUR_CODE <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -d <span class="nv">client_id</span><span class="o">=</span>YOUR_CLIENT_ID
 </span></span></code></pre></div><ol start="2">
 <li>Decode the JWT header (without verifying):</li>
 </ol>
@@ -3197,9 +3197,9 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 </div>
 <p>After all HS256 tokens have expired (wait at least <code>TOKEN_EXPIRATION_IN_HOURS</code> × 2), you can remove HS256 support from resource servers:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// Remove &#39;HS256&#39; from algorithms array
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">getKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;RS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="nx">getKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">algorithms</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;RS256&#39;</span><span class="p">]</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">decoded</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// Now only accepts RS256 tokens
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></div><p>You can also remove the <code>JWT_SECRET</code> environment variable from resource servers (no longer needed).</p>
 <div class="gdoc-page__anchorwrap">
     <h3 id="rollback-strategy">
@@ -3367,10 +3367,10 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 </ul>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jwt_algorithm</span><span class="p">:</span><span class="w"> </span><span class="l">RS256 </span><span class="w"> </span><span class="c"># Tenant-specific algorithm</span><span class="w">
@@ -3406,7 +3406,7 @@ Algorithm Comparison Feature HS256 (Symmetric) RS256 (Asymmetric) Key Type Share
 <p><strong>Default:</strong> <code>2</code> (2 hours)</p>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Environment configuration</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">TOKEN_EXPIRATION_IN_HOURS</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">TOKEN_EXPIRATION_IN_HOURS</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
 </span></span></span></code></pre></div><p>Affects:</p>
 <ul>
 <li>Access token lifetime</li>

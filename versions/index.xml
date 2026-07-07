@@ -4,7 +4,7 @@
     <title>Versions on Uitsmijter Documentation</title>
     <link>https://docs.uitsmijter.io/versions/</link>
     <description>Recent content in Versions on Uitsmijter Documentation</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="https://docs.uitsmijter.io/versions/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -12,7 +12,7 @@
       <link>https://docs.uitsmijter.io/versions/ee/installation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://docs.uitsmijter.io/versions/ee/installation/</guid>
-      <description>Helm Chart The Enterprise Edition can be easily installed via a Helm Chart.&#xA;To use the Helm Repository, you need a GitLab Access Token with read_api permissions and at least the Reporter role.&#xA;You can add the Uitsmijter Helm Repository by using the following commands:&#xA;helm repo add --username &amp;#39;[token name or gitlab user name]&amp;#39; --password &amp;#39;[gitlab access token]&amp;#39; uitsmijter https://git.ausdertechnik.de/api/v4/projects/528/packages/helm/stable helm repo update An overview of available configuration options can be found at Helm configuration.</description>
+      <description>&lt;div class=&#34;gdoc-page__anchorwrap&#34;&gt;&#xA;    &lt;h1 id=&#34;helm-chart&#34;&gt;&#xA;        Helm Chart&#xA;        &lt;a data-clipboard-text=&#34;https://docs.uitsmijter.io/versions/ee/installation/#helm-chart&#34; class=&#34;gdoc-page__anchor clip flex align-center&#34; title=&#34;Anchor to: Helm Chart&#34; aria-label=&#34;Anchor to: Helm Chart&#34; href=&#34;#helm-chart&#34;&gt;&#xA;            &lt;svg class=&#34;gdoc-icon gdoc_link&#34;&gt;&lt;use xlink:href=&#34;#gdoc_link&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&#xA;        &lt;/a&gt;&#xA;    &lt;/h1&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;The Enterprise Edition can be easily installed via a &lt;a&#xA;  class=&#34;gdoc-markdown__link&#34;&#xA;  href=&#34;https://helm.sh/docs/topics/charts/&#34;&#xA;&gt;Helm Chart&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;To use the Helm Repository, you need a &lt;a&#xA;  class=&#34;gdoc-markdown__link&#34;&#xA;  href=&#34;https://git.ausdertechnik.de/uitsmijter/uitsmijter/-/settings/access_tokens&#34;&#xA;&gt;GitLab Access Token&lt;/a&gt; with &lt;code&gt;read_api&lt;/code&gt; permissions and at least the &lt;code&gt;Reporter&lt;/code&gt; role.&lt;/p&gt;&#xA;&lt;p&gt;You can add the Uitsmijter Helm Repository by using the following commands:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;helm repo add --username &lt;span class=&#34;s1&#34;&gt;&amp;#39;[token name or gitlab user name]&amp;#39;&lt;/span&gt; --password &lt;span class=&#34;s1&#34;&gt;&amp;#39;[gitlab access token]&amp;#39;&lt;/span&gt; uitsmijter https://git.ausdertechnik.de/api/v4/projects/528/packages/helm/stable&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;helm repo update&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;An overview of available configuration options can be found at &lt;a&#xA;  class=&#34;gdoc-markdown__link&#34;&#xA;  href=&#34;https://docs.uitsmijter.io/configuration/helm&#34;&#xA;&gt;Helm configuration&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

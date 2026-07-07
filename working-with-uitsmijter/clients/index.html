@@ -9,12 +9,11 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.
-Understanding Clients A client is an OAuth2 application that can:
-Authenticate users via the tenant&rsquo;s authentication providers Request authorization codes and exchange them for access tokens Access protected resources on behalf of authenticated users Track metrics including active sessions and denied login attempts Each client has:" />
+  <meta name="description" content=" Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.
+Understanding Clients A client is an OAuth2 application that can:" />
 
     <title>Managing Clients | Uitsmijter Documentation</title>
 
@@ -28,9 +27,8 @@ Authenticate users via the tenant&rsquo;s authentication providers Request autho
     content="Managing Clients"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.
-Understanding Clients A client is an OAuth2 application that can:
-Authenticate users via the tenant’s authentication providers Request authorization codes and exchange them for access tokens Access protected resources on behalf of authenticated users Track metrics including active sessions and denied login attempts Each client has:" />
+  <meta property="og:description" content=" Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.
+Understanding Clients A client is an OAuth2 application that can:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/working-with-uitsmijter/clients/" />
 
@@ -39,9 +37,8 @@ Authenticate users via the tenant’s authentication providers Request authoriza
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Managing Clients" />
-  <meta name="twitter:description" content="Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.
-Understanding Clients A client is an OAuth2 application that can:
-Authenticate users via the tenant’s authentication providers Request authorization codes and exchange them for access tokens Access protected resources on behalf of authenticated users Track metrics including active sessions and denied login attempts Each client has:" />
+  <meta name="twitter:description" content=" Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.
+Understanding Clients A client is an OAuth2 application that can:" />
 
 
   <script type="application/ld+json">
@@ -52,7 +49,7 @@ Authenticate users via the tenant’s authentication providers Request authoriza
       "name": "Managing Clients",
       "url" : "https://docs.uitsmijter.io/working-with-uitsmijter/clients/",
       "headline": "Managing Clients",
-      "description": "Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.\nUnderstanding Clients A client is an OAuth2 application that can:\nAuthenticate users via the tenant’s authentication providers Request authorization codes and exchange them for access tokens Access protected resources on behalf of authenticated users Track metrics including active sessions and denied login attempts Each client has:",
+      "description": " Managing Clients Clients represent OAuth2 applications that authenticate users through Uitsmijter. Each client belongs to a tenant and has its own configuration, redirect URIs, and access credentials. This guide shows you how to work with clients using kubectl commands.\nUnderstanding Clients A client is an OAuth2 application that can:",
       "wordCount" : "1536",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2850,17 +2847,17 @@ This guide shows you how to work with clients using <code>kubectl</code> command
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl describe client cheese-web -n cheese
 </span></span></code></pre></div><p><strong>Example output:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">Name</span><span class="p">:</span><span class="w">         </span><span class="l">cheese-web</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Namespace</span><span class="p">:</span><span class="w">    </span><span class="l">cheese</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Labels</span><span class="p">:</span><span class="w">       </span><span class="l">&lt;none&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Annotations</span><span class="p">:</span><span class="w">  </span><span class="l">&lt;none&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">API Version</span><span class="p">:</span><span class="w">  </span><span class="l">uitsmijter.io/v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Kind</span><span class="p">:</span><span class="w">         </span><span class="l">Client</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Namespace</span><span class="p">:</span><span class="w">    </span><span class="l">cheese</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Labels</span><span class="p">:</span><span class="w">       </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Annotations</span><span class="p">:</span><span class="w">  </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">API Version</span><span class="p">:</span><span class="w">  </span><span class="l">uitsmijter.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Kind</span><span class="p">:</span><span class="w">         </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Creation Timestamp</span><span class="p">:</span><span class="w">  </span><span class="ld">2025-11-22T10:35:12Z</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Generation</span><span class="p">:</span><span class="w">          </span><span class="m">1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Resource Version</span><span class="p">:</span><span class="w">    </span><span class="m">12456</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">UID</span><span class="p">:</span><span class="w">                 </span><span class="l">b1c2d3e4-f5a6-7890-2345-678901bcdefg</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Client ID</span><span class="p">:</span><span class="w">  </span><span class="l">9095A4F2-35B2-48B1-A325-309CA324B97E</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Grant Types</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">authorization_code</span><span class="w">
@@ -2877,13 +2874,13 @@ This guide shows you how to work with clients using <code>kubectl</code> command
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">can:*</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Secret</span><span class="p">:</span><span class="w">  </span><span class="l">&lt;set&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Tenant</span><span class="p">:</span><span class="w">  </span><span class="l">cheese</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Status</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Status</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Active Sessions</span><span class="p">:</span><span class="w">  </span><span class="m">8</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Denied Attempts</span><span class="p">:</span><span class="w">  </span><span class="m">2</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Last Activity</span><span class="p">:</span><span class="w">    </span><span class="ld">2025-11-27T08:45:22Z</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Last Denied</span><span class="p">:</span><span class="w">      </span><span class="ld">2025-11-26T15:30:10Z</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Phase</span><span class="p">:</span><span class="w">            </span><span class="l">Active</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Events</span><span class="p">:</span><span class="w">            </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Events</span><span class="p">:</span><span class="w">            </span><span class="l">&lt;none&gt;</span><span class="w">
 </span></span></span></code></pre></div><p>The <code>kubectl describe</code> output provides:</p>
 <ul>
 <li><strong>Spec</strong>: Complete client configuration
@@ -2916,12 +2913,12 @@ This guide shows you how to work with clients using <code>kubectl</code> command
 </div>
 <p>Create a new client using a YAML manifest:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># client-example.yaml</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Client</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">webapp-client</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">production</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tenant</span><span class="p">:</span><span class="w"> </span><span class="l">example-tenant</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="l">F1E2D3C4-B5A6-7890-CDEF-123456789ABC</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;your-secure-client-secret-here&#34;</span><span class="w">
@@ -3053,12 +3050,12 @@ For browser-based or mobile apps, omit the <code>secret</code> field and use PKC
 </div>
 <p>View all clients sorted by active sessions:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -A -o json <span class="p">|</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jq <span class="s1">&#39;.items | sort_by(.status.activeSessions) | reverse |
+</span></span></span><span class="line"><span class="cl">  jq <span class="s1">&#39;.items | sort_by(.status.activeSessions) | reverse |
 </span></span></span><span class="line"><span class="cl"><span class="s1">      .[] | {name: .metadata.name, namespace: .metadata.namespace,
 </span></span></span><span class="line"><span class="cl"><span class="s1">             sessions: .status.activeSessions}&#39;</span>
 </span></span></code></pre></div><p>Find clients with failed login attempts:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -A -o json <span class="p">|</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jq <span class="s1">&#39;.items[] | select(.status.deniedAttempts &gt; 0) |
+</span></span></span><span class="line"><span class="cl">  jq <span class="s1">&#39;.items[] | select(.status.deniedAttempts &gt; 0) |
 </span></span></span><span class="line"><span class="cl"><span class="s1">      {name: .metadata.name, denied: .status.deniedAttempts}&#39;</span>
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="resetting-denied-attempts-counter">
@@ -3071,7 +3068,7 @@ For browser-based or mobile apps, omit the <code>secret</code> field and use PKC
 <p>The denied attempts counter is tracked in memory and persists across pod restarts via Redis. To reset the counter, you can delete and recreate the client status (this does not affect active sessions):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># The counter will reset when new login attempts occur</span>
 </span></span><span class="line"><span class="cl">kubectl annotate client cheese-web -n cheese <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  uitsmijter.io/reset-metrics<span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>date +%s<span class="k">)</span><span class="s2">&#34;</span> --overwrite
+</span></span></span><span class="line"><span class="cl">  uitsmijter.io/reset-metrics<span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span>date +%s<span class="k">)</span><span class="s2">&#34;</span> --overwrite
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="deleting-a-client">
         Deleting a Client
@@ -3099,26 +3096,26 @@ For browser-based or mobile apps, omit the <code>secret</code> field and use PKC
 </div>
 <p>Clients can be in different phases:</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Active</code></td>
-<td>Client is operational and can authenticate users</td>
-</tr>
-<tr>
-<td><code>Pending</code></td>
-<td>Client is being initialized or tenant association is being established</td>
-</tr>
-<tr>
-<td><code>Failed</code></td>
-<td>Configuration error (invalid tenant, malformed redirect URIs, etc.)</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Phase</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Active</code></td>
+          <td>Client is operational and can authenticate users</td>
+      </tr>
+      <tr>
+          <td><code>Pending</code></td>
+          <td>Client is being initialized or tenant association is being established</td>
+      </tr>
+      <tr>
+          <td><code>Failed</code></td>
+          <td>Configuration error (invalid tenant, malformed redirect URIs, etc.)</td>
+      </tr>
+  </tbody>
 </table> </div>
 <p>Check client phase:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client cheese-web -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.phase}&#39;</span>
@@ -3203,34 +3200,34 @@ For browser-based or mobile apps, omit the <code>secret</code> field and use PKC
 </div>
 <p>Uitsmijter supports multiple OAuth2 grant types:</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Grant Type</th>
-<th>Use Case</th>
-<th>Requires Secret</th>
-<th>Supports Refresh</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>authorization_code</code></td>
-<td>Server-side web apps, SPAs with PKCE</td>
-<td>Optional</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><code>refresh_token</code></td>
-<td>Renew access tokens without re-login</td>
-<td>Same as client</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td><code>password</code></td>
-<td>Legacy apps only (not recommended)</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Grant Type</th>
+          <th>Use Case</th>
+          <th>Requires Secret</th>
+          <th>Supports Refresh</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>authorization_code</code></td>
+          <td>Server-side web apps, SPAs with PKCE</td>
+          <td>Optional</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td><code>refresh_token</code></td>
+          <td>Renew access tokens without re-login</td>
+          <td>Same as client</td>
+          <td>N/A</td>
+      </tr>
+      <tr>
+          <td><code>password</code></td>
+          <td>Legacy apps only (not recommended)</td>
+          <td>Yes</td>
+          <td>No</td>
+      </tr>
+  </tbody>
 </table> </div>
 <p>Configure grant types in the client spec:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
@@ -3256,14 +3253,14 @@ For browser-based or mobile apps, omit the <code>secret</code> field and use PKC
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get client cheese-web -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.client_id}&#39;</span>
 </span></span></code></pre></div><p>List all clients for a specific tenant:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -A -o json <span class="p">|</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jq <span class="s1">&#39;.items[] | select(.spec.tenant==&#34;cheese&#34;) |
+</span></span></span><span class="line"><span class="cl">  jq <span class="s1">&#39;.items[] | select(.spec.tenant==&#34;cheese&#34;) |
 </span></span></span><span class="line"><span class="cl"><span class="s1">      {name: .metadata.name, client_id: .spec.client_id}&#39;</span>
 </span></span></code></pre></div><p>Find clients without active sessions:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get clients -A -o json <span class="p">|</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jq <span class="s1">&#39;.items[] | select(.status.activeSessions == 0) | .metadata.name&#39;</span>
+</span></span></span><span class="line"><span class="cl">  jq <span class="s1">&#39;.items[] | select(.status.activeSessions == 0) | .metadata.name&#39;</span>
 </span></span></code></pre></div><p>Compare client configurations:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">diff &lt;<span class="o">(</span>kubectl get client cheese-web -n cheese -o yaml<span class="o">)</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     &lt;<span class="o">(</span>kubectl get client cheese-mobile -n cheese -o yaml<span class="o">)</span>
+</span></span></span><span class="line"><span class="cl">     &lt;<span class="o">(</span>kubectl get client cheese-mobile -n cheese -o yaml<span class="o">)</span>
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="security-considerations">
         Security Considerations

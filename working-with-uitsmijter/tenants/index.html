@@ -9,12 +9,11 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.
-Understanding Tenants A tenant represents an isolated authentication domain with:
-Unique hosts: Domain names that this tenant serves JavaScript providers: Custom authentication logic Configuration: JWT algorithm, interceptor settings, and information URLs For conceptual information about tenants, see Entities." />
+  <meta name="description" content=" Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.
+Understanding Tenants A tenant represents an isolated authentication domain with:" />
 
     <title>Managing Tenants | Uitsmijter Documentation</title>
 
@@ -28,9 +27,8 @@ Unique hosts: Domain names that this tenant serves JavaScript providers: Custom 
     content="Managing Tenants"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.
-Understanding Tenants A tenant represents an isolated authentication domain with:
-Unique hosts: Domain names that this tenant serves JavaScript providers: Custom authentication logic Configuration: JWT algorithm, interceptor settings, and information URLs For conceptual information about tenants, see Entities." />
+  <meta property="og:description" content=" Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.
+Understanding Tenants A tenant represents an isolated authentication domain with:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/working-with-uitsmijter/tenants/" />
 
@@ -39,9 +37,8 @@ Unique hosts: Domain names that this tenant serves JavaScript providers: Custom 
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Managing Tenants" />
-  <meta name="twitter:description" content="Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.
-Understanding Tenants A tenant represents an isolated authentication domain with:
-Unique hosts: Domain names that this tenant serves JavaScript providers: Custom authentication logic Configuration: JWT algorithm, interceptor settings, and information URLs For conceptual information about tenants, see Entities." />
+  <meta name="twitter:description" content=" Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.
+Understanding Tenants A tenant represents an isolated authentication domain with:" />
 
 
   <script type="application/ld+json">
@@ -52,7 +49,7 @@ Unique hosts: Domain names that this tenant serves JavaScript providers: Custom 
       "name": "Managing Tenants",
       "url" : "https://docs.uitsmijter.io/working-with-uitsmijter/tenants/",
       "headline": "Managing Tenants",
-      "description": "Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.\nUnderstanding Tenants A tenant represents an isolated authentication domain with:\nUnique hosts: Domain names that this tenant serves JavaScript providers: Custom authentication logic Configuration: JWT algorithm, interceptor settings, and information URLs For conceptual information about tenants, see Entities.",
+      "description": " Managing Tenants Tenants are the highest-level entity in Uitsmijter, representing isolated organizations or domains with their own authentication configuration. This guide shows you how to work with tenants in a Kubernetes environment using kubectl commands.\nUnderstanding Tenants A tenant represents an isolated authentication domain with:",
       "wordCount" : "866",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2840,17 +2837,17 @@ This guide shows you how to work with tenants in a Kubernetes environment using 
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl describe tenant cheese -n cheese
 </span></span></code></pre></div><p><strong>Example output:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">Name</span><span class="p">:</span><span class="w">         </span><span class="l">cheese</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Namespace</span><span class="p">:</span><span class="w">    </span><span class="l">cheese</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Labels</span><span class="p">:</span><span class="w">       </span><span class="l">&lt;none&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Annotations</span><span class="p">:</span><span class="w">  </span><span class="l">&lt;none&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">API Version</span><span class="p">:</span><span class="w">  </span><span class="l">uitsmijter.io/v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Kind</span><span class="p">:</span><span class="w">         </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Namespace</span><span class="p">:</span><span class="w">    </span><span class="l">cheese</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Labels</span><span class="p">:</span><span class="w">       </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Annotations</span><span class="p">:</span><span class="w">  </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">API Version</span><span class="p">:</span><span class="w">  </span><span class="l">uitsmijter.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Kind</span><span class="p">:</span><span class="w">         </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Creation Timestamp</span><span class="p">:</span><span class="w">  </span><span class="ld">2025-11-22T10:30:45Z</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Generation</span><span class="p">:</span><span class="w">          </span><span class="m">1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Resource Version</span><span class="p">:</span><span class="w">    </span><span class="m">12345</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">UID</span><span class="p">:</span><span class="w">                 </span><span class="l">a1b2c3d4-e5f6-7890-1234-567890abcdef</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">id.example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">api.example.com</span><span class="w">
@@ -2875,7 +2872,7 @@ This guide shows you how to work with tenants in a Kubernetes environment using 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">get userProfile() { return { name: &#34;Test User&#34; }; }</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">get role() { return &#34;user&#34;; }</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Status</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Status</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Clients</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Active Count</span><span class="p">:</span><span class="w">  </span><span class="m">3</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Client Names</span><span class="p">:</span><span class="w">
@@ -2887,7 +2884,7 @@ This guide shows you how to work with tenants in a Kubernetes environment using 
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Active</span><span class="p">:</span><span class="w">  </span><span class="m">12</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">Denied</span><span class="p">:</span><span class="w">  </span><span class="m">3</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Last Updated</span><span class="p">:</span><span class="w">  </span><span class="ld">2025-11-27T08:15:30Z</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Events</span><span class="p">:</span><span class="w">         </span><span class="l">&lt;none&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">Events</span><span class="p">:</span><span class="w">         </span><span class="l">&lt;none&gt;</span><span class="w">
 </span></span></span></code></pre></div><p>The <code>kubectl describe</code> output provides:</p>
 <ul>
 <li><strong>Spec</strong>: Complete tenant configuration including hosts, providers, and settings</li>
@@ -2910,12 +2907,12 @@ This guide shows you how to work with tenants in a Kubernetes environment using 
 </div>
 <p>Create a new tenant using a YAML manifest:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># tenant-example.yaml</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;uitsmijter.io/v1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Tenant</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">example-tenant</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">production</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">auth.example.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">api.example.com</span><span class="w">
@@ -2946,7 +2943,7 @@ This guide shows you how to work with tenants in a Kubernetes environment using 
 </span></span></span><span class="line"><span class="cl"><span class="sd">          };
 </span></span></span><span class="line"><span class="cl"><span class="sd">        }
 </span></span></span><span class="line"><span class="cl"><span class="sd">        get role() { return &#34;user&#34;; }
-</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">      }</span><span class="w">
 </span></span></span></code></pre></div><p>Apply the tenant configuration:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl apply -f tenant-example.yaml
 </span></span></code></pre></div><p>Verify the tenant was created:</p>
@@ -3007,26 +3004,26 @@ This guide shows you how to work with tenants in a Kubernetes environment using 
 </div>
 <p>Tenants can be in different phases:</p>
 <div class="table-wrap"> <table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Active</code></td>
-<td>Tenant is fully operational with at least one configured client</td>
-</tr>
-<tr>
-<td><code>Pending</code></td>
-<td>Tenant is being initialized or waiting for client configuration</td>
-</tr>
-<tr>
-<td><code>Failed</code></td>
-<td>Configuration error or provider validation failed (check logs for details)</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Phase</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Active</code></td>
+          <td>Tenant is fully operational with at least one configured client</td>
+      </tr>
+      <tr>
+          <td><code>Pending</code></td>
+          <td>Tenant is being initialized or waiting for client configuration</td>
+      </tr>
+      <tr>
+          <td><code>Failed</code></td>
+          <td>Configuration error or provider validation failed (check logs for details)</td>
+      </tr>
+  </tbody>
 </table> </div>
 <p>Check tenant phase:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenant cheese -n cheese -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.phase}&#39;</span>
@@ -3092,7 +3089,7 @@ This guide shows you how to work with tenants in a Kubernetes environment using 
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenant cheese -n cheese -o yaml &gt; tenant-backup.yaml
 </span></span></code></pre></div><p>Filter tenants by phase:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get tenants -A -o json <span class="p">|</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jq <span class="s1">&#39;.items[] | select(.status.phase==&#34;Active&#34;) | .metadata.name&#39;</span>
+</span></span></span><span class="line"><span class="cl">  jq <span class="s1">&#39;.items[] | select(.status.phase==&#34;Active&#34;) | .metadata.name&#39;</span>
 </span></span></code></pre></div><div class="gdoc-page__anchorwrap">
     <h2 id="further-reading">
         Further Reading

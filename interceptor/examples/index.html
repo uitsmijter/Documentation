@@ -9,13 +9,11 @@
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.154.5">
 
 
-  <meta name="description" content="Interceptor Mode The interceptor mode is shown in an example deployment. The same nginx pod is accessible via two separate ingresses, one is secured by the interceptor middleware, the other is not secured.
-Configuration To secure an ingress with the interceptor middleware you have to set an annotation to the Ingress.
-Add this annotation to the Ingress configuration.
-annotations: traefik.ingress.kubernetes.io/router.middlewares: uitsmijter-forward-auth@kubernetescrd On an existing ingress you can add the annotation with kubectl" />
+  <meta name="description" content=" Interceptor Mode The interceptor mode is shown in an example deployment. The same nginx pod is accessible via two separate ingresses, one is secured by the interceptor middleware, the other is not secured.
+Configuration To secure an ingress with the interceptor middleware you have to set an annotation to the Ingress." />
 
     <title>Example Deployment | Uitsmijter Documentation</title>
 
@@ -29,10 +27,8 @@ annotations: traefik.ingress.kubernetes.io/router.middlewares: uitsmijter-forwar
     content="Example Deployment"
   />
   <meta property="og:site_name" content="Uitsmijter Documentation" />
-  <meta property="og:description" content="Interceptor Mode The interceptor mode is shown in an example deployment. The same nginx pod is accessible via two separate ingresses, one is secured by the interceptor middleware, the other is not secured.
-Configuration To secure an ingress with the interceptor middleware you have to set an annotation to the Ingress.
-Add this annotation to the Ingress configuration.
-annotations: traefik.ingress.kubernetes.io/router.middlewares: uitsmijter-forward-auth@kubernetescrd On an existing ingress you can add the annotation with kubectl" />
+  <meta property="og:description" content=" Interceptor Mode The interceptor mode is shown in an example deployment. The same nginx pod is accessible via two separate ingresses, one is secured by the interceptor middleware, the other is not secured.
+Configuration To secure an ingress with the interceptor middleware you have to set an annotation to the Ingress." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.uitsmijter.io/interceptor/examples/" />
 
@@ -41,10 +37,8 @@ annotations: traefik.ingress.kubernetes.io/router.middlewares: uitsmijter-forwar
 
   <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Example Deployment" />
-  <meta name="twitter:description" content="Interceptor Mode The interceptor mode is shown in an example deployment. The same nginx pod is accessible via two separate ingresses, one is secured by the interceptor middleware, the other is not secured.
-Configuration To secure an ingress with the interceptor middleware you have to set an annotation to the Ingress.
-Add this annotation to the Ingress configuration.
-annotations: traefik.ingress.kubernetes.io/router.middlewares: uitsmijter-forward-auth@kubernetescrd On an existing ingress you can add the annotation with kubectl" />
+  <meta name="twitter:description" content=" Interceptor Mode The interceptor mode is shown in an example deployment. The same nginx pod is accessible via two separate ingresses, one is secured by the interceptor middleware, the other is not secured.
+Configuration To secure an ingress with the interceptor middleware you have to set an annotation to the Ingress." />
 
 
   <script type="application/ld+json">
@@ -55,7 +49,7 @@ annotations: traefik.ingress.kubernetes.io/router.middlewares: uitsmijter-forwar
       "name": "Example Deployment",
       "url" : "https://docs.uitsmijter.io/interceptor/examples/",
       "headline": "Example Deployment",
-      "description": "Interceptor Mode The interceptor mode is shown in an example deployment. The same nginx pod is accessible via two separate ingresses, one is secured by the interceptor middleware, the other is not secured.\nConfiguration To secure an ingress with the interceptor middleware you have to set an annotation to the Ingress.\nAdd this annotation to the Ingress configuration.\nannotations: traefik.ingress.kubernetes.io\/router.middlewares: uitsmijter-forward-auth@kubernetescrd On an existing ingress you can add the annotation with kubectl",
+      "description": " Interceptor Mode The interceptor mode is shown in an example deployment. The same nginx pod is accessible via two separate ingresses, one is secured by the interceptor middleware, the other is not secured.\nConfiguration To secure an ingress with the interceptor middleware you have to set an annotation to the Ingress.",
       "wordCount" : "367",
       "inLanguage": "en",
       "isFamilyFriendly": "true",
@@ -2851,9 +2845,9 @@ section provides more details about the shared secret and how to consume it.</p>
 </blockquote>
 <p>This is an example namespace resource that syncs the secret into your namespace:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Namespace</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Namespace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mySecuredAppNamespace</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">jwt-secret/sync</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
