@@ -24,9 +24,9 @@ anything that accepts a http request and sends a proper response with valid stat
 
 ## Parameters
 
-| Parameter                 | Description                                                                               |
-|---------------------------|-------------------------------------------------------------------------------------------|
-| constructor(:credentials) | A Object with two properties: `username` and `password` is passed into the init function. |
+| Parameter                 | Description                                                                                                                        |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| constructor(:credentials) | A Object with the properties `username`, `password` and `tenant` is passed into the init function. `tenant` carries `name` and `namespace`. |
 
 ## Methods
 
@@ -34,10 +34,11 @@ Those methods/getters must be implemented:
 
 | Method                    | Description                                                                                                |
 |---------------------------|------------------------------------------------------------------------------------------------------------|
-| constructor(:credentials) | Initialisation method that gets the `username` and the `password` for the user in question.                |
+| constructor(:credentials) | Initialisation method that gets the `username`, the `password` and the `tenant` (`name`, `namespace`) for the user in question. |
 | canLogin                  | Getter that should indicate if the current user in context can be logged in (has valid credentials) or not |
 | userProfile               | Getter that should return the users profile.                                                               |
 | role                      | Getter that should return the users role.                                                                  |
+| roles                     | **Optional** getter that returns an array of role strings. When present, the JWT gets an optional `roles` array claim, and the single `role` claim mirrors the primary (first) role. Omitted for single-role providers. |
 | scopes                    | **Optional** getter that returns an array of scopes to add to the user's JWT token based on user context (roles, groups, permissions). |
 
 After the constructor called `commit(:obj)` the two getters `canLogin` and `userProfile` must have the correct values.
@@ -173,6 +174,39 @@ commit({message: "A good login"}, {"subject": "lorene.ibsen@example.com"}, {erro
 commit(response.status, {"subject": "lorene.ibsen@example.com"}, {error: false})
 ```
 
+## Tenant Context
+
+In addition to `username` and `password`, the `credentials` object passed to the constructor carries the `tenant` the
+login is performed for. This lets a provider scope its request to the correct tenant, which is useful for multi-tenant
+user services that share a single provider script.
+
+The `tenant` object has the following shape:
+
+```
+tenant: { name: "<tenant name>", namespace: "<kubernetes namespace, or null for file-based tenants>" }
+```
+
+Read it via `credentials.tenant.name` and `credentials.tenant.namespace`:
+
+```javascript
+constructor(credentials) {
+    fetch(`http://users.example.com/validate-login`, {
+        method: "post",
+        body: {
+            tenant: credentials.tenant.name,
+            namespace: credentials.tenant.namespace,
+            username: credentials.username,
+            passwordHash: sha256(credentials.password)
+        }
+    }).then((result) => {
+        // ...
+        commit(result.code);
+    });
+}
+```
+
+This is additive and backward compatible — existing scripts that ignore `tenant` keep working.
+
 ## Dynamic Scope Assignment
 
 The `scopes` getter is an **optional** method that allows JavaScript providers to dynamically assign OAuth2 scopes to users based on their authentication context, such as roles, group memberships, permissions, or any other user attributes.
@@ -277,6 +311,19 @@ Dynamic scope assignment is useful for:
 - Scopes are **merged** with client-requested scopes before being added to the JWT token.
 
 For more information, see [Client Configuration](/configuration/tenant_client_config) and [Managing Clients](/working-with-uitsmijter/clients).
+
+## Roles
+
+Besides the required single `role` getter, a provider may expose an **optional `roles` getter** that returns an array of
+role strings. When present, the JWT gets an optional [`roles`](/oauth/jwt_decoding) array claim, while the single `role`
+claim mirrors the primary (first) role. For single-role providers the getter can be omitted and no `roles` claim is
+added.
+
+```javascript
+get roles() {
+    return ["admin", "editor"];
+}
+```
 
 ## Examples
 

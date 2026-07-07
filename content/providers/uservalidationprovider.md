@@ -26,9 +26,9 @@ be anything that accepts a http request and sends a proper response with valid s
 
 ## Parameters
 
-| Parameter          | Description                                                              |
-|--------------------|--------------------------------------------------------------------------|
-| constructor(:args) | A Object with one property: `username` is passed into the init function. |
+| Parameter          | Description                                                                                                              |
+|--------------------|------------------------------------------------------------------------------------------------------------------------|
+| constructor(:args) | A Object with the properties `username` and `tenant` is passed into the init function. `tenant` carries `name` and `namespace`. |
 
 ## Methods
 
@@ -36,7 +36,7 @@ Those methods/getters must be implemented:
 
 | Method             | Description                                                                      |
 |--------------------|----------------------------------------------------------------------------------|
-| constructor(:args) | Initialisation method that gets the `username` for the user in question.         |
+| constructor(:args) | Initialisation method that gets the `username` and the `tenant` (`name`, `namespace`) for the user in question. |
 | isValid            | Getter that should indicate if the current user in context can sill be logged in |
 
 After the constructor called `commit(:args)` the getter `isValid` must have the correct values.
@@ -82,3 +82,37 @@ class UserValidationProvider {
     }
 }
 ```
+
+## Tenant Context
+
+In addition to `username`, the constructor argument carries the `tenant` the validation is performed for. This lets a
+provider scope its request to the correct tenant, which is useful for multi-tenant user services that share a single
+provider script.
+
+The `tenant` object has the following shape:
+
+```
+tenant: { name: "<tenant name>", namespace: "<kubernetes namespace, or null for file-based tenants>" }
+```
+
+Read it via `args.tenant.name` and `args.tenant.namespace`:
+
+```javascript
+constructor(args) {
+    fetch(`http://users.example.com/validate-user`, {
+        method: "post",
+        body: {
+            tenant: args.tenant.name,
+            namespace: args.tenant.namespace,
+            username: args.username
+        }
+    }).then((result) => {
+        if (result.code == 200) {
+            this.isValid = true;
+        }
+        commit(this.isValid);
+    });
+}
+```
+
+This is additive and backward compatible — existing scripts that ignore `tenant` keep working.
